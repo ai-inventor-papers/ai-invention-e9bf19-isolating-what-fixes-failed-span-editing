@@ -1,0 +1,263 @@
+{
+  "metadata": {
+    "method_name": "four_category_content_invariant_checker",
+    "baseline_name": "language_naive_generic_checker",
+    "table": [
+      {
+        "language": "zh_CN",
+        "category": "named_entity_swap",
+        "system": "our",
+        "n_injected": 15,
+        "n_natural_checked": 180,
+        "true_positives": 2,
+        "false_positives_natural": 751,
+        "precision": 0.0027,
+        "recall": 0.1333,
+        "ci_precision": [
+          0.0,
+          0.0067
+        ],
+        "ci_recall": [
+          0.0,
+          0.3333
+        ],
+        "excluded_from_headline": true,
+        "exclusion_reason": "recall=0.133 or precision=0.003 below usability threshold 0.5",
+        "small_n_warning": null
+      },
+      {
+        "language": "zh_CN",
+        "category": "number_unit_date_alteration",
+        "system": "our",
+        "n_injected": 20,
+        "n_natural_checked": 180,
+        "true_positives": 20,
+        "false_positives_natural": 14,
+        "precision": 0.5882,
+        "recall": 1.0,
+        "ci_precision": [
+          0.4545,
+          0.8
+        ],
+        "ci_recall": [
+          1.0,
+          1.0
+        ],
+        "excluded_from_headline": false,
+        "exclusion_reason": null,
+        "small_n_warning": null
+      },
+      {
+        "language": "zh_CN",
+        "category": "negation_polarity_flip",
+        "system": "our",
+        "n_injected": 23,
+        "n_natural_checked": 180,
+        "true_positives": 8,
+        "false_positives_natural": 2,
+        "precision": 0.8,
+        "recall": 0.3478,
+        "ci_precision": [
+          0.5556,
+          1.0
+        ],
+        "ci_recall": [
+          0.1739,
+          0.5652
+        ],
+        "excluded_from_headline": true,
+        "exclusion_reason": "recall=0.348 or precision=0.800 below usability threshold 0.5",
+        "small_n_warning": null
+      }
+    ],
+    "baseline_table": [
+      {
+        "language": "zh_CN",
+        "category": "named_entity_swap",
+        "system": "base",
+        "n_injected": 15,
+        "n_natural_checked": 180,
+        "true_positives": 15,
+        "false_positives_natural": 43,
+        "precision": 0.2586,
+        "recall": 1.0,
+        "ci_precision": [
+          0.1899,
+          0.375
+        ],
+        "ci_recall": [
+          1.0,
+          1.0
+        ],
+        "excluded_from_headline": true,
+        "exclusion_reason": "recall=1.000 or precision=0.259 below usability threshold 0.5",
+        "small_n_warning": null
+      },
+      {
+        "language": "zh_CN",
+        "category": "number_unit_date_alteration",
+        "system": "base",
+        "n_injected": 20,
+        "n_natural_checked": 180,
+        "true_positives": 20,
+        "false_positives_natural": 101,
+        "precision": 0.1653,
+        "recall": 1.0,
+        "ci_precision": [
+          0.1325,
+          0.2128
+        ],
+        "ci_recall": [
+          1.0,
+          1.0
+        ],
+        "excluded_from_headline": true,
+        "exclusion_reason": "recall=1.000 or precision=0.165 below usability threshold 0.5",
+        "small_n_warning": null
+      },
+      {
+        "language": "zh_CN",
+        "category": "negation_polarity_flip",
+        "system": "base",
+        "n_injected": 23,
+        "n_natural_checked": 180,
+        "true_positives": 0,
+        "false_positives_natural": 0,
+        "precision": 1.0,
+        "recall": 0.0,
+        "ci_precision": [
+          null,
+          null
+        ],
+        "ci_recall": [
+          0.0,
+          0.0
+        ],
+        "excluded_from_headline": true,
+        "exclusion_reason": "recall=0.000 or precision=1.000 below usability threshold 0.5",
+        "small_n_warning": null
+      }
+    ],
+    "excluded_cells": [
+      {
+        "language": "zh_CN",
+        "category": "named_entity_swap",
+        "reason": "recall=0.133 or precision=0.003 below usability threshold 0.5"
+      },
+      {
+        "language": "zh_CN",
+        "category": "negation_polarity_flip",
+        "reason": "recall=0.348 or precision=0.800 below usability threshold 0.5"
+      },
+      {
+        "language": "zh_CN",
+        "category": "quantifier_substitution",
+        "reason": "recall=0.917 or precision=0.102 below usability threshold 0.5"
+      }
+    ],
+    "methodology_notes": [
+      "Primary signal: injected checker_validation_heldout rows (ground-truth original/corrupted spans and character offsets); recall = TP / n_injected in the cell, computed directly since every injected row...",
+      "Precision denominator (false positives) is estimated from natural checker_validation_heldout rows: each category's checker is run over every natural row, and any flagged span that does NOT overlap any...",
+      "named_entity_swap: stanza NER used for zh_CN/ja_JP/ru_RU/uk_UA (Stanza's real coverage, per the resource dossier's correction of the plan's own preliminary research); cs_CZ/is_IS have no trained stanz..."
+    ],
+    "entity_detector_substitutions": {
+      "cs_CZ": "stanza ships no trained NER model for this language (dossier-confirmed gap; NameTag3/IceBERT would close it but need a non-Python API / gated download) -> regex capitalization heuristic per fallback_p...",
+      "is_IS": "stanza ships no trained NER model for this language (dossier-confirmed gap; NameTag3/IceBERT would close it but need a non-Python API / gated download) -> regex capitalization heuristic per fallback_p..."
+    },
+    "n_injected_scored": 448,
+    "n_natural_scored": 1080,
+    "n_boot": 2000,
+    "alpha": 0.05,
+    "usable_threshold": 0.5,
+    "runtime_seconds": 398.2
+  },
+  "datasets": [
+    {
+      "dataset": "checker_validation",
+      "examples": [
+        {
+          "input": "More than 4.5 billion years ago, the Milky Way Galaxy collided with a nearby dwarf galaxy. This encounter hastened the formation of stars. Our solar system is a part of the Milky Way Galaxy. Within th...",
+          "output": "category=named_entity_swap original_span='Mléčné' corrupted_span='Kerberů'",
+          "metadata_language_pair": "en-cs_CZ",
+          "metadata_category": "named_entity_swap",
+          "metadata_provenance": "injected",
+          "metadata_gt_span": {
+            "start": 44,
+            "end": 50
+          },
+          "metadata_our_spans": [
+            {
+              "start": 44,
+              "end": 51
+            },
+            {
+              "start": 179,
+              "end": 185
+            }
+          ],
+          "metadata_baseline_spans": [
+            {
+              "start": 0,
+              "end": 4
+            },
+            {
+              "start": 44,
+              "end": 51
+            },
+            {
+              "start": 97,
+              "end": 101
+            }
+          ],
+          "predict_baseline": "hit",
+          "predict_our_method": "hit"
+        },
+        {
+          "input": "Hello, and welcome to this travel vlog. Today we are exploring the city of Rotterdam. Rotterdam is a city located in the province of South Holland. It is a city that divides opinions because of its mo...",
+          "output": "category=number_unit_date_alteration original_span='2' corrupted_span='3'",
+          "metadata_language_pair": "en-cs_CZ",
+          "metadata_category": "number_unit_date_alteration",
+          "metadata_provenance": "injected",
+          "metadata_gt_span": {
+            "start": 227,
+            "end": 228
+          },
+          "metadata_our_spans": [
+            {
+              "start": 227,
+              "end": 228
+            }
+          ],
+          "metadata_baseline_spans": [
+            {
+              "start": 227,
+              "end": 228
+            }
+          ],
+          "predict_baseline": "hit",
+          "predict_our_method": "hit"
+        },
+        {
+          "input": "switch to cash, no more margin.",
+          "output": "category=negation_polarity_flip original_span='žádná' corrupted_span=''",
+          "metadata_language_pair": "en-cs_CZ",
+          "metadata_category": "negation_polarity_flip",
+          "metadata_provenance": "injected",
+          "metadata_gt_span": {
+            "start": 23,
+            "end": 28
+          },
+          "metadata_our_spans": [
+            {
+              "start": 0,
+              "end": 29
+            }
+          ],
+          "metadata_baseline_spans": [],
+          "predict_baseline": "miss",
+          "predict_our_method": "hit"
+        }
+      ]
+    }
+  ]
+}
