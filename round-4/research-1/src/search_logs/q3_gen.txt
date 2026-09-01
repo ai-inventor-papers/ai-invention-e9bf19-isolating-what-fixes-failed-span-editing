@@ -1,0 +1,43 @@
+Search: verify-and-repair span editing translation  [general via ddgs]
+Found: 10 results
+
+1. Shared task: Automated Translation Quality Evaluation Systems
+   https://www2.statmt.org/wmt25/mteval-subtask.html
+   Human reference translations (when available) will be provided as an optional (but not required) input parameter to the evaluation system, thus covering both the classical MT metrics and translation-t...
+
+2. TranslationCorrect: A Unified Framework for Machine Translation Post-Editing with Predictive Error Assistance - Ray’s Site
+   https://shouyihung.com/publication/2025-05-23-translationcorrect
+   May 24, 2025 - TranslationCorrect combines MT generation using models like NLLB, automated error prediction using models like XCOMET or LLM APIs (providing detailed reasoning), and an intuitive post-e...
+
+3. The Essential Editing Process for Translated Documents: Ensuring Accuracy and Quality
+   https://www.bemooreinterpreting.com/post/the-essential-editing-process-for-translated-documents-ensuring-accuracy-and-quality
+   May 22, 2024 - Check for proper sentence structure and seamless paragraph transitions. ... Verify that the translation accurately conveys the original text's meaning and intent....
+
+4. Translation memory maintenance | Web-Translations
+   https://www.web-translations.com/blog/translation-memory-maintenance/
+   March 10, 2023 - That is a faster way of editing it and you can benefit from features such as the Verify check and the Find function that supports regular expressions – you can enable wildcards on the...
+
+5. Quality Translation Editing and Proofing Services - ILS Translations
+   https://www.ilstranslations.com/services/editing-proofing/
+   January 23, 2024 - Making editing and proofing translations a standard part of our process helps ensure a level of accuracy and clarity that our clients have come to rely upon. ... At times we get cli...
+
+6. [Literature Review] Error Span Annotation: A Balanced Approach for Human Evaluation of Machine Translation
+   https://www.themoonlight.io/en/review/error-span-annotation-a-balanced-approach-for-human-evaluation-of-machine-translation
+   MQM provides a detailed taxonomy of errors but requires a specialized pool of experts to annotate translations, making it expensive and time-consuming. Introduction of ESA: ESA is designed to strike a...
+
+7. Proceedings of the Ninth Conference on Machine Translation, pages 1440–1453
+   https://aclanthology.org/2024.wmt-1.131.pdf
+   Proceedings of the Ninth Conference on Machine Translation, pages 1440–1453 · November 15-16, 2024 ©2024 Association for Computational Linguistics ... Span Annotation (ESA). The annotator first marks ...
+
+8. [2406.11580] Error Span Annotation: A Balanced Approach for Human Evaluation of Machine Translation
+   https://arxiv.org/abs/2406.11580
+   October 18, 2024 - We validate ESA by comparing it to MQM and DA for 12 MT systems and one human reference translation (English to German) from WMT23. The results show that ESA offers faster and cheap...
+
+9. Error Span Annotation: A Balanced Approach for Human Evaluation of Machine Translation - ACL Anthology
+   https://aclanthology.org/2024.wmt-1.131/
+   High-quality Machine Translation (MT) evaluation relies heavily on human judgments.Comprehensive error classification methods, such as Multidimensional Quality Metrics (MQM), are expensive as they are...
+
+10. Machine Translation Meta Evaluation through Translation Accuracy Challenge Sets | Computational Linguistics | MIT Press
+   https://direct.mit.edu/coli/article/51/1/73/124465/Machine-Translation-Meta-Evaluation-through
+   March 15, 2025 - We computed the percentage of exact matches12 as total_exact_matches divided by total_spans_marked, that is, where all four annotators agree on the same error span, as 81.82% (example...
+

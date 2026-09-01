@@ -1,0 +1,7 @@
+URL: https://arxiv.org/abs/2402.16379
+Type: HTML
+Pattern: iterat|round|ablat|scope|localiz|span (1 matches in 8765 chars)
+
+--- Content ---
+
+2477:...fully assists LLMs in improving their translation quality across a wide range of languages, whether it's from high-resource languages to low-resource ones or whether it's English-centric or centered around other languages; 2) TEaR exhibits superior systematicity and interpretability; 3) different estimation strategies yield varied impacts, directly affecting the effectiveness of the final corrections. ...

@@ -1,0 +1,59 @@
+{
+  "answer": "A targeted, logged literature search (10 verbatim queries across general and scholarly modes, 6 candidate papers fetched and classified) found no published system or ablation study in machine-translation automatic post-editing (APE) or scoped span editing that holds 'breadth of error localization' and 'iteration/re-verification of a repair' apart as two independently varied, separately measured factors. The closest prior work is TEaR (Wang et al., NAACL 2025 Findings / arXiv:2402.16379) [1], which reports an explicit ablation over the number of refinement rounds (1-5, Tables 12-13) but holds its estimation/localization mechanism fixed across every round, and whose own Appendix D experiment on WMT23 Zh-En finds that iterating repeatedly can *hurt* performance relative to a single round -- a one-dimensional (iteration-only) finding with no localization-breadth axis at all. The two closest QE-informed WMT25 Task 3 submissions -- Padmanabhan (2025) [2], already cited in this project's related work, and Sharma (2025) [3], newly surfaced this search -- both use QE-flagged error spans purely as a fixed input signal to a single-pass correction (Sharma's full extracted text contains zero occurrences of 'iterat' anywhere), so neither reaches even the 'varies one factor' bar; localization scope is never itself an ablated variable in either. xTower (Treviso et al., ACL Findings EMNLP 2024 / arXiv:2406.19482) [4], which the planning pass flagged as a possible breadth-then-iteration two-stage design, does not support that reading on inspection: it is architecturally a single explain step consumed once by a downstream corrector (as used by Sharma 2025 [3]), not an isolated two-stage ablation varying breadth and iteration separately -- the related-work section's characterization of xTower should be corrected. Three additional surfaced candidates were ruled out of scope on inspection: SSPO (Sun et al., ACL 2025) [5] iterates DPO *training* rounds, not a test-time detect-repair-verify loop; TranslationCorrect (Wasti, Hung & Lee, ACL 2025 Demo) [6] is a human-in-the-loop annotation/editing tool with no reported ablation; and 'Structure Enables Effective Self-Localization of Errors in LLMs' (Samanta et al., arXiv:2602.02416) [7] is a general LLM self-correction paper with no machine-translation task. Overall, this supports -- and does not require rescoping -- the paper's claim that no prior MT post-editing ablation varies localization breadth and iteration as two independent, separately measured factors, though the claim should be worded specifically about MT automatic post-editing / scoped span editing rather than about self-correction research broadly, since the free scholarly search backend (OpenAlex/Crossref) returned systematically off-topic results for 4 of 5 scholarly-mode queries due to term collisions on words like 'checker,' 'repair,' and 'localization,' limiting how exhaustive this specific search arm could be. One promising lead, 'Smarter edits? Post-editing with error highlights and translation suggestions' (EAMT 2026), was surfaced by search but not yet fetched within this session's time budget and is flagged as the top open item for any follow-up pass.",
+  "sources": [
+    {
+      "index": 1,
+      "url": "https://arxiv.org/pdf/2402.16379",
+      "title": "TEaR: Improving LLM-based Machine Translation with Systematic Self-Refinement (NAACL 2025 Findings)",
+      "summary": "Estimate-and-Refine loop for LLM-based MT; Tables 12-13 ablate the number of refinement rounds (1-5) holding the estimation mechanism fixed, and Appendix D reports that repeated iteration can hurt WMT23 Zh-En performance relative to a single round -- the single closest prior ablation, but it varies iteration count only, never localization breadth."
+    },
+    {
+      "index": 2,
+      "url": "https://www2.statmt.org/wmt25/pdf/2025.wmt-1.73.pdf",
+      "title": "Can QE-informed (Re)Translation lead to Error Correction? (Padmanabhan, WMT25 Task 3 submission)",
+      "summary": "Two training-free, single-pass WMT25 Task 3 systems (best-of-N QE-selected re-translation; QE-guided substring replacement); already in this project's related work. Confirmed via full-text fetch to contain no iteration loop of any kind, so it neither bundles nor separates the two factors -- it varies neither."
+    },
+    {
+      "index": 3,
+      "url": "https://www2.statmt.org/wmt25/pdf/2025.wmt-1.75.pdf",
+      "title": "Leveraging QE-based Explanations for Quality-Informed Corrections (Sharma, WMT25 Task 3 submission)",
+      "summary": "Newly surfaced this search: xTower-explanation-then-Gemini-correction two-step pipeline, run once per segment. fetch_grep for 'iterat' over the full extracted text returned zero matches, confirming a single fixed pipeline with no re-verification loop and no ablation of either factor."
+    },
+    {
+      "index": 4,
+      "url": "https://arxiv.org/pdf/2406.19482",
+      "title": "xTower: A Multilingual LLM for Explaining and Correcting Translation Errors (Treviso et al., ACL Findings EMNLP 2024)",
+      "summary": "Explain-then-correct model for translation errors, consumed as a single explanation step by downstream correctors (e.g. Sharma 2025). fetch_grep found no isolated stage-1-vs-stage-2 ablation varying localization breadth against iteration count; the planning-pass characterization of xTower as a two-stage breadth-then-iteration design is not supported by the fetched text."
+    },
+    {
+      "index": 5,
+      "url": "https://aclanthology.org/2025.acl-long.1165/",
+      "title": "Enhancing Machine Translation with Self-Supervised Preference Data (SSPO, Sun et al., ACL 2025)",
+      "summary": "Constructs preference data for iterative DPO/CPO training of an MT model. 'Iterative' refers to training rounds, not a test-time detect-repair-verify loop; no localization-breadth axis is applicable. Classified out of scope."
+    },
+    {
+      "index": 6,
+      "url": "https://aclanthology.org/2025.acl-demo.53/",
+      "title": "TranslationCorrect: A Unified Framework for Machine Translation Post-Editing with Predictive Error Assistance (Wasti, Hung & Lee, ACL 2025 Demo)",
+      "summary": "A human-in-the-loop annotation/post-editing tool combining MT generation, automated error prediction, and an editing UI; exports ESA-format span annotations. No empirical ablation of localization breadth or iteration is reported. Classified out of scope."
+    },
+    {
+      "index": 7,
+      "url": "https://arxiv.org/abs/2602.02416",
+      "title": "Structure Enables Effective Self-Localization of Errors in LLMs (Samanta et al., Meta AI / Columbia / Meta Superintelligence Labs / Tel Aviv University)",
+      "summary": "General-purpose LLM self-localization-of-errors framework with no machine-translation task or translation-quality evaluation. Confirmed out of scope per the plan's explicit instruction to note rather than silently drop this candidate."
+    }
+  ],
+  "follow_up_questions": [
+    "Does 'Smarter edits? Post-editing with error highlights and translation suggestions' (EAMT 2026, https://aclanthology.org/2026.eamt-1.41/) -- surfaced by search but not yet fetched -- vary error-highlight/localization granularity as an ablated factor, and if so, does it also vary iteration/re-verification, or hold it fixed at a single setting?",
+    "Would a targeted ACL-Anthology-native search (rather than the free OpenAlex/Crossref scholarly backend used here, which returned off-topic results for 4 of 5 scholarly queries due to term collisions on 'checker'/'repair'/'localization') surface additional MT-APE candidates that this search's term collisions caused to be missed?",
+    "Since TEaR's own experiment found that iterating hurt performance in one setting (WMT23 Zh-En, single round best) while this project's C2 condition finds iteration valuable under a different (checker-based, content-invariant) design, is the discrepancy attributable to the type of verification signal used (a soft LLM quality estimate vs. a hard pass/fail checker), and would that be worth stating explicitly in the paper's discussion of TEaR as the closest prior ablation?"
+  ],
+  "out_expected_files": {
+    "output": "research_out.json"
+  },
+  "title": "No Prior Work Separates MT Repair Localization from Iteration",
+  "layman_summary": "A targeted search of the machine-translation literature found no existing study that tests error-localization breadth and repair iteration as two separate, independently varied design choices, backing this project's novelty claim.",
+  "summary": "This research artifact executes a targeted, logged literature search to determine whether any prior work in machine-translation automatic post-editing (APE) or scoped span editing varies 'breadth of error localization' (a narrow QE-flagged span vs. broadened content-invariant/error detection) and 'iteration/re-verification of a repair' (single-pass vs. checker-guided iterated repair) as two independently varied, separately measured factors -- the same 2x1 design this project's C1 (broad, single-pass) vs. C2 (narrow, iterated) conditions use. It runs 10 verbatim search queries (general + scholarly mode where specified) via the aii-web-tools skill, logs hit quality for each, and fetches/fetch_greps 6 candidate papers in full: TEaR (Wang et al., NAACL 2025 Findings), two WMT25 Task 3 submissions (Padmanabhan 2025, already in related work, and Sharma 2025, newly surfaced), xTower (Treviso et al., ACL Findings EMNLP 2024), SSPO (Sun et al., ACL 2025), TranslationCorrect (ACL 2025 Demo), and a general (non-MT) LLM self-localization paper (Samanta et al., arXiv 2602.02416). Each candidate is classified per an explicit decision rule (separates the factors / bundles the factors / varies only one factor / out of scope) with quoted or paraphrased evidence from the fetched text. The verdict: no candidate across all queries and fetched papers separates localization breadth from iteration as independently varied factors. TEaR is the closest prior ablation, varying iteration count (1-5 rounds, Tables 12-13) while holding localization/estimation scope fixed, and its own Appendix D finds that repeated iteration can hurt performance -- a one-dimensional finding. The two WMT25 QE-informed correction systems use localization purely as a fixed input signal to a single correction pass, with Sharma (2025) containing zero occurrences of 'iterat' anywhere in its full text. xTower, flagged in planning as a possible two-stage breadth-then-iteration design, does not support that reading on inspection -- it is a single explain step, not an isolated two-stage ablation -- and the related-work section's characterization of it should be corrected. Downstream, this artifact supports the paper's novelty claim as currently scoped (no rescoping required) but recommends wording the claim specifically about MT automatic post-editing / scoped span editing rather than about self-correction research broadly, since the free OpenAlex/Crossref scholarly search backend returned systematically off-topic results for 4 of 5 scholarly-mode queries due to term collisions on words like 'checker,' 'repair,' and 'localization.' One promising lead (an EAMT 2026 paper on post-editing with error highlights) was surfaced but not fetched within the time budget and is flagged as the top open item for any follow-up pass, along with a note that ACL-Anthology-native search would likely surface more than the free scholarly backend used here.",
+  "upload_ignore_regexes": []
+}

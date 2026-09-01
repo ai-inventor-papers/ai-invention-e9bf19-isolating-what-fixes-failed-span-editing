@@ -1,0 +1,195 @@
+URL: https://www2.statmt.org/wmt25/pdf/2025.wmt-1.75.pdf
+Type: PDF
+Length: 16974 chars (truncated)
+
+--- Content ---
+
+Proceedings of the Tenth Conference on Machine Translation (WMT), Volume 2: Shared Task Papers, pages 999–1003
+November 8–9, 2025. ©2025 Association for Computational Linguistics
+999
+Leveraging QE-based Explanations for Quality-Informed Corrections
+Prashant Kumar Sharma
+Independent Consultant
+prashaantsharmaa@gmail.com
+Abstract
+This paper describes our submission to the
+WMT25 Automated Translation Quality Evalu-
+ation Systems Task 3 - QE-informed Segment-
+level Error Correction. We propose a two-step
+approach for Automatic Post-Editing (APE)
+that leverages natural language explanations
+of translation errors. Our method first utilises
+the xTower model to generate a descriptive ex-
+planation of the errors present in a machine-
+translated segment, given the source text, the
+machine translation, and quality estimation an-
+notations. This explanation is then provided as
+a prompt to a powerful Large Language Model,
+Gemini 1.5 Pro, which generates the final, cor-
+rected translation. This approach is inspired
+by recent work in edit-based APE and aims to
+improve the interpretability and performance
+of APE systems.
+We Evaluated across six
+language pairs (EN→ZH, EN→CS, EN→IS,
+EN→JA, EN→RU, EN→UK), our approach
+demonstrates promising results, especially in
+cases requiring fine-grained edits.
+1
+Introduction
+Machine translation (MT) has undergone rapid de-
+velopment in recent years, largely driven by the suc-
+cess of neural machine translation (NMT) models.
+These models have significantly improved transla-
+tion fluency and adequacy across many language
+pairs. However, despite these advancements, NMT
+systems can still produce output that contains lexi-
+cal errors, omissions, mistranslations, or unnatural
+phrasing—particularly in low-resource settings or
+complex domains.
+Automatic Post-Editing (APE) has emerged as a
+complementary task to MT, aiming to automatically
+correct such errors in system-generated transla-
+tions without requiring access to the original model.
+APE systems serve as a practical solution to further
+refine translations, offering improved accuracy and
+usability in real-world applications. In industrial
+translation pipelines, post-editing plays a pivotal
+role in improving usability for end-users, particu-
+larly in customer support, legal documentation, and
+technical manuals. Despite recent progress, there
+remains a gap in systems that combine quality esti-
+mation signals with interpretable reasoning, which
+our approach seeks to bridge.
+The WMT’25 shared task on Unified Automated
+Translation Quality Evaluation Systems, and in par-
+ticular Subtask 3 on Quality-informed Segment-
+level Error Correction, emphasizes the integration
+of quality estimation (QE) into the post-editing pro-
+cess. Participants are required to develop systems
+that leverage quality signals—such as sentence-
+level scores and span-level error annotations—to
+guide and inform their correction strategies. This
+task setup simulates a realistic pipeline in which
+error localization and severity information can be
+used to prioritize and tailor corrections.
+Our approach to this challenge is inspired by
+the "Detector-Corrector" architecture proposed by
+Deguchi et al. (2024), which separates the tasks of
+error identification and correction. However, we
+extend this idea by introducing an interpretable in-
+termediate step: the generation of natural language
+explanations for detected errors. Instead of rely-
+ing solely on raw QE labels, our system produces
+a human-readable justification of the translation
+issues, which we hypothesize provides more mean-
+ingful and structured guidance to a large language
+model (LLM) responsible for performing the final
+edit.
+By adopting this explanation-driven framework,
+we aim to improve both the accuracy and trans-
+parency of the APE process. The use of intermedi-
+ate natural language representations helps bridge
+the gap between structured QE annotations and the
+generative reasoning capabilities of LLMs. Our
+system builds on this intuition and comprises two
+main components: an explanation generation mod-
+ule based on the xTower model (Treviso et al.,
+2024), and a correction module using Gemini 1.5
+
+1000
+Pro (Team et al., 2024).
+Our proposed system is characterized by :
+• A two-step APE methodology that uses an
+intermediate natural language explanation of
+translation errors.
+• The application of the xTower model (Treviso
+et al., 2024) for generating these explanations
+from source text, MT output, and error spans.
+• The use of a powerful LLM, Gemini 1.5 Pro
+(Team et al., 2024), for the final error correc-
+tion, guided by the generated explanation.
+• Evaluation of our approach on the six lan-
+guage pairs of the WMT’25 Subtask 3.
+2
+Proposed Approach
+Our proposed system is designed to perform
+quality-informed automatic post-editing by explic-
+itly modeling the editing process as two seman-
+tically distinct stages: first, identifying and inter-
+preting the errors in the translation; and second,
+applying appropriate corrections based on that un-
+derstanding. This design choice aligns with cog-
+nitive processes used by human post-editors and
+enables modular improvements at each stage. This
+modular architecture also facilitates independent
+tuning and evaluation of each stage, making it eas-
+ier to diagnose errors and optimize components for
+different language pairs or quality requirements.
+The overall architecture of our system is depicted
+in Figure 1. Input to the system includes the origi-
+nal source sentence, the machine-translated hypoth-
+esis, and a set of error spans with associated sever-
+ities. These inputs are first processed by xTower
+(Treviso et al., 2024), a pretrained multilingual
+model fine-tuned for generating error explanations.
+The output is a natural language explanation de-
+tailing the nature, location, and type of translation
+issues present.
+2.1
+Step 1: Explanation Generation with
+xTower
+The first step in the our pipeline is to generate a nat-
+ural language explanation that describes the trans-
+lation errors present in a given MT segment. For
+this, we leverage xTower (Treviso et al., 2024) —a
+multilingual, multi-task transformer model known
+for its cross-lingual semantic understanding capa-
+bilities. xTower is fine-tuned on a combination of
+quality estimation and explanation tasks, making
+Figure 1: The overall block diagram of the our system.
+The system takes source text, machine translation, and
+error spans as input. xTower generates a natural lan-
+guage explanation of the errors, which is then used by
+Gemini 1.5 Pro to produce the final post-edited text.
+it suitable for producing interpretable diagnostic
+outputs.
+To construct the input for xTower(Treviso et al.,
+2024), we format the data into structured triples:
+• Source Segment: The original input sentence
+in the source language.
+• Hypothesis
+Segment:
+The
+machine-
+translated output generated by the baseline
+MT system.
+• Error Spans: A list of token spans marked
+with severity labels (e.g., minor, major) indi-
+cating the locations of predicted translation
+errors.
+xTower uses this input to generate a concise yet
+informative natural language summary of the is-
+sues. For instance, if the span points to a stylistic
+mistranslation of a named entity, the explanation
+might read: “The named entity ‘Thraki’ was incor-
+rectly rendered in the translation. It should reflect
+its cultural connotation in the target language.” This
+intermediate output not only highlights the prob-
+
+1001
+lematic region but also communicates the rationale
+in human-readable form.
+2.2
+Step 2: Post-Editing with Gemini 1.5 Pro
+The natural language explanation generated by
+xTower (Treviso et al., 2024) serves as a detailed in-
+struction for the second step of our process. We use
+Gemini 1.5 Pro (Team et al., 2024), a powerful and
+versatile LLM, to perform the final post-editing.
+The input to Gemini 1.5 Pro is a prompt that
+includes:
+• The original source segment.
+• The machine-translated hypothesis seg-
+ment.
+• The natural language expla

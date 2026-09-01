@@ -1,0 +1,43 @@
+Search: iterative QE-guided post-editing machine translation  [scholarly via openalex]
+Found: 10 results
+
+1. IntelliCAT: Intelligent Machine Translation Post-Editing with Quality Estimation and Translation Suggestion
+   https://doi.org/10.18653/v1/2021.acl-demo.2
+   2021 · cited by 13...
+
+2. “A tiny cog in a large machine”
+   https://doi.org/10.1075/ts.00019.moo
+   Translation Spaces · 2020 · cited by 77...
+
+3. Dynamic Phrase Tables for Machine Translation in an Interactive Post-editing Scenario
+   https://doi.org/10.13140/2.1.4866.3046
+   Edinburgh Research Explorer (University of Edinburgh) · 2014 · cited by 11...
+
+4. Exploring ChatGPT's potential for augmenting post-editing in machine translation across multiple domains: challenges and opportunities
+   https://doi.org/10.3389/frai.2025.1526293
+   Frontiers in Artificial Intelligence · 2025 · cited by 11...
+
+5. A roadmap to neural automatic post-editing: an empirical approach
+   https://doi.org/10.1007/s10590-020-09249-7
+   Machine Translation · 2020 · cited by 20...
+
+6. Improving Back-Translation with Uncertainty-based Confidence Estimation
+   https://doi.org/10.18653/v1/d19-1073
+   2019 · cited by 78...
+
+7. TEaR: Improving LLM-based Machine Translation with Systematic Self-Refinement
+   https://doi.org/10.18653/v1/2025.findings-naacl.218
+   2025 · cited by 20...
+
+8. A survey of context in neural machine translation and its evaluation
+   https://doi.org/10.1017/nlp.2024.7
+   Natural language processing. · 2024 · cited by 20...
+
+9. Translation Error Detection as Rationale Extraction
+   https://doi.org/10.18653/v1/2022.findings-acl.327
+   Findings of the Association for Computational Linguistics: ACL 2022 · 2022 · cited by 20...
+
+10. Computer Assisted Translation with Neural Quality Estimation and Automatic Post-Editing
+   https://doi.org/10.18653/v1/2020.findings-emnlp.197
+   2020 · cited by 5...
+

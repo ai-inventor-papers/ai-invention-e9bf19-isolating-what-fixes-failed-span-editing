@@ -1,0 +1,43 @@
+Search: error localization scope ablation automatic post-editing  [general via ddgs]
+Found: 10 results
+
+1. Rails translation scope cleanup
+   https://groups.google.com/g/rails-i18n/c/Ew7ofAisx5c
+   I suggest this structure: active_record: models: post: one: "Post" many: "Posts" attribute_names: post: title: one: "Title" many: "Titles" errors: header_message: "Foo" message: "Bar" error_messages: ...
+
+2. 10 Best Practices in MT and AI Post-Editing
+   https://www.translastars.com/blog/best-practices-mt-ai-postediting
+   Here’s why post-editing is still so relevant if we want to take advantage of automation while maintaining high-quality standards. Let’s start from the definition of post-editing. ... Post-editing is t...
+
+3. Enhancing LLM-based Fault Localization with a Functionality-Aware Retrieval-Augmented Generation Framework
+   https://arxiv.org/html/2509.20552v1
+   September 24, 2025 - FaR-Loc uses open-source models on a single NVIDIA 2080Ti GPU with merely 728 MB of memory and computes embeddings for 100 methods in just 0.986 seconds. This efficiency leads to ...
+
+4. Non-invasive localization of post-infarct ventricular tachycardia exit sites to guide ablation planning: a computational deep learning platform utilizing the 12-lead electrocardiogram and intracardiac electrograms from implanted devices | EP Europace | Oxford Academic
+   https://academic.oup.com/europace/article/25/2/469/6825231
+   February 16, 2023 - This is the first proof-of-concept study that successfully automates the localization of post-infarct VT from simulated implanted device EGMs (localization error < 15 mm) to target...
+
+5. Smarter edits? Post-editing with error highlights and translation suggestions - ACL Anthology
+   https://aclanthology.org/2026.eamt-1.41/
+   As MT quality increases, interest ... remains limited. In this work, we explore the usefulness of LLM-derived error highlights and correction suggestions based on automatic post-editing (APE).......
+
+6. Automatic Post Editing
+   https://www.catalyzex.com/s/Automatic+Post+Editing
+   Abstract:As MT quality increases, ... for their usefulness remains limited. In this work, we explore the usefulness of LLM-derived error highlights and correction suggestions based on automatic post-e...
+
+7. \dotsttsfontdots.tts.edit: Precisely Controlled Speech Editingwith a Continuous Autoregressive Model
+   https://arxiv.org/html/2608.02673
+   Each task-specific pipeline constructs a provenance-aware original/generated pair around an intervention with an explicit operation category, parameters, and localization, then serializes it through t...
+
+8. Scope Delineation Before Localization: A Two-Stage Framework for
+   https://ojs.aaai.org/index.php/AAAI/article/download/40594/44555
+   MAS. This limitation hinders their localization precision. To address these challenges, we propose an automated · failure attribution framework, Scope Delineation Before Lo-...
+
+9. Post-Editing Has No Place in Your Localization Strategy
+   https://labs.lilt.com/post-editing-has-no-place-in-your-localization-strategy
+   Here are some of the common pitfalls of a legacy machine translation post-editing approach to translation...
+
+10. ViSculpt: Visual-Centric Agentic Geometry Editing
+   https://arxiv.org/html/2608.24169v1
+   1 week ago - 12, directly prompting the VLM to output the coordinates of a specific part (e.g., the mouse’s paw) results in inaccurate localization (left). In contrast, with QuadLoc, our method achiev...
+

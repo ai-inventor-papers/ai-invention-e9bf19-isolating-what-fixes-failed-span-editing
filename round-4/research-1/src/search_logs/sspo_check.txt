@@ -1,0 +1,43 @@
+Search: Enhancing Machine Translation with Self-Supervised Preference Data SSPO iterative  [general via exa]
+Found: 5 results
+
+1. Enhancing Machine Translation with Self-Supervised ...
+   https://aclanthology.org/2025.acl-long.1165/
+   Enhancing Machine Translation with Self-Supervised Preference Data - ACL Anthology
+
+---
+
+##### Abstract
+
+Model alignment methods like Direct Preference Optimization and Contrastive Preference Optimiza...
+
+2. Enhancing Machine Translation with Self-Supervised ...
+   https://aclanthology.org/2025.acl-long.1165.pdf
+   Proceedings of the 63rd Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers), pages 23916–23934 July 27 - August 1, 2025 ©2025 Association for Computational Linguist...
+
+3. Enhancing Machine Translation with Self-Supervised Preference Data
+   https://doi.org/10.48448/xs5p-1t40
+   # Enhancing Machine Translation with Self-Supervised Preference Data
+
+Underline Science Inc.. Published: 2025-07-16. 0 citations.
+
+## Abstract
+
+Model alignment methods like Direct Preference Optimizat...
+
+4. Enhancing Machine Translation with Self-Supervised Preference Data - Conftrace
+   https://conftrace.com/papers/81068-enhancing-machine-translation-with-self-supervised-preference-data
+   Enhancing Machine Translation with Self-Supervised Preference Data - Conftrace
+
+2025 ACL ACL 2025
+
+# Enhancing Machine Translation with Self-Supervised Preference Data
+
+## Abstract
+
+AbstractModel alig...
+
+5. Enhancing Machine Translation with Self-Supervised Preference Data
+   https://p.rst.im/q/aclanthology.org/2025.acl-long.1165.pdf
+   Proceedings of the 63rd Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers), pages 23916–23934 July 27 - August 1, 2025 ©2025 Association for Computational Linguist...
+

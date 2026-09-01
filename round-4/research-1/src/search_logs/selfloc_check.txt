@@ -1,0 +1,43 @@
+Search: Structure Enables Effective Self-Localization of Errors LLMs 2602.02416  [general via exa]
+Found: 5 results
+
+1. Structure Enables Effective Self-Localization of Errors in LLMs
+   https://doi.org/10.48550/arxiv.2602.02416
+   # Structure Enables Effective Self-Localization of Errors in LLMs
+
+Open MIND. Published: 2026-02-02. 0 citations.
+
+## Authors
+
+- Ankur Samanta: h-index 0; 0 citations
+- Akshayaa Magesh: h-index 3; 42 ...
+
+2. Structure Enables Effective Self-Localization of Errors in ...
+   https://arxiv.org/html/2602.02416v1
+   Structure Enables Effective Self-Localization of Errors in LLMs
+
+1]Meta AI 2]Columbia University 3]Meta Superintelligence Labs 4]Tel Aviv University \contribution[*]Work done at Meta \contribution[†]J...
+
+3. STRUCTURE ENABLES EFFECTIVE SELF- ...
+   https://openreview.net/attachment?id=QbL99Fyqsl&name=pdf
+   ### STRUCTURE ENABLES EFFECTIVE SELF-LOCALIZATION OF ERRORS IN LLMS
+
+| | Ankur | Samanta∗ Akshayaa Magesh | Ayush Jain Kavosh | Asadi | | |
+| --- | --- | --- | --- | --- | --- | --- |
+| | Columbia | U...
+
+4. Structure Enables Effective Self-Localization of Errors in LLMs
+   https://arxiv.org/pdf/2602.02416v2/__stdout.txt
+   ## Structure Enables Effective Self-Localization of Errors in LLMs
+
+Ankur Samanta 1,2, Akshayaa Magesh 1, Ayush Jain 1, Kavosh Asadi 1, Youliang Yu 1, Daniel R. Jiang 1, Boris 
+Vidolov 1, Kaveh Hassan...
+
+5. Structure Enables Effective Self-Localization of Errors in LLMs | alphaXiv
+   https://www.alphaxiv.org/abs/2602.02416
+   Structure Enables Effective Self-Localization of Errors in LLMs | alphaXiv
+
+# Structure Enables Effective Self-Localization of Errors in LLMs
+
+Ankur Samanta, Akshayaa Magesh, Ayush Jain, Kavosh Asadi,...
+

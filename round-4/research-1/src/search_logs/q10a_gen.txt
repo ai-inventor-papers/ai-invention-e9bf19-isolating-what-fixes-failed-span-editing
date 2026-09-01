@@ -1,0 +1,11 @@
+Search: WMT25 Task 3 error correction system iterative  [general via marginalia]
+Found: 2 results
+
+1. Dr Diptesh Kanojia | University of Surrey
+   https://www.surrey.ac.uk/people/diptesh-kanojia
+   Findings of the WMT25 Shared Task on Automated Translation Evaluation Systems: Linguistic Diversity is Challenging and // The shared task this year consisted of three subtasks:, 1, segment-level quali...
+
+2. 文献リスト (Publication List)
+   https://www.kecl.ntt.co.jp/icl/lirg/members/nagata/publication.html
+   Findings of the WMT25 General Machine Translation Shared Task: Time to Stop Evaluating on Easy Test Sets, WMT-2025 // The Effect of Learner Corpus Size in Grammatical Error Correction of ESL Writings,...
+

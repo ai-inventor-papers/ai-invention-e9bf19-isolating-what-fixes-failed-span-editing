@@ -1,0 +1,150 @@
+URL: https://aclanthology.org/2025.acl-long.1165/
+Type: HTML
+Length: 15727 chars (truncated)
+
+--- Content ---
+
+[ ACL Anthology ](https://aclanthology.org/)
+
+  * About __
+    * [Announcements](/posts/)
+    * [Communication channels](/faq/news/)
+    * [Related work](/faq/related-work/)
+    * [Copyright](/faq/copyright/)
+    * * * *
+
+    * [Credits](/info/credits/)
+    * [Volunteer](/faq/volunteer/)
+    * [Development](/info/development/)
+    * [Feedback](/faq/feedback/)
+  * Using __
+    * [Author directory](/people/)
+    * [Citing papers](/faq/bib/)
+    * [Links in the Anthology](/faq/linking/)
+    * [Data access](/faq/api/)
+    * * * *
+
+    * [All FAQs](/faq/)
+    * * * *
+
+    * ###### Details
+
+    * [Anthology identifiers](/info/ids/)
+    * [Names](/info/names/)
+    * [ORCID iDs](/info/orcid/)
+    * [DOIs](/faq/doi/)
+    * [Verified authors](/info/verification/)
+  * Contributions __
+    * [Submissions](/info/contrib/)
+    * [Corrections](/info/corrections/)
+    * [Maintain author pages](/info/author-pages/)
+    * [Attachments](/faq/attachments/)
+  * [ __GitHub](https://github.com/acl-org/acl-anthology/)
+
+__
+
+
+
+
+__
+
+
+
+
+## [Enhancing Machine Translation with Self-Supervised Preference Data](https://aclanthology.org/2025.acl-long.1165.pdf)
+
+[Haoxiang Sun](/people/haoxiang-sun/), [Ruize Gao](/people/ruize-gao/), [Pei Zhang](/people/pei-zhang/), [Baosong Yang](/people/baosong-yang/), [Rui Wang](/people/rui-wang-2503/)
+
+##### Correct Metadata for 
+
+Use this form to create a GitHub issue with structured data describing the correction. You will need a GitHub account. Once you create that issue, the correction will be reviewed by a staff member.
+
+⚠️ Mobile Users: Submitting this form to create a new issue will only work with github.com, not the GitHub Mobile app.
+
+**Important** : The Anthology treat PDFs as authoritative. Please use this form only to correct data that is out of line with the PDF. See [our corrections guidelines](https://aclanthology.org/info/corrections/) if you need to change the PDF.
+
+Title Adjust the title. Retain tags such as <fixed-case>.
+
+Authors Adjust author names and order to match the PDF.
+
+Add Author
+
+Abstract Correct abstract if needed. Retain XML formatting tags such as <tex-math>. You may use <b>...</b> for **bold** , <i>...</i> for _italic_ , <u>...</u> for _underline_ , <sc>...</sc> for small-caps, <tt>...<tt> for `typewriter text`, <url>...</url> for URLs, <a href=...> for hyperlinks, and <par/> for paragraph breaks.
+
+Verification against PDF Ensure that the new title/authors match the snapshot below. (If there is no snapshot or it is too small, consult the PDF.)
+
+Authors concatenated from the text boxes above:
+
+ALL author names match the snapshot above—including middle initials, hyphens, and accents.
+
+Create GitHub issue for staff review
+
+* * *
+
+##### Abstract
+
+Model alignment methods like Direct Preference Optimization and Contrastive Preference Optimization have enhanced machine translation performance by leveraging preference data to enable models to reject suboptimal outputs. During preference data construction, previous approaches primarily rely on humans, strong models like GPT4 or model self-sampling. In this study, we first explain the shortcomings of this practice. Then, we propose Self-Supervised Preference Optimization (SSPO), a novel framework which efficiently constructs translation preference data for iterative DPO training. Applying SSPO to 14B parameters large language models (LLMs) achieves comparable or better performance than GPT-4o on FLORES and multi-domain test datasets. We release an augmented MQM dataset in <https://github.com/sunny-sjtu/MQM-aug>.
+
+Anthology ID:
+    2025.acl-long.1165
+Volume:
+    [Proceedings of the 63rd Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers)](/volumes/2025.acl-long/)
+Month:
+    July
+Year:
+    2025
+Address:
+    Vienna, Austria
+Editors:
+    [Wanxiang Che](/people/wanxiang-che/), [Joyce Nabende](/people/joyce-nabende/unverified/), [Ekaterina Shutova](/people/ekaterina-shutova/), [Mohammad Taher Pilehvar](/people/mohammad-taher-pilehvar/unverified/)
+Venue:
+    [ACL](/venues/acl/ "Annual Meeting of the Association for Computational Linguistics")
+SIG:
+    
+Publisher:
+    Association for Computational Linguistics
+Note:
+    
+Pages:
+    23916–23934
+Language:
+    
+URL:
+    <https://aclanthology.org/2025.acl-long.1165/>
+DOI:
+    [10.18653/v1/2025.acl-long.1165](https://doi.org/10.18653/v1/2025.acl-long.1165 "To the current version of the paper by DOI")
+Bibkey:
+    __sun-etal-2025-enhancing-machine
+Cite (ACL):
+    Haoxiang Sun, Ruize Gao, Pei Zhang, Baosong Yang, and Rui Wang. 2025. [Enhancing Machine Translation with Self-Supervised Preference Data](https://aclanthology.org/2025.acl-long.1165/). In _Proceedings of the 63rd Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers)_ , pages 23916–23934, Vienna, Austria. Association for Computational Linguistics.__
+Cite (Informal):
+    [Enhancing Machine Translation with Self-Supervised Preference Data](https://aclanthology.org/2025.acl-long.1165/) (Sun et al., ACL 2025)__
+Copy Citation:
+    __BibTeX __Markdown __MODS XML __Endnote More options…
+PDF:
+    <https://aclanthology.org/2025.acl-long.1165.pdf>
+
+[__PDF ](https://aclanthology.org/2025.acl-long.1165.pdf "Open PDF of 'Enhancing Machine Translation with Self-Supervised Preference Data'")__Cite [__Search ](https://www.semanticscholar.org/search?+q=Enhancing+Machine+Translation+with+Self-Supervised+Preference+Data "Search for 'Enhancing Machine Translation with Self-Supervised Preference Data' on Semantic Scholar")__ Fix data
+
+* * *
+
+##### Export citation
+
+  * BibTeX
+  * MODS XML
+  * Endnote
+  * Preformatted
+
+
+    
+    
+    @inproceedings{sun-etal-2025-enhancing-machine,
+        title = "Enhancing Machine Translation with Self-Supervised Preference Data",
+        author = "Sun, Haoxiang  and
+          Gao, Ruize  and
+          Zhang, Pei  and
+          Yang, Baosong  and
+          Wang, Rui",
+        editor = "Che, Wanxiang  and
+          Nabende, Joyce  and
+    

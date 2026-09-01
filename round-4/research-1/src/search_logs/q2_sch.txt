@@ -1,0 +1,43 @@
+Search: checker-in-the-loop machine translation repair  [scholarly via openalex]
+Found: 10 results
+
+1. Artificial intelligence and smart vision for building and construction 4.0: Machine and deep learning methods and applications
+   https://doi.org/10.1016/j.autcon.2022.104440
+   Automation in Construction · 2022 · cited by 979...
+
+2. The loop Compiler for Java and JML
+   https://doi.org/10.1007/3-540-45319-9_21
+   Lecture notes in computer science · 2001 · cited by 172...
+
+3. Assertion-based repair of complex data structures
+   https://doi.org/10.1145/1321631.1321643
+   2007 · cited by 60...
+
+4. Data-driven accessibility repair revisited: on the effectiveness of generating labels for icons in Android apps
+   https://doi.org/10.1145/3468264.3468604
+   2021 · cited by 46...
+
+5. The Oracle Problem in Software Testing: A Survey
+   https://doi.org/10.1109/tse.2014.2372785
+   IEEE Transactions on Software Engineering · 2014 · cited by 1087...
+
+6. Effective stateless model checking for C/C++ concurrency
+   https://doi.org/10.1145/3158105
+   Proceedings of the ACM on Programming Languages · 2017 · cited by 107...
+
+7. Interval Analysis and Machine Arithmetic
+   https://doi.org/10.1145/2651360
+   ACM Transactions on Programming Languages and Systems · 2015 · cited by 27...
+
+8. RWset: Attacking Path Explosion in Constraint-Based Test Generation
+   https://doi.org/10.1007/978-3-540-78800-3_27
+   Lecture notes in computer science · 2008 · cited by 231...
+
+9. Repairing and mechanising the JavaScript relaxed memory model
+   https://doi.org/10.1145/3385412.3385973
+   2020 · cited by 19...
+
+10. CBMC: The C Bounded Model Checker
+   https://doi.org/10.48550/arxiv.2302.02384
+   arXiv (Cornell University) · 2023 · cited by 3...
+

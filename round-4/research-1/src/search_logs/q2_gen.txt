@@ -1,0 +1,43 @@
+Search: checker-in-the-loop machine translation repair  [general via ddgs]
+Found: 10 results
+
+1. Machine translation checking - Atenao
+   https://www.atenao.net/editing-services/machine-translation-checking/
+   July 25, 2025 - And for a large number of language combinations, on moderately complex subjects, the result will be understandable, but unusable in a professional context. For all these projects that ...
+
+2. Translation Quality Assessment Tool - Free Translation QA Checker
+   https://www.tomedes.com/tools/post-translation
+   Color-coded annotations reveal exactly where problems occur, so linguists can repair issues immediately instead of combing through pages of text. ... Integrated glossary extraction and term-consistenc...
+
+3. Human-in-the-loop | Machine Translate
+   https://machinetranslate.org/human-in-the-loop
+   Human-in-the-loop consists of using human feedback for additional training of translation engines. Human feedback can be obtained from different tasks: Humans correct post-edited machine translation –...
+
+4. How to check that an automatic language translation is done correctly - Quora
+   https://www.quora.com/How-can-I-check-that-an-automatic-language-translation-is-done-correctly
+   Answer (1 of 5): Ask a professional to review the translation. For real money. The great thing AND the trouble with the latest generation in machine translation (MT), using AI and neural networks, is ...
+
+5. GitHub - NLP2CT/HIL-MT: Human-in-the-loop Machine Translation with Large Language Model · GitHub
+   https://github.com/NLP2CT/HIL-MT
+   Initial translation results are obtained via translation_base.py. Get TER-based generated Feedback via sacrebleu_patch/sacrebleu.py sacrebleu [ref] -m ter --ter-trace-file op.json < [hypo]. Get In-con...
+
+6. Online Machine Translation Check
+   https://sites.google.com/stanford.edu/translationcheck
+   With the spread of mobile devices and constant network connectivity, online machine translation has become quite ubiquitous for students and travelers alike. We know that, like the paper dictionaries ...
+
+7. The Translation Checkers’ Kit
+   https://www.responsivetranslation.com/checking-translations/
+   The error log consists of three components: a detailed series of error definitions grouped into five areas, an explanation of the three severity levels, and the log itself, where the translation check...
+
+8. Grammatikai | Grammar checker, rephrasing and translation
+   https://grammatikai.com/en/text-corrector
+   The checker respects your style. ... No. Zero storage. Each request is processed in memory, then erased immediately after the response. Your texts are never used to train models. ... Yes, in one click...
+
+9. Translation memory repair wizard | MemoQ
+   http://memoq.helpmax.net/en/reference-guide/translation-memory-repair-wizard/
+   Using the Translation memory repair wizard, you can repair a corrupted translation memory. Repairing means re-indexing a translation memory in cases when there was a modifying operation that failed bu...
+
+10. Grammatical Error Correction through Round-Trip Machine ...
+   https://aclanthology.org/2023.findings-eacl.165.pdf
+   chine translation. In Proceedings of the Seventeenth ... Learning: Shared Task, pages 52–61, Sofia, Bulgaria. Association for Computational Linguistics. ... Wei, and Ming Zhou. 2020. Improving grammat...
+

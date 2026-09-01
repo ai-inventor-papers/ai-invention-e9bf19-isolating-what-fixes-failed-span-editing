@@ -1,0 +1,114 @@
+URL: https://arxiv.org/pdf/2402.16379
+Type: PDF
+Pattern: iterat|ablat|number of round|localiz|span-level|scope of (8 matches in 71771 chars)
+
+--- Content ---
+
+29816:... Koneru et al., 2023).
+Recent research
+has also explored leveraging powerful LLMs like
+ChatGPT to refine translations through innovative
+prompting strategies. Chen et al. (2023) explore
+using LLMs to iterate translations but lack clear
+guidance, resulting in limited quality improvement.
+Raunak et al. (2023) compare different post-editing
+strategies leveraging GPT-4 but struggle with the
+lack of precise ...
+--
+34139:...rint arXiv:2402.17733.
+Rajen Chatterjee. 2019. Automatic post-editing for ma-
+chine translation. arXiv preprint arXiv:1910.08592.
+Pinzhen Chen, Zhicheng Guo, Barry Haddow, and
+Kenneth Heafield. 2023. Iterative translation refine-
+ment with large language models. arXiv preprint
+arXiv:2306.03856.
+Shamil Chollampatt, Raymond Susanto, Liling Tan, and
+Ewa Szymanska. 2020. Can automatic post-editing
+improve n...
+--
+41246:...udy on chatgpt.
+arXiv preprint.
+Aman Madaan, Niket Tandon, Prakhar Gupta, Skyler
+Hallinan, Luyu Gao, Sarah Wiegreffe, Uri Alon,
+Nouha Dziri, Shrimai Prabhumoye, Yiming Yang,
+et al. 2023. Self-refine: Iterative refinement with
+self-feedback. arXiv preprint arXiv:2303.17651.
+Yasmin Moslem, Rejwanul Haque, John D. Kelleher,
+and Andy Way. 2023. Adaptive machine translation
+with large language models. In Pro...
+--
+48599:...
+scores of the two systems. For the segment level,
+we follow Freitag et al. (2022) to adopt the aver-
+age of three types of Kendall correlation across all
+translation pairs.
+D
+Primary Exploration for Iterative
+Self-Correction
+In our primary experiments, we also explored
+whether continuously iterating the self-correcting
+process could enhance performance on the WMT23
+Zh-En. We found that this might lead to a de-
+crease in performance, with a single round of self-
+correcting yielding the best re...
+--
+49409:...at
+TEaR is effective even with stronger models. We
+also observed that GPT-4 identified only 7 ini-
+tial translations as requiring modifications, and
+it proceeded to make changes to all of them. In
+an iterative setting, we observed that GPT-4-0613
+is more robust compared to GPT-3.5-turbo-0613.
+That said, an LLM-powered self-correction system
+with stronger models may be able to detect that
+the provided tr...
+--
+56479:...65.65
+65.17
+65.30
+65.01
+Table 12: Metric scores for TEaR as a function of the number of refinement steps using GPT-3.5-turbo on our
+WMT23 Zh-En. IT represents initial translation. Iter represents the iteration step.
+14
+
+BLEURT (∆BLEURT)
+IT
+Iter1
+Iter2
+Iter3
+Iter4
+Iter5
+GPT-4-0613
+70.08
+70.20 (+0.12)
+70.23 (+0.15)
+70.20 (+0.12)
+70.23 (+0.15)
+70.20 (+0.12)
+GPT-3.5-turbo
+69.25
+69.74 (+0.49)
+69.80 (+0.55)
+69.60 (+0.35)
+69.49 (+0.24)
+69.67 (+0.42)
+Table 13: Comparison of GPT-4 and GPT-3.5 using iterative refinement on 50 sampled WMT23 Zh-En cases.
+Model
+COMET
+BLEURT
+IT
+TEaR
+IT
+TEaR
+GPT-4-0613
+82.35
+82.38 (+0.03)
+70.08
+70.20 (+0.12)
+GPT-3.5-turbo
+81.60
+82.02 (+0.42)
+69.25
+69.74 (+0.49)
+Mistral-7B
+7...

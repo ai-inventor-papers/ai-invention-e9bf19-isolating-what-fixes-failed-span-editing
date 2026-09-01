@@ -1,0 +1,43 @@
+Search: iterative constrained decoding machine translation error correction  [general via ddgs]
+Found: 10 results
+
+1. [1811.01710] Weakly Supervised Grammatical Error Correction using Iterative Decoding
+   https://ar5iv.labs.arxiv.org/html/1811.01710
+   March 2, 2024 - In this work, we present an iterative decoding algorithm that allows for incremental corrections. While prior work Dahlmeier and Ng (2012a) explored a similar algorithm to progressivel...
+
+2. Translate-and-Revise: Boosting Large Language Models for Constrained Translation
+   https://arxiv.org/html/2407.13164v1
+   July 18, 2024 - To alleviate this problem and thus improve the accuracy to meet constraints, we propose to construct prompts iteratively that enable better focus on the unsatisfied constraints. The id...
+
+3. Error Correction Code Transformer Yoni Choukroun Tel Aviv University
+   https://arxiv.org/pdf/2203.14966
+   preprocessing of the channel output allows the decoder to remain provably invariant to the codeword · and enables the deployment of any kind of model without any overﬁtting cost. The Model-free · appr...
+
+4. Terminology-Aware Translation with Constrained ...
+   https://aclanthology.org/2023.wmt-1.80.pdf
+   Proceedings of the Eighth Conference on Machine Translation (WMT), pages 890–896 · December 6–7, 2023. ©2023 Association for Computational Linguistics ... Post et al. (2019) inserted untranslatable to...
+
+5. Constrained Coding and Soft Iterative Decoding | Springer Nature Link
+   https://link.springer.com/content/pdf/10.1007/978-1-4615-1525-8.pdf
+   "The book describes topical methods for soft-decision iterative coding … in a very clear manner. It provides a unified framework for the decoding of error-correcting codes, constraint codes, and chann...
+
+6. ASR Error Correction with Constrained Decoding on Operation Prediction
+   https://www.researchgate.net/publication/363646770_ASR_Error_Correction_with_Constrained_Decoding_on_Operation_Prediction
+   September 18, 2022 - These issues have hindered NMT's use in practical deployments and services, where both accuracy and speed are essential. In this work, we present GNMT, Google's Neural Machine Tra...
+
+7. Lexically Constrained Neural Machine Translation with ...
+   https://cdn.aaai.org/ojs/17496/17496-13-20990-1-2-20210518.pdf
+   At decoding step t, the model takes translation pre- ﬁx Y = {y0, ..., yt−1} as the decoder input and generates · an output distribution to predict yt. The lth decoder layer ... Bretschner, and Ney 201...
+
+8. ASR Error Correction: Methods & Advances
+   https://www.emergentmind.com/topics/asr-error-correction-aec
+   November 27, 2025 - The N-best T5 architecture extends correction to operate on ASR N-best lists. The model encodes the concatenated N-best hypotheses separated by a special token and decodes the corr...
+
+9. Correcting translation for non-autoregressive transformer - ScienceDirect
+   https://www.sciencedirect.com/science/article/abs/pii/S1568494624012626
+   November 26, 2024 - Non-Autoregressive Transformer (NAT) [1] was introduced to reduce the decoding latency in Neural Machine Translation (NMT) [2]. While there was a significant gap in performance bet...
+
+10. Transformer-Based Decoding in Concatenated Coding ...
+   https://arxiv.org/pdf/2511.00999
+   decoders. We observe that the ECCT yields lower error rates · than Belief Propagation decoding across all probability ranges. In the high probability domain, the pipeline using the iterative...
+

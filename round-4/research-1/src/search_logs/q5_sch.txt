@@ -1,0 +1,43 @@
+Search: localization breadth versus iteration machine translation  [scholarly via openalex]
+Found: 10 results
+
+1. The Connection Machine
+   https://doi.org/10.1038/scientificamerican0687-108
+   Scientific American · 1987 · cited by 1614...
+
+2. Tensor Decomposition for Signal Processing and Machine Learning
+   https://doi.org/10.1109/tsp.2017.2690524
+   IEEE Transactions on Signal Processing · 2017 · cited by 1649...
+
+3. MitoCarta3.0: an updated mitochondrial proteome now with sub-organelle localization and pathway annotations
+   https://doi.org/10.1093/nar/gkaa1011
+   Nucleic Acids Research · 2020 · cited by 2072...
+
+4. LAMMPS - a flexible simulation tool for particle-based materials modeling at the atomic, meso, and continuum scales
+   https://doi.org/10.1016/j.cpc.2021.108171
+   Computer Physics Communications · 2021 · cited by 12302...
+
+5. Bioinformatics enrichment tools: paths toward the comprehensive functional analysis of large gene lists
+   https://doi.org/10.1093/nar/gkn923
+   Nucleic Acids Research · 2008 · cited by 14817...
+
+6. Whatever next? Predictive brains, situated agents, and the future of cognitive science
+   https://doi.org/10.1017/s0140525x12000477
+   Behavioral and Brain Sciences · 2013 · cited by 6070...
+
+7. FLASH: An Adaptive Mesh Hydrodynamics Code for Modeling Astrophysical Thermonuclear Flashes
+   https://doi.org/10.1086/317361
+   The Astrophysical Journal Supplement Series · 2000 · cited by 2561...
+
+8. Machine Learning for Lung Cancer Diagnosis, Treatment, and Prognosis
+   https://doi.org/10.1016/j.gpb.2022.11.003
+   Genomics Proteomics & Bioinformatics · 2022 · cited by 261...
+
+9. Brainstorm: A User-Friendly Application for MEG/EEG Analysis
+   https://doi.org/10.1155/2011/879716
+   Computational Intelligence and Neuroscience · 2011 · cited by 3968...
+
+10. On the Analyses of Medical Images Using Traditional Machine Learning Techniques and Convolutional Neural Networks
+   https://doi.org/10.1007/s11831-023-09899-9
+   Archives of Computational Methods in Engineering · 2023 · cited by 201...
+

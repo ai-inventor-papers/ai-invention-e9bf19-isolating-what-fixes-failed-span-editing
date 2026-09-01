@@ -1,0 +1,43 @@
+Search: localization breadth versus iteration machine translation  [general via ddgs]
+Found: 10 results
+
+1. Neural Machine Translation Versus Large Language Models | MultiLingual
+   https://multilingual.com/magazine/june-2024/neural-machine-translation-versus-large-language-models/
+   June 5, 2024 - But with sophisticated language prompts and an iterative approach, GenAI can reliably and cost-effectively update that TM. However, this requires deep expertise in both the languages an...
+
+2. Best translation engines in 2026: 6 MT tools compared
+   https://lingohub.com/blog/find-good-machine-translation-engines
+   2 weeks ago - Google Cloud Translation is a strong starting point when you need to cover many locales through an API or already use Google Cloud infrastructure. Its breadth does not remove the need fo...
+
+3. Types of machine translation (and how to choose the right one)
+   https://lokalise.com/blog/types-of-machine-translation/
+   December 19, 2025 - Some types of machine translation systems follow strict grammar rules. Others rely on stats. Today’s most advanced ones use deep learning to mimic how humans speak. Each type has s...
+
+4. Machine Translation Terminology: Key Terms and Definitions
+   https://www.lionbridge.com/blog/translation-localization/machine-translation-in-translation/
+   December 10, 2024 - Put simply, Machine Translation is automated translation: You present source material to a computer in one language, and it gives it back to you in another language. It’s imperfect...
+
+5. The Big Guide to Machine Translation
+   https://localizejs.com/articles/types-of-machine-translation
+   June 22, 2024 - Machine translation quality can’t be measured with a single score anymore. This guide explains how to combine automated MT metrics with targeted human review to continuously evaluate t...
+
+6. Machine Translation Explained: Types, Use Cases, and Best Practices
+   https://phrase.com/blog/posts/machine-translation/
+   2 weeks ago - The combination of high-speed throughput and the ability to select from existing language pairs covering dozens of combinations means the use of machine translation services can cut cost...
+
+7. Enterprise localization platform comparison: Phrase vs Smartling, XTM, Lokalise and more
+   https://phrase.com/blog/posts/localization-platform-comparison-2026/
+   3 weeks ago - Enterprise environments increasingly require software localization, structured content workflows, and multimedia capabilities such as video, audio, and subtitling. We looked for platform...
+
+8. Embracing AI in Localization: A 2025–2028 Roadmap | by Tommi P | Medium
+   https://medium.com/@hastur/embracing-ai-in-localization-a-2025-2028-roadmap-a5e9c4cd67b0
+   May 5, 2025 - The ultimate aim is to allocate expensive human effort only where it adds the most value (critical content, polish, creativity), and let machines handle the bulk, routine translation wor...
+
+9. The Role of Machine Translation in Translation and Localization | Day Translations Blog
+   https://www.daytranslations.com/blog/the-role-of-machine-translation-in-translation-and-localization/
+   August 28, 2024 - However, there are ongoing debates about the effectiveness and limitations of MT and its impact on human translators. In this article, we will explore the role of machine translation...
+
+10. Machine Translation for the Localization Use Case
+   https://blog.modernmt.com/machine-translation-for-the-localization-use-case/
+   December 22, 2023 - Overview of requirements for successful MT use in Localization and why it is the most difficult use case for MT ... We live in an era where MT is translating more than 99% of all t...
+

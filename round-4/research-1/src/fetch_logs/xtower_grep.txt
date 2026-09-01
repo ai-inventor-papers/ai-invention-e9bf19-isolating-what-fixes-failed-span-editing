@@ -1,0 +1,31 @@
+URL: https://arxiv.org/pdf/2406.19482
+Type: PDF
+Pattern: stage 1|stage 2|ablat|iterat|independent|isolat (3 matches in 67454 chars)
+
+--- Content ---
+
+17987:...res (6-Likert scale) for Q1 (un-
+derstanding the nature of the errors) and Q2 (guiding
+towards better translations), along with the Spearman
+correlation between the two.
+error spans only, in order to isolate the effect of
+providing accurate information towards improving
+error understanding. To this end, we filter out sam-
+ples with an overall relatedness score lower than
+4 and only use error spans label...
+--
+22517:...Umarmung von Kühen am Valentinstag nach Kritik zurück
+Translation: Indian Govt zieht Berufung zurück, Kühe am Valentinstag nach Kritik zu umarmen
+Explanation: The term "Indian Govt" is a direct transliteration of "Indian govt" from English to German, which is grammatically
+incorrect in German. The correct form should use the German spelling for "government" to match German grammatical rules,
+which would...
+--
+34559:...arpuat (2024); Xu
+et al. (2024b). In particular, LLMRefine (Xu et al.,
+2024b) casts fine-grained error feedback as “suc-
+cinct explanations,” guiding the model towards im-
+proved translations through iterative refinements.
+While effective, their approach sidestep compre-
+hensive explanations, which, as shown in §5, can
+further improve the translation correction process.
+LLMs for Translating and Explaini...

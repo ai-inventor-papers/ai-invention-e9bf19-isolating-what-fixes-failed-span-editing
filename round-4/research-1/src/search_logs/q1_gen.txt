@@ -1,0 +1,43 @@
+Search: iterative QE-guided post-editing machine translation  [general via ddgs]
+Found: 10 results
+
+1. Postediting — Grokipedia
+   https://grokipedia.com/page/Postediting
+   March 26, 2026 - Best Practices: Use QE for triage, strong terminology management, feedback loops. Platforms: Smartling (AI fuzzy repair + multi-MT + AI PE), Phrase/XTM (Intelligent Post-Editing), Lan...
+
+2. Frontiers | Exploring ChatGPT's potential for augmenting post-editing in machine translation across multiple domains: challenges and opportunities
+   https://www.frontiersin.org/journals/artificial-intelligence/articles/10.3389/frai.2025.1526293/full
+   March 31, 2025 - IntelliCAT, introduced by (Lee et al., 2021), is an interactive translation interface designed to improve post-machine translation editing. It uses sentence-level and word-level quali...
+
+3. Machine Translation Post-Editing (MTPE): The Complete Guide | Crowdin Blog
+   https://crowdin.com/blog/mt-post-editing
+   December 11, 2025 - Machine translation post-editing differs from traditional translation, based only on the work of human experts. Use Linguistic Quality Assurance (LQA) to focus on key areas like: ....
+
+4. Machine Translation Post-Editing: A Strategic Guide to Optimizing Output - Translated
+   https://translated.com/resources/machine-translation-post-editing-guide
+   December 11, 2025 - Tone of voice: Guidelines on whether the tone should be formal, informal, technical, or conversational. Locale conventions: Rules for formatting dates, numbers, currencies, and add...
+
+5. Machine Translation Quality and Post-Editor Productivity Marina Sanchez-Torron
+   https://www.cs.jhu.edu/~phi/publications/machine-translation-quality.pdf
+   We iteratively halved the parallel training corpus to obtain systems of inferior quality. The · quality of the MT systems was measured with case-sensitive BLEU (Papineni et al., 2002) on · the ofﬁcial...
+
+6. Ultimate Guide to Perfecting Machine Translation Post Editing
+   https://www.naargmedia.com/machine-translation-post-editing/
+   March 8, 2024 - This collaboration will allow continuous feedback loops, improving the machine translation system over time. As you know, post-editing is an iterative process. So, after the initial ed...
+
+7. Sweep away messy translations: How AI is automating post-editing
+   https://www.rws.com/blog/how-ai-is-automating-post-editing/
+   March 20, 2025 - Edits made by the LLM are accepted only if they improve the original translation’s MTQE score. After the final iteration, the translation is ready for review....
+
+8. Guiding Large Language Models to Post-Edit Machine Translation with Error Annotations
+   https://arxiv.org/html/2404.07851v1
+   April 11, 2024 - The part highlighted in orange is the added component from the Generic prompt accordingly to each feedback category. Recognizing that translation is an iterative process, automatic po...
+
+9. Machine Translation Post-Editing: What You Need to Know 2026
+   https://www.eliteasia.co/machine-translation-post-editing-guide/
+   March 12, 2026 - Translation Memory (TM) – Stores previously approved translations so they can be reused in future projects, saving time and improving consistency. Terminology databases (termbases) – ...
+
+10. (PDF) The Impact of MT Quality Estimation on Post-Editing Effort
+   https://www.academia.edu/34973474/The_Impact_of_MT_Quality_Estimation_on_Post_Editing_Effort
+   January 1, 2017 - This is the case not only because different types of linguistic changes are needed depending on whether the suggestions come from TM or MT, but also because these suggestions are pre...
+

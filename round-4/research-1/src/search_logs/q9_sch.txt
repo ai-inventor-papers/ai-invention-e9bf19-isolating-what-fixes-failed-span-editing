@@ -1,0 +1,43 @@
+Search: self-refine machine translation iteration ablation number of rounds  [scholarly via openalex]
+Found: 10 results
+
+1. Findings of the 2016 Conference on Machine Translation
+   https://doi.org/10.18653/v1/w16-2301
+   2016 · cited by 564...
+
+2. Human-in-the-loop machine learning: a state of the art
+   https://doi.org/10.1007/s10462-022-10246-w
+   Artificial Intelligence Review · 2022 · cited by 973...
+
+3. Artificial Intelligence (AI): Multidisciplinary perspectives on emerging challenges, opportunities, and agenda for research, practice and policy
+   https://doi.org/10.1016/j.ijinfomgt.2019.08.002
+   International Journal of Information Management · 2019 · cited by 4373...
+
+4. Machine-guided path sampling to discover mechanisms of molecular self-organization
+   https://doi.org/10.1038/s43588-023-00428-z
+   Nature Computational Science · 2023 · cited by 134...
+
+5. Utilizing graph machine learning within drug discovery and development
+   https://doi.org/10.1093/bib/bbab159
+   Briefings in Bioinformatics · 2021 · cited by 307...
+
+6. Noisy intermediate-scale quantum algorithms
+   https://doi.org/10.1103/revmodphys.94.015004
+   Reviews of Modern Physics · 2022 · cited by 1767...
+
+7. Parallel Iterative Edit Models for Local Sequence Transduction
+   https://doi.org/10.18653/v1/d19-1435
+   2019 · cited by 146...
+
+8. Opinion Paper: “So what if ChatGPT wrote it?” Multidisciplinary perspectives on opportunities, challenges and implications of generative conversational AI for research, practice and policy
+   https://doi.org/10.1016/j.ijinfomgt.2023.102642
+   International Journal of Information Management · 2023 · cited by 4207...
+
+9. Machine Learning Methods in Weather and Climate Applications: A Survey
+   https://doi.org/10.3390/app132112019
+   Applied Sciences · 2023 · cited by 188...
+
+10. RePrompt: Automatic Prompt Editing to Refine AI-Generative Art Towards Precise Expressions
+   https://doi.org/10.1145/3544548.3581402
+   2023 · cited by 116...
+

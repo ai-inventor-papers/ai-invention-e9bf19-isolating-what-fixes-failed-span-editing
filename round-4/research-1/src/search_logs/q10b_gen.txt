@@ -1,0 +1,81 @@
+Search: WMT25 automatic post-editing shared task ablation localization  [general via exa]
+Found: 10 results
+
+1. QE-informed Segment-level Error Correction
+   https://www2.statmt.org/wmt25/mteval-subtask3.html
+   QE-informed Segment-level Error Correction
+
+## TENTH CONFERENCE ON MACHINE TRANSLATION (WMT25)
+
+# QE-informed Segment-level Error Correction
+
+## ANNOUNCEMENTS
+
+Submission deadline on Codabench extende...
+
+2. Submission for WMT25 Task 3
+   https://www2.statmt.org/wmt25/pdf/2025.wmt-1.73.pdf
+   Proceedings of the Tenth Conference on Machine Translation (WMT), Volume 2: Shared Task Papers, pages 984–993 November 8–9, 2025. ©2025 Association for Computational Linguistics
+
+## Can QE-informed (R...
+
+3. Quality-Informed Segment-Level Error Correction Using Natural Language Explanations from xTower and Large Language Models
+   https://www2.statmt.org/wmt25/pdf/2025.wmt-1.75.pdf
+   Proceedings of the Tenth Conference on Machine Translation (WMT), Volume 2: Shared Task Papers, pages 999–1003 November 8–9, 2025. ©2025 Association for Computational Linguistics
+
+## Leveraging QE-bas...
+
+4. WMT25 Automated Translation Quality Evaluation Systems ...
+   https://www.codabench.org/competitions/8371/
+   WMT25 Automated Translation Quality Evaluation Systems Task 3 - QE-informed Segment-level Error Correction – Codabench...
+
+5. Submission for WMT25 Task 3 - ACL Anthology
+   https://aclanthology.org/2025.wmt-1.73/
+   Submission for WMT25 Task 3 - ACL Anthology
+
+## Submission for WMT 25 Task 3
+
+##### Abstract
+
+The paper presents two approaches submitted to the WMT 2025 Automated Translation Quality Evaluation Syste...
+
+6. Shared task: Automated Translation Quality Evaluation ...
+   https://www2.statmt.org/wmt25/mteval-subtask.html
+   Shared task: Automated Translation Quality Evaluation Systems
+
+## TENTH CONFERENCE ON MACHINE TRANSLATION (WMT25)
+
+# Shared task: Automated Translation Quality Evaluation Systems
+
+## ANNOUNCEMENTS
+
+20...
+
+7. Findings of the WMT 2023 Shared Task on Automatic Post-Editing
+   https://www2.statmt.org/wmt23/pdf/2023.wmt-1.55.pdf
+   Proceedings of the Eighth Conference on Machine Translation (WMT), pages 672–681 December 6–7, 2023. c 2023 Association for Computational Linguistics
+
+Findings of the WMT 2023 Shared Task on Automatic...
+
+8. Findings of the WMT25 Shared Task on Automated ...
+   https://aclanthology.org/2025.wmt-1.24/
+   Findings of the WMT25 Shared Task on Automated Translation Evaluation Systems: Linguistic Diversity is Challenging and References Still Help - ACL Anthology
+
+---
+
+##### Abstract
+
+The WMT25 Shared Task...
+
+9. Findings of the WMT 2022 Shared Task on Automatic Post-Editing
+   https://www.statmt.org/wmt22/pdf/2022.wmt-1.5.pdf
+   Proceedings of the Seventh Conference on Machine Translation (WMT), pages 109–117 Abu Dhabi, December 7–8, 2022. ©2022 Association for Computational Linguistics
+
+## Findings of the WMT 2022 Shared Tas...
+
+10. Findings of the WMT25 Shared Task on Automated Translation Evaluation Systems: Linguistic Diversity is Challenging and References Still Help
+   https://aclanthology.org/anthology-files/anthology-files/pdf/wmt/2025.wmt-1.24.pdf
+   Proceedings of the Tenth Conference on Machine Translation (WMT), Volume 2: Shared Task Papers, pages 414–461 November 8–9, 2025. ©2025 Association for Computational Linguistics
+
+Findings of the WMT25...
+

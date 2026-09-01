@@ -1,0 +1,43 @@
+Search: iterative constrained decoding machine translation error correction  [scholarly via openalex]
+Found: 10 results
+
+1. Machine Learning for Fluid Mechanics
+   https://doi.org/10.1146/annurev-fluid-010719-060214
+   Annual Review of Fluid Mechanics · 2019 · cited by 2787...
+
+2. Findings of the 2016 Conference on Machine Translation
+   https://doi.org/10.18653/v1/w16-2301
+   2016 · cited by 564...
+
+3. Optimizing Statistical Machine Translation for Text Simplification
+   https://doi.org/10.1162/tacl_a_00107
+   Transactions of the Association for Computational Linguistics · 2016 · cited by 520...
+
+4. Machine learning on big data: Opportunities and challenges
+   https://doi.org/10.1016/j.neucom.2017.01.026
+   Neurocomputing · 2017 · cited by 1226...
+
+5. An end-to-end discriminative approach to machine translation
+   https://doi.org/10.3115/1220175.1220271
+   2006 · cited by 266...
+
+6. Explainable Artificial Intelligence (XAI): Concepts, taxonomies, opportunities and challenges toward responsible AI
+   https://doi.org/10.1016/j.inffus.2019.12.012
+   Information Fusion · 2019 · cited by 9746...
+
+7. Generic decoding of seen and imagined objects using hierarchical visual features
+   https://doi.org/10.1038/ncomms15037
+   Nature Communications · 2017 · cited by 543...
+
+8. Machine learning & artificial intelligence in the quantum domain: a review of recent progress
+   https://doi.org/10.1088/1361-6633/aab406
+   Reports on Progress in Physics · 2018 · cited by 1077...
+
+9. Transforming machine translation: a deep learning system reaches news translation quality comparable to human professionals
+   https://doi.org/10.1038/s41467-020-18073-9
+   Nature Communications · 2020 · cited by 304...
+
+10. AI applications to medical images: From machine learning to deep learning
+   https://doi.org/10.1016/j.ejmp.2021.02.006
+   Physica Medica · 2021 · cited by 718...
+

@@ -1,0 +1,43 @@
+Search: scoped span repair verification loop translation quality estimation  [general via ddgs]
+Found: 10 results
+
+1. Diagnosing Translated Benchmarks: An Automated Quality Assurance Study of the EU20 Benchmark Suite
+   https://arxiv.org/html/2604.01957
+   April 2, 2026 - Based on the structural findings, we repair defective entries and complete missing ones via targeted, sample-level re-translation: ... Scope selection. We operate either on full split/...
+
+2. Faithful Autoformalization via Roundtrip Verification and Repair
+   https://arxiv.org/html/2604.25031
+   We evaluated a roundtrip verification and scoped repair framework on two statutory domains and two model families. Two findings stand out. First, formal equivalence is a useful predictor of semantic f...
+
+3. Enhancing Machine Translation Quality Estimation via Fine-Grained Error Analysis and Large Language Model
+   https://www.mdpi.com/2227-7390/11/19/4169
+   October 5, 2023 - This task uses the error spans obtained from the MQM annotations. The task aims to predict the error span (start and end indices) and the error severity (major or minor) for each seg...
+
+4. QE4PE: Word-level Quality Estimation for Human Post-Editing
+   https://arxiv.org/html/2503.03044
+   July 30, 2025 - In this study, we investigate the impact of word-level QE on machine translation (MT) post-editing in a realistic setting involving 42 professional post-editors across two translation ...
+
+5. Shared task: Automated Translation Quality Evaluation Systems
+   https://www2.statmt.org/wmt25/mteval-subtask.html
+   The shared task this year consists of three primary subtasks that address translation quality assessment from three perspectives: (1) segment-level quality score prediction, (2) span-level translation...
+
+6. Error Span Annotation: A Balanced Approach for Human Evaluation of Machine Translation - ACL Anthology
+   https://aclanthology.org/2024.wmt-1.131/
+   High-quality Machine Translation (MT) evaluation relies heavily on human judgments.Comprehensive error classification methods, such as Multidimensional Quality Metrics (MQM), are expensive as they are...
+
+7. GitHub - wmt-conference/ErrorSpanAnnotation
+   https://github.com/wmt-conference/ErrorSpanAnnotation
+   The recently adopted annotation protocol, Error Span Annotation (ESA), has annotators marking erroneous parts of the translation and then assigning a final score. A lot of the annotator time is spent ...
+
+8. An Automated Quality Assurance Study of the EU20 Benchmark ...
+   https://faerber-lab.github.io/assets/pdf/publications/EU20_Benchmarks_LREC2026.pdf
+   share of accuracy/mistranslation errors at span level (notably HellaSwag; ARC is comparatively clean)....
+
+9. Machine Translation Meta Evaluation through Translation Accuracy Challenge Sets | Computational Linguistics | MIT Press
+   https://direct.mit.edu/coli/article/51/1/73/124465/Machine-Translation-Meta-Evaluation-through
+   March 15, 2025 - To verify the general guidelines, ... all ACES phenomena. To verify the quality of the span annotations, we automatically measured inter-annotator agreement.......
+
+10. (PDF) Diagnosing Translated Benchmarks: An Automated Quality Assurance Study of the EU20 Benchmark Suite
+   https://www.researchgate.net/publication/403467109_Diagnosing_Translated_Benchmarks_An_Automated_Quality_Assurance_Study_of_the_EU20_Benchmark_Suite
+   April 2, 2026 - In this work, we introduce xcomet, an open-source learned metric designed to bridge the gap between these approaches. xcomet integrates both sentence-level evaluation and error span de...
+
