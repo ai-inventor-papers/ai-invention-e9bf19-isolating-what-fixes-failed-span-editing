@@ -1,0 +1,717 @@
+{
+  "datasets": [
+    {
+      "dataset": "wmt25_task3_natural",
+      "examples": [
+        {
+          "input": "🧵 NOTE: Do NOT get on on the opposite end of the train when carrying 3 bags!\\nI took note of the prev train and prepared to whre I thought was car 1.\\nIm that bumbling American today 🚬😎",
+          "output": "🧵 ВНИМАНИЕ: НЕ садитесь в противоположный конец поезда, если у вас три сумки!\\nЯ запомнила, как было в предыдущем поезде, и приготовилась сесть туда, где, как я думала, будет вагон №1.\\nСегодня я та самая неуклюжая американка 🚬😎",
+          "metadata_language_pair": "en-ru_RU",
+          "metadata_domain": "social",
+          "metadata_qe_flagged_spans": [
+            {
+              "start_i": 180,
+              "end_i": 182,
+              "severity": "minor"
+            },
+            {
+              "start_i": 204,
+              "end_i": 211,
+              "severity": "major"
+            }
+          ],
+          "metadata_human_error_annotations": null,
+          "metadata_provenance": "natural",
+          "metadata_invariant_category": null,
+          "metadata_source_dataset": "wmt-conference/wmt25-mteval:wmt25_task3_combined_test_set",
+          "metadata_doc_id": "en-ru_RU_#_social_#_114417630342798842",
+          "metadata_segment_id": "252",
+          "metadata_system_id": "Gemini-2.5-Pro",
+          "metadata_overall_qe_score": 0.7653578519821167,
+          "metadata_notes": "QE error spans are the CometKiwi-derived spans released pre-scoring (character offsets into output/hypothesis_segment, severity in {minor,major,critical}). No post-hoc human MQM severity/type gold layer matching the findings-paper Table 15 is publicly released as of this build (post_edit column empty for all 6000 rows) -- treat qe_flagged_spans as the operational localization signal, per the dataset_search_plan's documented fallback.",
+          "metadata_fold": "experimental_pool"
+        },
+        {
+          "input": "Like some kind of infantilised diaper king, Trump has genuinely had a special Diet Coke-summoning button installed in the Oval Office",
+          "output": "Словно какой-то инфантильный король в подгузниках, Трамп и вправду установил в Овальном кабинете специальную кнопку для вызова диетической колы.",
+          "metadata_language_pair": "en-ru_RU",
+          "metadata_domain": "news",
+          "metadata_qe_flagged_spans": [
+            {
+              "start_i": 119,
+              "end_i": 125,
+              "severity": "major"
+            },
+            {
+              "start_i": 129,
+              "end_i": 131,
+              "severity": "major"
+            },
+            {
+              "start_i": 138,
+              "end_i": 143,
+              "severity": "major"
+            }
+          ],
+          "metadata_human_error_annotations": null,
+          "metadata_provenance": "natural",
+          "metadata_invariant_category": null,
+          "metadata_source_dataset": "wmt-conference/wmt25-mteval:wmt25_task3_combined_test_set",
+          "metadata_doc_id": "en-ru_RU_#_news_#_guardian.230238",
+          "metadata_segment_id": "129",
+          "metadata_system_id": "Wenyiil",
+          "metadata_overall_qe_score": 0.6007868647575378,
+          "metadata_notes": "QE error spans are the CometKiwi-derived spans released pre-scoring (character offsets into output/hypothesis_segment, severity in {minor,major,critical}). No post-hoc human MQM severity/type gold layer matching the findings-paper Table 15 is publicly released as of this build (post_edit column empty for all 6000 rows) -- treat qe_flagged_spans as the operational localization signal, per the dataset_search_plan's documented fallback.",
+          "metadata_fold": "experimental_pool"
+        },
+        {
+          "input": "Peter Miniutti of Ashbury identifies the utility value in buying the good stuff: \"Before the advent of the Internet, I'm sure I once used the sturdy turnkey from a tin of Kiwi shoe polish to open a tin of spam.\"",
+          "output": "Пітер Мініутті із Ешбері вказує на практичну користь якісних речей: «Ще до появи інтернету я, певно, колись використав міцний ключ із бляшанки лаку для взуття Kiwi, щоб відкрити банку тушкованини.»",
+          "metadata_language_pair": "en-uk_UA",
+          "metadata_domain": "news",
+          "metadata_qe_flagged_spans": [
+            {
+              "start_i": 142,
+              "end_i": 146,
+              "severity": "major"
+            },
+            {
+              "start_i": 158,
+              "end_i": 161,
+              "severity": "minor"
+            },
+            {
+              "start_i": 177,
+              "end_i": 195,
+              "severity": "major"
+            }
+          ],
+          "metadata_human_error_annotations": null,
+          "metadata_provenance": "natural",
+          "metadata_invariant_category": null,
+          "metadata_source_dataset": "wmt-conference/wmt25-mteval:wmt25_task3_combined_test_set",
+          "metadata_doc_id": "en-uk_UA_#_news_#_brisbanetimes.com.au.306576",
+          "metadata_segment_id": "90",
+          "metadata_system_id": "Shy",
+          "metadata_overall_qe_score": 0.6908731460571289,
+          "metadata_notes": "QE error spans are the CometKiwi-derived spans released pre-scoring (character offsets into output/hypothesis_segment, severity in {minor,major,critical}). No post-hoc human MQM severity/type gold layer matching the findings-paper Table 15 is publicly released as of this build (post_edit column empty for all 6000 rows) -- treat qe_flagged_spans as the operational localization signal, per the dataset_search_plan's documented fallback.",
+          "metadata_fold": "experimental_pool"
+        },
+        {
+          "input": "This will be the year that Guinness loses its cool. Cheers to that!",
+          "output": "Цього року Guinness перестане бути крутим. І за це варто випити!",
+          "metadata_language_pair": "en-uk_UA",
+          "metadata_domain": "news",
+          "metadata_qe_flagged_spans": [
+            {
+              "start_i": 19,
+              "end_i": 29,
+              "severity": "major"
+            },
+            {
+              "start_i": 34,
+              "end_i": 41,
+              "severity": "major"
+            },
+            {
+              "start_i": 42,
+              "end_i": 63,
+              "severity": "major"
+            }
+          ],
+          "metadata_human_error_annotations": null,
+          "metadata_provenance": "natural",
+          "metadata_invariant_category": null,
+          "metadata_source_dataset": "wmt-conference/wmt25-mteval:wmt25_task3_combined_test_set",
+          "metadata_doc_id": "en-uk_UA_#_news_#_guardian.228996",
+          "metadata_segment_id": "98",
+          "metadata_system_id": "Gemini-2.5-Pro",
+          "metadata_overall_qe_score": 0.5927416086196899,
+          "metadata_notes": "QE error spans are the CometKiwi-derived spans released pre-scoring (character offsets into output/hypothesis_segment, severity in {minor,major,critical}). No post-hoc human MQM severity/type gold layer matching the findings-paper Table 15 is publicly released as of this build (post_edit column empty for all 6000 rows) -- treat qe_flagged_spans as the operational localization signal, per the dataset_search_plan's documented fallback.",
+          "metadata_fold": "experimental_pool"
+        }
+      ]
+    },
+    {
+      "dataset": "injected_error_augmentation",
+      "examples": [
+        {
+          "input": "Stumpy and I are home and feeling better now we’ve had a couple of mugs of tea. Back in a fortnight to get the job finished.",
+          "output": "Мы с Исход дома, и после пары кружек чая чувствуем себя лучше. Через две недели вернемся, чтобы завершить начатое.",
+          "metadata_language_pair": "en-ru_RU",
+          "metadata_domain": "social",
+          "metadata_qe_flagged_spans": null,
+          "metadata_human_error_annotations": null,
+          "metadata_provenance": "injected",
+          "metadata_invariant_category": "named_entity_swap",
+          "metadata_source_dataset": "google/wmt24pp",
+          "metadata_doc_id": "test-en-social_112140958167999904",
+          "metadata_segment_id": 483,
+          "metadata_system_id": null,
+          "metadata_overall_qe_score": null,
+          "metadata_clean_target_text": "Мы с Пеньком дома, и после пары кружек чая чувствуем себя лучше. Через две недели вернемся, чтобы завершить начатое.",
+          "metadata_original_span": "Пеньком",
+          "metadata_corrupted_span": "Исход",
+          "metadata_span_offsets": {
+            "start": 5,
+            "end": 12
+          },
+          "metadata_notes": "Programmatically corrupted from a held-out wmt24pp (google/wmt24pp, WMT24++ human post-edited target, a corpus wholly disjoint from the WMT25 Task 3 test set used for the natural component) clean reference. Category=named_entity_swap. Ground truth = metadata_clean_target_text.",
+          "metadata_fold": "experimental_pool"
+        },
+        {
+          "input": "Complaints of Russian language use in Ukraine rise 30% - RT Russia & Former Soviet Union",
+          "output": "Количество жалоб на использование русского языка в Украине возросло на 40% – RT в России и бывшем СССР",
+          "metadata_language_pair": "en-ru_RU",
+          "metadata_domain": "news",
+          "metadata_qe_flagged_spans": null,
+          "metadata_human_error_annotations": null,
+          "metadata_provenance": "injected",
+          "metadata_invariant_category": "number_unit_date_alteration",
+          "metadata_source_dataset": "google/wmt24pp",
+          "metadata_doc_id": "test-en-news_rt.com.54499",
+          "metadata_segment_id": 69,
+          "metadata_system_id": null,
+          "metadata_overall_qe_score": null,
+          "metadata_clean_target_text": "Количество жалоб на использование русского языка в Украине возросло на 30% – RT в России и бывшем СССР",
+          "metadata_original_span": "30",
+          "metadata_corrupted_span": "40",
+          "metadata_span_offsets": {
+            "start": 71,
+            "end": 73
+          },
+          "metadata_notes": "Programmatically corrupted from a held-out wmt24pp (google/wmt24pp, WMT24++ human post-edited target, a corpus wholly disjoint from the WMT25 Task 3 test set used for the natural component) clean reference. Category=number_unit_date_alteration. Ground truth = metadata_clean_target_text.",
+          "metadata_fold": "experimental_pool"
+        },
+        {
+          "input": "“This isn’t the way a future king should act!” They demanded.",
+          "output": "\"Такое поведение подобает будущему королю!\" – заявили они.",
+          "metadata_language_pair": "en-ru_RU",
+          "metadata_domain": "literary",
+          "metadata_qe_flagged_spans": null,
+          "metadata_human_error_annotations": null,
+          "metadata_provenance": "injected",
+          "metadata_invariant_category": "negation_polarity_flip",
+          "metadata_source_dataset": "google/wmt24pp",
+          "metadata_doc_id": "test-en-literary_forever_snow_chunk_2_words_986",
+          "metadata_segment_id": 931,
+          "metadata_system_id": null,
+          "metadata_overall_qe_score": null,
+          "metadata_clean_target_text": "\"Такое поведение не подобает будущему королю!\" – заявили они.",
+          "metadata_original_span": "не",
+          "metadata_corrupted_span": "",
+          "metadata_span_offsets": {
+            "start": 17,
+            "end": 19
+          },
+          "metadata_notes": "Programmatically corrupted from a held-out wmt24pp (google/wmt24pp, WMT24++ human post-edited target, a corpus wholly disjoint from the WMT25 Task 3 test set used for the natural component) clean reference. Category=negation_polarity_flip. Ground truth = metadata_clean_target_text.",
+          "metadata_fold": "experimental_pool"
+        },
+        {
+          "input": "Fisheye is way overkill.",
+          "output": "Широкоугольник – это некоторые-таки перебор.",
+          "metadata_language_pair": "en-ru_RU",
+          "metadata_domain": "social",
+          "metadata_qe_flagged_spans": null,
+          "metadata_human_error_annotations": null,
+          "metadata_provenance": "injected",
+          "metadata_invariant_category": "quantifier_substitution",
+          "metadata_source_dataset": "google/wmt24pp",
+          "metadata_doc_id": "test-en-social_112111193384667328",
+          "metadata_segment_id": 342,
+          "metadata_system_id": null,
+          "metadata_overall_qe_score": null,
+          "metadata_clean_target_text": "Широкоугольник – это все-таки перебор.",
+          "metadata_original_span": "все",
+          "metadata_corrupted_span": "некоторые",
+          "metadata_span_offsets": {
+            "start": 21,
+            "end": 24
+          },
+          "metadata_notes": "Programmatically corrupted from a held-out wmt24pp (google/wmt24pp, WMT24++ human post-edited target, a corpus wholly disjoint from the WMT25 Task 3 test set used for the natural component) clean reference. Category=quantifier_substitution. Ground truth = metadata_clean_target_text.",
+          "metadata_fold": "experimental_pool"
+        },
+        {
+          "input": "#PilotTraining #Flying #TeaganAir #GroundSchool",
+          "output": "#ТренуванняПілотів #Політ #ПовітряТіган #ЗаконІнструктаж",
+          "metadata_language_pair": "en-uk_UA",
+          "metadata_domain": "social",
+          "metadata_qe_flagged_spans": null,
+          "metadata_human_error_annotations": null,
+          "metadata_provenance": "injected",
+          "metadata_invariant_category": "named_entity_swap",
+          "metadata_source_dataset": "google/wmt24pp",
+          "metadata_doc_id": "test-en-social_112152593528184304",
+          "metadata_segment_id": 542,
+          "metadata_system_id": null,
+          "metadata_overall_qe_score": null,
+          "metadata_clean_target_text": "#ТренуванняПілотів #Політ #ПовітряТіган #НаземнийІнструктаж",
+          "metadata_original_span": "Наземний",
+          "metadata_corrupted_span": "Закон",
+          "metadata_span_offsets": {
+            "start": 41,
+            "end": 49
+          },
+          "metadata_notes": "Programmatically corrupted from a held-out wmt24pp (google/wmt24pp, WMT24++ human post-edited target, a corpus wholly disjoint from the WMT25 Task 3 test set used for the natural component) clean reference. Category=named_entity_swap. Ground truth = metadata_clean_target_text.",
+          "metadata_fold": "experimental_pool"
+        },
+        {
+          "input": "@user42 this is very interesting because it says my latest public post to my-blog was in 2022 but I am certain this repo has been private for several years",
+          "output": "@user42 це дуже цікаво, тому що тут сказано, що моя остання публікація в моєму блозі була у 3022 році, але я впевнений, що цей репозиторій був приватним протягом декількох років",
+          "metadata_language_pair": "en-uk_UA",
+          "metadata_domain": "social",
+          "metadata_qe_flagged_spans": null,
+          "metadata_human_error_annotations": null,
+          "metadata_provenance": "injected",
+          "metadata_invariant_category": "number_unit_date_alteration",
+          "metadata_source_dataset": "google/wmt24pp",
+          "metadata_doc_id": "test-en-social_112130344809706592",
+          "metadata_segment_id": 475,
+          "metadata_system_id": null,
+          "metadata_overall_qe_score": null,
+          "metadata_clean_target_text": "@user42 це дуже цікаво, тому що тут сказано, що моя остання публікація в моєму блозі була у 2022 році, але я впевнений, що цей репозиторій був приватним протягом декількох років",
+          "metadata_original_span": "2022",
+          "metadata_corrupted_span": "3022",
+          "metadata_span_offsets": {
+            "start": 92,
+            "end": 96
+          },
+          "metadata_notes": "Programmatically corrupted from a held-out wmt24pp (google/wmt24pp, WMT24++ human post-edited target, a corpus wholly disjoint from the WMT25 Task 3 test set used for the natural component) clean reference. Category=number_unit_date_alteration. Ground truth = metadata_clean_target_text.",
+          "metadata_fold": "experimental_pool"
+        },
+        {
+          "input": "my home internet is also through AT&T and that's fine, thankfully, but now I'm thinking it wasn't so smart to choose the same provider for both internet & phone service",
+          "output": "мій домашній інтернет також через AT&T, і це добре, на щастя, але тепер я думаю, що було дуже правильно обирати того самого провайдера і для інтернету, і для телефонного зв’язку.",
+          "metadata_language_pair": "en-uk_UA",
+          "metadata_domain": "social",
+          "metadata_qe_flagged_spans": null,
+          "metadata_human_error_annotations": null,
+          "metadata_provenance": "injected",
+          "metadata_invariant_category": "negation_polarity_flip",
+          "metadata_source_dataset": "google/wmt24pp",
+          "metadata_doc_id": "test-en-social_111976249663909024",
+          "metadata_segment_id": 179,
+          "metadata_system_id": null,
+          "metadata_overall_qe_score": null,
+          "metadata_clean_target_text": "мій домашній інтернет також через AT&T, і це добре, на щастя, але тепер я думаю, що було не дуже правильно обирати того самого провайдера і для інтернету, і для телефонного зв’язку.",
+          "metadata_original_span": "не",
+          "metadata_corrupted_span": "",
+          "metadata_span_offsets": {
+            "start": 89,
+            "end": 91
+          },
+          "metadata_notes": "Programmatically corrupted from a held-out wmt24pp (google/wmt24pp, WMT24++ human post-edited target, a corpus wholly disjoint from the WMT25 Task 3 test set used for the natural component) clean reference. Category=negation_polarity_flip. Ground truth = metadata_clean_target_text.",
+          "metadata_fold": "experimental_pool"
+        },
+        {
+          "input": "These good quality stickers are about 50p each. They'll cost the same again to post. And way more in my own time to individually package and send them.",
+          "output": "Ці якісні наліпки коштують приблизно 50 пенні деякі. Вартість їх надсилання обійдеться так само. І я муситиму витратити більше власного часу на індивідуальне пакування й надсилання.",
+          "metadata_language_pair": "en-uk_UA",
+          "metadata_domain": "social",
+          "metadata_qe_flagged_spans": null,
+          "metadata_human_error_annotations": null,
+          "metadata_provenance": "injected",
+          "metadata_invariant_category": "quantifier_substitution",
+          "metadata_source_dataset": "google/wmt24pp",
+          "metadata_doc_id": "test-en-social_112111346044907536",
+          "metadata_segment_id": 393,
+          "metadata_system_id": null,
+          "metadata_overall_qe_score": null,
+          "metadata_clean_target_text": "Ці якісні наліпки коштують приблизно 50 пенні кожен. Вартість їх надсилання обійдеться так само. І я муситиму витратити більше власного часу на індивідуальне пакування й надсилання.",
+          "metadata_original_span": "кожен",
+          "metadata_corrupted_span": "деякі",
+          "metadata_span_offsets": {
+            "start": 46,
+            "end": 51
+          },
+          "metadata_notes": "Programmatically corrupted from a held-out wmt24pp (google/wmt24pp, WMT24++ human post-edited target, a corpus wholly disjoint from the WMT25 Task 3 test set used for the natural component) clean reference. Category=quantifier_substitution. Ground truth = metadata_clean_target_text.",
+          "metadata_fold": "experimental_pool"
+        },
+        {
+          "input": "\"I guess that's the other big scary monster that Lanex was worried about?\" Kayel frowned as he attempted to take a shot at the second beast, missed and swiftly reloaded.",
+          "output": "\"Я подозреваю, что это второй большой и страшный монстр, о котором беспокоился Коннел?\" – Кэйэл нахмурился, выстрелил во вторую тварь, промахнулся и быстро перезарядил винтовку.",
+          "metadata_language_pair": "en-ru_RU",
+          "metadata_domain": "literary",
+          "metadata_qe_flagged_spans": null,
+          "metadata_human_error_annotations": null,
+          "metadata_provenance": "injected",
+          "metadata_invariant_category": "named_entity_swap",
+          "metadata_source_dataset": "google/wmt24pp",
+          "metadata_doc_id": "test-en-literary_fight_above_the_trees_chunk_1_words_996",
+          "metadata_segment_id": 841,
+          "metadata_system_id": null,
+          "metadata_overall_qe_score": null,
+          "metadata_clean_target_text": "\"Я подозреваю, что это второй большой и страшный монстр, о котором беспокоился Ланекс?\" – Кэйэл нахмурился, выстрелил во вторую тварь, промахнулся и быстро перезарядил винтовку.",
+          "metadata_original_span": "Ланекс",
+          "metadata_corrupted_span": "Коннел",
+          "metadata_span_offsets": {
+            "start": 79,
+            "end": 85
+          },
+          "metadata_notes": "Programmatically corrupted from a held-out wmt24pp (google/wmt24pp, WMT24++ human post-edited target, a corpus wholly disjoint from the WMT25 Task 3 test set used for the natural component) clean reference. Category=named_entity_swap. Ground truth = metadata_clean_target_text.",
+          "metadata_fold": "checker_validation_heldout"
+        },
+        {
+          "input": "A shared look of horror came from the advisor and Queen Eirwen herself. She slowly looked down at the floor. “Yes, my king.” She bowed.",
+          "output": "Советник и сама Флетчера посмотрели на него с ужасом. Она перевела взгляд в пол. \"Да, мой король\". Она поклонилась.",
+          "metadata_language_pair": "en-ru_RU",
+          "metadata_domain": "literary",
+          "metadata_qe_flagged_spans": null,
+          "metadata_human_error_annotations": null,
+          "metadata_provenance": "injected",
+          "metadata_invariant_category": "named_entity_swap",
+          "metadata_source_dataset": "google/wmt24pp",
+          "metadata_doc_id": "test-en-literary_forever_snow_chunk_1_words_993",
+          "metadata_segment_id": 880,
+          "metadata_system_id": null,
+          "metadata_overall_qe_score": null,
+          "metadata_clean_target_text": "Советник и сама Королева Эирвен посмотрели на него с ужасом. Она перевела взгляд в пол. \"Да, мой король\". Она поклонилась.",
+          "metadata_original_span": "Королева Эирвен",
+          "metadata_corrupted_span": "Флетчера",
+          "metadata_span_offsets": {
+            "start": 16,
+            "end": 31
+          },
+          "metadata_notes": "Programmatically corrupted from a held-out wmt24pp (google/wmt24pp, WMT24++ human post-edited target, a corpus wholly disjoint from the WMT25 Task 3 test set used for the natural component) clean reference. Category=named_entity_swap. Ground truth = metadata_clean_target_text.",
+          "metadata_fold": "checker_validation_heldout"
+        },
+        {
+          "input": "Another useful resource the FAA links to is the Boeing Worldwide Statistical Summary of Commercial Jet Airplane Accidents 1959-2022, which assesses plane-type safety by breaking down accidents based on the aircraft model. According to the report, which was published in September 2023, the Boeing 787 and Airbus A350 are the aircraft models with the fewest total hull losses, an accident in which the aircraft is destroyed beyond repair. There are a few additional models in the report that have never experienced a hull loss, including the double-decker behemoth Airbus A380. But those models had accumulated fewer than 1 million departures at the time of the report.",
+          "output": "Еще один полезный ресурс, на который ссылается Федеральное управление гражданской авиации, – Всемирный Статистический отчет об авариях коммерческих самолетов Боинг за 2959-2022 годы, в котором оценивается безопасность разных типов самолетов и анализируются аварии разных моделей. Согласно отчету, опубликованному в сентябре 2023 года, модели самолетов с наименьшим количеством потерь воздушного судна, (вид аварии, при которой самолет разрушен так что не подлежит восстановлению) – это Боинг-787 и Эйрбас-А350. В отчете упоминается еще несколько моделей, у которых никогда не было потерь, например, гигантский двухпалубный Эйрбас-А380. Но эти модели насчитывают менее одного миллиона вылетов на момент написания отчета.",
+          "metadata_language_pair": "en-ru_RU",
+          "metadata_domain": "news",
+          "metadata_qe_flagged_spans": null,
+          "metadata_human_error_annotations": null,
+          "metadata_provenance": "injected",
+          "metadata_invariant_category": "number_unit_date_alteration",
+          "metadata_source_dataset": "google/wmt24pp",
+          "metadata_doc_id": "test-en-news_seattle_times.800119",
+          "metadata_segment_id": 136,
+          "metadata_system_id": null,
+          "metadata_overall_qe_score": null,
+          "metadata_clean_target_text": "Еще один полезный ресурс, на который ссылается Федеральное управление гражданской авиации, – Всемирный Статистический отчет об авариях коммерческих самолетов Боинг за 1959-2022 годы, в котором оценивается безопасность разных типов самолетов и анализируются аварии разных моделей. Согласно отчету, опубликованному в сентябре 2023 года, модели самолетов с наименьшим количеством потерь воздушного судна, (вид аварии, при которой самолет разрушен так что не подлежит восстановлению) – это Боинг-787 и Эйрбас-А350. В отчете упоминается еще несколько моделей, у которых никогда не было потерь, например, гигантский двухпалубный Эйрбас-А380. Но эти модели насчитывают менее одного миллиона вылетов на момент написания отчета.",
+          "metadata_original_span": "1959",
+          "metadata_corrupted_span": "2959",
+          "metadata_span_offsets": {
+            "start": 167,
+            "end": 171
+          },
+          "metadata_notes": "Programmatically corrupted from a held-out wmt24pp (google/wmt24pp, WMT24++ human post-edited target, a corpus wholly disjoint from the WMT25 Task 3 test set used for the natural component) clean reference. Category=number_unit_date_alteration. Ground truth = metadata_clean_target_text.",
+          "metadata_fold": "checker_validation_heldout"
+        },
+        {
+          "input": "The average round-trip time is 102 ms. Not great not horrible.",
+          "output": "Среднее время отклика 202 мс. Не супер, но жить можно.",
+          "metadata_language_pair": "en-ru_RU",
+          "metadata_domain": "social",
+          "metadata_qe_flagged_spans": null,
+          "metadata_human_error_annotations": null,
+          "metadata_provenance": "injected",
+          "metadata_invariant_category": "number_unit_date_alteration",
+          "metadata_source_dataset": "google/wmt24pp",
+          "metadata_doc_id": "test-en-social_112111193384667328",
+          "metadata_segment_id": 373,
+          "metadata_system_id": null,
+          "metadata_overall_qe_score": null,
+          "metadata_clean_target_text": "Среднее время отклика 102 мс. Не супер, но жить можно.",
+          "metadata_original_span": "102",
+          "metadata_corrupted_span": "202",
+          "metadata_span_offsets": {
+            "start": 22,
+            "end": 25
+          },
+          "metadata_notes": "Programmatically corrupted from a held-out wmt24pp (google/wmt24pp, WMT24++ human post-edited target, a corpus wholly disjoint from the WMT25 Task 3 test set used for the natural component) clean reference. Category=number_unit_date_alteration. Ground truth = metadata_clean_target_text.",
+          "metadata_fold": "checker_validation_heldout"
+        },
+        {
+          "input": "\"You alright?\" Nyssi couldn't help but ask.",
+          "output": "\"Ты в порядке?\" – удержавшись спросила Нисси.",
+          "metadata_language_pair": "en-ru_RU",
+          "metadata_domain": "literary",
+          "metadata_qe_flagged_spans": null,
+          "metadata_human_error_annotations": null,
+          "metadata_provenance": "injected",
+          "metadata_invariant_category": "negation_polarity_flip",
+          "metadata_source_dataset": "google/wmt24pp",
+          "metadata_doc_id": "test-en-literary_fight_above_the_trees_chunk_2_words_991",
+          "metadata_segment_id": 857,
+          "metadata_system_id": null,
+          "metadata_overall_qe_score": null,
+          "metadata_clean_target_text": "\"Ты в порядке?\" – не удержавшись спросила Нисси.",
+          "metadata_original_span": "не",
+          "metadata_corrupted_span": "",
+          "metadata_span_offsets": {
+            "start": 18,
+            "end": 20
+          },
+          "metadata_notes": "Programmatically corrupted from a held-out wmt24pp (google/wmt24pp, WMT24++ human post-edited target, a corpus wholly disjoint from the WMT25 Task 3 test set used for the natural component) clean reference. Category=negation_polarity_flip. Ground truth = metadata_clean_target_text.",
+          "metadata_fold": "checker_validation_heldout"
+        },
+        {
+          "input": "As the EU debates rules to limit packaging waste, beer producers argue they are being unfairly discriminated against with exemptions for winemakers from reuse targets and deposit-return schemes, but one of Europe's wine industry association chiefs says brewers should \"mind their own business.\"",
+          "output": "В то время как в ЕС обсуждаются правила по ограничению упаковочных отходов, пивовары заявляют о своей дискриминации, так как виноделы получили послабления по целевым показателям повторного использования и схемам возврата депозитов. Главы европейской винной индустрии предлагают пивоварам \"лезть в чужие дела\".",
+          "metadata_language_pair": "en-ru_RU",
+          "metadata_domain": "news",
+          "metadata_qe_flagged_spans": null,
+          "metadata_human_error_annotations": null,
+          "metadata_provenance": "injected",
+          "metadata_invariant_category": "negation_polarity_flip",
+          "metadata_source_dataset": "google/wmt24pp",
+          "metadata_doc_id": "test-en-news_euronews-en.43091",
+          "metadata_segment_id": 27,
+          "metadata_system_id": null,
+          "metadata_overall_qe_score": null,
+          "metadata_clean_target_text": "В то время как в ЕС обсуждаются правила по ограничению упаковочных отходов, пивовары заявляют о своей дискриминации, так как виноделы получили послабления по целевым показателям повторного использования и схемам возврата депозитов. Главы европейской винной индустрии предлагают пивоварам \"не лезть в чужие дела\".",
+          "metadata_original_span": "не",
+          "metadata_corrupted_span": "",
+          "metadata_span_offsets": {
+            "start": 289,
+            "end": 291
+          },
+          "metadata_notes": "Programmatically corrupted from a held-out wmt24pp (google/wmt24pp, WMT24++ human post-edited target, a corpus wholly disjoint from the WMT25 Task 3 test set used for the natural component) clean reference. Category=negation_polarity_flip. Ground truth = metadata_clean_target_text.",
+          "metadata_fold": "checker_validation_heldout"
+        },
+        {
+          "input": "\"Oops...\" Retvik muttered from the driver's seat, before awkwardly switching the engine off and climbing out of the truck. \"I, uh, did not mean to do that. Are you all well?\"",
+          "output": "\"Упс...\" – пробормотал Ретвик с водительского сиденья, неуклюже выключил двигатель и вылез из грузовика. \"Я, ну, не специально. Вы некоторые в порядке?\"",
+          "metadata_language_pair": "en-ru_RU",
+          "metadata_domain": "literary",
+          "metadata_qe_flagged_spans": null,
+          "metadata_human_error_annotations": null,
+          "metadata_provenance": "injected",
+          "metadata_invariant_category": "quantifier_substitution",
+          "metadata_source_dataset": "google/wmt24pp",
+          "metadata_doc_id": "test-en-literary_fight_above_the_trees_chunk_2_words_991",
+          "metadata_segment_id": 861,
+          "metadata_system_id": null,
+          "metadata_overall_qe_score": null,
+          "metadata_clean_target_text": "\"Упс...\" – пробормотал Ретвик с водительского сиденья, неуклюже выключил двигатель и вылез из грузовика. \"Я, ну, не специально. Вы все в порядке?\"",
+          "metadata_original_span": "все",
+          "metadata_corrupted_span": "некоторые",
+          "metadata_span_offsets": {
+            "start": 131,
+            "end": 134
+          },
+          "metadata_notes": "Programmatically corrupted from a held-out wmt24pp (google/wmt24pp, WMT24++ human post-edited target, a corpus wholly disjoint from the WMT25 Task 3 test set used for the natural component) clean reference. Category=quantifier_substitution. Ground truth = metadata_clean_target_text.",
+          "metadata_fold": "checker_validation_heldout"
+        },
+        {
+          "input": "Check. Check. Rock defeats scissors, scissor defeats paper, and paper defeats rock. You win. The loser will lose one star. At the end of each game, the referee will put the cards back into the recycling box. Of course, if both players choose the same card, the game is tied, and no one will lose a star.",
+          "output": "Раз. Раз. Камень побеждает ножницы, ножницы побеждают бумагу, бумага побеждает камень. Вы выигрываете. Проигравший теряет одну звезду. После каждого раунда судья возвращает карты в ящик. Конечно, если оба игрока вытаскивают одинаковые карты, будет ничья и кто-то не потеряет звезду.",
+          "metadata_language_pair": "en-ru_RU",
+          "metadata_domain": "speech",
+          "metadata_qe_flagged_spans": null,
+          "metadata_human_error_annotations": null,
+          "metadata_provenance": "injected",
+          "metadata_invariant_category": "quantifier_substitution",
+          "metadata_source_dataset": "google/wmt24pp",
+          "metadata_doc_id": "test-en-speech_5mzS5ZJPAsM_007",
+          "metadata_segment_id": 720,
+          "metadata_system_id": null,
+          "metadata_overall_qe_score": null,
+          "metadata_clean_target_text": "Раз. Раз. Камень побеждает ножницы, ножницы побеждают бумагу, бумага побеждает камень. Вы выигрываете. Проигравший теряет одну звезду. После каждого раунда судья возвращает карты в ящик. Конечно, если оба игрока вытаскивают одинаковые карты, будет ничья и никто не потеряет звезду.",
+          "metadata_original_span": "никто",
+          "metadata_corrupted_span": "кто-то",
+          "metadata_span_offsets": {
+            "start": 256,
+            "end": 261
+          },
+          "metadata_notes": "Programmatically corrupted from a held-out wmt24pp (google/wmt24pp, WMT24++ human post-edited target, a corpus wholly disjoint from the WMT25 Task 3 test set used for the natural component) clean reference. Category=quantifier_substitution. Ground truth = metadata_clean_target_text.",
+          "metadata_fold": "checker_validation_heldout"
+        },
+        {
+          "input": "This probably due in no small part to toys oriented to boys having a loooong history of being based on some form of violence, like ur GI Joe's and ur Traansformers, but come onnnnnnnnn its current year",
+          "output": "Імовірно, це значною мірою пов’язано з тим, що іграшки, орієнтовані на хлопчиків, мають довгу історію, засновану на тій чи іншій формі насильства, як-от ваш «Солдат Джо» й ваші «Пішов», але досить уже – тепер інші часи",
+          "metadata_language_pair": "en-uk_UA",
+          "metadata_domain": "social",
+          "metadata_qe_flagged_spans": null,
+          "metadata_human_error_annotations": null,
+          "metadata_provenance": "injected",
+          "metadata_invariant_category": "named_entity_swap",
+          "metadata_source_dataset": "google/wmt24pp",
+          "metadata_doc_id": "test-en-social_112106953594747568",
+          "metadata_segment_id": 239,
+          "metadata_system_id": null,
+          "metadata_overall_qe_score": null,
+          "metadata_clean_target_text": "Імовірно, це значною мірою пов’язано з тим, що іграшки, орієнтовані на хлопчиків, мають довгу історію, засновану на тій чи іншій формі насильства, як-от ваш «Солдат Джо» й ваші «Трансформери», але досить уже – тепер інші часи",
+          "metadata_original_span": "Трансформери",
+          "metadata_corrupted_span": "Пішов",
+          "metadata_span_offsets": {
+            "start": 178,
+            "end": 190
+          },
+          "metadata_notes": "Programmatically corrupted from a held-out wmt24pp (google/wmt24pp, WMT24++ human post-edited target, a corpus wholly disjoint from the WMT25 Task 3 test set used for the natural component) clean reference. Category=named_entity_swap. Ground truth = metadata_clean_target_text.",
+          "metadata_fold": "checker_validation_heldout"
+        },
+        {
+          "input": "Really tough not to buy that the league tells officials to help Miami when that’s not a penalty. #DCU #MLS #mastodonfc",
+          "output": "Дійсно важко не купитись на те, що ліга каже суддям допомогти Каєлу, коли це не пенальті. #DCU #MLS #mastodonfc",
+          "metadata_language_pair": "en-uk_UA",
+          "metadata_domain": "social",
+          "metadata_qe_flagged_spans": null,
+          "metadata_human_error_annotations": null,
+          "metadata_provenance": "injected",
+          "metadata_invariant_category": "named_entity_swap",
+          "metadata_source_dataset": "google/wmt24pp",
+          "metadata_doc_id": "test-en-social_112111385848391872",
+          "metadata_segment_id": 398,
+          "metadata_system_id": null,
+          "metadata_overall_qe_score": null,
+          "metadata_clean_target_text": "Дійсно важко не купитись на те, що ліга каже суддям допомогти Маямі, коли це не пенальті. #DCU #MLS #mastodonfc",
+          "metadata_original_span": "Маямі",
+          "metadata_corrupted_span": "Каєлу",
+          "metadata_span_offsets": {
+            "start": 62,
+            "end": 67
+          },
+          "metadata_notes": "Programmatically corrupted from a held-out wmt24pp (google/wmt24pp, WMT24++ human post-edited target, a corpus wholly disjoint from the WMT25 Task 3 test set used for the natural component) clean reference. Category=named_entity_swap. Ground truth = metadata_clean_target_text.",
+          "metadata_fold": "checker_validation_heldout"
+        },
+        {
+          "input": "On Mars, which is a planet half the size of the Earth. There was a lot of water on Mars a long time ago. To do that kind... There's a volcano on Mars, 81,000 feet tall--almost three times taller than Everest. So, like, what's happened over the great span of time is more than really my imagination can grasp. So anyhow, first water. First life: 3.7 billion years, we'll just say life. So, you know, pretty, pretty early in the, you know, early evolution of",
+          "output": "Марс – планета, яка вдвічі менша за Землю. Дуже давно на Марсі було багато води. Щоб зробити такий… На Марсі є вулкан висотою 91 000 футів – майже втричі вищий за Еверест. Тобто, те, що сталося за цей довгий проміжок часу, – це більше, ніж моя уява може осягнути. У будь-якому випадку, спочатку вода. Вперше в житті: 3,7 мільярда років, скажімо, життя. Тож, знаєте, дуже, дуже рано, на початку еволюції, знаєте, ранньої еволюції",
+          "metadata_language_pair": "en-uk_UA",
+          "metadata_domain": "speech",
+          "metadata_qe_flagged_spans": null,
+          "metadata_human_error_annotations": null,
+          "metadata_provenance": "injected",
+          "metadata_invariant_category": "number_unit_date_alteration",
+          "metadata_source_dataset": "google/wmt24pp",
+          "metadata_doc_id": "test-en-speech_JbE_J9AlrSw_000",
+          "metadata_segment_id": 747,
+          "metadata_system_id": null,
+          "metadata_overall_qe_score": null,
+          "metadata_clean_target_text": "Марс – планета, яка вдвічі менша за Землю. Дуже давно на Марсі було багато води. Щоб зробити такий… На Марсі є вулкан висотою 81 000 футів – майже втричі вищий за Еверест. Тобто, те, що сталося за цей довгий проміжок часу, – це більше, ніж моя уява може осягнути. У будь-якому випадку, спочатку вода. Вперше в житті: 3,7 мільярда років, скажімо, життя. Тож, знаєте, дуже, дуже рано, на початку еволюції, знаєте, ранньої еволюції",
+          "metadata_original_span": "81",
+          "metadata_corrupted_span": "91",
+          "metadata_span_offsets": {
+            "start": 126,
+            "end": 128
+          },
+          "metadata_notes": "Programmatically corrupted from a held-out wmt24pp (google/wmt24pp, WMT24++ human post-edited target, a corpus wholly disjoint from the WMT25 Task 3 test set used for the natural component) clean reference. Category=number_unit_date_alteration. Ground truth = metadata_clean_target_text.",
+          "metadata_fold": "checker_validation_heldout"
+        },
+        {
+          "input": "While the Louisiana Republican can avoid confronting the issue for now, on January 19 the country will face its deadline to pass four of 12 annual spending bills. Johnson has publicly stated that he would not support a \"continuing resolution\" (CR) to extend the deadline on these four bills to the February 2 due date for the remaining eight.",
+          "output": "Тоді як республіканець Луїзіани може поки що уникати цієї проблеми, 29 січня для країни настане кінцевий термін ухвалення чотирьох із 12 щорічних законопроєктів про витрати. Джонсон публічно заявив, що він не підтримає «резолюцію продовження» для подовження терміну прийняття цих чотирьох законопроєктів до 2 лютого для решти восьми.",
+          "metadata_language_pair": "en-uk_UA",
+          "metadata_domain": "news",
+          "metadata_qe_flagged_spans": null,
+          "metadata_human_error_annotations": null,
+          "metadata_provenance": "injected",
+          "metadata_invariant_category": "number_unit_date_alteration",
+          "metadata_source_dataset": "google/wmt24pp",
+          "metadata_doc_id": "test-en-news_newsweek.63908",
+          "metadata_segment_id": 45,
+          "metadata_system_id": null,
+          "metadata_overall_qe_score": null,
+          "metadata_clean_target_text": "Тоді як республіканець Луїзіани може поки що уникати цієї проблеми, 19 січня для країни настане кінцевий термін ухвалення чотирьох із 12 щорічних законопроєктів про витрати. Джонсон публічно заявив, що він не підтримає «резолюцію продовження» для подовження терміну прийняття цих чотирьох законопроєктів до 2 лютого для решти восьми.",
+          "metadata_original_span": "19",
+          "metadata_corrupted_span": "29",
+          "metadata_span_offsets": {
+            "start": 68,
+            "end": 70
+          },
+          "metadata_notes": "Programmatically corrupted from a held-out wmt24pp (google/wmt24pp, WMT24++ human post-edited target, a corpus wholly disjoint from the WMT25 Task 3 test set used for the natural component) clean reference. Category=number_unit_date_alteration. Ground truth = metadata_clean_target_text.",
+          "metadata_fold": "checker_validation_heldout"
+        },
+        {
+          "input": "Dennis M. Kelleher, Co-founder, President, and CEO of Better Markets, said the approval is a \"an historic mistake that will not only unleash crypto predators on tens of millions of investors and retirees but will also likely undermine financial stability.\"",
+          "output": "Денніс М. Келлехер, співзасновник, президент і генеральний директор Better Markets, заявив, що це рішення є «історичною помилкою, яка тільки спустить криптохижаків на десятки мільйонів інвесторів і пенсіонерів, але й, імовірно, підірве фінансову стабільність».",
+          "metadata_language_pair": "en-uk_UA",
+          "metadata_domain": "news",
+          "metadata_qe_flagged_spans": null,
+          "metadata_human_error_annotations": null,
+          "metadata_provenance": "injected",
+          "metadata_invariant_category": "negation_polarity_flip",
+          "metadata_source_dataset": "google/wmt24pp",
+          "metadata_doc_id": "test-en-news_pa.52742",
+          "metadata_segment_id": 67,
+          "metadata_system_id": null,
+          "metadata_overall_qe_score": null,
+          "metadata_clean_target_text": "Денніс М. Келлехер, співзасновник, президент і генеральний директор Better Markets, заявив, що це рішення є «історичною помилкою, яка не тільки спустить криптохижаків на десятки мільйонів інвесторів і пенсіонерів, але й, імовірно, підірве фінансову стабільність».",
+          "metadata_original_span": "не",
+          "metadata_corrupted_span": "",
+          "metadata_span_offsets": {
+            "start": 134,
+            "end": 136
+          },
+          "metadata_notes": "Programmatically corrupted from a held-out wmt24pp (google/wmt24pp, WMT24++ human post-edited target, a corpus wholly disjoint from the WMT25 Task 3 test set used for the natural component) clean reference. Category=negation_polarity_flip. Ground truth = metadata_clean_target_text.",
+          "metadata_fold": "checker_validation_heldout"
+        },
+        {
+          "input": "Running a business as a self-employed introverted creative and having a big heart for privacy shouldn't feel like a twist, but sometimes it is. The majority of online resources and coaches tell you to work with big (and evil) tech using extrovert techniques. Advertise here, follow the algorithm, share your personality. Get a blue tick on that service, be available 24/7, answer inquiries with a video of yourself, respond immediately. Video, video, video.",
+          "output": "Ведення бізнесу самозайнятою творчою людиною-інтровертом, яка прагне до приватності, повинно здаватися чимось дивним, але іноді так і є. Більшість онлайн-ресурсів і тренерів радять працювати з великими (і шкідливими) технологіями, використовуючи методи екстравертів. Розміщуйте тут рекламу, дотримуйтесь алгоритму, виражайте свою індивідуальність. Поставте синю галочку на цьому сервісі, будьте доступні 24/7, відповідайте на запити за допомогою відео, відповідайте миттєво. Відео, відео, відео.",
+          "metadata_language_pair": "en-uk_UA",
+          "metadata_domain": "social",
+          "metadata_qe_flagged_spans": null,
+          "metadata_human_error_annotations": null,
+          "metadata_provenance": "injected",
+          "metadata_invariant_category": "negation_polarity_flip",
+          "metadata_source_dataset": "google/wmt24pp",
+          "metadata_doc_id": "test-en-social_112121157211696272",
+          "metadata_segment_id": 425,
+          "metadata_system_id": null,
+          "metadata_overall_qe_score": null,
+          "metadata_clean_target_text": "Ведення бізнесу самозайнятою творчою людиною-інтровертом, яка прагне до приватності, не повинно здаватися чимось дивним, але іноді так і є. Більшість онлайн-ресурсів і тренерів радять працювати з великими (і шкідливими) технологіями, використовуючи методи екстравертів. Розміщуйте тут рекламу, дотримуйтесь алгоритму, виражайте свою індивідуальність. Поставте синю галочку на цьому сервісі, будьте доступні 24/7, відповідайте на запити за допомогою відео, відповідайте миттєво. Відео, відео, відео.",
+          "metadata_original_span": "не",
+          "metadata_corrupted_span": "",
+          "metadata_span_offsets": {
+            "start": 85,
+            "end": 87
+          },
+          "metadata_notes": "Programmatically corrupted from a held-out wmt24pp (google/wmt24pp, WMT24++ human post-edited target, a corpus wholly disjoint from the WMT25 Task 3 test set used for the natural component) clean reference. Category=negation_polarity_flip. Ground truth = metadata_clean_target_text.",
+          "metadata_fold": "checker_validation_heldout"
+        },
+        {
+          "input": "I'll never be a superhero. You have the power. The problem is you have so much that you can't control it. I know who can help us train better. Of course! We'll start with virtual training! This VR is super realistic. We were just walking by and we thought, hey, let's test out the new little weakling.",
+          "output": "Я завжди не стану супергероєм. Ти маєш силу. Вся справа в тому, що у вас стільки всього, що ви не можете це контролювати. Тепер я знаю, хто може допомогти нам краще тренуватися. Звісно! Розпочнемо з дистанційних занять! Ця віртуальна реальність є надзвичайно реалістичною. Ми йшли повз і думали: «А чому б нам не оцінити нового слабака?».",
+          "metadata_language_pair": "en-uk_UA",
+          "metadata_domain": "speech",
+          "metadata_qe_flagged_spans": null,
+          "metadata_human_error_annotations": null,
+          "metadata_provenance": "injected",
+          "metadata_invariant_category": "quantifier_substitution",
+          "metadata_source_dataset": "google/wmt24pp",
+          "metadata_doc_id": "test-en-speech_PKgwplBTr7s_002",
+          "metadata_segment_id": 764,
+          "metadata_system_id": null,
+          "metadata_overall_qe_score": null,
+          "metadata_clean_target_text": "Я ніколи не стану супергероєм. Ти маєш силу. Вся справа в тому, що у вас стільки всього, що ви не можете це контролювати. Тепер я знаю, хто може допомогти нам краще тренуватися. Звісно! Розпочнемо з дистанційних занять! Ця віртуальна реальність є надзвичайно реалістичною. Ми йшли повз і думали: «А чому б нам не оцінити нового слабака?».",
+          "metadata_original_span": "ніколи",
+          "metadata_corrupted_span": "завжди",
+          "metadata_span_offsets": {
+            "start": 2,
+            "end": 8
+          },
+          "metadata_notes": "Programmatically corrupted from a held-out wmt24pp (google/wmt24pp, WMT24++ human post-edited target, a corpus wholly disjoint from the WMT25 Task 3 test set used for the natural component) clean reference. Category=quantifier_substitution. Ground truth = metadata_clean_target_text.",
+          "metadata_fold": "checker_validation_heldout"
+        },
+        {
+          "input": "If they’re not claimed today I suspect the staff will find them.",
+          "output": "Якщо їх хтось не шукатиме сьогодні, думаю, їх знайде персонал.",
+          "metadata_language_pair": "en-uk_UA",
+          "metadata_domain": "social",
+          "metadata_qe_flagged_spans": null,
+          "metadata_human_error_annotations": null,
+          "metadata_provenance": "injected",
+          "metadata_invariant_category": "quantifier_substitution",
+          "metadata_source_dataset": "google/wmt24pp",
+          "metadata_doc_id": "test-en-social_112111346044907536",
+          "metadata_segment_id": 382,
+          "metadata_system_id": null,
+          "metadata_overall_qe_score": null,
+          "metadata_clean_target_text": "Якщо їх ніхто не шукатиме сьогодні, думаю, їх знайде персонал.",
+          "metadata_original_span": "ніхто",
+          "metadata_corrupted_span": "хтось",
+          "metadata_span_offsets": {
+            "start": 8,
+            "end": 13
+          },
+          "metadata_notes": "Programmatically corrupted from a held-out wmt24pp (google/wmt24pp, WMT24++ human post-edited target, a corpus wholly disjoint from the WMT25 Task 3 test set used for the natural component) clean reference. Category=quantifier_substitution. Ground truth = metadata_clean_target_text.",
+          "metadata_fold": "checker_validation_heldout"
+        }
+      ]
+    }
+  ]
+}
