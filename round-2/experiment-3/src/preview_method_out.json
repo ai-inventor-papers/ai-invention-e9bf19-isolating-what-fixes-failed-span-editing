@@ -1,0 +1,386 @@
+{
+  "metadata": {
+    "method_name": "hygiene_vs_checking_span_editing",
+    "description": "Three matched span-editing conditions (B: faithful masked-fill severity-skip baseline; D: B + trivial hygiene retry filter; C1: 4-category checker-broadened single uncorrected repair pass) on identica...",
+    "repair_model": "google/gemma-3-12b-it",
+    "seed": 42,
+    "language_pairs": [
+      "en-ru_RU",
+      "en-uk_UA"
+    ],
+    "n_natural_per_pair_target": 160,
+    "n_injected_per_cell_target": 30,
+    "n_natural_rows_processed": 320,
+    "n_injected_pool_rows_processed": 240,
+    "n_injected_heldout_rows": 175,
+    "checker_validation": {
+      "per_cell": {
+        "ru_RU|named_entity": {
+          "lang": "ru_RU",
+          "category": "named_entity",
+          "n_rows": 23,
+          "recall": 1.0,
+          "precision": 0.3239,
+          "n_flags_total": 71
+        },
+        "ru_RU|number_unit_date": {
+          "lang": "ru_RU",
+          "category": "number_unit_date",
+          "n_rows": 23,
+          "recall": 1.0,
+          "precision": 0.575,
+          "n_flags_total": 40
+        },
+        "ru_RU|negation_polarity": {
+          "lang": "ru_RU",
+          "category": "negation_polarity",
+          "n_rows": 23,
+          "recall": 0.5217,
+          "precision": 0.8571,
+          "n_flags_total": 14
+        },
+        "ru_RU|quantifier_scope": {
+          "lang": "ru_RU",
+          "category": "quantifier_scope",
+          "n_rows": 23,
+          "recall": 0.5652,
+          "precision": 0.5909,
+          "n_flags_total": 22
+        },
+        "uk_UA|named_entity": {
+          "lang": "uk_UA",
+          "category": "named_entity",
+          "n_rows": 23,
+          "recall": 0.6957,
+          "precision": 0.3696,
+          "n_flags_total": 46
+        },
+        "uk_UA|number_unit_date": {
+          "lang": "uk_UA",
+          "category": "number_unit_date",
+          "n_rows": 23,
+          "recall": 1.0,
+          "precision": 0.575,
+          "n_flags_total": 40
+        },
+        "uk_UA|negation_polarity": {
+          "lang": "uk_UA",
+          "category": "negation_polarity",
+          "n_rows": 23,
+          "recall": 0.6087,
+          "precision": 0.7778,
+          "n_flags_total": 18
+        },
+        "uk_UA|quantifier_scope": {
+          "lang": "uk_UA",
+          "category": "quantifier_scope",
+          "n_rows": 14,
+          "recall": 0.4286,
+          "precision": 0.5,
+          "n_flags_total": 12
+        }
+      },
+      "excluded_cells": [
+        "ru_RU|named_entity",
+        "uk_UA|named_entity",
+        "uk_UA|quantifier_scope"
+      ],
+      "precision_definition_caveat": "Precision is computed against the SINGLE known-corrupted span per heldout row; every other genuine invariant span the detector also (correctly) flags in that sentence counts against precision, so thes..."
+    },
+    "condition_B_leakage_rate_sanity_check": 0.0625,
+    "reproduce_verdict": {
+      "padmanabhan_reported_delta_comet": -0.0108,
+      "condition_B_pooled_delta_comet_mean": -0.016440192796289922,
+      "same_direction": true,
+      "magnitude_ratio_vs_paper": 1.5222400737305484,
+      "caveats": [
+        "Substitute repair model (google/gemma-3-12b-it) differs from the paper's Tower-Plus-9B (TowerPlus-9B and the plan's fallback google/gemma-2-9b-it are both confirmed absent from OpenRouter -- see the r...",
+        "Condition B leakage rate on masked rows was 0.0625; the paper attributes its entire -0.0108 result to prompt-following failure and literal-placeholder leakage, so a low leakage rate here is expected t...",
+        "This is fidelity EVIDENCE, not proof: language-pair coverage (ru_RU/uk_UA only, vs the paper's 6-pair average), and masking prompt text was reconstructed from the dossier's described Algorithm 1 (QE-s..."
+      ],
+      "comet_available": true,
+      "delta_comet_metric": "Unbabel/wmt22-cometkiwi-da"
+    },
+    "metrics": {
+      "per_language_pair": {
+        "en-ru_RU": {
+          "B": {
+            "delta_comet_mean": -0.017741857655346395,
+            "delta_comet_ci95": [
+              -0.028723084926605226,
+              -0.008194381184875966
+            ],
+            "n_scored": 160,
+            "edit_volume_mean": 0.1471,
+            "n_llm_calls_mean": 0.9563,
+            "fix_rate": 0.7417,
+            "true_regression_rate": 0.0333,
+            "n_injected_scored": 120
+          },
+          "D": {
+            "delta_comet_mean": -0.018013252504169942,
+            "delta_comet_ci95": [
+              -0.029038330540060997,
+              -0.008556899800896644
+            ],
+            "n_scored": 160,
+            "edit_volume_mean": 0.1475,
+            "n_llm_calls_mean": 1.0,
+            "fix_rate": 0.7417,
+            "true_regression_rate": 0.0333,
+            "n_injected_scored": 120
+          },
+          "C1": {
+            "delta_comet_mean": -0.006306200101971626,
+            "delta_comet_ci95": [
+              -0.013268069364130497,
+              -0.0010864505544304847
+            ],
+            "n_scored": 160,
+            "edit_volume_mean": 0.0299,
+            "n_llm_calls_mean": 0.9,
+            "fix_rate": 0.5083,
+            "true_regression_rate": 0.1,
+            "n_injected_scored": 120
+          }
+        },
+        "en-uk_UA": {
+          "B": {
+            "delta_comet_mean": -0.015138527937233448,
+            "delta_comet_ci95": [
+              -0.023573026433587073,
+              -0.007425565831363201
+            ],
+            "n_scored": 160,
+            "edit_volume_mean": 0.1445,
+            "n_llm_calls_mean": 0.9437,
+            "fix_rate": 0.7333,
+            "true_regression_rate": 0.0667,
+            "n_injected_scored": 120
+          },
+          "D": {
+            "delta_comet_mean": -0.013366634212434291,
+            "delta_comet_ci95": [
+              -0.02131077479571104,
+              -0.0061194334179162976
+            ],
+            "n_scored": 160,
+            "edit_volume_mean": 0.1417,
+            "n_llm_calls_mean": 1.0125,
+            "fix_rate": 0.7333,
+            "true_regression_rate": 0.0667,
+            "n_injected_scored": 120
+          },
+          "C1": {
+            "delta_comet_mean": -0.0007930198684334755,
+            "delta_comet_ci95": [
+              -0.001946283131837845,
+              0.00037852320820093156
+            ],
+            "n_scored": 160,
+            "edit_volume_mean": 0.0121,
+            "n_llm_calls_mean": 0.8,
+            "fix_rate": 0.4,
+            "true_regression_rate": 0.15,
+            "n_injected_scored": 120
+          }
+        }
+      },
+      "pooled": {
+        "B": {
+          "delta_comet_mean": -0.016440192796289922,
+          "delta_comet_ci95": [
+            -0.023672904632985593,
+            -0.010065690614283085
+          ],
+          "n_scored": 320,
+          "fix_rate": 0.7375,
+          "true_regression_rate": 0.05,
+          "n_injected_scored": 240
+        },
+        "D": {
+          "delta_comet_mean": -0.015689943358302115,
+          "delta_comet_ci95": [
+            -0.022573553398251532,
+            -0.009700932446867228
+          ],
+          "n_scored": 320,
+          "fix_rate": 0.7375,
+          "true_regression_rate": 0.05,
+          "n_injected_scored": 240
+        },
+        "C1": {
+          "delta_comet_mean": -0.003549609985202551,
+          "delta_comet_ci95": [
+            -0.007061060890555382,
+            -0.000843074731528759
+          ],
+          "n_scored": 320,
+          "fix_rate": 0.4542,
+          "true_regression_rate": 0.125,
+          "n_injected_scored": 240
+        }
+      }
+    },
+    "cost_ledger": {
+      "spent_usd": 0.06574,
+      "cap_usd": 10.0,
+      "n_calls": 1447,
+      "n_input_tokens": 637571,
+      "n_output_tokens": 225746
+    },
+    "runtime_seconds": 774.6,
+    "injected_pool_localization_protocol_caveat": "Injected rows carry no native QE signal, so conditions B and D use an ORACLE QE span (the row's known corrupted-span offsets, severity='major') as their masking input on the injected-pool subset -- th...",
+    "fix_rate_and_regression_definitions": "fix_rate (per injected row) = 1 if the exact corrupted_span string is no longer present (substring search) in the repaired output, else 0. true_regression_rate = 1 if the number of gold-reference inva..."
+  },
+  "datasets": [
+    {
+      "dataset": "natural_repair_B_D_C1",
+      "examples": [
+        {
+          "input": "[en-ru_RU] You can get a folding leaf table, and if you saw off the bottom 15cm or so of the panels forming the sides and front of the table, and also don't bother to attach any of the the back leaf, ...",
+          "output": "Можно приобрести складной стол, и если отпилить нижние 15 см или около того панелей, образующих бока и переднюю часть стола, а также не заморачиваться с креплением задней части, то он станет ровно так...",
+          "metadata_row_id": "wmt25_task3_natural:3466",
+          "metadata_language_pair": "en-ru_RU",
+          "metadata_domain": "social",
+          "predict_b": "Можно приобрести складной стол, и если отпилить нижние 15 см или около того панелей, образующих боковые стороны и переднюю часть стола, а также не заморачиваться с креплением задней части, то он стане...",
+          "metadata_b_n_llm_calls": 1,
+          "metadata_b_edit_volume": 0.1714,
+          "metadata_b_leakage": false,
+          "metadata_b_no_op": false,
+          "predict_d": "Можно приобрести складной стол, и если отпилить нижние 15 см или около того панелей, образующих боковые стороны и переднюю часть стола, а также не заморачиваться с креплением задней части, то он стане...",
+          "metadata_d_n_llm_calls": 1,
+          "metadata_d_edit_volume": 0.1714,
+          "metadata_d_leakage": false,
+          "metadata_d_no_op": false,
+          "metadata_d_hygiene_triggered": false,
+          "predict_c1": "Можно приобрести складной стол, и если отпилить нижние 15cm или около того панелей, образующих бока и переднюю часть стола, а также не заморачиваться с креплением задней части, то он станет ровно тако...",
+          "metadata_c1_n_llm_calls": 1,
+          "metadata_c1_edit_volume": 0.019,
+          "metadata_c1_leakage": false,
+          "metadata_c1_no_op": false,
+          "metadata_c1_n_flags": 2,
+          "metadata_c1_flag_categories": [
+            "negation_polarity",
+            "number_unit_date"
+          ]
+        },
+        {
+          "input": "[en-ru_RU] Curve line up, down, connect on the left, and i'm going to go one, two, three, four little dots, and on the right -hand side, i'm going to do it again. I draw a curve line up, over, curve l...",
+          "output": "Кривая линия вверх, вниз, соединяем слева, и я нарисую одну, две, три, четыре маленьких точки, а на правой стороне я сделаю это снова. Я рисую кривую линию вверх, затем через, кривую линию внутрь, сое...",
+          "metadata_row_id": "wmt25_task3_natural:3996",
+          "metadata_language_pair": "en-ru_RU",
+          "metadata_domain": "speech",
+          "predict_b": "Вверх, вниз, соединяю слева, и я нарисую одну, две, три, четыре маленьких точки, а на правой стороне я сделаю это снова. Я рисую кривую линию вверх, вниз, соединяю, и я нарисую одну, две, три, четыре ...",
+          "metadata_b_n_llm_calls": 1,
+          "metadata_b_edit_volume": 0.119,
+          "metadata_b_leakage": false,
+          "metadata_b_no_op": false,
+          "predict_d": "Вверх, вниз, соединяюсь слева, и я нарисую одну, две, три, четыре маленьких точки, а на правой стороне я сделаю это снова. Я рисую кривую линию вверх, вниз, соединяюсь, и я нарисую одну, две, три, чет...",
+          "metadata_d_n_llm_calls": 1,
+          "metadata_d_edit_volume": 0.131,
+          "metadata_d_leakage": false,
+          "metadata_d_no_op": false,
+          "metadata_d_hygiene_triggered": false,
+          "predict_c1": "Кривая линия вверх, вниз, соединяем слева, и я нарисую одну, две, три, четыре маленьких точки, а на правой стороне я сделаю это снова. Я рисую кривую линию вверх, затем через, кривую линию внутрь, сое...",
+          "metadata_c1_n_llm_calls": 0,
+          "metadata_c1_edit_volume": 0.0,
+          "metadata_c1_leakage": false,
+          "metadata_c1_no_op": true,
+          "metadata_c1_n_flags": 0,
+          "metadata_c1_flag_categories": []
+        },
+        {
+          "input": "[en-ru_RU] 2/3\\nThis Ie Island #rum is from the Single island series. It was the only one I could get - besides the all island blend bottle, in my too brief ¾ day in #Naha #Okinawa Here's their webpag...",
+          "output": "2/3\\nЭтот ром Ie Island #rum из серии Single island. Это был единственный, который я смог купить, кроме бутылки с купажированным ромом со всех островов, за мои слишком короткие ¾ дня в #Наха #Окинава\\...",
+          "metadata_row_id": "wmt25_task3_natural:3306",
+          "metadata_language_pair": "en-ru_RU",
+          "metadata_domain": "social",
+          "predict_b": "2/3\\nЭто ром Ie Island из серии Single island. Это был единственный, который я смог купить, кроме бутылки с купажированным ромом со всех островов, за мои слишком короткие ¾ дня в #Наха #Окинава\\nВот и...",
+          "metadata_b_n_llm_calls": 1,
+          "metadata_b_edit_volume": 0.0889,
+          "metadata_b_leakage": false,
+          "metadata_b_no_op": false,
+          "predict_d": "2/3\\nЭто ром Ie Island из серии Single island. Это был единственный, который я смог купить, кроме бутылки с купажированным ромом со всех островов, за мои слишком короткие ¾ дня в #Наха #Окинава\\nВот и...",
+          "metadata_d_n_llm_calls": 1,
+          "metadata_d_edit_volume": 0.0889,
+          "metadata_d_leakage": false,
+          "metadata_d_no_op": false,
+          "metadata_d_hygiene_triggered": false,
+          "predict_c1": "2/3\\nЭтот ром Ie Island #rum из серии Single island. Это был единственный, который я смог купить, кроме бутылки с купажированным ромом со всех островов, за мои слишком короткие ¾ дня в #Наха #Окинава\\...",
+          "metadata_c1_n_llm_calls": 1,
+          "metadata_c1_edit_volume": 0.0,
+          "metadata_c1_leakage": false,
+          "metadata_c1_no_op": false,
+          "metadata_c1_n_flags": 3,
+          "metadata_c1_flag_categories": [
+            "number_unit_date",
+            "quantifier_scope"
+          ]
+        }
+      ]
+    },
+    {
+      "dataset": "injected_pool_repair_B_D_C1",
+      "examples": [
+        {
+          "input": "[en-ru_RU/named_entity_swap] Jakob Nielsen’s all-in on AI is melting my brain.",
+          "output": "У меня мозги плавятся от того, как Йорка Майк Лоулер обращается с ИИ.",
+          "metadata_row_id": "injected_error_augmentation:1427",
+          "metadata_language_pair": "en-ru_RU",
+          "metadata_invariant_category": "named_entity_swap",
+          "predict_b": "Якоб Нильсен обращается с ИИ.",
+          "metadata_b_fixed": true,
+          "metadata_b_true_regression": false,
+          "metadata_b_n_llm_calls": 1,
+          "predict_d": "Якоб Нильсен обращается с ИИ.",
+          "metadata_d_fixed": true,
+          "metadata_d_true_regression": false,
+          "metadata_d_n_llm_calls": 1,
+          "predict_c1": "У меня мозги плавятся от того, как Йорка Майк Лоулер обращается с ИИ.",
+          "metadata_c1_fixed": false,
+          "metadata_c1_true_regression": false,
+          "metadata_c1_n_llm_calls": 0
+        },
+        {
+          "input": "[en-ru_RU/named_entity_swap] Perry Cooper, a media representative from the Port of Seattle, which oversees Seattle-Tacoma International Airport, said in an email that there are a wide variety of reaso...",
+          "output": "Перри Купер, представитель СМИ порта Сиэтла, курирующего международный аэропорт УльманнТакома, в электронном письме обратил внимание, что существует множество причин, по которым происходят аварии, от ...",
+          "metadata_row_id": "injected_error_augmentation:1306",
+          "metadata_language_pair": "en-ru_RU",
+          "metadata_invariant_category": "named_entity_swap",
+          "predict_b": "Перри Купер, представитель СМИ порта Сиэтла, курирующего международный аэропорт Сиэтл-Такома, в электронном письме обратил внимание, что существует множество причин, по которым происходят аварии, от п...",
+          "metadata_b_fixed": true,
+          "metadata_b_true_regression": false,
+          "metadata_b_n_llm_calls": 1,
+          "predict_d": "Перри Купер, представитель СМИ порта Сиэтла, курирующего международный аэропорт Сиэтл-Такома, в электронном письме обратил внимание, что существует множество причин, по которым происходят аварии, от п...",
+          "metadata_d_fixed": true,
+          "metadata_d_true_regression": false,
+          "metadata_d_n_llm_calls": 1,
+          "predict_c1": "Перри Купер, представитель СМИ порта Сиэтла, курирующего международный аэропорт УльманнТакома, в электронном письме обратил внимание, что существует множество причин, по которым происходят аварии, от ...",
+          "metadata_c1_fixed": false,
+          "metadata_c1_true_regression": false,
+          "metadata_c1_n_llm_calls": 0
+        },
+        {
+          "input": "[en-ru_RU/named_entity_swap] Thus, we had the introduction of the Cost of Living (Tenant protection) (Scotland) Act 2022 nearly 18 months ago which sought to cap rents for a limited period to ease the...",
+          "output": "Так, почти 18 месяцев назад был принят закон о прожиточном минимуме (защите арендатора) (Швеции) от 2022 года, который должен был временно остановить рост цен на аренду жилья, чтобы снизить давление ф...",
+          "metadata_row_id": "injected_error_augmentation:1215",
+          "metadata_language_pair": "en-ru_RU",
+          "metadata_invariant_category": "named_entity_swap",
+          "predict_b": "Так, почти 18 месяцев назад был принят закон о прожиточном минимуме (защите арендатора) (Шотландии) от 2022 года, который должен был временно остановить рост цен на аренду жилья, чтобы снизить давлени...",
+          "metadata_b_fixed": true,
+          "metadata_b_true_regression": false,
+          "metadata_b_n_llm_calls": 1,
+          "predict_d": "Так, почти 18 месяцев назад был принят закон о прожиточном минимуме (защите арендатора) (Шотландии) от 2022 года, который должен был временно остановить рост цен на аренду жилья, чтобы снизить давлени...",
+          "metadata_d_fixed": true,
+          "metadata_d_true_regression": false,
+          "metadata_d_n_llm_calls": 1,
+          "predict_c1": "Так, почти 18 месяцев назад был принят закон о прожиточном минимуме (защите арендатора) (Шотландии) от 2022 года, который должен был временно остановить рост цен на аренду жилья, чтобы снизить давлени...",
+          "metadata_c1_fixed": true,
+          "metadata_c1_true_regression": false,
+          "metadata_c1_n_llm_calls": 1
+        }
+      ]
+    }
+  ]
+}

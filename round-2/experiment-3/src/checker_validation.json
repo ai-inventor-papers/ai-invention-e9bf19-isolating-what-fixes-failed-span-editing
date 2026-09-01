@@ -1,0 +1,74 @@
+{
+  "per_cell": {
+    "ru_RU|named_entity": {
+      "lang": "ru_RU",
+      "category": "named_entity",
+      "n_rows": 23,
+      "recall": 1.0,
+      "precision": 0.3239,
+      "n_flags_total": 71
+    },
+    "ru_RU|number_unit_date": {
+      "lang": "ru_RU",
+      "category": "number_unit_date",
+      "n_rows": 23,
+      "recall": 1.0,
+      "precision": 0.575,
+      "n_flags_total": 40
+    },
+    "ru_RU|negation_polarity": {
+      "lang": "ru_RU",
+      "category": "negation_polarity",
+      "n_rows": 23,
+      "recall": 0.5217,
+      "precision": 0.8571,
+      "n_flags_total": 14
+    },
+    "ru_RU|quantifier_scope": {
+      "lang": "ru_RU",
+      "category": "quantifier_scope",
+      "n_rows": 23,
+      "recall": 0.5652,
+      "precision": 0.5909,
+      "n_flags_total": 22
+    },
+    "uk_UA|named_entity": {
+      "lang": "uk_UA",
+      "category": "named_entity",
+      "n_rows": 23,
+      "recall": 0.6957,
+      "precision": 0.3696,
+      "n_flags_total": 46
+    },
+    "uk_UA|number_unit_date": {
+      "lang": "uk_UA",
+      "category": "number_unit_date",
+      "n_rows": 23,
+      "recall": 1.0,
+      "precision": 0.575,
+      "n_flags_total": 40
+    },
+    "uk_UA|negation_polarity": {
+      "lang": "uk_UA",
+      "category": "negation_polarity",
+      "n_rows": 23,
+      "recall": 0.6087,
+      "precision": 0.7778,
+      "n_flags_total": 18
+    },
+    "uk_UA|quantifier_scope": {
+      "lang": "uk_UA",
+      "category": "quantifier_scope",
+      "n_rows": 14,
+      "recall": 0.4286,
+      "precision": 0.5,
+      "n_flags_total": 12
+    }
+  },
+  "excluded_cells": [
+    "ru_RU|named_entity",
+    "uk_UA|named_entity",
+    "uk_UA|quantifier_scope"
+  ],
+  "precision_definition_caveat": "Precision is computed against the SINGLE known-corrupted span per heldout row; every other genuine invariant span the detector also (correctly) flags in that sentence counts against precision, so these numbers are a conservative lower bound on true localization precision, not an unbiased estimate."
+}
