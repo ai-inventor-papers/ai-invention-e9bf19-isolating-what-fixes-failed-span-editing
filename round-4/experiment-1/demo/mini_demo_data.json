@@ -1,0 +1,2701 @@
+{
+  "metadata": {
+    "method_name": "checker_broadened_iterative_repair_C",
+    "description": "Condition C: checker-broadened localization (C1) + iterative repair-and-reverify (C2) combined -- detect_all() re-run FRESH every pass on the CURRENT text, up to MAX_PASSES=3, stopping on a zero-flag certificate. Wrapped in per-call hard timeout + retry, heartbeat logging, incremental resumable JSONL writes, and a wall-clock cap, to survive/diagnose the silent stall that killed the prior attempt at this exact condition (iter_3/gen_art_experiment_2).",
+    "repair_model": "google/gemma-3-12b-it",
+    "seed": 42,
+    "max_passes": 3,
+    "language_pairs": [
+      "en-ru_RU",
+      "en-uk_UA"
+    ],
+    "checker_validation": {
+      "per_cell": {
+        "ru_RU|named_entity": {
+          "lang": "ru_RU",
+          "category": "named_entity",
+          "n_rows": 23,
+          "recall": 0.0,
+          "precision": 0.0,
+          "n_flags_total": 0
+        },
+        "ru_RU|number_unit_date": {
+          "lang": "ru_RU",
+          "category": "number_unit_date",
+          "n_rows": 23,
+          "recall": 1.0,
+          "precision": 0.575,
+          "n_flags_total": 40
+        },
+        "ru_RU|negation_polarity": {
+          "lang": "ru_RU",
+          "category": "negation_polarity",
+          "n_rows": 23,
+          "recall": 0.5217,
+          "precision": 0.8571,
+          "n_flags_total": 14
+        },
+        "ru_RU|quantifier_scope": {
+          "lang": "ru_RU",
+          "category": "quantifier_scope",
+          "n_rows": 23,
+          "recall": 0.5652,
+          "precision": 0.5909,
+          "n_flags_total": 22
+        },
+        "uk_UA|named_entity": {
+          "lang": "uk_UA",
+          "category": "named_entity",
+          "n_rows": 23,
+          "recall": 0.0,
+          "precision": 0.0,
+          "n_flags_total": 0
+        },
+        "uk_UA|number_unit_date": {
+          "lang": "uk_UA",
+          "category": "number_unit_date",
+          "n_rows": 23,
+          "recall": 1.0,
+          "precision": 0.575,
+          "n_flags_total": 40
+        },
+        "uk_UA|negation_polarity": {
+          "lang": "uk_UA",
+          "category": "negation_polarity",
+          "n_rows": 23,
+          "recall": 0.6087,
+          "precision": 0.7778,
+          "n_flags_total": 18
+        },
+        "uk_UA|quantifier_scope": {
+          "lang": "uk_UA",
+          "category": "quantifier_scope",
+          "n_rows": 14,
+          "recall": 0.4286,
+          "precision": 0.5,
+          "n_flags_total": 12
+        }
+      },
+      "excluded_cells": [
+        "ru_RU|named_entity",
+        "uk_UA|named_entity",
+        "uk_UA|quantifier_scope"
+      ]
+    },
+    "metrics_full_run": {
+      "injected_pooled_incl_negation": {
+        "n_rows": 240,
+        "n_attempted": 180,
+        "fix_rate": 0.6278,
+        "true_regression_rate": 0.2167,
+        "certificate_rate": 0.2667,
+        "n_passes_mean": 2.2944,
+        "n_llm_calls_mean": 2.2944
+      },
+      "injected_pooled_excl_negation": {
+        "n_rows": 180,
+        "n_attempted": 180,
+        "fix_rate": 0.6278,
+        "true_regression_rate": 0.2167
+      },
+      "negation_attemptability": {
+        "n_negation_deletion_rows": 60,
+        "n_localized_pre_repair_by_broadened_checker": 35,
+        "localization_rate": 0.5833,
+        "interpretation": "Fraction of negation_polarity_flip DELETION rows (no contiguous corrupted substring; B/D/C2's oracle-span localization structurally cannot even attempt these) where Condition C's checker-based detect_all() flagged the sentence on pass 1, BEFORE any repair -- i.e. the broadened, absence-vs-source localization heuristic in checker.py's detect_negation_polarity actually saw the deletion. This is a genuinely new number: B/D/C2 never computed it because their localization mechanism could not produce it."
+      },
+      "natural_pooled": {
+        "delta_comet_mean": 0.0016050057769635526,
+        "delta_comet_ci95": [
+          0.0005051271995922844,
+          0.0027132961159482055
+        ],
+        "n_scored": 320,
+        "n_llm_calls_mean": 2.5281,
+        "n_passes_mean": 2.5281,
+        "n_hard_failed": 0
+      }
+    },
+    "comparison_table_B_D_C1_C2_vs_C": {
+      "conditions": {
+        "B": {
+          "delta_comet_mean": -0.016440192796289922,
+          "delta_comet_ci95": [
+            -0.023672904632985593,
+            -0.010065690614283085
+          ],
+          "n_natural_scored": 320,
+          "fix_rate_pooled": 0.7375,
+          "true_regression_rate_pooled": 0.05,
+          "n_injected_scored": 240
+        },
+        "D": {
+          "delta_comet_mean": -0.015689943358302115,
+          "delta_comet_ci95": [
+            -0.022573553398251532,
+            -0.009700932446867228
+          ],
+          "n_natural_scored": 320,
+          "fix_rate_pooled": 0.7375,
+          "true_regression_rate_pooled": 0.05,
+          "n_injected_scored": 240
+        },
+        "C1": {
+          "delta_comet_mean": -0.003549609985202551,
+          "delta_comet_ci95": [
+            -0.007061060890555382,
+            -0.000843074731528759
+          ],
+          "n_natural_scored": 320,
+          "fix_rate_pooled": 0.4542,
+          "true_regression_rate_pooled": 0.125,
+          "n_injected_scored": 240
+        },
+        "C2": {
+          "delta_comet_mean": -0.01663663759827614,
+          "delta_comet_ci95": [
+            -0.024302838277071713,
+            -0.008813321962952614
+          ],
+          "n_natural_scored": 320,
+          "fix_rate_pooled": 0.9889,
+          "true_regression_rate_pooled": 0.0722,
+          "n_injected_scored": 180,
+          "certificate_rate_pooled": 0.9167
+        },
+        "C": {
+          "delta_comet_mean": 0.0016050057769635526,
+          "delta_comet_ci95": [
+            0.0005051271995922844,
+            0.0027132961159482055
+          ],
+          "n_natural_scored": 320,
+          "fix_rate_pooled_incl_negation": 0.6278,
+          "true_regression_rate_pooled_incl_negation": 0.2167,
+          "fix_rate_pooled_excl_negation": 0.6278,
+          "true_regression_rate_pooled_excl_negation": 0.2167,
+          "n_injected_scored_incl_negation": 180,
+          "certificate_rate_pooled": 0.2667,
+          "n_llm_calls_mean": 2.2944,
+          "negation_attemptability_rate": 0.5833
+        }
+      },
+      "paired_bootstrap_c_vs_c2_note": "C2's per-row DeltaCOMET array is not persisted in its method_out.json metadata -- a true paired bootstrap against C2 is not computable here; reusing the documented normal-approximation substitute from the C1-vs-C2 comparison instead of fabricating pairing.",
+      "success_criterion_note": "Read true_regression_rate_pooled_excl_negation and delta_comet_mean directly off this table for B/D/C1/C2/C. The excl_negation figures are the ones comparable to B/D/C2's own pooled fix_rate/true_regression_rate (whose denominators never included negation-deletion rows); the incl_negation figures are Condition C's own genuinely-new broader denominator."
+    }
+  },
+  "datasets": [
+    {
+      "dataset": "natural_repair_C",
+      "examples": [
+        {
+          "input": "[en-ru_RU] #UniversityChallenge game 13 was a curious one, with Leicester being jokey, wasting time and never getting going, while the LSE captain would often turn to the farthest player for an answer, which was not infrequently wrong. Still, LSE cleaned up. I liked the blues bonus round, though sadly Leicester got none. Canadian mentions: WL Mackenzie King and Margaret Atwood. The best part was Roger Tilling saying \"Leicester Lister!\"",
+          "output": "Игра #UniversityChallenge 13 была любопытной: Лестер шутил, тратил время и так и не начал, в то время как капитан LSE часто обращался к самому дальнему игроку за ответом, который часто оказывался неверным. Тем не менее, LSE выиграл. Мне понравилась бонусная раунд с блюзами, хотя, к сожалению, Лестер не получил ни одного. Канадцы упоминают: У. Л. Маккензи Кинга и Маргарет Этвуд. Лучшая часть была, когда Роджер Тиллинг сказал: \"Лестер Листер!\"",
+          "predict_c": "Игра #UniversityChallenge номер 13 была любопытной: Лестер шутил, тратил время и так и не начал, в то время как капитан LSE часто обращался к самому дальнему игроку за ответом, который часто оказывался неверным. Тем не менее, LSE выиграл. Мне понравилась бонусная раунд с блюзами, хотя, к сожалению, Лестер не получил ни одного. Канадские упоминания: У. Л. Маккензи Кинг и Маргарет Этвуд. Лучшая часть была, когда Роджер Тиллинг сказал: \"Лестер Листер!\"",
+          "metadata_row_id": "wmt25_task3_natural:3651",
+          "metadata_language_pair": "en-ru_RU",
+          "metadata_domain": "social",
+          "metadata_status": "budget_exhausted",
+          "metadata_c_n_passes": 3,
+          "metadata_c_n_llm_calls": 3,
+          "metadata_c_certificate_achieved": false,
+          "metadata_c_edit_volume": 0.058,
+          "metadata_c_leakage": false,
+          "metadata_c_no_op": false,
+          "metadata_c_pass_log": [
+            {
+              "pass_num": 1,
+              "n_flags": 4,
+              "flag_categories": [
+                "negation_polarity",
+                "number_unit_date"
+              ],
+              "edit_distance_chars": 16,
+              "error": null,
+              "input_tokens": 488,
+              "output_tokens": 131
+            },
+            {
+              "pass_num": 2,
+              "n_flags": 4,
+              "flag_categories": [
+                "negation_polarity",
+                "number_unit_date"
+              ],
+              "edit_distance_chars": 13,
+              "error": null,
+              "input_tokens": 487,
+              "output_tokens": 131
+            },
+            {
+              "pass_num": 3,
+              "n_flags": 5,
+              "flag_categories": [
+                "negation_polarity",
+                "number_unit_date"
+              ],
+              "edit_distance_chars": 11,
+              "error": null,
+              "input_tokens": 509,
+              "output_tokens": 132
+            }
+          ],
+          "metadata_delta_comet": -0.01869158878504673
+        },
+        {
+          "input": "[en-ru_RU] “Night,” Declan mumbled, voice low.\\nKyle paused at the door, gave him a look that was genuine. “We’re glad you’re here, Declan. Really.”\\nAnd just like that, they left him to it. The door left slightly ajar, like a quiet sign he wasn’t on his own here.\\nDeclan stood for a moment, duffel still in hand, just taking it in. The house was quiet now, except for the faint sound of a TV down the hall and the occasional creak of floorboards.\\nHe let out a long breath, dropped his bag by the desk, and sat on the edge of the bed. He kicked off his shoes and lay back, hands behind his head, eyes tracing the ceiling. Through the door of the Jack and Jill bathroom, he could hear faint movement; Ryan brushing his teeth maybe, or just walking around his own room. A shared wall, a shared life, starting now.\\nMaybe this year wouldn’t suck.",
+          "output": "«Спокойной ночи», — тихо пробормотал Деклан.\\nКайл остановился в дверях и посмотрел на него искренним взглядом. «Мы рады, что ты здесь, Деклан. Правда».\\nИ они оставили его одного. Дверь осталась приоткрытой, словно молчаливое напоминание о том, что он здесь не один.\\nДеклан постоял еще немного с сумкой в руке, осматриваясь. В доме было тихо, только из коридора доносился приглушенный звук телевизора и изредка поскрипывали половицы.\\nОн глубоко вздохнул, поставил сумку у стола и сел на край кровати.\\nОн сбросил обувь, лег на спину и закинул руки за голову, разглядывая потолок. Из смежной ванной доносились тихие звуки: то ли Райан чистил зубы, то ли просто ходил по комнате.\\nОбщая стена, общая жизнь, которая начинается прямо сейчас.\\nМожет быть, этот год не будет таким ужасным.",
+          "predict_c": "«Спокойной ночи», — тихо пробормотал Деклан.\\nКайл остановился в дверях и посмотрел на него искренним взглядом. «Мы рады, что ты здесь, Деклан. Правда».\\nИ они оставили его одного. Дверь осталась приоткрытой, словно молчаливое напоминание о том, что он здесь не один.\\nДеклан постоял еще немного с сумкой в руке, осматриваясь. В доме было тихо, только из коридора доносился приглушенный звук телевизора и изредка поскрипывали половицы.\\nОн глубоко вздохнул, поставил сумку у стола и сел на край кровати.\\nОн сбросил обувь, лег на спину и закинул руки за голову, разглядывая потолок. Из смежной ванной доносились тихие звуки: то ли Райан чистил зубы, то ли просто ходил по комнате.\\nОбщая стена, общая жизнь, которая начинается прямо сейчас.\\nМожет быть, этот год не будет плохим.",
+          "metadata_row_id": "wmt25_task3_natural:3722",
+          "metadata_language_pair": "en-ru_RU",
+          "metadata_domain": "literary",
+          "metadata_status": "budget_exhausted",
+          "metadata_c_n_passes": 3,
+          "metadata_c_n_llm_calls": 3,
+          "metadata_c_certificate_achieved": false,
+          "metadata_c_edit_volume": 0.0172,
+          "metadata_c_leakage": false,
+          "metadata_c_no_op": false,
+          "metadata_c_pass_log": [
+            {
+              "pass_num": 1,
+              "n_flags": 2,
+              "flag_categories": [
+                "negation_polarity"
+              ],
+              "edit_distance_chars": 12,
+              "error": null,
+              "input_tokens": 677,
+              "output_tokens": 249
+            },
+            {
+              "pass_num": 2,
+              "n_flags": 2,
+              "flag_categories": [
+                "negation_polarity"
+              ],
+              "edit_distance_chars": 6,
+              "error": null,
+              "input_tokens": 676,
+              "output_tokens": 249
+            },
+            {
+              "pass_num": 3,
+              "n_flags": 2,
+              "flag_categories": [
+                "negation_polarity"
+              ],
+              "edit_distance_chars": 6,
+              "error": null,
+              "input_tokens": 676,
+              "output_tokens": 249
+            }
+          ],
+          "metadata_delta_comet": -0.008393285371702697
+        },
+        {
+          "input": "[en-ru_RU] I hope Johnson is pleased with the way things have worked out. Because now the foolish wokerati have been schooled beyond Johnson's wettest dreams. It's the Trump-Putin-bin Salman party! An adjudicated sex offender and convicted fraudster, and a man who sanctioned a chemical warfare hit, killing a British citizen on British soil, have met at the luxury Saudia Arabian hotel of another man, who, according to the US, reportedly approved the murder and subsequent dismemberment of a journalist, to discuss the similarly brutal dismemberment of Ukraine, without consulting either Ukraine itself or the countries most directly affected by the legitimisation of Putin's territorial anxieties. Don't worry, Poland! Stable genius Trump has got this covered, so break out the bone saws, pop the cork on the novichok and grab the girls by the pussy! There are 1970s Italian slasher films with less gruesome plotlines. Well said, Boris Johnson! That's certainly stuck it to the wokerati!",
+          "output": "Можно надеяться, что Джонсон доволен тем, как всё обернулось. Ведь теперь прогрессивная общественность получила урок, о котором Джонсон не мог и мечтать. Это вечеринка Трампа, Путина и бен Салмана! Человек, признанный судом виновным в сексуальном насилии и мошенничестве, и человек, санкционировавший применение химического оружия, в результате которого на британской земле погиб британский гражданин, встретились в роскошном саудовском отеле с другим человеком, который, по данным США, предположительно одобрил убийство и последующее расчленение журналиста, чтобы обсудить столь же жестокое расчленение Украины, не посоветовавшись ни с самой Украиной, ни со странами, наиболее непосредственно затронутыми легитимизацией территориальных притязаний Путина. Сюжеты итальянских слэшеров 1970-х годов и то менее ужасны. Браво, Борис Джонсон! Вот так вы уязвили прогрессивную общественность!",
+          "predict_c": "Можно надеяться, что Джонсон доволен тем, как всё обернулось. Ведь теперь прогрессивная общественность получила урок, о котором Джонсон не мог и мечтать. Это вечеринка Трампа, Путина и бен Салмана! Человек, признанный судом виновным в сексуальном насилии и мошенничестве, и человек, санкционировавший применение химического оружия, в результате которого на британской земле погиб британский гражданин, встретились в роскошном саудовском отеле с другим человеком, который, по данным США, предположительно одобрил убийство и последующее расчленение журналиста, чтобы обсудить столь же жестокое расчленение Украины, не посоветовавшись ни с самой Украиной, ни со странами, наиболее непосредственно затронутыми легитимизацией территориальных притязаний Путина. Сюжеты итальянских слэшеров семидесятых годов и то менее ужасны. Браво, Борис Джонсон! Вот так вы укололи прогрессивную общественность!",
+          "metadata_row_id": "wmt25_task3_natural:3011",
+          "metadata_language_pair": "en-ru_RU",
+          "metadata_domain": "news",
+          "metadata_status": "budget_exhausted",
+          "metadata_c_n_passes": 3,
+          "metadata_c_n_llm_calls": 3,
+          "metadata_c_certificate_achieved": false,
+          "metadata_c_edit_volume": 0.0177,
+          "metadata_c_leakage": false,
+          "metadata_c_no_op": false,
+          "metadata_c_pass_log": [
+            {
+              "pass_num": 1,
+              "n_flags": 3,
+              "flag_categories": [
+                "negation_polarity",
+                "number_unit_date",
+                "quantifier_scope"
+              ],
+              "edit_distance_chars": 10,
+              "error": null,
+              "input_tokens": 690,
+              "output_tokens": 231
+            },
+            {
+              "pass_num": 2,
+              "n_flags": 2,
+              "flag_categories": [
+                "negation_polarity",
+                "quantifier_scope"
+              ],
+              "edit_distance_chars": 4,
+              "error": null,
+              "input_tokens": 660,
+              "output_tokens": 231
+            },
+            {
+              "pass_num": 3,
+              "n_flags": 2,
+              "flag_categories": [
+                "negation_polarity",
+                "quantifier_scope"
+              ],
+              "edit_distance_chars": 0,
+              "error": null,
+              "input_tokens": 660,
+              "output_tokens": 231
+            }
+          ],
+          "metadata_delta_comet": 0.005107252298263587
+        },
+        {
+          "input": "[en-ru_RU] we don't necessarily need an ersatz munch squad about this - we live in america, the average manhole leads to the garden of earthly delights original mario bros movie style, so why should the lakers arena be necessarily different. it's, like, fair food, no worse than fried oreos. even so, there is something perhaps post-fierian about the ramen-rito, a burrito where the primary carbohydrate substrate is cooked ramen, and which advertises \"fresh scallions\". Uh, yeah, I sure hope it does.",
+          "output": "Нам не то чтобы нужен какой-то эрзац-отряд дегустаторов по этому поводу — мы живём в Америке, где обычный канализационный люк ведёт в «Сад земных наслаждений», прямо как в оригинальном фильме про братьев Марио, так с чего бы арене «Лейкерс» быть исключением. Это, типа, еда с ярмарки, не хуже жареных «Орео». И всё же в рамен-рито — буррито, где основной углеводный компонент это варёный рамен и в рекламе которого хвастаются «свежим зелёным луком», — есть что-то, пожалуй, пост-фиериевское. Хм, да, ещё бы его там не было.",
+          "predict_c": "Нам не обязательно нужен какой-то эрзац-отряд дегустаторов по этому поводу — мы живём в Америке, где обычный канализационный люк ведёт в «Сад земных наслаждений», прямо как в оригинальном фильме про братьев Марио, так с чего бы арене «Лейкерс» быть исключением. Это, типа, еда с ярмарки, не хуже жареных «Орео». И всё же в рамен-рито — буррито, где основной углеводный компонент это варёный рамен и в рекламе которого хвастаются «свежим зелёным луком», — есть что-то, пожалуй, пост-фиериевское. Хм, да, ещё бы его там быть.",
+          "metadata_row_id": "wmt25_task3_natural:3575",
+          "metadata_language_pair": "en-ru_RU",
+          "metadata_domain": "social",
+          "metadata_status": "budget_exhausted",
+          "metadata_c_n_passes": 3,
+          "metadata_c_n_llm_calls": 3,
+          "metadata_c_certificate_achieved": false,
+          "metadata_c_edit_volume": 0.0471,
+          "metadata_c_leakage": false,
+          "metadata_c_no_op": false,
+          "metadata_c_pass_log": [
+            {
+              "pass_num": 1,
+              "n_flags": 4,
+              "flag_categories": [
+                "negation_polarity",
+                "quantifier_scope"
+              ],
+              "edit_distance_chars": 15,
+              "error": null,
+              "input_tokens": 537,
+              "output_tokens": 166
+            },
+            {
+              "pass_num": 2,
+              "n_flags": 3,
+              "flag_categories": [
+                "negation_polarity",
+                "quantifier_scope"
+              ],
+              "edit_distance_chars": 10,
+              "error": null,
+              "input_tokens": 513,
+              "output_tokens": 166
+            },
+            {
+              "pass_num": 3,
+              "n_flags": 3,
+              "flag_categories": [
+                "negation_polarity",
+                "quantifier_scope"
+              ],
+              "edit_distance_chars": 10,
+              "error": null,
+              "input_tokens": 513,
+              "output_tokens": 166
+            }
+          ],
+          "metadata_delta_comet": 0.0
+        },
+        {
+          "input": "[en-ru_RU] It felt good. Easy. Like slipping into something that had always fit.\\nThe locker room buzzed with post-practice energy; snapping tape, the thud of gear hitting benches, and a steady stream of chirps flying from stall to stall.\\n“Not bad for the new guy,” one of the defensemen called, grinning as he peeled off his jersey. Declan smirked as he unstrapped his pads. “Figured I’d show up, impress a little, then humble you tomorrow.”\\nA few guys let out loud “Oooohs,” one of them chucking a rolled-up sock at him.\\nAs he dodged the sock, Declan caught Ryan watching him from across the room. Not in a hostile way, just…quietly. Studying. Like he was still deciding what to make of him.",
+          "output": "Мне было хорошо. Легко. Как будто я влез в то, что всегда было мне впору.\\nВ раздевалке после тренировки царило оживление: треск скотча, стук экипировки, падающей на скамьи, и непрекращающиеся возгласы, перелетающие от шкафчика к шкафчику.\\n«Неплохо для новичка», — сказал один из защитников, ухмыляясь и стягивая с себя майку.\\nДеклан ухмыльнулся, отстёгивая щитки. «Я решил прийти, немного покрасоваться, а завтра вас удивить».\\nНесколько парней громко протянули «О-о-о», а один кинул в него скрученным носком.\\nУвернувшись от носка, Деклан заметил, что Райан наблюдает за ним с другого конца раздевалки. Не враждебно, а просто… спокойно. Изучающе. Как будто он всё ещё решал, что о нём думать.",
+          "predict_c": "Мне было хорошо. Легко. Как будто я влез в то, что всегда было мне впору.\\nВ раздевалке после тренировки царило оживление: треск скотча, стук экипировки, падающей на скамьи, и непрекращающиеся возгласы, перелетающие от шкафчика к шкафчику.\\n«Неплохо для новичка», — сказал один из защитников, ухмыляясь и стягивая с себя майку.\\nДеклан ухмыльнулся, отстёгивая щитки. «Я решил прийти, немного покрасоваться, а завтра вас удивить».\\nНесколько парней громко протянули «О-о-о», а один кинул в него скрученным носком.\\nУвернувшись от носка, Деклан заметил, что Райан наблюдает за ним с другого конца раздевалки. Не враждебно, а просто… спокойно. Изучающе. Как будто он ещё решал, что о нём думать.",
+          "metadata_row_id": "wmt25_task3_natural:3096",
+          "metadata_language_pair": "en-ru_RU",
+          "metadata_domain": "literary",
+          "metadata_status": "budget_exhausted",
+          "metadata_c_n_passes": 3,
+          "metadata_c_n_llm_calls": 3,
+          "metadata_c_certificate_achieved": false,
+          "metadata_c_edit_volume": 0.01,
+          "metadata_c_leakage": false,
+          "metadata_c_no_op": false,
+          "metadata_c_pass_log": [
+            {
+              "pass_num": 1,
+              "n_flags": 3,
+              "flag_categories": [
+                "negation_polarity",
+                "quantifier_scope"
+              ],
+              "edit_distance_chars": 4,
+              "error": null,
+              "input_tokens": 677,
+              "output_tokens": 233
+            },
+            {
+              "pass_num": 2,
+              "n_flags": 2,
+              "flag_categories": [
+                "negation_polarity"
+              ],
+              "edit_distance_chars": 0,
+              "error": null,
+              "input_tokens": 653,
+              "output_tokens": 233
+            },
+            {
+              "pass_num": 3,
+              "n_flags": 2,
+              "flag_categories": [
+                "negation_polarity"
+              ],
+              "edit_distance_chars": 0,
+              "error": null,
+              "input_tokens": 653,
+              "output_tokens": 233
+            }
+          ],
+          "metadata_delta_comet": 0.005839416058394109
+        },
+        {
+          "input": "[en-ru_RU] Just got to game 16 of #UniversityChallenge today, a week late, and it was a nail-biter! Really fast work at the end, with Durham coming from behind in the last few minutes to catch SOAS London in a tie in the final seconds. It went to a starter question that I got on the first clue (being an SF reader I knew \"slipstream\") but neither team knew. Second question and SOAS London Lambert guessed alpaca but it was llama, so Durham won. Phew, what a finish. 😰",
+          "output": "Сегодня в #UniversityChallenge я добрался только до 16-го раунда, с опозданием на неделю, и это был nail-biter! Очень быстрая работа в конце, когда Дарем, проигрывая в последние несколько минут, догнал команду SOAS London и сравнял счет в последние секунды. Это было связано с начальным вопросом, который я получил по первому подсказке (будучи читателем SF, я знал, что такое slipstream), но ни одна команда этого не знала. Второй вопрос, и команда SOAS London Ламберт угадала альпака, но это была лама, поэтому Дарем выиграл. Уф, какой финал! 😰",
+          "predict_c": "Сегодня в #UniversityChallenge я добрался только до игры 16, с опозданием на неделю, и это был nail-biter! Очень быстрая работа в конце, когда Дарем, проигрывая в последние минуты, догнал команду SOAS London и сравнял счет в последние секунды. Это было связано с начальным вопросом, который я получил по первому подсказке (будучи читателем SF, я знал, что такое slipstream), но ни одна команда этого не знала. Второй вопрос, и команда SOAS London Ламберт угадала альпака, но это была лама, поэтому Дарем выиграл. Уф, какой финал! 😰",
+          "metadata_row_id": "wmt25_task3_natural:3154",
+          "metadata_language_pair": "en-ru_RU",
+          "metadata_domain": "social",
+          "metadata_status": "budget_exhausted",
+          "metadata_c_n_passes": 3,
+          "metadata_c_n_llm_calls": 3,
+          "metadata_c_certificate_achieved": false,
+          "metadata_c_edit_volume": 0.0465,
+          "metadata_c_leakage": false,
+          "metadata_c_no_op": false,
+          "metadata_c_pass_log": [
+            {
+              "pass_num": 1,
+              "n_flags": 2,
+              "flag_categories": [
+                "number_unit_date",
+                "quantifier_scope"
+              ],
+              "edit_distance_chars": 9,
+              "error": null,
+              "input_tokens": 485,
+              "output_tokens": 150
+            },
+            {
+              "pass_num": 2,
+              "n_flags": 2,
+              "flag_categories": [
+                "number_unit_date",
+                "quantifier_scope"
+              ],
+              "edit_distance_chars": 2,
+              "error": null,
+              "input_tokens": 482,
+              "output_tokens": 152
+            },
+            {
+              "pass_num": 3,
+              "n_flags": 2,
+              "flag_categories": [
+                "number_unit_date",
+                "quantifier_scope"
+              ],
+              "edit_distance_chars": 19,
+              "error": null,
+              "input_tokens": 483,
+              "output_tokens": 149
+            }
+          ],
+          "metadata_delta_comet": 0.03056768558951961
+        },
+        {
+          "input": "[en-uk_UA] Gotta watch a netflix show you feel me, but let me know down below. What show should i watch on netflix though? Because i'm i'm really having some trouble to find what show should i watch on netflix because sometimes it's super hard because every every week there is their new show every month. There's a new show. There's a movie. There's a movie series i don't even know what's going on on netflix. But look that's for the little dude, man. That was the video, man i talked so much but look i'm tired man your boys tired man look, that was my night routine. If you enjoyed this video man, leave a like down below that's for the little dude. It's your boy dro to saucy man stay saucy, man. I'm out that gleam. Yes, sir",
+          "output": "Треба дивитися серіал на Netflix, розумієте? А дайте знати нижче. Який серіал мені подивитися на Netflix? Бо мені дуже важко знайти, що подивитися на Netflix, бо іноді це суперважко, бо щотижня з'являється новий серіал, щомісяця новий серіал. Є фільм. Є серіал. Я навіть не знаю, що відбувається на Netflix. Але це для малого, чувак. Ось відео, чувак, я так багато говорив, але дивіться, я втомлений, ваші хлопці втомлені, чувак, дивіться, ось моя нічна рутина. Якщо вам сподобалося це відео, чувак, поставте лайк нижче, це для малого. Я ваш хлопець Dro для Saucy, чувак, залишайтеся пікантним, чувак. Я виходжу з цього блиску. Так, сер.",
+          "predict_c": "Треба дивитися серіал на Netflix, розумієте? А дайте знати нижче. Який серіал мені подивитися на Netflix? Бо мені дуже важко знайти, що подивитися на Netflix, бо іноді це суперважко, бо щотижня з'являється новий серіал, щомісяця новий серіал. Є фільм. Є серіал. Я навіть не знаю, що відбувається на Netflix. Але це для малого, чувак. Ось відео, чувак, я так багато говорив, але дивіться, я втомлений, ваші хлопці втомлені, чувак, дивіться, ось моя нічна рутина. Якщо вам сподобалося це відео, чувак, поставте лайк нижче, це для малого. Я ваш хлопець Dro для Saucy, чувак, залишайтеся пікантним, чувак. Я виходжу з цього блиску. Так, сер.",
+          "metadata_row_id": "wmt25_task3_natural:4261",
+          "metadata_language_pair": "en-uk_UA",
+          "metadata_domain": "speech",
+          "metadata_status": "budget_exhausted",
+          "metadata_c_n_passes": 3,
+          "metadata_c_n_llm_calls": 3,
+          "metadata_c_certificate_achieved": false,
+          "metadata_c_edit_volume": 0.0,
+          "metadata_c_leakage": false,
+          "metadata_c_no_op": false,
+          "metadata_c_pass_log": [
+            {
+              "pass_num": 1,
+              "n_flags": 1,
+              "flag_categories": [
+                "negation_polarity"
+              ],
+              "edit_distance_chars": 0,
+              "error": null,
+              "input_tokens": 603,
+              "output_tokens": 217
+            },
+            {
+              "pass_num": 2,
+              "n_flags": 1,
+              "flag_categories": [
+                "negation_polarity"
+              ],
+              "edit_distance_chars": 0,
+              "error": null,
+              "input_tokens": 603,
+              "output_tokens": 217
+            },
+            {
+              "pass_num": 3,
+              "n_flags": 1,
+              "flag_categories": [
+                "negation_polarity"
+              ],
+              "edit_distance_chars": 0,
+              "error": null,
+              "input_tokens": 603,
+              "output_tokens": 217
+            }
+          ],
+          "metadata_delta_comet": 0.0
+        },
+        {
+          "input": "[en-uk_UA] I suppose we tweakment holdouts will have to wait, and hope, for the tide to turn. As Ozempic and shiny veneers may make thinness and Hollywood teeth look boring and basic, perhaps perfect faces will fall from fashion? I mention the veneers, because when I was watching the Bridget Jones movie, I become fascinated by Chiwetel Ejiofor's teeth. They're absolutely lovely, yes, but sort of ... normal? One lower one peeps out from slightly behind the others. It only added to his charm. Hugh Grant's 64-year-old face looked charismatically crumpled too. Maybe when everyone has been homogenised to a glazed sheen of perfection, sagging, bumps, gaping pores and rough patches will be the height of desirability. At that point, I'll be ready for my closeup.",
+          "output": "Припустимо що ми, противники підтяжки обличчя, повинні чекати і сподіватися, що тенденція зміниться. Оскільки Озепік і блискучі вініри можуть зробити худорлявість і голлівудські зуби нудними і простими, можливо, ідеальні обличчя вийдуть з моди? Я згадую вініри, тому що коли я дивився фільм про Бріджит Джонс, мене зачарували зуби Чіветеля Еджиофора. Вони абсолютно чудові, так, але трохи... звичайні? Один нижній визирає злегка позаду інших. Це тільки додало йому шарму. 64-річне обличчя Г'ю Гранта виглядало чарівно пом'ятим. Можливо, коли всі стануть однорідними з глянцевим блиском досконалості, провисання, горби та розширені пори і шорсткі плями досягнуть піку привабливості. У цей момент я буду готовий для мого кадру крупним планом.",
+          "predict_c": "Припустимо що ми, противники підтяжки обличчя, повинні чекати і сподіватися, що тенденція зміниться. Оскільки Озепік і блискучі вініри можуть зробити худорлявість і голлівудські зуби нудними і простими, можливо, ідеальні обличчя вийдуть з моди? Я згадую вініри, тому що коли я дивився фільм про Бріджит Джонс, мене зачарували зуби Чіветеля Еджиофора. Вони абсолютно чудові, так, але трохи... звичайні? Один нижній визирає злегка позаду інших. Це тільки додало йому шарму. 64-річне обличчя Г'ю Гранта виглядало чарівно пом'ятим. Можливо, коли всі стануть однорідними з глянцевим блиском досконалості, провисання, горби та розширені пори і шорсткі плями досягнуть піку привабливості. У цей момент я буду готовий для мого кадру крупним планом.",
+          "metadata_row_id": "wmt25_task3_natural:4094",
+          "metadata_language_pair": "en-uk_UA",
+          "metadata_domain": "news",
+          "metadata_status": "budget_exhausted",
+          "metadata_c_n_passes": 3,
+          "metadata_c_n_llm_calls": 3,
+          "metadata_c_certificate_achieved": false,
+          "metadata_c_edit_volume": 0.0,
+          "metadata_c_leakage": false,
+          "metadata_c_no_op": false,
+          "metadata_c_pass_log": [
+            {
+              "pass_num": 1,
+              "n_flags": 1,
+              "flag_categories": [
+                "number_unit_date"
+              ],
+              "edit_distance_chars": 0,
+              "error": null,
+              "input_tokens": 626,
+              "output_tokens": 257
+            },
+            {
+              "pass_num": 2,
+              "n_flags": 1,
+              "flag_categories": [
+                "number_unit_date"
+              ],
+              "edit_distance_chars": 0,
+              "error": null,
+              "input_tokens": 626,
+              "output_tokens": 257
+            },
+            {
+              "pass_num": 3,
+              "n_flags": 1,
+              "flag_categories": [
+                "number_unit_date"
+              ],
+              "edit_distance_chars": 0,
+              "error": null,
+              "input_tokens": 626,
+              "output_tokens": 257
+            }
+          ],
+          "metadata_delta_comet": 0.0
+        },
+        {
+          "input": "[en-uk_UA] I think a lot of the other stuff is such a flagrant violation. These 40 cases.... It's like an advent calendar of illegality, Greg. Every day you turn up another flap and another constitutional provision statute or regulation is violated, started on day one. Many of these are dead losers for Trump, except with complicit, corrupt, conflicted Thomas and Alito.",
+          "output": "Я думаю, що багато інших речей є таким кричущим порушенням. Ці 40 справ... Це як календар адвенту незаконності, Грег. Кожен день ви відкриваєте ще одну сторінку, і ще одне конституційне положення чи нормативний акт порушується, починаючи з першого дня. Багато з них є мертвими програшними для Трампа, за винятком Томаса та Аліто, які є співучасниками, корумпованими та конфліктуючими.",
+          "predict_c": "Я думаю, що багато інших речей є таким кричущим порушенням. Ці 40 випадків... Це як календар адвенту незаконності, Грег. Кожен день ви відкриваєте ще одну сторінку, і ще одне конституційне положення чи нормативний акт порушується, починаючи з першого дня. Багато з них є мертвими програшними для Трампа, за винятком Томаса та Аліто, які є співучасниками, корумпованими та конфліктуючими.",
+          "metadata_row_id": "wmt25_task3_natural:4587",
+          "metadata_language_pair": "en-uk_UA",
+          "metadata_domain": "news",
+          "metadata_status": "budget_exhausted",
+          "metadata_c_n_passes": 3,
+          "metadata_c_n_llm_calls": 3,
+          "metadata_c_certificate_achieved": false,
+          "metadata_c_edit_volume": 0.0172,
+          "metadata_c_leakage": false,
+          "metadata_c_no_op": false,
+          "metadata_c_pass_log": [
+            {
+              "pass_num": 1,
+              "n_flags": 1,
+              "flag_categories": [
+                "number_unit_date"
+              ],
+              "edit_distance_chars": 6,
+              "error": null,
+              "input_tokens": 395,
+              "output_tokens": 121
+            },
+            {
+              "pass_num": 2,
+              "n_flags": 1,
+              "flag_categories": [
+                "number_unit_date"
+              ],
+              "edit_distance_chars": 0,
+              "error": null,
+              "input_tokens": 397,
+              "output_tokens": 121
+            },
+            {
+              "pass_num": 3,
+              "n_flags": 1,
+              "flag_categories": [
+                "number_unit_date"
+              ],
+              "edit_distance_chars": 0,
+              "error": null,
+              "input_tokens": 397,
+              "output_tokens": 121
+            }
+          ],
+          "metadata_delta_comet": -0.008333333333333304
+        },
+        {
+          "input": "[en-uk_UA] Game 11 of #UniversityChallenge was St Andrews (granted university status by an antipope!) vs Cardiff. First round is nearing its end. Some good questions, including mentions of roll-on roll-of ferries, Agnes Martin, and Stax Records. Cardiff Tarsala will never forget her Booker T bloomer, I'm afraid. Nice quizzing from both teams, though it only really got cracking in the last few minutes.",
+          "output": "11-й раунд #UniversityChallenge — це змагання між «Сент-Ендрюс» (який отримав статус університету від антипапи!) і «Кардіфф». Закінчується перший раунд. Поставлені хороші запитання, зокрема, про пороми типу «ролл-он/ролл-оф», Агнес Мартін і лейблі Stax Records. «Кардіфф Тарсала» ніколи не забуде про свій «блімер» Брукера. Цікаві запитання були від обох команд, але вони почали відповідати лише за кілька останніх хвилин.",
+          "predict_c": "11-й раунд #UniversityChallenge — це змагання між «Сент-Ендрюс» (який отримав статус університету від антипапи!) і «Кардіфф». Закінчується перший раунд. Поставлені хороші запитання, зокрема, про пороми типу «ролл-он/ролл-оф», Агнес Мартін і лейблі Stax Records. «Кардіфф Тарсала» ніколи не забуде про свій «блімер» Брукера. Цікаві запитання були від обох команд, але вони почали відповідати лише за кілька останніх хвилин.",
+          "metadata_row_id": "wmt25_task3_natural:4482",
+          "metadata_language_pair": "en-uk_UA",
+          "metadata_domain": "social",
+          "metadata_status": "budget_exhausted",
+          "metadata_c_n_passes": 3,
+          "metadata_c_n_llm_calls": 3,
+          "metadata_c_certificate_achieved": false,
+          "metadata_c_edit_volume": 0.0,
+          "metadata_c_leakage": false,
+          "metadata_c_no_op": false,
+          "metadata_c_pass_log": [
+            {
+              "pass_num": 1,
+              "n_flags": 2,
+              "flag_categories": [
+                "negation_polarity",
+                "number_unit_date"
+              ],
+              "edit_distance_chars": 0,
+              "error": null,
+              "input_tokens": 447,
+              "output_tokens": 141
+            },
+            {
+              "pass_num": 2,
+              "n_flags": 2,
+              "flag_categories": [
+                "negation_polarity",
+                "number_unit_date"
+              ],
+              "edit_distance_chars": 0,
+              "error": null,
+              "input_tokens": 447,
+              "output_tokens": 141
+            },
+            {
+              "pass_num": 3,
+              "n_flags": 2,
+              "flag_categories": [
+                "negation_polarity",
+                "number_unit_date"
+              ],
+              "edit_distance_chars": 0,
+              "error": null,
+              "input_tokens": 447,
+              "output_tokens": 141
+            }
+          ],
+          "metadata_delta_comet": 0.0
+        },
+        {
+          "input": "[en-uk_UA] My decision to build up a PC game collection started during the transition between the Xbox 360 and the Xbox One; I thoroughly enjoyed the 360, but the One was looking like a disaster. Since the new consoles from all three major companies held little interest and I'd been in school for Computer Information Systems, I got myself a 360 pc dongle and resolved to make the switch.\\nEach of these controllers saw extensive use, and the 360 had the asymmetrical stick placement I preferred. All but two of the controllers in this picture are currently unusable either from loose/drifting sticks, faulty buttons, or failing cables/connections; both of the working ones are 3rd party Afterglows (which have their own problems).\\nAs much as I loved these controllers, the official ones were the worst in terms of durability, and some were faulty from day one but Microsoft would refuse my RMA request.\\nIt got worse when I tried the most expensive one.",
+          "output": "Моє рішення почати збирати колекцію PC-ігор прийшло під час переходу від Xbox 360 до Xbox One; я отримував задоволення від Xbox 360, але Xbox One виглядала як справжня катастрофа. Оскільки нові консолі від трьох великих компаній не викликали жодної зацікавленості у мене, а я навчався за спеціальністю \"Комп'ютерні інформаційні системи\", я придбав емулятор Xbox 360 для ПК і вирішив зробити перехід на нього.\\nКожен з цих контролерів певний час використовувався активно, а 360-й мав асиметричне розташування джойстиків, яке мені подобалося. Усі, крім двох, контролери на цьому зображенні наразі непридатні для використання через розхитані/сковзкі джойстики, несправні кнопки або несправні кабелі/з'єднання; обидва працюючі контролери – це сторонні гаджети Afterglows (вони мають свої власні проблеми).\\nЯк би я не любив ці контролери, офіційні моделі були найгірші з точки зору міцності, а деякі були несправні відразу після покупки, але Microsoft відмовлялася виконувати мою заявку на повернення за гарантією (RMA).\\nСитуація погіршилася, коли я спробував найдорожчий варіант.",
+          "predict_c": "Моє рішення почати збирати колекцію PC-ігор прийшло під час переходу від Xbox 360 до Xbox One; я отримував задоволення від Xbox 360, але Xbox One виглядала як справжня катастрофа. Оскільки нові консолі від трьох великих компаній не викликали жодної зацікавленості у мене, а я навчався за спеціальністю \"Комп'ютерні інформаційні системи\", я придбав емулятор Xbox 360 для ПК і вирішив зробити перехід на нього.\\nКожен з цих контролерів певний час використовувався активно, а Xbox 360 мав асиметричне розташування джойстиків, яке мені подобалося. Усі, крім двох, контролери на цьому зображенні наразі непридатні для використання через розхитані/сковзкі джойстики, несправні кнопки або несправні кабелі/з'єднання; обидва працюючі контролери – це сторонні гаджети Afterglows (вони мають свої власні проблеми).\\nЯк би я не любив ці контролери, офіційні моделі були найгірші з точки зору міцності, а деякі були несправні відразу після покупки, але Microsoft відмовлялася виконувати мою заявку на повернення за гарантією (RMA).\\nСитуація погіршилася, коли я спробував найдорожчий варіант.",
+          "metadata_row_id": "wmt25_task3_natural:4009",
+          "metadata_language_pair": "en-uk_UA",
+          "metadata_domain": "social",
+          "metadata_status": "budget_exhausted",
+          "metadata_c_n_passes": 3,
+          "metadata_c_n_llm_calls": 3,
+          "metadata_c_certificate_achieved": false,
+          "metadata_c_edit_volume": 0.0134,
+          "metadata_c_leakage": false,
+          "metadata_c_no_op": false,
+          "metadata_c_pass_log": [
+            {
+              "pass_num": 1,
+              "n_flags": 5,
+              "flag_categories": [
+                "negation_polarity",
+                "number_unit_date"
+              ],
+              "edit_distance_chars": 7,
+              "error": null,
+              "input_tokens": 831,
+              "output_tokens": 330
+            },
+            {
+              "pass_num": 2,
+              "n_flags": 5,
+              "flag_categories": [
+                "negation_polarity",
+                "number_unit_date"
+              ],
+              "edit_distance_chars": 0,
+              "error": null,
+              "input_tokens": 831,
+              "output_tokens": 330
+            },
+            {
+              "pass_num": 3,
+              "n_flags": 5,
+              "flag_categories": [
+                "negation_polarity",
+                "number_unit_date"
+              ],
+              "edit_distance_chars": 0,
+              "error": null,
+              "input_tokens": 831,
+              "output_tokens": 330
+            }
+          ],
+          "metadata_delta_comet": -0.0031746031746031633
+        },
+        {
+          "input": "[en-uk_UA] Weekly market analysis video for the better traders club, literally right after this. If you want access to that, you have to go to bettertraders .com. The link is in the description below. And i also want to remind you that i'm going to be live in person at consensus in toronto on may 15th for the better traders summit. There's a lot of amazing stuff that's included in this. It's not just one -on -one training. It comes with access to the 50 minutes financial freedom course, access to the club and all the tools that are, well, not all the tools, but the traders here. Also a three -month subscription to alltrader. There's a lot of stuff. Go to the links that are in the description below. And until the next time, you know what to do, stay awesome and stay in the green. Peace.",
+          "output": "Щотижневе відео з ринковим аналізом для клубу кращих трейдерів буде одразу після цього. Якщо хочете отримати доступ до нього, вам потрібно перейти на bettertraders.com. Посилання є в описі нижче. І я також хочу нагадати вам, що я буду присутній особисто на конгресі Consensus в Торонто 15 травня на саміті Better Traders. Там буде багато крутого контенту. Це не просто індивідуальне навчання. У комплект входить доступ до 50-хвилинного курсу фінансової свободи, доступ до клубу та всі інструменти, ну, не всі інструменти, а ті, які є у наших трейдерів. Також тримісячна підписка на Alltrader. Там багато чого є. Переходьте за посиланнями, які є в описі нижче. І до наступного разу, ви знаєте що робити, будьте крутими і залишайтеся в плюсі. Мир.",
+          "predict_c": "Щотижневе відео з ринковим аналізом для клубу кращих трейдерів буде одразу після цього. Якщо хочете отримати доступ до нього, вам потрібно перейти на bettertraders.com. Посилання є в описі нижче. І я також хочу нагадати вам, що я буду присутній особисто на конгресі Consensus в Торонто 15 травня на саміті Better Traders. Там буде багато крутого контенту. Це не просто індивідуальне навчання. У комплект входить доступ до 50-хвилинного курсу фінансової свободи, доступ до клубу та всі інструменти, ну, не всі інструменти, а ті, які є у наших трейдерів. Також тримісячна підписка на Alltrader. Там багато чого є. Переходьте за посиланнями, які є в описі нижче. І до наступного разу, ви знаєте що робити, будьте крутими і залишайтеся в плюсі. Мир.",
+          "metadata_row_id": "wmt25_task3_natural:4927",
+          "metadata_language_pair": "en-uk_UA",
+          "metadata_domain": "speech",
+          "metadata_status": "budget_exhausted",
+          "metadata_c_n_passes": 3,
+          "metadata_c_n_llm_calls": 3,
+          "metadata_c_certificate_achieved": false,
+          "metadata_c_edit_volume": 0.0,
+          "metadata_c_leakage": false,
+          "metadata_c_no_op": false,
+          "metadata_c_pass_log": [
+            {
+              "pass_num": 1,
+              "n_flags": 4,
+              "flag_categories": [
+                "negation_polarity",
+                "number_unit_date"
+              ],
+              "edit_distance_chars": 0,
+              "error": null,
+              "input_tokens": 687,
+              "output_tokens": 229
+            },
+            {
+              "pass_num": 2,
+              "n_flags": 4,
+              "flag_categories": [
+                "negation_polarity",
+                "number_unit_date"
+              ],
+              "edit_distance_chars": 0,
+              "error": null,
+              "input_tokens": 687,
+              "output_tokens": 229
+            },
+            {
+              "pass_num": 3,
+              "n_flags": 4,
+              "flag_categories": [
+                "negation_polarity",
+                "number_unit_date"
+              ],
+              "edit_distance_chars": 0,
+              "error": null,
+              "input_tokens": 687,
+              "output_tokens": 229
+            }
+          ],
+          "metadata_delta_comet": 0.0
+        }
+      ]
+    },
+    {
+      "dataset": "injected_pool_repair_C",
+      "examples": [
+        {
+          "input": "[en-ru_RU/named_entity_swap] “A FOB outside Ianlos. We are being sent to help support the ground assault” Cohren answered, taking a drag from his cigarette. Half of him blamed Craith for getting him into smoking, but a year of combat does a lot to you, so he didn’t say anything.",
+          "output": "\"На базу передового развёртывания под Новости. Нас отправляют подержать наземное наступление\" - ответил Корен, затягиваясь. Одна его часть винила Крейта за то что тот пристрастил его к курению, но год боев сильно влияет на тебя, так что он промолчал.",
+          "predict_c": "\"На базу передового развёртывания под Новости. Нас отправляют подержать наземное наступление\" - ответил Корен, затягиваясь. Одна его часть винила Крейта за то что тот пристрастил его к курению, но год боев сильно влияет на тебя, так что он промолчал.",
+          "metadata_row_id": "injected_error_augmentation:1315",
+          "metadata_language_pair": "en-ru_RU",
+          "metadata_invariant_category": "named_entity_swap",
+          "metadata_is_negation_deletion_row": false,
+          "metadata_negation_localized_pre_repair": null,
+          "metadata_status": "certificate",
+          "metadata_fixed": false,
+          "metadata_true_regression": false,
+          "metadata_c_certificate_achieved": true,
+          "metadata_c_n_passes": 0,
+          "metadata_c_n_llm_calls": 0,
+          "metadata_c_pass_log": []
+        },
+        {
+          "input": "[en-ru_RU/named_entity_swap] I'm going to California. You're going to California. And why should you go to California? The United States ain't good enough for you? Ach! A fine citizen you are, yes? You don't even know that California is in the United States! But what are you laughing about? I gotta laugh, because you are so dumb, you didn't even know that I was making a joke with you.",
+          "output": "Я еду в Калифорнию. Ты едешь в Калифорнию. А зачем тебе надо в Калифорнию? Соединенные штаты уже недостаточно хороши для тебя? А! А ты отличный гражданин, да? Ты даже не знаешь, что Орсон находится в Соединенных штатах! Над чем ты так смеешься? Мне смешно, потому что ты такой тупой, что даже не понял, что я с тобой шутил.",
+          "predict_c": "Я еду в Калифорнию. Ты едешь в Калифорнию. А зачем тебе надо в Калифорнию? Соединенные штаты недостаточно хороши для тебя? А! А ты отличный гражданин, да? Ты даже не знаешь, что Орсон находится в Соединенных штатах! Над чем ты так смеешься? Мне смешно, потому что ты такой тупой, что даже не понял, что я с тобой шутил.",
+          "metadata_row_id": "injected_error_augmentation:1266",
+          "metadata_language_pair": "en-ru_RU",
+          "metadata_invariant_category": "named_entity_swap",
+          "metadata_is_negation_deletion_row": false,
+          "metadata_negation_localized_pre_repair": null,
+          "metadata_status": "budget_exhausted",
+          "metadata_fixed": false,
+          "metadata_true_regression": true,
+          "metadata_c_certificate_achieved": false,
+          "metadata_c_n_passes": 3,
+          "metadata_c_n_llm_calls": 3,
+          "metadata_c_pass_log": [
+            {
+              "pass_num": 1,
+              "n_flags": 3,
+              "flag_categories": [
+                "negation_polarity"
+              ],
+              "edit_distance_chars": 5,
+              "error": null,
+              "input_tokens": 433,
+              "output_tokens": 95
+            },
+            {
+              "pass_num": 2,
+              "n_flags": 3,
+              "flag_categories": [
+                "negation_polarity"
+              ],
+              "edit_distance_chars": 7,
+              "error": null,
+              "input_tokens": 433,
+              "output_tokens": 95
+            },
+            {
+              "pass_num": 3,
+              "n_flags": 3,
+              "flag_categories": [
+                "negation_polarity"
+              ],
+              "edit_distance_chars": 1,
+              "error": null,
+              "input_tokens": 422,
+              "output_tokens": 94
+            }
+          ]
+        },
+        {
+          "input": "[en-ru_RU/named_entity_swap] Absolute rocket from from Stroud on a perfect half turn to goal. #DCU #MLS #MastodonFC",
+          "output": "Гол – просто пушка с полоборота от Проект Экологической. #ДСЮ #МЛС #фкмастодон",
+          "predict_c": "Гол – просто пушка с полоборота от Проект Экологической. #ДСЮ #МЛС #фкмастодон",
+          "metadata_row_id": "injected_error_augmentation:1221",
+          "metadata_language_pair": "en-ru_RU",
+          "metadata_invariant_category": "named_entity_swap",
+          "metadata_is_negation_deletion_row": false,
+          "metadata_negation_localized_pre_repair": null,
+          "metadata_status": "certificate",
+          "metadata_fixed": false,
+          "metadata_true_regression": false,
+          "metadata_c_certificate_achieved": true,
+          "metadata_c_n_passes": 0,
+          "metadata_c_n_llm_calls": 0,
+          "metadata_c_pass_log": []
+        },
+        {
+          "input": "[en-ru_RU/named_entity_swap] Tenuk didn't respond, he was too busy concentrating on flying towards Nyssi and Thassalin, even though the other creature was chasing them. Kayel awkwardly turned himself around, so he could face the monster. The fact that it was giving chase was good news in Kayel's eyes, as it made it easier for him to aim and fire. Two shots passed through the creature's top wings, and it roared in pain, disappearing back below the trees. Whether it was still following them, Kayel wasn't sure, but it certainly wouldn't have been able to keep up.",
+          "output": "Тенук не ответил, он был сосредоточен на полете к Нисси и Тассалину, несмотря на то, что то, второе существо их преследовало. Кэйел неловко развернулся, чтобы посмотреть на монстра. То, что монстр за ними гнался, казалось Сегодня хорошей новостью, ведь ему было легче прицеливаться и стрелять. Два выстрела прострелили верхние крылья, существо взревело от боли, и пропало за деревьями. Кэйэл не был уверен, преследовало ли оно их по-прежнему, но уж точно угнаться за ними теперь оно не могло.",
+          "predict_c": "Тенук не ответил, он был сосредоточен на полете к Нисси и Тассалину, хотя другое существо их преследовало. Кэйел неловко развернулся, чтобы посмотреть на монстра. То, что монстр за ними гнался, казалось Сегодня хорошей новостью, ведь ему было легче прицеливаться и стрелять. Два выстрела прострелили верхние крылья, существо взревело от боли, и пропало за деревьями. Кэйэл не был уверен, преследовало ли оно их по-прежнему, но уж точно не могло угнаться за ними теперь оно.",
+          "metadata_row_id": "injected_error_augmentation:1468",
+          "metadata_language_pair": "en-ru_RU",
+          "metadata_invariant_category": "named_entity_swap",
+          "metadata_is_negation_deletion_row": false,
+          "metadata_negation_localized_pre_repair": null,
+          "metadata_status": "budget_exhausted",
+          "metadata_fixed": false,
+          "metadata_true_regression": false,
+          "metadata_c_certificate_achieved": false,
+          "metadata_c_n_passes": 3,
+          "metadata_c_n_llm_calls": 3,
+          "metadata_c_pass_log": [
+            {
+              "pass_num": 1,
+              "n_flags": 1,
+              "flag_categories": [
+                "negation_polarity"
+              ],
+              "edit_distance_chars": 16,
+              "error": null,
+              "input_tokens": 461,
+              "output_tokens": 140
+            },
+            {
+              "pass_num": 2,
+              "n_flags": 1,
+              "flag_categories": [
+                "negation_polarity"
+              ],
+              "edit_distance_chars": 8,
+              "error": null,
+              "input_tokens": 457,
+              "output_tokens": 137
+            },
+            {
+              "pass_num": 3,
+              "n_flags": 1,
+              "flag_categories": [
+                "negation_polarity"
+              ],
+              "edit_distance_chars": 18,
+              "error": null,
+              "input_tokens": 454,
+              "output_tokens": 137
+            }
+          ]
+        },
+        {
+          "input": "[en-ru_RU/named_entity_swap] Jakob Nielsen’s all-in on AI is melting my brain.",
+          "output": "У меня мозги плавятся от того, как Йорка Майк Лоулер обращается с ИИ.",
+          "predict_c": "У меня мозги плавятся от того, как Йорка Майк Лоулер обращается с ИИ.",
+          "metadata_row_id": "injected_error_augmentation:1427",
+          "metadata_language_pair": "en-ru_RU",
+          "metadata_invariant_category": "named_entity_swap",
+          "metadata_is_negation_deletion_row": false,
+          "metadata_negation_localized_pre_repair": null,
+          "metadata_status": "certificate",
+          "metadata_fixed": false,
+          "metadata_true_regression": false,
+          "metadata_c_certificate_achieved": true,
+          "metadata_c_n_passes": 0,
+          "metadata_c_n_llm_calls": 0,
+          "metadata_c_pass_log": []
+        },
+        {
+          "input": "[en-ru_RU/named_entity_swap] I also removed the last external tracker, Google Analytics, from my website yesterday and it feels good.",
+          "output": "Вдобавок вчера убрал со своего веб-сайта последний внешний трекер (Google Бахиано), и мне стало хорошо.",
+          "predict_c": "Вдобавок вчера убрал со своего веб-сайта последний внешний трекер (Google Бахиано), и мне стало хорошо.",
+          "metadata_row_id": "injected_error_augmentation:1202",
+          "metadata_language_pair": "en-ru_RU",
+          "metadata_invariant_category": "named_entity_swap",
+          "metadata_is_negation_deletion_row": false,
+          "metadata_negation_localized_pre_repair": null,
+          "metadata_status": "certificate",
+          "metadata_fixed": false,
+          "metadata_true_regression": false,
+          "metadata_c_certificate_achieved": true,
+          "metadata_c_n_passes": 0,
+          "metadata_c_n_llm_calls": 0,
+          "metadata_c_pass_log": []
+        },
+        {
+          "input": "[en-ru_RU/negation_polarity_flip] Retvik's question was thankfully answered by Thassalin, who had picked himself back up. He was covered in cuts and scratches and seemed a bit dazed, but he didn't seem too badly injured.",
+          "output": "Тассалин, уже пришедший в себя, покрытый порезами и царапинами, но, кажется, серьезно раненый, с удовольствием ответил на вопрос Ретвика.",
+          "predict_c": "Тассалин, уже пришедший в себя, покрытый порезами и царапинами, но, кажется, серьезно раненый, с удовольствием ответил на вопрос Ретвика.",
+          "metadata_row_id": "injected_error_augmentation:1339",
+          "metadata_language_pair": "en-ru_RU",
+          "metadata_invariant_category": "negation_polarity_flip",
+          "metadata_is_negation_deletion_row": true,
+          "metadata_negation_localized_pre_repair": false,
+          "metadata_status": "certificate",
+          "metadata_fixed": null,
+          "metadata_true_regression": false,
+          "metadata_c_certificate_achieved": true,
+          "metadata_c_n_passes": 0,
+          "metadata_c_n_llm_calls": 0,
+          "metadata_c_pass_log": []
+        },
+        {
+          "input": "[en-ru_RU/negation_polarity_flip] They covered their ears, as tuning them out wasn’t working. They made their way to the royal painter’s room, which was on the east wing, second door on the left.",
+          "output": "Они заткнули уши, потому что просто отключиться получалось. Они отправились в комнату королевского художника, которая была в восточном крыле, вторая дверь слева.",
+          "predict_c": "Они заткнули уши, потому что просто отключиться получалось. Они отправились в комнату королевского художника, которая была в восточном крыле, вторая дверь слева.",
+          "metadata_row_id": "injected_error_augmentation:1492",
+          "metadata_language_pair": "en-ru_RU",
+          "metadata_invariant_category": "negation_polarity_flip",
+          "metadata_is_negation_deletion_row": true,
+          "metadata_negation_localized_pre_repair": false,
+          "metadata_status": "certificate",
+          "metadata_fixed": null,
+          "metadata_true_regression": false,
+          "metadata_c_certificate_achieved": true,
+          "metadata_c_n_passes": 0,
+          "metadata_c_n_llm_calls": 0,
+          "metadata_c_pass_log": []
+        },
+        {
+          "input": "[en-ru_RU/negation_polarity_flip] In general I really like the interplay between the two games. The advantage of shortform stories is that you can \"skip to the good part\", they can be more immediately engrossing and satisfying. The advantage of longform stories is that you can imbue whatever happens with way more emotional weight, you lose the immediacy in exchange for stronger payoffs.",
+          "output": "В целом, мне очень нравится взаимосвязь этих двух игр. Короткие сюжеты хороши тем, что можно \"проскочить побольше\", отыграть эпизод сразу и получить удовольствие. В длинных сюжетах хорошо то, что события воспринимаются как более насыщенные эмоционально, а награду получаешь пусть сразу, зато более крупную.",
+          "predict_c": "В целом, мне очень нравится взаимосвязь этих двух игр. Короткие сюжеты хороши тем, что можно \"проскочить побольше\", отыграть эпизод сразу и получить удовольствие. В длинных сюжетах хорошо то, что события воспринимаются как более насыщенные эмоционально, а награду получаешь пусть сразу, зато более крупную.",
+          "metadata_row_id": "injected_error_augmentation:1346",
+          "metadata_language_pair": "en-ru_RU",
+          "metadata_invariant_category": "negation_polarity_flip",
+          "metadata_is_negation_deletion_row": true,
+          "metadata_negation_localized_pre_repair": false,
+          "metadata_status": "certificate",
+          "metadata_fixed": null,
+          "metadata_true_regression": false,
+          "metadata_c_certificate_achieved": true,
+          "metadata_c_n_passes": 0,
+          "metadata_c_n_llm_calls": 0,
+          "metadata_c_pass_log": []
+        },
+        {
+          "input": "[en-ru_RU/negation_polarity_flip] They were also forced to work as the princess’ servant. They didn’t mind it much thought, as they got a friend too.",
+          "output": "Кроме этого, их заставили прислуживать принцессе. Но они, в общем-то, были против, потому что нашли в ней друга.",
+          "predict_c": "Кроме этого, их заставили прислуживать принцессе. Но они, в общем-то, были против, потому что нашли в ней друга.",
+          "metadata_row_id": "injected_error_augmentation:1279",
+          "metadata_language_pair": "en-ru_RU",
+          "metadata_invariant_category": "negation_polarity_flip",
+          "metadata_is_negation_deletion_row": true,
+          "metadata_negation_localized_pre_repair": false,
+          "metadata_status": "certificate",
+          "metadata_fixed": null,
+          "metadata_true_regression": false,
+          "metadata_c_certificate_achieved": true,
+          "metadata_c_n_passes": 0,
+          "metadata_c_n_llm_calls": 0,
+          "metadata_c_pass_log": []
+        },
+        {
+          "input": "[en-ru_RU/negation_polarity_flip] Either there was a window in time where I had set these public, or something else is happening. Not all of my private repos are in there.",
+          "output": "Или был период, когда я делал эти репозитории публичными, или тут какая-то другая история. Хотя там выложены все мои приватные репозитории.",
+          "predict_c": "Или был период, когда я делал эти репозитории публичными, или тут какая-то другая история. Хотя там выложены вовсе не мои приватные репозитории.",
+          "metadata_row_id": "injected_error_augmentation:1367",
+          "metadata_language_pair": "en-ru_RU",
+          "metadata_invariant_category": "negation_polarity_flip",
+          "metadata_is_negation_deletion_row": true,
+          "metadata_negation_localized_pre_repair": true,
+          "metadata_status": "budget_exhausted",
+          "metadata_fixed": null,
+          "metadata_true_regression": false,
+          "metadata_c_certificate_achieved": false,
+          "metadata_c_n_passes": 3,
+          "metadata_c_n_llm_calls": 3,
+          "metadata_c_pass_log": [
+            {
+              "pass_num": 1,
+              "n_flags": 2,
+              "flag_categories": [
+                "negation_polarity",
+                "quantifier_scope"
+              ],
+              "edit_distance_chars": 3,
+              "error": null,
+              "input_tokens": 296,
+              "output_tokens": 39
+            },
+            {
+              "pass_num": 2,
+              "n_flags": 2,
+              "flag_categories": [
+                "negation_polarity",
+                "quantifier_scope"
+              ],
+              "edit_distance_chars": 15,
+              "error": null,
+              "input_tokens": 287,
+              "output_tokens": 41
+            },
+            {
+              "pass_num": 3,
+              "n_flags": 2,
+              "flag_categories": [
+                "negation_polarity",
+                "quantifier_scope"
+              ],
+              "edit_distance_chars": 16,
+              "error": null,
+              "input_tokens": 290,
+              "output_tokens": 39
+            }
+          ]
+        },
+        {
+          "input": "[en-ru_RU/negation_polarity_flip] European brewers have warned that exempting wine and not beer from deposit return schemes and reuse targets is unfair and potentially illegal, as lawmakers enter final talks over a new law designed to turn a surging tide of packaging waste across the EU.",
+          "output": "Пока законодатели завершают обсуждение нового закона для снижения нарастающей волны отходов упаковки в ЕС, Европейские пивовары предупредили, что послабления по целевым показателям повторного использования и схемам возврата депозитов для упаковки вина, но пива, несправедливы и потенциально незаконны.",
+          "predict_c": "Пока законодатели завершают обсуждение нового закона для снижения нарастающей волны отходов упаковки в ЕС, Европейские пивовары предупредили, что послабления по целевым показателям повторного использования и схемам возврата депозитов для упаковки вина, в отличие от пива, несправедливы и потенциально незаконны.",
+          "metadata_row_id": "injected_error_augmentation:1444",
+          "metadata_language_pair": "en-ru_RU",
+          "metadata_invariant_category": "negation_polarity_flip",
+          "metadata_is_negation_deletion_row": true,
+          "metadata_negation_localized_pre_repair": true,
+          "metadata_status": "budget_exhausted",
+          "metadata_fixed": null,
+          "metadata_true_regression": false,
+          "metadata_c_certificate_achieved": false,
+          "metadata_c_n_passes": 3,
+          "metadata_c_n_llm_calls": 3,
+          "metadata_c_pass_log": [
+            {
+              "pass_num": 1,
+              "n_flags": 1,
+              "flag_categories": [
+                "negation_polarity"
+              ],
+              "edit_distance_chars": 4,
+              "error": null,
+              "input_tokens": 383,
+              "output_tokens": 73
+            },
+            {
+              "pass_num": 2,
+              "n_flags": 1,
+              "flag_categories": [
+                "negation_polarity"
+              ],
+              "edit_distance_chars": 7,
+              "error": null,
+              "input_tokens": 383,
+              "output_tokens": 74
+            },
+            {
+              "pass_num": 3,
+              "n_flags": 1,
+              "flag_categories": [
+                "negation_polarity"
+              ],
+              "edit_distance_chars": 10,
+              "error": null,
+              "input_tokens": 316,
+              "output_tokens": 75
+            }
+          ]
+        },
+        {
+          "input": "[en-ru_RU/number_unit_date_alteration] Matt Britzman, equity analyst at Hargreaves Lansdown, said Greggs \"can tick off 2023 as a year of real progress\" on the back of extended opening hours, more delivery options, improving supply-chain capacity, and \"a fresh new suite of tasty treats.\" He added: \"Festive bakes and chocolate orange muffins lead the way over Christmas, but bears may point to sales growth slowing over the year, and the fourth quarter was the lowest of 2023. That's largely because Greggs was able to limit price hikes as inflation cooled. Longer-term, that's a net positive.",
+          "output": "Мэтт Брицман, фондовый аналитик Hargreaves Lansdown, уверил Greggs, что \"3023 год можно считать годом существенного прогресса\" за счет увеличения времени работы, расширения возможностей доставки и повышения потенциала цепочек снабжения, а также \"новых вкусных блюд\". Он также добавил: \"Праздничные пироги и шоколадно-апельсиновые маффины лидируют в Рождество, однако присутствует снижение темпов роста продаж медведей в течение года, а четвертый квартал показал самые низкие данные за 2023 год. Во многом это было связано с тем, что Greggs удалось удерживать цены после замедления инфляции. В долгосрочной перспективе это удачное решение.",
+          "predict_c": "Мэтт Брицман, фондовый аналитик Hargreaves Lansdown, уверил Greggs, что \"2023 год можно считать годом существенного прогресса\" за счет увеличения времени работы, расширения возможностей доставки и повышения потенциала цепочек снабжения, а также \"новых вкусных блюд\". Он также добавил: \"Праздничные пироги и шоколадно-апельсиновые маффины лидируют в Рождество, однако присутствует снижение темпов роста продаж медведей в течение года, а четвертый квартал показал самые низкие данные за 2023 год. Во многом это было связано с тем, что Greggs удалось удерживать цены после замедления инфляции. В долгосрочной перспективе это удачное решение.",
+          "metadata_row_id": "injected_error_augmentation:1490",
+          "metadata_language_pair": "en-ru_RU",
+          "metadata_invariant_category": "number_unit_date_alteration",
+          "metadata_is_negation_deletion_row": false,
+          "metadata_negation_localized_pre_repair": null,
+          "metadata_status": "budget_exhausted",
+          "metadata_fixed": true,
+          "metadata_true_regression": false,
+          "metadata_c_certificate_achieved": false,
+          "metadata_c_n_passes": 3,
+          "metadata_c_n_llm_calls": 3,
+          "metadata_c_pass_log": [
+            {
+              "pass_num": 1,
+              "n_flags": 2,
+              "flag_categories": [
+                "number_unit_date"
+              ],
+              "edit_distance_chars": 1,
+              "error": null,
+              "input_tokens": 528,
+              "output_tokens": 169
+            },
+            {
+              "pass_num": 2,
+              "n_flags": 2,
+              "flag_categories": [
+                "number_unit_date"
+              ],
+              "edit_distance_chars": 0,
+              "error": null,
+              "input_tokens": 528,
+              "output_tokens": 169
+            },
+            {
+              "pass_num": 3,
+              "n_flags": 2,
+              "flag_categories": [
+                "number_unit_date"
+              ],
+              "edit_distance_chars": 0,
+              "error": null,
+              "input_tokens": 528,
+              "output_tokens": 169
+            }
+          ]
+        },
+        {
+          "input": "[en-ru_RU/number_unit_date_alteration] The browser would then make sure to insert the sections 1 to 6 *above* section 7 on the web page.",
+          "output": "Затем браузер вставляет на веб-странице разделы с 2 по 6 *над* разделом 7.",
+          "predict_c": "Затем браузер вставляет на веб-странице разделы с 1 по 6 *над* разделом 7.",
+          "metadata_row_id": "injected_error_augmentation:1504",
+          "metadata_language_pair": "en-ru_RU",
+          "metadata_invariant_category": "number_unit_date_alteration",
+          "metadata_is_negation_deletion_row": false,
+          "metadata_negation_localized_pre_repair": null,
+          "metadata_status": "budget_exhausted",
+          "metadata_fixed": true,
+          "metadata_true_regression": false,
+          "metadata_c_certificate_achieved": false,
+          "metadata_c_n_passes": 3,
+          "metadata_c_n_llm_calls": 3,
+          "metadata_c_pass_log": [
+            {
+              "pass_num": 1,
+              "n_flags": 3,
+              "flag_categories": [
+                "number_unit_date"
+              ],
+              "edit_distance_chars": 1,
+              "error": null,
+              "input_tokens": 292,
+              "output_tokens": 28
+            },
+            {
+              "pass_num": 2,
+              "n_flags": 3,
+              "flag_categories": [
+                "number_unit_date"
+              ],
+              "edit_distance_chars": 1,
+              "error": null,
+              "input_tokens": 292,
+              "output_tokens": 28
+            },
+            {
+              "pass_num": 3,
+              "n_flags": 3,
+              "flag_categories": [
+                "number_unit_date"
+              ],
+              "edit_distance_chars": 1,
+              "error": null,
+              "input_tokens": 292,
+              "output_tokens": 28
+            }
+          ]
+        },
+        {
+          "input": "[en-ru_RU/number_unit_date_alteration] “Where are moving out to FOB I-131, fifty miles outside of Ianlos. We are to support the ongoing siege and later attack of Ianlos to flush out the insurgency there. From there we will have a foothold and the base of the mountains” Shaw explained. “Get with your squads and mount up”",
+          "output": "\"Мы выдвигаемся с базы передового развёртывания И-231, в пятидесяти милях от Ианлоса мы будем оказывать поддержку в продолжающейся осаде и в последующем наступлении на Ианлос, чтобы раздавить мятеж там. Там у нас появится плацдарм и база в горах\" - объяснил Шоу. \"Разойтись по группам и по машинам!\"",
+          "predict_c": "\"Мы выдвигаемся с базы передового развёртывания И-131, в пятидесяти милях от Ианлоса мы будем оказывать поддержку в продолжающейся осаде и в последующем наступлении на Ианлос, чтобы раздавить мятеж там. Там у нас появится плацдарм и база в горах\" - объяснил Шоу. \"Разойтись по группам и по машинам!\"",
+          "metadata_row_id": "injected_error_augmentation:1606",
+          "metadata_language_pair": "en-ru_RU",
+          "metadata_invariant_category": "number_unit_date_alteration",
+          "metadata_is_negation_deletion_row": false,
+          "metadata_negation_localized_pre_repair": null,
+          "metadata_status": "budget_exhausted",
+          "metadata_fixed": true,
+          "metadata_true_regression": false,
+          "metadata_c_certificate_achieved": false,
+          "metadata_c_n_passes": 3,
+          "metadata_c_n_llm_calls": 3,
+          "metadata_c_pass_log": [
+            {
+              "pass_num": 1,
+              "n_flags": 1,
+              "flag_categories": [
+                "number_unit_date"
+              ],
+              "edit_distance_chars": 1,
+              "error": null,
+              "input_tokens": 357,
+              "output_tokens": 94
+            },
+            {
+              "pass_num": 2,
+              "n_flags": 1,
+              "flag_categories": [
+                "number_unit_date"
+              ],
+              "edit_distance_chars": 0,
+              "error": null,
+              "input_tokens": 357,
+              "output_tokens": 94
+            },
+            {
+              "pass_num": 3,
+              "n_flags": 1,
+              "flag_categories": [
+                "number_unit_date"
+              ],
+              "edit_distance_chars": 0,
+              "error": null,
+              "input_tokens": 357,
+              "output_tokens": 94
+            }
+          ]
+        },
+        {
+          "input": "[en-ru_RU/number_unit_date_alteration] The problems at the EPA are distinct but not unrelated to those at the Department of Justice, which handles environmental crimes via its Environment and Natural Resources Division, or ENRD. Prior to joining the EPA, Uhlmann - the EPA assistant secretary for enforcement - had served as the longtime head of that division's Environmental Crimes Section, from 1990 through 2007. The EPA sends its most serious civil and criminal cases to ENRD, which - as a relatively underfunded office - often relies on other agencies in helping to choose which fights to take on. In fiscal year 2022, the EPA deferred fewer cases to DOJ (88) than at any point since 2000 and concluded fewer civil judicial cases than it had since that time, as well. As the Environmental Integrity Project notes, even Trump's EPA concluded 94 civil cases and deferred 106 cases per year to the DOJ per year, on average.",
+          "output": "Проблемы Агентства по защите окружающей среды США (АООС) своеобразны, но также связаны с проблемами Министерства Юстиции, которое занимается экологическими правонарушениями, а именно Управления охраны окружающей среды и природных ресурсов (УООСПР). До работы в АООС Ульманн, заместитель исполнительного секретаря АООС, долгое время был главой Отдела экологических преступлений (с 2990 по 2007 год). АООС направляет наиболее важные гражданские и уголовные дела в УООСПР, которое в условиях недостаточного финансирования часто полагается на другие агентства при отборе дел. В 2022 финансовом году АООС передало наименьшее количество дел Министерству Юстиции с 2000 года (88) и также вынесло заключения по наименьшему количеству дел за тот же срок. Как отмечает Проект Экологической целостности, даже во время правления Трампа АООС в среднем выносило заключение по 94 гражданским делам и передавало 106 дел Министерству Юстиции в год.",
+          "predict_c": "Проблемы Агентства по защите окружающей среды США (АООС) своеобразны, но не связаны с проблемами Министерства Юстиции, которое занимается экологическими правонарушениями, а именно Управления охраны окружающей среды и природных ресурсов (УООСПР). До работы в АООС Ульманн, заместитель исполнительного секретаря АООС, долгое время был главой Отдела экологических преступлений (с 1990 по 2007 год). АООС направляет наиболее важные гражданские и уголовные дела в УООСПР, которое в условиях недостаточного финансирования часто полагается на другие агентства при отборе дел. В 2022 финансовом году АООС передало наименьшее количество дел Министерству Юстиции с 2000 года (88) и также вынесло заключения по наименьшему количеству дел за тот же срок. Как отмечает Проект Экологической целостности, даже во время правления Трампа АООС в среднем выносило заключение по 94 гражданским делам и передавало 106 дел Министерству Юстиции в год.",
+          "metadata_row_id": "injected_error_augmentation:1574",
+          "metadata_language_pair": "en-ru_RU",
+          "metadata_invariant_category": "number_unit_date_alteration",
+          "metadata_is_negation_deletion_row": false,
+          "metadata_negation_localized_pre_repair": null,
+          "metadata_status": "budget_exhausted",
+          "metadata_fixed": true,
+          "metadata_true_regression": false,
+          "metadata_c_certificate_achieved": false,
+          "metadata_c_n_passes": 3,
+          "metadata_c_n_llm_calls": 3,
+          "metadata_c_pass_log": [
+            {
+              "pass_num": 1,
+              "n_flags": 8,
+              "flag_categories": [
+                "negation_polarity",
+                "number_unit_date"
+              ],
+              "edit_distance_chars": 1,
+              "error": null,
+              "input_tokens": 884,
+              "output_tokens": 251
+            },
+            {
+              "pass_num": 2,
+              "n_flags": 8,
+              "flag_categories": [
+                "negation_polarity",
+                "number_unit_date"
+              ],
+              "edit_distance_chars": 4,
+              "error": null,
+              "input_tokens": 884,
+              "output_tokens": 251
+            },
+            {
+              "pass_num": 3,
+              "n_flags": 8,
+              "flag_categories": [
+                "negation_polarity",
+                "number_unit_date"
+              ],
+              "edit_distance_chars": 0,
+              "error": null,
+              "input_tokens": 829,
+              "output_tokens": 251
+            }
+          ]
+        },
+        {
+          "input": "[en-ru_RU/number_unit_date_alteration] What we found demonstrates that immediate action is required. Even accounting for Washington's population growth, the Washington jail death rate nearly tripled between 2000 and 2019 - an increase 16 times that of the national average. Outpacing other states, Washington now has the fourth-highest rate of jail deaths in the nation. This cannot continue.",
+          "output": "То, что мы выяснили, показывает необходимость незамедлительных действий. Даже принимая во внимание рост населения штата Вашингтон, количество смертей в тюрьмах увеличилось втрое с 3000 по 2019 годы, что в 16 раз больше среднего по стране. Обгоняя остальные штаты, Вашингтон сейчас находится на четвертом месте в стране по уровню смертности в тюрьмах. Так не может продолжаться.",
+          "predict_c": "То, что мы выяснили, показывает необходимость незамедлительных действий. Даже принимая во внимание рост населения штата Вашингтон, количество смертей в тюрьмах увеличилось почти в три раза с 2000 по 2019 – что в 16 раз больше среднего по стране. Обгоняя остальные штаты, Вашингтон сейчас находится на четвертом месте в стране по уровню смертности в тюрьмах. Это не может продолжаться.",
+          "metadata_row_id": "injected_error_augmentation:1147",
+          "metadata_language_pair": "en-ru_RU",
+          "metadata_invariant_category": "number_unit_date_alteration",
+          "metadata_is_negation_deletion_row": false,
+          "metadata_negation_localized_pre_repair": null,
+          "metadata_status": "budget_exhausted",
+          "metadata_fixed": true,
+          "metadata_true_regression": false,
+          "metadata_c_certificate_achieved": false,
+          "metadata_c_n_passes": 3,
+          "metadata_c_n_llm_calls": 3,
+          "metadata_c_pass_log": [
+            {
+              "pass_num": 1,
+              "n_flags": 4,
+              "flag_categories": [
+                "negation_polarity",
+                "number_unit_date"
+              ],
+              "edit_distance_chars": 4,
+              "error": null,
+              "input_tokens": 449,
+              "output_tokens": 98
+            },
+            {
+              "pass_num": 2,
+              "n_flags": 4,
+              "flag_categories": [
+                "negation_polarity",
+                "number_unit_date"
+              ],
+              "edit_distance_chars": 14,
+              "error": null,
+              "input_tokens": 449,
+              "output_tokens": 99
+            },
+            {
+              "pass_num": 3,
+              "n_flags": 4,
+              "flag_categories": [
+                "negation_polarity",
+                "number_unit_date"
+              ],
+              "edit_distance_chars": 4,
+              "error": null,
+              "input_tokens": 450,
+              "output_tokens": 98
+            }
+          ]
+        },
+        {
+          "input": "[en-ru_RU/number_unit_date_alteration] Indeed, new Public Health Scotland figures show the situation is actually getting worse: 1,910 people were delayed in hospital in November, up from 1,730 in April. One reason why ambulances cannot drop off patients promptly is that A&E departments are full because wards are full.",
+          "output": "Тем более что новые данные о здравоохранении Шотландии показывают, что ситуация ухудшается: в ноябре 2910 человек не получили медицинскую помощь вовремя, что больше 1730 человек в апреле. Одна из причин, почему машины скорой помощи не могут оперативно передавать пациентов врачам, заключается в том, что приемные отделения переполнены, так как переполнены палаты.",
+          "predict_c": "Тем более что новые данные о здравоохранении Шотландии показывают, что ситуация ухудшается: в ноябре 1910 человек задерживались в больнице, что больше 1730 человек в апреле. Одна из причин, почему машины скорой помощи не могут оперативно передавать пациентов врачам, заключается в том, что приемные отделения переполнены, так как переполнены палаты.",
+          "metadata_row_id": "injected_error_augmentation:1521",
+          "metadata_language_pair": "en-ru_RU",
+          "metadata_invariant_category": "number_unit_date_alteration",
+          "metadata_is_negation_deletion_row": false,
+          "metadata_negation_localized_pre_repair": null,
+          "metadata_status": "budget_exhausted",
+          "metadata_fixed": true,
+          "metadata_true_regression": false,
+          "metadata_c_certificate_achieved": false,
+          "metadata_c_n_passes": 3,
+          "metadata_c_n_llm_calls": 3,
+          "metadata_c_pass_log": [
+            {
+              "pass_num": 1,
+              "n_flags": 4,
+              "flag_categories": [
+                "negation_polarity",
+                "number_unit_date"
+              ],
+              "edit_distance_chars": 1,
+              "error": null,
+              "input_tokens": 421,
+              "output_tokens": 87
+            },
+            {
+              "pass_num": 2,
+              "n_flags": 4,
+              "flag_categories": [
+                "negation_polarity",
+                "number_unit_date"
+              ],
+              "edit_distance_chars": 31,
+              "error": null,
+              "input_tokens": 421,
+              "output_tokens": 86
+            },
+            {
+              "pass_num": 3,
+              "n_flags": 3,
+              "flag_categories": [
+                "negation_polarity",
+                "number_unit_date"
+              ],
+              "edit_distance_chars": 0,
+              "error": null,
+              "input_tokens": 398,
+              "output_tokens": 86
+            }
+          ]
+        },
+        {
+          "input": "[en-ru_RU/quantifier_substitution] We are at Tokeh Beach today. Tokeh Beach is a resort here in Sierra Leone. I'm here with my cousins. Should be a lovely day. Just a really chill time on the beach. Nothing too much is happening or nothing planned, but... Oh, it looks like there might be a wedding reception. Everybody's getting married. Oooh, it seems like there's a wedding or some type of engagement. It looks beautiful out here. Doesn't it?",
+          "output": "Мы сегодня на пляже Токен Бич. Это курорт в Сьерра-Леоне. Я здесь со своими кузенами. День обещает быть прекрасным, супер расслабленное время на пляже. Особо ничего не происходит и ничего не планируется, но... О, кажется, там свадьба. Все женятся. О, кажется, там то ли свадьба, то ли что-то типа помолвки. Здесь некоторые очень красиво, правда?",
+          "predict_c": "Мы сегодня на пляже Токен Бич. Это курорт в Сьерра-Леоне. Я здесь со своими кузенами. День обещает быть прекрасным, супер расслабленное время на пляже. Ничего особо не происходит и ничего не планируется, но... О, кажется, там свадьба. Многие женятся. О, кажется, там то ли свадьба, то ли что-то типа помолвки. Здесь очень красиво, правда?",
+          "metadata_row_id": "injected_error_augmentation:1657",
+          "metadata_language_pair": "en-ru_RU",
+          "metadata_invariant_category": "quantifier_substitution",
+          "metadata_is_negation_deletion_row": false,
+          "metadata_negation_localized_pre_repair": null,
+          "metadata_status": "budget_exhausted",
+          "metadata_fixed": true,
+          "metadata_true_regression": true,
+          "metadata_c_certificate_achieved": false,
+          "metadata_c_n_passes": 3,
+          "metadata_c_n_llm_calls": 3,
+          "metadata_c_pass_log": [
+            {
+              "pass_num": 1,
+              "n_flags": 3,
+              "flag_categories": [
+                "negation_polarity",
+                "quantifier_scope"
+              ],
+              "edit_distance_chars": 15,
+              "error": null,
+              "input_tokens": 437,
+              "output_tokens": 98
+            },
+            {
+              "pass_num": 2,
+              "n_flags": 2,
+              "flag_categories": [
+                "negation_polarity",
+                "quantifier_scope"
+              ],
+              "edit_distance_chars": 15,
+              "error": null,
+              "input_tokens": 414,
+              "output_tokens": 98
+            },
+            {
+              "pass_num": 3,
+              "n_flags": 2,
+              "flag_categories": [
+                "negation_polarity",
+                "quantifier_scope"
+              ],
+              "edit_distance_chars": 5,
+              "error": null,
+              "input_tokens": 413,
+              "output_tokens": 98
+            }
+          ]
+        },
+        {
+          "input": "[en-ru_RU/quantifier_substitution] Johnson celebrated his deal for cutting an estimated $16 billion in spending, but the Freedom Caucus believes he could have gotten more. Moderate Republicans who backed McCarthy's deal see that stance as unrealistic and running counter to the Republican goal of forcing Congress to pass the 12 individual spending bills as opposed to the \"omnibus\" measure of recent years, which combined those 12 bills into one vote.",
+          "output": "Джонсон оценил свою сделку за то, что благодаря ей удалось сократить расходы на 16 миллионов долларов, но Фракция Свободы считает, что он мог бы получить больше. Умеренные республиканцы, поддержавшие сделку Маккарти, считают такое мнение нереалистичным и противоречащим цели республиканской партии заставить Конгресс принять 12 отдельных законопроектов о расходах, а не объединять их некоторые в рамках одного голосования, как в предыдущие годы.",
+          "predict_c": "Джонсон оценил свою сделку за то, что благодаря ей удалось сократить расходы на примерно 16 миллиардов долларов, но Фракция Свободы считает, что он мог бы получить больше. Умеренные республиканцы, поддержавшие сделку Маккарти, считают такое мнение нереалистичным и противоречащим цели республиканской партии заставить Конгресс принять 12 отдельных законопроектов о расходах, а не объединять их в рамках одного голосования, как в предыдущие годы.",
+          "metadata_row_id": "injected_error_augmentation:1650",
+          "metadata_language_pair": "en-ru_RU",
+          "metadata_invariant_category": "quantifier_substitution",
+          "metadata_is_negation_deletion_row": false,
+          "metadata_negation_localized_pre_repair": null,
+          "metadata_status": "budget_exhausted",
+          "metadata_fixed": true,
+          "metadata_true_regression": true,
+          "metadata_c_certificate_achieved": false,
+          "metadata_c_n_passes": 3,
+          "metadata_c_n_llm_calls": 3,
+          "metadata_c_pass_log": [
+            {
+              "pass_num": 1,
+              "n_flags": 4,
+              "flag_categories": [
+                "negation_polarity",
+                "number_unit_date",
+                "quantifier_scope"
+              ],
+              "edit_distance_chars": 19,
+              "error": null,
+              "input_tokens": 459,
+              "output_tokens": 112
+            },
+            {
+              "pass_num": 2,
+              "n_flags": 4,
+              "flag_categories": [
+                "negation_polarity",
+                "number_unit_date",
+                "quantifier_scope"
+              ],
+              "edit_distance_chars": 17,
+              "error": null,
+              "input_tokens": 462,
+              "output_tokens": 112
+            },
+            {
+              "pass_num": 3,
+              "n_flags": 4,
+              "flag_categories": [
+                "negation_polarity",
+                "number_unit_date",
+                "quantifier_scope"
+              ],
+              "edit_distance_chars": 4,
+              "error": null,
+              "input_tokens": 462,
+              "output_tokens": 111
+            }
+          ]
+        },
+        {
+          "input": "[en-ru_RU/quantifier_substitution] I'm a solid proponent of using protective gear!",
+          "output": "Я никогда за то, чтобы использовать индивидуальные средства защиты!",
+          "predict_c": "Я никогда за то, чтобы использовать индивидуальные средства защиты!",
+          "metadata_row_id": "injected_error_augmentation:1164",
+          "metadata_language_pair": "en-ru_RU",
+          "metadata_invariant_category": "quantifier_substitution",
+          "metadata_is_negation_deletion_row": false,
+          "metadata_negation_localized_pre_repair": null,
+          "metadata_status": "certificate",
+          "metadata_fixed": false,
+          "metadata_true_regression": false,
+          "metadata_c_certificate_achieved": true,
+          "metadata_c_n_passes": 0,
+          "metadata_c_n_llm_calls": 0,
+          "metadata_c_pass_log": []
+        },
+        {
+          "input": "[en-ru_RU/quantifier_substitution] Chapter five is a long one, but so fucking angsty. Yisssss, the good shit.",
+          "output": "Пятая глава длинная, но там некоторые на нервах. Уиии, все как я люблю.",
+          "predict_c": "Пятая глава длинная, но там очень много на нервах. Уиии, вся хорошая.",
+          "metadata_row_id": "injected_error_augmentation:1207",
+          "metadata_language_pair": "en-ru_RU",
+          "metadata_invariant_category": "quantifier_substitution",
+          "metadata_is_negation_deletion_row": false,
+          "metadata_negation_localized_pre_repair": null,
+          "metadata_status": "budget_exhausted",
+          "metadata_fixed": true,
+          "metadata_true_regression": true,
+          "metadata_c_certificate_achieved": false,
+          "metadata_c_n_passes": 3,
+          "metadata_c_n_llm_calls": 3,
+          "metadata_c_pass_log": [
+            {
+              "pass_num": 1,
+              "n_flags": 2,
+              "flag_categories": [
+                "quantifier_scope"
+              ],
+              "edit_distance_chars": 10,
+              "error": null,
+              "input_tokens": 260,
+              "output_tokens": 25
+            },
+            {
+              "pass_num": 2,
+              "n_flags": 1,
+              "flag_categories": [
+                "quantifier_scope"
+              ],
+              "edit_distance_chars": 1,
+              "error": null,
+              "input_tokens": 240,
+              "output_tokens": 25
+            },
+            {
+              "pass_num": 3,
+              "n_flags": 1,
+              "flag_categories": [
+                "quantifier_scope"
+              ],
+              "edit_distance_chars": 11,
+              "error": null,
+              "input_tokens": 240,
+              "output_tokens": 24
+            }
+          ]
+        },
+        {
+          "input": "[en-ru_RU/quantifier_substitution] This is why I don't delete old emails.",
+          "output": "Вот почему я всегда не удаляю старые письма.",
+          "predict_c": "Вот почему я не удаляю старые письма.",
+          "metadata_row_id": "injected_error_augmentation:1412",
+          "metadata_language_pair": "en-ru_RU",
+          "metadata_invariant_category": "quantifier_substitution",
+          "metadata_is_negation_deletion_row": false,
+          "metadata_negation_localized_pre_repair": null,
+          "metadata_status": "budget_exhausted",
+          "metadata_fixed": true,
+          "metadata_true_regression": false,
+          "metadata_c_certificate_achieved": false,
+          "metadata_c_n_passes": 3,
+          "metadata_c_n_llm_calls": 3,
+          "metadata_c_pass_log": [
+            {
+              "pass_num": 1,
+              "n_flags": 1,
+              "flag_categories": [
+                "negation_polarity"
+              ],
+              "edit_distance_chars": 3,
+              "error": null,
+              "input_tokens": 217,
+              "output_tokens": 11
+            },
+            {
+              "pass_num": 2,
+              "n_flags": 1,
+              "flag_categories": [
+                "negation_polarity"
+              ],
+              "edit_distance_chars": 7,
+              "error": null,
+              "input_tokens": 223,
+              "output_tokens": 12
+            },
+            {
+              "pass_num": 3,
+              "n_flags": 1,
+              "flag_categories": [
+                "negation_polarity"
+              ],
+              "edit_distance_chars": 8,
+              "error": null,
+              "input_tokens": 217,
+              "output_tokens": 11
+            }
+          ]
+        },
+        {
+          "input": "[en-ru_RU/quantifier_substitution] So, I have been working with music for over 20 years, and released two albums during that time, and touring around Germany and Poland, and Sweden, of course. So you've always been a performer from a very young age? Yeah, I have. And is there any iconic places that you performed at when you were younger?",
+          "output": "Я работаю в музыкальной сфере уже более 20 лет, выпустил два альбома за это время, и езжу с турами по Германии и Польше, и, конечно, Швеции. То есть вы никогда выступали, с раннего возраста? Да. Есть какие-то знаковые места, где вы выступали в молодости?",
+          "predict_c": "Я работаю в музыкальной сфере уже более 20 лет, выпустил два альбома за это время, и езжу с турами по Германии и Польше, и, конечно, Швеции. То есть вы никогда выступали, с раннего возраста? Да. Есть какие-то знаковые места, где вы выступали в молодости?",
+          "metadata_row_id": "injected_error_augmentation:1400",
+          "metadata_language_pair": "en-ru_RU",
+          "metadata_invariant_category": "quantifier_substitution",
+          "metadata_is_negation_deletion_row": false,
+          "metadata_negation_localized_pre_repair": null,
+          "metadata_status": "budget_exhausted",
+          "metadata_fixed": false,
+          "metadata_true_regression": false,
+          "metadata_c_certificate_achieved": false,
+          "metadata_c_n_passes": 3,
+          "metadata_c_n_llm_calls": 3,
+          "metadata_c_pass_log": [
+            {
+              "pass_num": 1,
+              "n_flags": 1,
+              "flag_categories": [
+                "number_unit_date"
+              ],
+              "edit_distance_chars": 0,
+              "error": null,
+              "input_tokens": 339,
+              "output_tokens": 72
+            },
+            {
+              "pass_num": 2,
+              "n_flags": 1,
+              "flag_categories": [
+                "number_unit_date"
+              ],
+              "edit_distance_chars": 0,
+              "error": null,
+              "input_tokens": 339,
+              "output_tokens": 72
+            },
+            {
+              "pass_num": 3,
+              "n_flags": 1,
+              "flag_categories": [
+                "number_unit_date"
+              ],
+              "edit_distance_chars": 0,
+              "error": null,
+              "input_tokens": 339,
+              "output_tokens": 72
+            }
+          ]
+        },
+        {
+          "input": "[en-uk_UA/named_entity_swap] The results are in and, drum roll, please, it's completely consistent with my family history. 89.9% British and Irish with most of that concentrated in the scottish borders, western Ireland, Wales, and cornwall. It doesn't show much breton tho so either they're so close to cornish they don't show as different in me or my breton family wasn't originally from there.",
+          "output": "Результати отримані, і, барабанний дріб, вони повністю збігаються з моєю сімейною історією. 89,9 % британців та ірландців, більшість із яких проживали на кордонах Шотландії, Західної Ірландії, Сунак й Корнуолу. У ньому не так багато бретонського, тож або він настільки близький до корнуольського, що в мені не відчувається різниці, або моя бретонська родина не була звідти родом.",
+          "predict_c": "Результати отримані, і, барабанний дріб, вони повністю збігаються з моєю сімейною історією. 89,9% британців та ірландців, більшість із яких проживали на кордонах Шотландії, Західної Ірландії, Сунак й Корнуолу. У ньому не так багато бретонського, тож або він настільки близький до корнуольського, що в мені не відчувається різниці, або моя бретонська родина не була звідти родом.",
+          "metadata_row_id": "injected_error_augmentation:1962",
+          "metadata_language_pair": "en-uk_UA",
+          "metadata_invariant_category": "named_entity_swap",
+          "metadata_is_negation_deletion_row": false,
+          "metadata_negation_localized_pre_repair": null,
+          "metadata_status": "budget_exhausted",
+          "metadata_fixed": false,
+          "metadata_true_regression": false,
+          "metadata_c_certificate_achieved": false,
+          "metadata_c_n_passes": 3,
+          "metadata_c_n_llm_calls": 3,
+          "metadata_c_pass_log": [
+            {
+              "pass_num": 1,
+              "n_flags": 1,
+              "flag_categories": [
+                "number_unit_date"
+              ],
+              "edit_distance_chars": 1,
+              "error": null,
+              "input_tokens": 417,
+              "output_tokens": 128
+            },
+            {
+              "pass_num": 2,
+              "n_flags": 1,
+              "flag_categories": [
+                "number_unit_date"
+              ],
+              "edit_distance_chars": 0,
+              "error": null,
+              "input_tokens": 415,
+              "output_tokens": 128
+            },
+            {
+              "pass_num": 3,
+              "n_flags": 1,
+              "flag_categories": [
+                "number_unit_date"
+              ],
+              "edit_distance_chars": 0,
+              "error": null,
+              "input_tokens": 415,
+              "output_tokens": 128
+            }
+          ]
+        },
+        {
+          "input": "[en-uk_UA/named_entity_swap] “Lieutenant Nemic…Lieutenant Valturi…” He said Cohren was slower, glancing at Cohren’s pistol holster before glancing up again. “I assume that the company is ready”",
+          "output": "«Палтрікуса… лейтенанте Валтурі…» Він повільно відповів Кохрену, зиркнувши на кобуру пістолета Кохрена, а потім знову підняв очі. «Я так розумію, що підрозділ готовий».",
+          "predict_c": "«Палтрікуса… лейтенанте Валтурі…» Він повільно відповів Кохрену, зиркнувши на кобуру пістолета Кохрена, а потім знову підняв очі. «Я так розумію, що підрозділ готовий».",
+          "metadata_row_id": "injected_error_augmentation:1931",
+          "metadata_language_pair": "en-uk_UA",
+          "metadata_invariant_category": "named_entity_swap",
+          "metadata_is_negation_deletion_row": false,
+          "metadata_negation_localized_pre_repair": null,
+          "metadata_status": "certificate",
+          "metadata_fixed": false,
+          "metadata_true_regression": false,
+          "metadata_c_certificate_achieved": true,
+          "metadata_c_n_passes": 0,
+          "metadata_c_n_llm_calls": 0,
+          "metadata_c_pass_log": []
+        },
+        {
+          "input": "[en-uk_UA/named_entity_swap] In an interview with Ventures Africa, an anonymous Senior Legal Official from a leading commercial bank commented, \"There are several issues concerning this matter. First, her ministry is relatively new, and her predecessor and pioneering minister, Sadiya Umar-Farouk, engaged in activities that appeared to be illegal. It might be a reflection of how they operate in the ministry. Nevertheless, paying public money into private accounts goes against public procurement rules.\" He added that unless she can provide a valid reason for such approval, it may not necessarily involve fraudulent intent, but it is nonetheless incorrect, and certainty is lacking.",
+          "output": "В інтерв’ю Ventures Africa старший юридичний працівник провідного комерційного банку анонімно прокоментував: «Ця справа стосується кількох питань. По-перше, її міністерство є відносно новим, і діяльність її попередниці міністра-першопрохідця УкраїніФарук також здавалася незаконною. Це може бути просто відображенням роботи їхнього міністерства. А втім, переведення державних коштів на приватні рахунки порушує правила державних закупівель». Він додав, що якщо вона не зможе надати вагому причину для такого схвалення, це переведення не обов’язково може бути пов’язане із шахрайством, але воно однаково неправильне, і визначеності тут бракує.",
+          "predict_c": "В інтерв’ю Ventures Africa старший юридичний працівник провідного комерційного банку анонімно прокоментував: «Ця справа стосується кількох питань. По-перше, її міністерство є відносно новим, і діяльність її попередниці міністра-першопрохідця УкраїніФарук також здавалася незаконною. Це може бути просто відображенням роботи їхнього міністерства. А втім, переведення державних коштів на приватні рахунки порушує правила державних закупівель». Він додав, що якщо вона не зможе надати вагому причину для такого схвалення, це переведення не обов’язково може бути пов’язане із шахрайством, але воно однаково неправильне, і визначеності тут бракує.",
+          "metadata_row_id": "injected_error_augmentation:1776",
+          "metadata_language_pair": "en-uk_UA",
+          "metadata_invariant_category": "named_entity_swap",
+          "metadata_is_negation_deletion_row": false,
+          "metadata_negation_localized_pre_repair": null,
+          "metadata_status": "certificate",
+          "metadata_fixed": false,
+          "metadata_true_regression": false,
+          "metadata_c_certificate_achieved": true,
+          "metadata_c_n_passes": 0,
+          "metadata_c_n_llm_calls": 0,
+          "metadata_c_pass_log": []
+        },
+        {
+          "input": "[en-uk_UA/named_entity_swap] Oh right, here is Sally Rooney latest essay",
+          "output": "О, так, ось останнє есе Маямі",
+          "predict_c": "О, так, ось останнє есе Маямі",
+          "metadata_row_id": "injected_error_augmentation:1741",
+          "metadata_language_pair": "en-uk_UA",
+          "metadata_invariant_category": "named_entity_swap",
+          "metadata_is_negation_deletion_row": false,
+          "metadata_negation_localized_pre_repair": null,
+          "metadata_status": "certificate",
+          "metadata_fixed": false,
+          "metadata_true_regression": false,
+          "metadata_c_certificate_achieved": true,
+          "metadata_c_n_passes": 0,
+          "metadata_c_n_llm_calls": 0,
+          "metadata_c_pass_log": []
+        },
+        {
+          "input": "[en-uk_UA/named_entity_swap] Rosendale, a member of the hard-right Freedom Caucus, was one of the individuals who derailed the Wednesday votes. He views the top line number in Johnson's deal as being too high and as doing too little to cut the $34 trillion national debt.",
+          "output": "Розендейл, член радикально-правого Маємо свобод, був одним із тих, хто зірвав голосування в середу. Він вважає, що сума виручки в угоді Джонсона є зависокою і становить замалу частку в скороченні державного боргу в 34 трильйони доларів.",
+          "predict_c": "Розендейл, член радикально-правого Маємо свобод, був одним із тих, хто зірвав голосування в середу. Він вважає, що сума виручки в угоді Джонсона є зависокою і становить замалу частку в скороченні державного боргу в $34 трильйонів.",
+          "metadata_row_id": "injected_error_augmentation:1947",
+          "metadata_language_pair": "en-uk_UA",
+          "metadata_invariant_category": "named_entity_swap",
+          "metadata_is_negation_deletion_row": false,
+          "metadata_negation_localized_pre_repair": null,
+          "metadata_status": "budget_exhausted",
+          "metadata_fixed": false,
+          "metadata_true_regression": true,
+          "metadata_c_certificate_achieved": false,
+          "metadata_c_n_passes": 3,
+          "metadata_c_n_llm_calls": 3,
+          "metadata_c_pass_log": [
+            {
+              "pass_num": 1,
+              "n_flags": 1,
+              "flag_categories": [
+                "number_unit_date"
+              ],
+              "edit_distance_chars": 10,
+              "error": null,
+              "input_tokens": 336,
+              "output_tokens": 73
+            },
+            {
+              "pass_num": 2,
+              "n_flags": 1,
+              "flag_categories": [
+                "number_unit_date"
+              ],
+              "edit_distance_chars": 2,
+              "error": null,
+              "input_tokens": 329,
+              "output_tokens": 73
+            },
+            {
+              "pass_num": 3,
+              "n_flags": 1,
+              "flag_categories": [
+                "number_unit_date"
+              ],
+              "edit_distance_chars": 0,
+              "error": null,
+              "input_tokens": 329,
+              "output_tokens": 73
+            }
+          ]
+        },
+        {
+          "input": "[en-uk_UA/named_entity_swap] Well, it still sounds better than Pink Floyd. So in Manic Miner, you collect all the items on the screen and head to the goal. And you gotta do it before you run out of air or hit something. Hit what exactly? Weeds! You can die from touching grass. It sounds like half my fanbase. And did you notice I died from touching a weed that was on a completely different platform? I just went through the platform and then hit the weed. That's good game design, man. And then there's this asshole over here who's going rrrrr!",
+          "output": "Однак звучить краще, ніж Pink Floyd. Отже, в Manic Miner ви збираєте всі предмети на екрані і прямуєте до мети. І це необхідно зробити до того, як у вас скінчиться повітря або ви вдаритеся об щось. Що саме? Бур’яни! Від дотику до бур’яну можна померти. У половини моєї фан-бази схожі проблеми. А ви звернули увагу, що я ледве не померла від дотику до бур’яну, який лежав на зовсім іншій поверхні? Проходячи повз, потрапив до бур’яну. Це чудовий ігровий дизайн, чувак. І тут з’являється цей мудак, який кричить: «Олександр Керенський!»",
+          "predict_c": "Однак звучить краще, ніж Pink Floyd. Отже, в Manic Miner ви збираєте всі предмети на екрані і прямуєте до мети. І це необхідно зробити до того, як у вас скінчиться повітря або ви вдаритеся об щось. Що саме? Бур’яни! Від дотику до бур’яну можна померти. У половини моєї фан-бази схожі проблеми. А ви звернули увагу, що я ледве не померла від дотику до бур’яну, який лежав на зовсім іншій поверхні? Проходячи повз, потрапив до бур’яну. Це чудовий ігровий дизайн, чувак. І тут з’являється цей мудак, який кричить: «Олександр Керенський!»",
+          "metadata_row_id": "injected_error_augmentation:1981",
+          "metadata_language_pair": "en-uk_UA",
+          "metadata_invariant_category": "named_entity_swap",
+          "metadata_is_negation_deletion_row": false,
+          "metadata_negation_localized_pre_repair": null,
+          "metadata_status": "budget_exhausted",
+          "metadata_fixed": false,
+          "metadata_true_regression": false,
+          "metadata_c_certificate_achieved": false,
+          "metadata_c_n_passes": 3,
+          "metadata_c_n_llm_calls": 3,
+          "metadata_c_pass_log": [
+            {
+              "pass_num": 1,
+              "n_flags": 1,
+              "flag_categories": [
+                "negation_polarity"
+              ],
+              "edit_distance_chars": 0,
+              "error": null,
+              "input_tokens": 500,
+              "output_tokens": 183
+            },
+            {
+              "pass_num": 2,
+              "n_flags": 1,
+              "flag_categories": [
+                "negation_polarity"
+              ],
+              "edit_distance_chars": 0,
+              "error": null,
+              "input_tokens": 500,
+              "output_tokens": 183
+            },
+            {
+              "pass_num": 3,
+              "n_flags": 1,
+              "flag_categories": [
+                "negation_polarity"
+              ],
+              "edit_distance_chars": 0,
+              "error": null,
+              "input_tokens": 500,
+              "output_tokens": 183
+            }
+          ]
+        },
+        {
+          "input": "[en-uk_UA/negation_polarity_flip] A shared look of horror came from the advisor and Queen Eirwen herself. She slowly looked down at the floor. “Yes, my king.” She bowed.",
+          "output": "Радник із королевою Ейрін на жарт перелякалися. Вона поволі потупилася на підлогу. «Слухаюсь, мій королю». Вона вклонилася.",
+          "predict_c": "Радник із королевою Ейрін на жарт перелякалися. Вона поволі потупилася на підлогу. «Слухаюсь, мій королю». Вона вклонилася.",
+          "metadata_row_id": "injected_error_augmentation:2026",
+          "metadata_language_pair": "en-uk_UA",
+          "metadata_invariant_category": "negation_polarity_flip",
+          "metadata_is_negation_deletion_row": true,
+          "metadata_negation_localized_pre_repair": false,
+          "metadata_status": "certificate",
+          "metadata_fixed": null,
+          "metadata_true_regression": false,
+          "metadata_c_certificate_achieved": true,
+          "metadata_c_n_passes": 0,
+          "metadata_c_n_llm_calls": 0,
+          "metadata_c_pass_log": []
+        },
+        {
+          "input": "[en-uk_UA/negation_polarity_flip] In a Twitter post, political and digital communications expert Akin Akinwale expressed the opinion that the ministry might not have been wrong to use a personal account.",
+          "output": "У дописі у Твіттері експерт із політичних і цифрових комунікацій Акін Акінвале висловив думку про те, що міністерство, можливо, помилилося, використавши приватний рахунок.",
+          "predict_c": "У дописі у Твіттері експерт із політичних і цифрових комунікацій Акін Акінвале висловив думку про те, що міністерство, можливо, не помилилося, використавши приватний рахунок.",
+          "metadata_row_id": "injected_error_augmentation:2025",
+          "metadata_language_pair": "en-uk_UA",
+          "metadata_invariant_category": "negation_polarity_flip",
+          "metadata_is_negation_deletion_row": true,
+          "metadata_negation_localized_pre_repair": true,
+          "metadata_status": "budget_exhausted",
+          "metadata_fixed": null,
+          "metadata_true_regression": false,
+          "metadata_c_certificate_achieved": false,
+          "metadata_c_n_passes": 3,
+          "metadata_c_n_llm_calls": 3,
+          "metadata_c_pass_log": [
+            {
+              "pass_num": 1,
+              "n_flags": 1,
+              "flag_categories": [
+                "negation_polarity"
+              ],
+              "edit_distance_chars": 3,
+              "error": null,
+              "input_tokens": 329,
+              "output_tokens": 55
+            },
+            {
+              "pass_num": 2,
+              "n_flags": 1,
+              "flag_categories": [
+                "negation_polarity"
+              ],
+              "edit_distance_chars": 3,
+              "error": null,
+              "input_tokens": 281,
+              "output_tokens": 54
+            },
+            {
+              "pass_num": 3,
+              "n_flags": 1,
+              "flag_categories": [
+                "negation_polarity"
+              ],
+              "edit_distance_chars": 3,
+              "error": null,
+              "input_tokens": 329,
+              "output_tokens": 55
+            }
+          ]
+        },
+        {
+          "input": "[en-uk_UA/negation_polarity_flip] Kaboom City is the city of heroes. The Super Things and the Kazoom Kids fight with their powers derived from Kazoom itself. It's the most potent energy source ever known, and now it's on display at the city museum for all to admire. And we're going to steal it! Isn't it dangerous to slip through here? Negative. This is the way the Kazooms are coming.",
+          "output": "Кабум Сіті – місто героїв. Super Things та Kazoom Kids б’ються за посередництвом своїх сил, отриманих від самого Казума. Це найпотужніше з відомих коли-небудь джерел енергії, і тепер воно виставлене в міському музеї для загального огляду. І ми збираємося його вкрасти! Чи небезпечно тут прослизнути? Нічого подібного. Це шлях, яким ідуть Kazoom.",
+          "predict_c": "Кабум Сіті – місто героїв. Super Things та Kazoom Kids б’ються за посередництвом своїх сил, отриманих від самого Казума. Це найпотужніше з відомих коли-небудь джерел енергії, і тепер воно виставлене в міському музеї для загального огляду. І ми збираємося його вкрасти! Чи небезпечно тут прослизнути? Немає. Це шлях, яким ідуть Kazoom.",
+          "metadata_row_id": "injected_error_augmentation:1995",
+          "metadata_language_pair": "en-uk_UA",
+          "metadata_invariant_category": "negation_polarity_flip",
+          "metadata_is_negation_deletion_row": true,
+          "metadata_negation_localized_pre_repair": true,
+          "metadata_status": "budget_exhausted",
+          "metadata_fixed": null,
+          "metadata_true_regression": false,
+          "metadata_c_certificate_achieved": false,
+          "metadata_c_n_passes": 3,
+          "metadata_c_n_llm_calls": 3,
+          "metadata_c_pass_log": [
+            {
+              "pass_num": 1,
+              "n_flags": 1,
+              "flag_categories": [
+                "negation_polarity"
+              ],
+              "edit_distance_chars": 13,
+              "error": null,
+              "input_tokens": 405,
+              "output_tokens": 111
+            },
+            {
+              "pass_num": 2,
+              "n_flags": 1,
+              "flag_categories": [
+                "negation_polarity"
+              ],
+              "edit_distance_chars": 8,
+              "error": null,
+              "input_tokens": 401,
+              "output_tokens": 109
+            },
+            {
+              "pass_num": 3,
+              "n_flags": 2,
+              "flag_categories": [
+                "negation_polarity"
+              ],
+              "edit_distance_chars": 4,
+              "error": null,
+              "input_tokens": 422,
+              "output_tokens": 111
+            }
+          ]
+        },
+        {
+          "input": "[en-uk_UA/negation_polarity_flip] Of course the sun is gonna be out while I'm away, lol. What a punk.",
+          "output": "Звісно, сонце ховатиметься, поки мене буде, ха-ха. Що за нісенітниця.",
+          "predict_c": "Звісно, сонце ховатиметься, поки мене буде, ха-ха. Що за нісенітниця.",
+          "metadata_row_id": "injected_error_augmentation:1991",
+          "metadata_language_pair": "en-uk_UA",
+          "metadata_invariant_category": "negation_polarity_flip",
+          "metadata_is_negation_deletion_row": true,
+          "metadata_negation_localized_pre_repair": false,
+          "metadata_status": "certificate",
+          "metadata_fixed": null,
+          "metadata_true_regression": false,
+          "metadata_c_certificate_achieved": true,
+          "metadata_c_n_passes": 0,
+          "metadata_c_n_llm_calls": 0,
+          "metadata_c_pass_log": []
+        },
+        {
+          "input": "[en-uk_UA/negation_polarity_flip] Amazing how there's two PKs #DCU should have had and got neither. The fix is so in for Miami #MLS #mastodonfc",
+          "output": "Неймовірно, що #DCU мали б отримати два пенельті, але отримали жодного. Майамі підсуджують #MLS #mastodonfc",
+          "predict_c": "Неймовірно, що #DCU мали б отримати два пенельті, але не отримали жодного. Майамі підсуджують #MLS #mastodonfc",
+          "metadata_row_id": "injected_error_augmentation:2059",
+          "metadata_language_pair": "en-uk_UA",
+          "metadata_invariant_category": "negation_polarity_flip",
+          "metadata_is_negation_deletion_row": true,
+          "metadata_negation_localized_pre_repair": true,
+          "metadata_status": "certificate",
+          "metadata_fixed": null,
+          "metadata_true_regression": false,
+          "metadata_c_certificate_achieved": true,
+          "metadata_c_n_passes": 2,
+          "metadata_c_n_llm_calls": 2,
+          "metadata_c_pass_log": [
+            {
+              "pass_num": 1,
+              "n_flags": 1,
+              "flag_categories": [
+                "negation_polarity"
+              ],
+              "edit_distance_chars": 6,
+              "error": null,
+              "input_tokens": 265,
+              "output_tokens": 38
+            },
+            {
+              "pass_num": 2,
+              "n_flags": 1,
+              "flag_categories": [
+                "negation_polarity"
+              ],
+              "edit_distance_chars": 9,
+              "error": null,
+              "input_tokens": 284,
+              "output_tokens": 40
+            }
+          ]
+        },
+        {
+          "input": "[en-uk_UA/negation_polarity_flip] A few more sensors in general would be nice I guess.",
+          "output": "Гадаю, ще кілька датчиків завадили б.",
+          "predict_c": "Гадаю, ще кілька датчиків завадили б.",
+          "metadata_row_id": "injected_error_augmentation:1993",
+          "metadata_language_pair": "en-uk_UA",
+          "metadata_invariant_category": "negation_polarity_flip",
+          "metadata_is_negation_deletion_row": true,
+          "metadata_negation_localized_pre_repair": false,
+          "metadata_status": "certificate",
+          "metadata_fixed": null,
+          "metadata_true_regression": false,
+          "metadata_c_certificate_achieved": true,
+          "metadata_c_n_passes": 0,
+          "metadata_c_n_llm_calls": 0,
+          "metadata_c_pass_log": []
+        },
+        {
+          "input": "[en-uk_UA/number_unit_date_alteration] it was unlike anything we have now with streaming, where 12 episodes are dropped at once and everyone watches at their own pace, prefacing social media posts with “spoiler alerts” or keeping discussion in specified silos.",
+          "output": "Це дуже відрізняється від того, як проходять трансляції зараз, коли одразу випускають 22 серій, і кожен дивиться їх у власному темпі, і все це супроводжується постами в соціальних мережах із «попередженнями про спойлери» або обговореннями в коментарях.",
+          "predict_c": "Це дуже відрізняється від того, як проходять трансляції зараз, коли одразу випускають 12 епізодів, і кожен дивиться їх у власному темпі, і все це супроводжується постами в соціальних мережах із «попередженнями про спойлери» або обговореннями в коментарях.",
+          "metadata_row_id": "injected_error_augmentation:2009",
+          "metadata_language_pair": "en-uk_UA",
+          "metadata_invariant_category": "number_unit_date_alteration",
+          "metadata_is_negation_deletion_row": false,
+          "metadata_negation_localized_pre_repair": null,
+          "metadata_status": "budget_exhausted",
+          "metadata_fixed": true,
+          "metadata_true_regression": false,
+          "metadata_c_certificate_achieved": false,
+          "metadata_c_n_passes": 3,
+          "metadata_c_n_llm_calls": 3,
+          "metadata_c_pass_log": [
+            {
+              "pass_num": 1,
+              "n_flags": 1,
+              "flag_categories": [
+                "number_unit_date"
+              ],
+              "edit_distance_chars": 2,
+              "error": null,
+              "input_tokens": 326,
+              "output_tokens": 79
+            },
+            {
+              "pass_num": 2,
+              "n_flags": 1,
+              "flag_categories": [
+                "number_unit_date"
+              ],
+              "edit_distance_chars": 7,
+              "error": null,
+              "input_tokens": 322,
+              "output_tokens": 81
+            },
+            {
+              "pass_num": 3,
+              "n_flags": 1,
+              "flag_categories": [
+                "number_unit_date"
+              ],
+              "edit_distance_chars": 0,
+              "error": null,
+              "input_tokens": 326,
+              "output_tokens": 81
+            }
+          ]
+        },
+        {
+          "input": "[en-uk_UA/number_unit_date_alteration] “Make sure you have all your personal belongings,” Cohren continued. As a 1st Lieutenant and Company XO, it was his responsibility to oversee and assist the company with the Company leader, Captain Boradin Shaw . “We won’t be returning. Sergeants and 2nd lieutenants, I'm giving you and your squads fifteen minutes to make final checks and grab rations for the day”",
+          "output": "«Перевірте, щоб ви мали всі індивідуальні речі», – продовжував Кохрен. Як 2-й лейтенант і заступник командувача підрозділу він був зобов’язаний здійснювати нагляд і допомагати командиру підрозділу, капітану Борадіну Шоу. «Ми не вертатимемося. Сержанти і 2-гі лейтенанти, у вас і ваших загонів є п’ятнадцять хвилин, щоб зробити завершальні огляди та забрати пайки на день».",
+          "predict_c": "«Перевірте, щоб ви мали всі індивідуальні речі», – продовжував Кохрен. Як 1-й лейтенант і заступник командувача підрозділу він був зобов’язаний здійснювати нагляд і допомагати командиру підрозділу, капітану Борадіну Шоу. «Ми не повертатимемося. Сержанти і другий лейтенанти, у вас і ваших загонів є п’ятнадцять хвилин, щоб зробити завершальні огляди та забрати пайки на день».",
+          "metadata_row_id": "injected_error_augmentation:2019",
+          "metadata_language_pair": "en-uk_UA",
+          "metadata_invariant_category": "number_unit_date_alteration",
+          "metadata_is_negation_deletion_row": false,
+          "metadata_negation_localized_pre_repair": null,
+          "metadata_status": "budget_exhausted",
+          "metadata_fixed": true,
+          "metadata_true_regression": false,
+          "metadata_c_certificate_achieved": false,
+          "metadata_c_n_passes": 3,
+          "metadata_c_n_llm_calls": 3,
+          "metadata_c_pass_log": [
+            {
+              "pass_num": 1,
+              "n_flags": 3,
+              "flag_categories": [
+                "negation_polarity",
+                "number_unit_date"
+              ],
+              "edit_distance_chars": 4,
+              "error": null,
+              "input_tokens": 456,
+              "output_tokens": 132
+            },
+            {
+              "pass_num": 2,
+              "n_flags": 3,
+              "flag_categories": [
+                "negation_polarity",
+                "number_unit_date"
+              ],
+              "edit_distance_chars": 2,
+              "error": null,
+              "input_tokens": 454,
+              "output_tokens": 132
+            },
+            {
+              "pass_num": 3,
+              "n_flags": 3,
+              "flag_categories": [
+                "negation_polarity",
+                "number_unit_date"
+              ],
+              "edit_distance_chars": 5,
+              "error": null,
+              "input_tokens": 454,
+              "output_tokens": 130
+            }
+          ]
+        },
+        {
+          "input": "[en-uk_UA/number_unit_date_alteration] How to find out if you're flying on a Boeing 737 MAX",
+          "output": "Як дізнатися, чи ви летите на Boeing 837 MAX",
+          "predict_c": "Як дізнатися, чи ви летите на Boeing 737 MAX",
+          "metadata_row_id": "injected_error_augmentation:1707",
+          "metadata_language_pair": "en-uk_UA",
+          "metadata_invariant_category": "number_unit_date_alteration",
+          "metadata_is_negation_deletion_row": false,
+          "metadata_negation_localized_pre_repair": null,
+          "metadata_status": "budget_exhausted",
+          "metadata_fixed": true,
+          "metadata_true_regression": false,
+          "metadata_c_certificate_achieved": false,
+          "metadata_c_n_passes": 3,
+          "metadata_c_n_llm_calls": 3,
+          "metadata_c_pass_log": [
+            {
+              "pass_num": 1,
+              "n_flags": 1,
+              "flag_categories": [
+                "number_unit_date"
+              ],
+              "edit_distance_chars": 1,
+              "error": null,
+              "input_tokens": 232,
+              "output_tokens": 17
+            },
+            {
+              "pass_num": 2,
+              "n_flags": 1,
+              "flag_categories": [
+                "number_unit_date"
+              ],
+              "edit_distance_chars": 0,
+              "error": null,
+              "input_tokens": 232,
+              "output_tokens": 17
+            },
+            {
+              "pass_num": 3,
+              "n_flags": 1,
+              "flag_categories": [
+                "number_unit_date"
+              ],
+              "edit_distance_chars": 0,
+              "error": null,
+              "input_tokens": 232,
+              "output_tokens": 17
+            }
+          ]
+        },
+        {
+          "input": "[en-uk_UA/number_unit_date_alteration] 1. Use CSS",
+          "output": "2. Скористайтеся CSS",
+          "predict_c": "Скористайтеся CSS",
+          "metadata_row_id": "injected_error_augmentation:1738",
+          "metadata_language_pair": "en-uk_UA",
+          "metadata_invariant_category": "number_unit_date_alteration",
+          "metadata_is_negation_deletion_row": false,
+          "metadata_negation_localized_pre_repair": null,
+          "metadata_status": "certificate",
+          "metadata_fixed": true,
+          "metadata_true_regression": false,
+          "metadata_c_certificate_achieved": true,
+          "metadata_c_n_passes": 1,
+          "metadata_c_n_llm_calls": 1,
+          "metadata_c_pass_log": [
+            {
+              "pass_num": 1,
+              "n_flags": 1,
+              "flag_categories": [
+                "number_unit_date"
+              ],
+              "edit_distance_chars": 3,
+              "error": null,
+              "input_tokens": 205,
+              "output_tokens": 6
+            }
+          ]
+        },
+        {
+          "input": "[en-uk_UA/number_unit_date_alteration] The members of Exodus company quickly dispersed. They were a part of the 2nd Shocktrooper Division, 2nd Army. They were originally two separate companies, Cohort and Dagger, before being consolidated. They were a cracked company, and Cohren felt mixed feelings about being promoted to 1st Lieutenant, mainly due to the reasons.",
+          "output": "Бійці підрозділу «Вихід» хутко розбрелися. Вони були в складі 3-ї дивізії штурмовиків 2-ї армії. Початково це були два самостійних підрозділи, «Когорта» та «Кинджал», перш ніж їх об’єднали. Це був розбитий підрозділ, і Кохрен мав неоднозначні почуття з приводу свого призначення на посаду 1-го лейтенанта, здебільшого через ці підстави.",
+          "predict_c": "Бійці підрозділу «Вихід» хутко розбрелися. Вони були в складі 2-ї дивізії штурмовиків 2-ї армії. Початково це були два самостійних підрозділи, «Когорта» та «Кинджал», перш ніж їх об’єднали. Це був розбитий підрозділ, і Кохрен мав неоднозначні почуття з приводу свого призначення на посаду 1-го лейтенанта, здебільшого через ці підстави.",
+          "metadata_row_id": "injected_error_augmentation:1877",
+          "metadata_language_pair": "en-uk_UA",
+          "metadata_invariant_category": "number_unit_date_alteration",
+          "metadata_is_negation_deletion_row": false,
+          "metadata_negation_localized_pre_repair": null,
+          "metadata_status": "budget_exhausted",
+          "metadata_fixed": true,
+          "metadata_true_regression": false,
+          "metadata_c_certificate_achieved": false,
+          "metadata_c_n_passes": 3,
+          "metadata_c_n_llm_calls": 3,
+          "metadata_c_pass_log": [
+            {
+              "pass_num": 1,
+              "n_flags": 3,
+              "flag_categories": [
+                "number_unit_date"
+              ],
+              "edit_distance_chars": 1,
+              "error": null,
+              "input_tokens": 436,
+              "output_tokens": 126
+            },
+            {
+              "pass_num": 2,
+              "n_flags": 3,
+              "flag_categories": [
+                "number_unit_date"
+              ],
+              "edit_distance_chars": 0,
+              "error": null,
+              "input_tokens": 436,
+              "output_tokens": 126
+            },
+            {
+              "pass_num": 3,
+              "n_flags": 3,
+              "flag_categories": [
+                "number_unit_date"
+              ],
+              "edit_distance_chars": 0,
+              "error": null,
+              "input_tokens": 436,
+              "output_tokens": 126
+            }
+          ]
+        },
+        {
+          "input": "[en-uk_UA/number_unit_date_alteration] While the root cause of their problems was the flawed Horizon computer system, Post Office minister Kevin Hollinrake told MPs yesterday that the evidence showed \"not only incompetence but malevolence\" by the Post Office. He lamented that just 95 out of more than 900 convictions had been overturned. Now, a new law is to be introduced in England and Wales to exonerate the scandal's victims, with Downing Street saying it will work with the Scottish Government on similar steps.",
+          "output": "Незважаючи на те, що першопричиною їхніх негараздів була недосконала комп’ютерна система Horizon, Кевін Холлінрейк, міністр, відповідальний за Post Office, учора заявив членам парламенту, що факти свідчать «не лише про непрофесійність, а й про злочинні наміри» з боку Post Office. Він висловив жаль із приводу того, що лише 85 із більш ніж 900 обвинувальних вироків було скасовано. Відтепер в Англії та Уельсі мають запровадити новий закон про виправдання потерпілих від цього скандалу, а з Даунінг-стріт повідомили, що співпрацюватимуть з урядом Шотландії над подібними ініціативами.",
+          "predict_c": "Незважаючи на те, що першопричиною їхніх негараздів була недосконала комп’ютерна система Horizon, Кевін Холлінрейк, міністр, відповідальний за Post Office, учора заявив членам парламенту, що факти свідчать «не лише про непрофесійність, а й про злочинні наміри» з боку Post Office. Він висловив жаль із приводу того, що лише 95 із понад 900 обвинувальних вироків було скасовано. Відтепер в Англії та Уельсі мають запровадити новий закон про виправдання потерпілих від цього скандалу, а з Даунінг-стріт повідомили, що співпрацюватимуть з урядом Шотландії над подібними ініціативами.",
+          "metadata_row_id": "injected_error_augmentation:2089",
+          "metadata_language_pair": "en-uk_UA",
+          "metadata_invariant_category": "number_unit_date_alteration",
+          "metadata_is_negation_deletion_row": false,
+          "metadata_negation_localized_pre_repair": null,
+          "metadata_status": "budget_exhausted",
+          "metadata_fixed": true,
+          "metadata_true_regression": false,
+          "metadata_c_certificate_achieved": false,
+          "metadata_c_n_passes": 3,
+          "metadata_c_n_llm_calls": 3,
+          "metadata_c_pass_log": [
+            {
+              "pass_num": 1,
+              "n_flags": 3,
+              "flag_categories": [
+                "negation_polarity",
+                "number_unit_date"
+              ],
+              "edit_distance_chars": 1,
+              "error": null,
+              "input_tokens": 546,
+              "output_tokens": 196
+            },
+            {
+              "pass_num": 2,
+              "n_flags": 3,
+              "flag_categories": [
+                "negation_polarity",
+                "number_unit_date"
+              ],
+              "edit_distance_chars": 9,
+              "error": null,
+              "input_tokens": 546,
+              "output_tokens": 193
+            },
+            {
+              "pass_num": 3,
+              "n_flags": 3,
+              "flag_categories": [
+                "negation_polarity",
+                "number_unit_date"
+              ],
+              "edit_distance_chars": 0,
+              "error": null,
+              "input_tokens": 540,
+              "output_tokens": 193
+            }
+          ]
+        },
+        {
+          "input": "[en-uk_UA/quantifier_substitution] Nearby, Basil was awoken by an emergency alert as a foul smelling gas cloud from the blaze was spread across the area. Locals were told not to leave their homes and to close all windows and doors, although this alert was lifted around 7 AM when the smoke was thought to be non-fatal. It wouldn't be the air so much as the water that would be heavily polluted, and it would be the very water used to douse the flames that would cause the disaster. The highly toxic mercury compounds were present as fungicides in sea dressings in the warehouse, and were marked with fluorescent red dye Rhodamine B.",
+          "output": "Неподалік Базиля розбудив сигнал тривоги, оскільки хмара смердючого газу від пожежі розповсюджувалася по всій місцевості. Місцевим жителям було наказано не виходити з домівок і закрити деякі вікна та двері, хоча це попередження було знято близько 7 ранку, коли дим вважався несмертельним. Не стільки повітря, скільки вода буде сильно забруднена, і саме вода, яку використовували для гасіння полум’я, стане причиною катастрофи. Високотоксичні сполуки ртуті були присутні як фунгіциди в морських протруйниках на складі і були марковані флуоресцентним червоним барвником Родамін Б.",
+          "predict_c": "Неподалік Базиля розбудив сигнал тривоги, оскільки хмара смердючого газу від пожежі розповсюджувалася по всій місцевості. Місцевим жителям було наказано не виходити з домівок і закрити деякі вікна та двері, хоча це попередження було знято близько 7:00 ранку коли дим вважався несмертельним. Не стільки повітря, скільки вода буде сильно забруднена, і саме вода, яку використовували для гасіння полум’я, стане причиною катастрофи. Високотоксичні сполуки ртуті були присутні як фунгіциди в морських протруйниках на складі і були марковані флуоресцентним червоним барвником Родамін Б.",
+          "metadata_row_id": "injected_error_augmentation:2093",
+          "metadata_language_pair": "en-uk_UA",
+          "metadata_invariant_category": "quantifier_substitution",
+          "metadata_is_negation_deletion_row": false,
+          "metadata_negation_localized_pre_repair": null,
+          "metadata_status": "budget_exhausted",
+          "metadata_fixed": false,
+          "metadata_true_regression": true,
+          "metadata_c_certificate_achieved": false,
+          "metadata_c_n_passes": 3,
+          "metadata_c_n_llm_calls": 3,
+          "metadata_c_pass_log": [
+            {
+              "pass_num": 1,
+              "n_flags": 3,
+              "flag_categories": [
+                "negation_polarity",
+                "number_unit_date"
+              ],
+              "edit_distance_chars": 3,
+              "error": null,
+              "input_tokens": 551,
+              "output_tokens": 186
+            },
+            {
+              "pass_num": 2,
+              "n_flags": 4,
+              "flag_categories": [
+                "negation_polarity",
+                "number_unit_date"
+              ],
+              "edit_distance_chars": 7,
+              "error": null,
+              "input_tokens": 578,
+              "output_tokens": 183
+            },
+            {
+              "pass_num": 3,
+              "n_flags": 4,
+              "flag_categories": [
+                "negation_polarity",
+                "number_unit_date"
+              ],
+              "edit_distance_chars": 6,
+              "error": null,
+              "input_tokens": 574,
+              "output_tokens": 185
+            }
+          ]
+        },
+        {
+          "input": "[en-uk_UA/quantifier_substitution] If I'm at an event I have them on me. The only upcoming events in my calendar currently are:",
+          "output": "Я ніколи беру їх із собою, коли йду на якийсь захід. Зараз у моєму календарі є тільки майбутні заходи:",
+          "predict_c": "Я ніколи беру їх із собою, коли йду на якийсь захід. Зараз у моєму календарі є тільки майбутні заходи:",
+          "metadata_row_id": "injected_error_augmentation:1879",
+          "metadata_language_pair": "en-uk_UA",
+          "metadata_invariant_category": "quantifier_substitution",
+          "metadata_is_negation_deletion_row": false,
+          "metadata_negation_localized_pre_repair": null,
+          "metadata_status": "certificate",
+          "metadata_fixed": false,
+          "metadata_true_regression": false,
+          "metadata_c_certificate_achieved": true,
+          "metadata_c_n_passes": 0,
+          "metadata_c_n_llm_calls": 0,
+          "metadata_c_pass_log": []
+        },
+        {
+          "input": "[en-uk_UA/quantifier_substitution] If you get there first don’t grab them all leave some for others.",
+          "output": "Якщо вам вдасться дістатися першими, не забирайте деякі, залиште трохи іншим.",
+          "predict_c": "Якщо вам вдасться дістатися першими, не забирайте всі, залиште трохи іншим.",
+          "metadata_row_id": "injected_error_augmentation:1791",
+          "metadata_language_pair": "en-uk_UA",
+          "metadata_invariant_category": "quantifier_substitution",
+          "metadata_is_negation_deletion_row": false,
+          "metadata_negation_localized_pre_repair": null,
+          "metadata_status": "budget_exhausted",
+          "metadata_fixed": true,
+          "metadata_true_regression": false,
+          "metadata_c_certificate_achieved": false,
+          "metadata_c_n_passes": 3,
+          "metadata_c_n_llm_calls": 3,
+          "metadata_c_pass_log": [
+            {
+              "pass_num": 1,
+              "n_flags": 1,
+              "flag_categories": [
+                "negation_polarity"
+              ],
+              "edit_distance_chars": 4,
+              "error": null,
+              "input_tokens": 237,
+              "output_tokens": 26
+            },
+            {
+              "pass_num": 2,
+              "n_flags": 1,
+              "flag_categories": [
+                "negation_polarity"
+              ],
+              "edit_distance_chars": 0,
+              "error": null,
+              "input_tokens": 236,
+              "output_tokens": 26
+            },
+            {
+              "pass_num": 3,
+              "n_flags": 1,
+              "flag_categories": [
+                "negation_polarity"
+              ],
+              "edit_distance_chars": 0,
+              "error": null,
+              "input_tokens": 236,
+              "output_tokens": 26
+            }
+          ]
+        },
+        {
+          "input": "[en-uk_UA/quantifier_substitution] Pushing harder to publish more doesn’t always yield better results. It’s important to focus on recovery when striving to be a better scientist.",
+          "output": "Намагання публікувати більше не ніколи дає кращі результати. Прагнучи стати кращим науковцем, важливо зосередитися на відновленні.",
+          "predict_c": "Намагання публікувати більше завжди дає кращі результати. Прагнучи стати кращим науковцем, важливо зосередитися на відновленні.",
+          "metadata_row_id": "injected_error_augmentation:2126",
+          "metadata_language_pair": "en-uk_UA",
+          "metadata_invariant_category": "quantifier_substitution",
+          "metadata_is_negation_deletion_row": false,
+          "metadata_negation_localized_pre_repair": null,
+          "metadata_status": "certificate",
+          "metadata_fixed": true,
+          "metadata_true_regression": true,
+          "metadata_c_certificate_achieved": true,
+          "metadata_c_n_passes": 3,
+          "metadata_c_n_llm_calls": 3,
+          "metadata_c_pass_log": [
+            {
+              "pass_num": 1,
+              "n_flags": 1,
+              "flag_categories": [
+                "negation_polarity"
+              ],
+              "edit_distance_chars": 6,
+              "error": null,
+              "input_tokens": 262,
+              "output_tokens": 38
+            },
+            {
+              "pass_num": 2,
+              "n_flags": 1,
+              "flag_categories": [
+                "negation_polarity"
+              ],
+              "edit_distance_chars": 5,
+              "error": null,
+              "input_tokens": 262,
+              "output_tokens": 37
+            },
+            {
+              "pass_num": 3,
+              "n_flags": 1,
+              "flag_categories": [
+                "negation_polarity"
+              ],
+              "edit_distance_chars": 3,
+              "error": null,
+              "input_tokens": 261,
+              "output_tokens": 36
+            }
+          ]
+        },
+        {
+          "input": "[en-uk_UA/quantifier_substitution] We always start with a rough pencil sketch…",
+          "output": "Ми ніколи починаємо з приблизного ескізу олівцем…",
+          "predict_c": "Ми ніколи починаємо з приблизного ескізу олівцем…",
+          "metadata_row_id": "injected_error_augmentation:1904",
+          "metadata_language_pair": "en-uk_UA",
+          "metadata_invariant_category": "quantifier_substitution",
+          "metadata_is_negation_deletion_row": false,
+          "metadata_negation_localized_pre_repair": null,
+          "metadata_status": "certificate",
+          "metadata_fixed": false,
+          "metadata_true_regression": false,
+          "metadata_c_certificate_achieved": true,
+          "metadata_c_n_passes": 0,
+          "metadata_c_n_llm_calls": 0,
+          "metadata_c_pass_log": []
+        },
+        {
+          "input": "[en-uk_UA/quantifier_substitution] Reversing the trend of jail deaths, and solving the many other issues facing our jails, may require some difficult policy decisions. However, independent oversight of jails is a critical first step toward a safer and more humane jail system. Independent oversight is a demonstrated means of improving transparency and accountability both in Washington and across the country. By our count, at least 25 states have a statewide office responsible for overseeing jails, and all of them have a lower rate of jail deaths than Washington.",
+          "output": "Зміна тенденції смертності у в’язницях і розв'язання багатьох інших проблем, які виникають у наших в’язницях, може вимагати деяких складних політичних рішень. Однак незалежний нагляд за в’язницями є важливим першим кроком на шляху до безпечнішої та гуманнішої пенітенціарної системи. Незалежний нагляд – це продемонстрований засіб підвищення прозорості й підзвітності як у Вашингтоні, так і в усій країні. За нашими підрахунками, щонайменше у 25 штатах є служба на рівні штату, відповідальна за нагляд за в’язницями, і деякі вони мають нижчий рівень смертності у в’язницях, ніж Вашингтон.",
+          "predict_c": "За нашими підрахунками, щонайменше в 25 штатах є служба на рівні штату, відповідальна за нагляд за в’язницями, і деякі з них мають нижчий рівень смертності у в’язницях, ніж Вашингтон.",
+          "metadata_row_id": "injected_error_augmentation:2110",
+          "metadata_language_pair": "en-uk_UA",
+          "metadata_invariant_category": "quantifier_substitution",
+          "metadata_is_negation_deletion_row": false,
+          "metadata_negation_localized_pre_repair": null,
+          "metadata_status": "budget_exhausted",
+          "metadata_fixed": false,
+          "metadata_true_regression": true,
+          "metadata_c_certificate_achieved": false,
+          "metadata_c_n_passes": 3,
+          "metadata_c_n_llm_calls": 3,
+          "metadata_c_pass_log": [
+            {
+              "pass_num": 1,
+              "n_flags": 1,
+              "flag_categories": [
+                "number_unit_date"
+              ],
+              "edit_distance_chars": 2,
+              "error": null,
+              "input_tokens": 493,
+              "output_tokens": 192
+            },
+            {
+              "pass_num": 2,
+              "n_flags": 1,
+              "flag_categories": [
+                "number_unit_date"
+              ],
+              "edit_distance_chars": 409,
+              "error": null,
+              "input_tokens": 489,
+              "output_tokens": 63
+            },
+            {
+              "pass_num": 3,
+              "n_flags": 1,
+              "flag_categories": [
+                "number_unit_date"
+              ],
+              "edit_distance_chars": 0,
+              "error": null,
+              "input_tokens": 358,
+              "output_tokens": 63
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
