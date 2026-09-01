@@ -1,0 +1,533 @@
+{
+  "metadata": {
+    "method_name": "iterative_checker_gated_span_repair_C2",
+    "description": "Condition C2: same narrow QE-span localization as conditions B/D from the prior B/D/C1 comparison (gen_art_experiment_3, iter_2), but the repaired span is iteratively re-verified by the 4-category con...",
+    "prior_run_reused_from": "/ai-inventor/aii_data/runs/run_VO5kqjjB2Uk5/3_invention_loop/iter_2/gen_art/gen_art_experiment_3",
+    "prior_run_row_id_identity_check": {
+      "prior_selected_rows_found": true,
+      "natural_match": true,
+      "injected_pool_match": true,
+      "injected_heldout_match": true
+    },
+    "repair_model": "google/gemma-3-12b-it",
+    "seed": 42,
+    "max_passes": 3,
+    "language_pairs": [
+      "en-ru_RU",
+      "en-uk_UA"
+    ],
+    "n_natural_per_pair_target": 160,
+    "n_injected_per_cell_target": 30,
+    "n_natural_rows_processed": 320,
+    "n_injected_pool_rows_processed": 240,
+    "n_injected_heldout_rows": 175,
+    "n_negation_deletion_structural_nonattempt": 60,
+    "checker_validation": {
+      "per_cell": {
+        "ru_RU|named_entity": {
+          "lang": "ru_RU",
+          "category": "named_entity",
+          "n_rows": 23,
+          "recall": 1.0,
+          "precision": 0.3239,
+          "n_flags_total": 71
+        },
+        "ru_RU|number_unit_date": {
+          "lang": "ru_RU",
+          "category": "number_unit_date",
+          "n_rows": 23,
+          "recall": 1.0,
+          "precision": 0.575,
+          "n_flags_total": 40
+        },
+        "ru_RU|negation_polarity": {
+          "lang": "ru_RU",
+          "category": "negation_polarity",
+          "n_rows": 23,
+          "recall": 0.5217,
+          "precision": 0.8571,
+          "n_flags_total": 14
+        },
+        "ru_RU|quantifier_scope": {
+          "lang": "ru_RU",
+          "category": "quantifier_scope",
+          "n_rows": 23,
+          "recall": 0.5652,
+          "precision": 0.5909,
+          "n_flags_total": 22
+        },
+        "uk_UA|named_entity": {
+          "lang": "uk_UA",
+          "category": "named_entity",
+          "n_rows": 23,
+          "recall": 0.6957,
+          "precision": 0.3696,
+          "n_flags_total": 46
+        },
+        "uk_UA|number_unit_date": {
+          "lang": "uk_UA",
+          "category": "number_unit_date",
+          "n_rows": 23,
+          "recall": 1.0,
+          "precision": 0.575,
+          "n_flags_total": 40
+        },
+        "uk_UA|negation_polarity": {
+          "lang": "uk_UA",
+          "category": "negation_polarity",
+          "n_rows": 23,
+          "recall": 0.6087,
+          "precision": 0.7778,
+          "n_flags_total": 18
+        },
+        "uk_UA|quantifier_scope": {
+          "lang": "uk_UA",
+          "category": "quantifier_scope",
+          "n_rows": 14,
+          "recall": 0.4286,
+          "precision": 0.5,
+          "n_flags_total": 12
+        }
+      },
+      "excluded_cells": [
+        "ru_RU|named_entity",
+        "uk_UA|named_entity",
+        "uk_UA|quantifier_scope"
+      ]
+    },
+    "cost_estimate_presweep": {
+      "n_probe_rows": 20,
+      "cost_per_row_pass1_usd": 6.4e-05,
+      "n_eligible_rows_full_sweep": 500,
+      "projected_worst_case_usd": 0.0956,
+      "projected_typical_usd": 0.0478,
+      "sub_budget_usd": 2.0,
+      "decision": "Projected worst-case $0.0956 is within sub-budget $2.00; proceeding with the full sweep at MAX_PASSES=3, all eligible rows, no reduction needed.",
+      "max_passes_used": 3
+    },
+    "cost_ledger": {
+      "spent_usd": 0.044814,
+      "cap_usd": 10.0,
+      "n_calls": 930,
+      "n_input_tokens": 416751,
+      "n_output_tokens": 159843
+    },
+    "sub_budget_usd": 2.0,
+    "sub_budget_respected": true,
+    "runtime_seconds": 1632.3,
+    "metrics": {
+      "natural_per_language_pair": {
+        "en-ru_RU": {
+          "delta_comet_mean": -0.022282234765589236,
+          "delta_comet_ci95": [
+            -0.03597214687615633,
+            -0.009994807839393615
+          ],
+          "n_scored": 160,
+          "edit_volume_mean": 0.1782,
+          "n_llm_calls_mean": 2.4188,
+          "n_passes_mean": 2.4188
+        },
+        "en-uk_UA": {
+          "delta_comet_mean": -0.01099104043096304,
+          "delta_comet_ci95": [
+            -0.017467901296913623,
+            -0.004755505919456482
+          ],
+          "n_scored": 160,
+          "edit_volume_mean": 0.1502,
+          "n_llm_calls_mean": 2.1688,
+          "n_passes_mean": 2.1688
+        }
+      },
+      "natural_pooled": {
+        "delta_comet_mean": -0.01663663759827614,
+        "delta_comet_ci95": [
+          -0.024302838277071713,
+          -0.008813321962952614
+        ],
+        "n_scored": 320,
+        "n_llm_calls_mean": 2.2938,
+        "n_passes_mean": 2.2938
+      },
+      "injected_category_table": [
+        {
+          "category": "named_entity_swap",
+          "language_pair": "en-ru_RU",
+          "n_rows": 30,
+          "n_c2_attempted": 30,
+          "n_structural_nonattempt": 0,
+          "fix_rate": 1.0,
+          "true_regression_rate": 0.1,
+          "certificate_rate": 0.9,
+          "n_passes_mean": 1.0,
+          "n_llm_calls_mean": 1.0
+        },
+        {
+          "category": "named_entity_swap",
+          "language_pair": "en-uk_UA",
+          "n_rows": 30,
+          "n_c2_attempted": 30,
+          "n_structural_nonattempt": 0,
+          "fix_rate": 1.0,
+          "true_regression_rate": 0.0333,
+          "certificate_rate": 0.9667,
+          "n_passes_mean": 1.0,
+          "n_llm_calls_mean": 1.0
+        },
+        {
+          "category": "number_unit_date_alteration",
+          "language_pair": "en-ru_RU",
+          "n_rows": 30,
+          "n_c2_attempted": 30,
+          "n_structural_nonattempt": 0,
+          "fix_rate": 1.0,
+          "true_regression_rate": 0.0333,
+          "certificate_rate": 0.9667,
+          "n_passes_mean": 1.0667,
+          "n_llm_calls_mean": 1.0667
+        }
+      ],
+      "injected_pooled": {
+        "n_rows": 240,
+        "n_c2_attempted": 180,
+        "n_structural_nonattempt_negation": 60,
+        "fix_rate": 0.9889,
+        "true_regression_rate": 0.0722,
+        "certificate_rate": 0.9167,
+        "n_passes_mean": 1.0889,
+        "n_llm_calls_mean": 1.0889
+      },
+      "cegis_narrowing_signal": {
+        "n_multi_pass_rows": 228,
+        "n_edit_distance_narrowing_or_flat": 222,
+        "n_edit_distance_diverging": 6,
+        "interpretation": "A row 'narrows' if its LAST pass's edit distance from the prior-pass sentence is <= its FIRST pass's edit distance (a weak proxy for convergence toward a stable repair, since exact span boundaries dri..."
+      },
+      "multi_pass_trends": [
+        {
+          "row_id": "injected_error_augmentation:1203",
+          "category": "number_unit_date_alteration",
+          "language_pair": "en-ru_RU",
+          "n_passes": 3,
+          "char_length_trend": [
+            -183,
+            -173,
+            -174
+          ],
+          "edit_distance_trend": [
+            187,
+            10,
+            9
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "injected_error_augmentation:1653",
+          "category": "quantifier_substitution",
+          "language_pair": "en-ru_RU",
+          "n_passes": 3,
+          "char_length_trend": [
+            -360,
+            -364,
+            -362
+          ],
+          "edit_distance_trend": [
+            370,
+            4,
+            5
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "injected_error_augmentation:1385",
+          "category": "quantifier_substitution",
+          "language_pair": "en-ru_RU",
+          "n_passes": 2,
+          "char_length_trend": [
+            12,
+            5
+          ],
+          "edit_distance_trend": [
+            10,
+            10
+          ],
+          "certificate_achieved": true
+        }
+      ],
+      "gain_to_edit_ratio": [
+        {
+          "language_pair": "en-ru_RU",
+          "delta_comet_per_edit_volume": -0.125041
+        },
+        {
+          "language_pair": "en-uk_UA",
+          "delta_comet_per_edit_volume": -0.073176
+        }
+      ]
+    },
+    "comparison_table_B_D_C1_vs_C2": {
+      "prior_run_found": true,
+      "conditions": {
+        "B": {
+          "delta_comet_mean": -0.016440192796289922,
+          "delta_comet_ci95": [
+            -0.023672904632985593,
+            -0.010065690614283085
+          ],
+          "n_natural_scored": 320,
+          "fix_rate_pooled": 0.7375,
+          "true_regression_rate_pooled": 0.05,
+          "n_injected_scored": 240
+        },
+        "D": {
+          "delta_comet_mean": -0.015689943358302115,
+          "delta_comet_ci95": [
+            -0.022573553398251532,
+            -0.009700932446867228
+          ],
+          "n_natural_scored": 320,
+          "fix_rate_pooled": 0.7375,
+          "true_regression_rate_pooled": 0.05,
+          "n_injected_scored": 240
+        },
+        "C1": {
+          "delta_comet_mean": -0.003549609985202551,
+          "delta_comet_ci95": [
+            -0.007061060890555382,
+            -0.000843074731528759
+          ],
+          "n_natural_scored": 320,
+          "fix_rate_pooled": 0.4542,
+          "true_regression_rate_pooled": 0.125,
+          "n_injected_scored": 240
+        },
+        "C2": {
+          "delta_comet_mean": -0.01663663759827614,
+          "delta_comet_ci95": [
+            -0.024302838277071713,
+            -0.008813321962952614
+          ],
+          "n_natural_scored": 320,
+          "fix_rate_pooled": 0.9889,
+          "true_regression_rate_pooled": 0.0722,
+          "n_injected_scored": 180,
+          "certificate_rate_pooled": 0.9167,
+          "note": "C2's n_injected_scored excludes structural non-attempts (negation_polarity_flip deletions), n=60 -- B/D/C1's n_injected_scored (240) includes those rows with fixed=False by construction (see B/D/C1's ..."
+        }
+      },
+      "success_criterion_b_note": "Success criterion (b) asks whether C2 vs C1 improves regression rate and whether C2 improves DeltaCOMET over D. Read true_regression_rate_pooled and delta_comet_mean directly off this table for C1/D/C..."
+    },
+    "comet_available": true,
+    "delta_comet_metric": "Unbabel/wmt22-cometkiwi-da",
+    "checker_verdict_definitions": "injected-pool rows: checker_verdict.passed = fixed (corrupted_span string absent from the candidate sentence) AND NOT true_regression (no new invariant loss vs the pre-repair hypothesis, per checker.d...",
+    "negation_deletion_limitation": "negation_polarity_flip corruptions in the injected pool are DELETIONS (the target-language negation marker was removed, metadata_corrupted_span==''), so there is no contiguous substring to mask or tar...",
+    "limitations_not_verified_identical_to_prior_run": [
+      "none -- row-ID identity to the prior B/D/C1 run was fully verified"
+    ]
+  },
+  "datasets": [
+    {
+      "dataset": "natural_repair_C2",
+      "examples": [
+        {
+          "input": "[en-ru_RU] You can get a folding leaf table, and if you saw off the bottom 15cm or so of the panels forming the sides and front of the table, and also don't bother to attach any of the the back leaf, ...",
+          "output": "Можно приобрести складной стол, и если отпилить нижние 15 см или около того панелей, образующих бока и переднюю часть стола, а также не заморачиваться с креплением задней части, то он станет ровно так...",
+          "predict_c2": "Можно приобрести складной стол, и если отпилить нижние 15 см или около того панелей, образующих боковые стороны и переднюю часть стола, а также не стоит прикреплять заднюю часть, то он станет ровно та...",
+          "metadata_row_id": "wmt25_task3_natural:3466",
+          "metadata_language_pair": "en-ru_RU",
+          "metadata_domain": "social",
+          "metadata_c2_n_passes": 3,
+          "metadata_c2_n_llm_calls": 3,
+          "metadata_c2_certificate_achieved": false,
+          "metadata_c2_edit_volume": 0.2,
+          "metadata_c2_leakage": false,
+          "metadata_c2_no_op": false,
+          "metadata_c2_pass_log": [
+            {
+              "pass_num": 1,
+              "checker_passed": false,
+              "edit_distance_chars": 69,
+              "span_char_length_proxy": 619,
+              "n_flags_remaining": 1,
+              "error": null,
+              "input_tokens": 487,
+              "output_tokens": 200
+            },
+            {
+              "pass_num": 2,
+              "checker_passed": false,
+              "edit_distance_chars": 24,
+              "span_char_length_proxy": 609,
+              "n_flags_remaining": 1,
+              "error": null,
+              "input_tokens": 507,
+              "output_tokens": 198
+            },
+            {
+              "pass_num": 3,
+              "checker_passed": false,
+              "edit_distance_chars": 5,
+              "span_char_length_proxy": 609,
+              "n_flags_remaining": 1,
+              "error": null,
+              "input_tokens": 505,
+              "output_tokens": 198
+            }
+          ]
+        },
+        {
+          "input": "[en-ru_RU] Curve line up, down, connect on the left, and i'm going to go one, two, three, four little dots, and on the right -hand side, i'm going to do it again. I draw a curve line up, over, curve l...",
+          "output": "Кривая линия вверх, вниз, соединяем слева, и я нарисую одну, две, три, четыре маленьких точки, а на правой стороне я сделаю это снова. Я рисую кривую линию вверх, затем через, кривую линию внутрь, сое...",
+          "predict_c2": "Вверх, вниз, соединяюсь слева, и я нарисую одну, две, три, четыре маленьких точки, а на правой стороне я сделаю это снова. Я рисую кривую линию вверх, вниз, соединяюсь, и я нарисую одну, две, три, чет...",
+          "metadata_row_id": "wmt25_task3_natural:3996",
+          "metadata_language_pair": "en-ru_RU",
+          "metadata_domain": "speech",
+          "metadata_c2_n_passes": 1,
+          "metadata_c2_n_llm_calls": 1,
+          "metadata_c2_certificate_achieved": true,
+          "metadata_c2_edit_volume": 0.131,
+          "metadata_c2_leakage": false,
+          "metadata_c2_no_op": false,
+          "metadata_c2_pass_log": [
+            {
+              "pass_num": 1,
+              "checker_passed": true,
+              "edit_distance_chars": 49,
+              "span_char_length_proxy": 316,
+              "n_flags_remaining": 0,
+              "error": null,
+              "input_tokens": 422,
+              "output_tokens": 141
+            }
+          ]
+        },
+        {
+          "input": "[en-ru_RU] 2/3\\nThis Ie Island #rum is from the Single island series. It was the only one I could get - besides the all island blend bottle, in my too brief ¾ day in #Naha #Okinawa Here's their webpag...",
+          "output": "2/3\\nЭтот ром Ie Island #rum из серии Single island. Это был единственный, который я смог купить, кроме бутылки с купажированным ромом со всех островов, за мои слишком короткие ¾ дня в #Наха #Окинава\\...",
+          "predict_c2": "2/3\\nЭто ром Ie Island из серии Single island. Это был единственный, который я смог купить, кроме бутылки с купажированным ромом со всего острова, за мои слишком короткие ¾ дня в #Наха #Окинава\\nВот и...",
+          "metadata_row_id": "wmt25_task3_natural:3306",
+          "metadata_language_pair": "en-ru_RU",
+          "metadata_domain": "social",
+          "metadata_c2_n_passes": 2,
+          "metadata_c2_n_llm_calls": 2,
+          "metadata_c2_certificate_achieved": true,
+          "metadata_c2_edit_volume": 0.1333,
+          "metadata_c2_leakage": false,
+          "metadata_c2_no_op": false,
+          "metadata_c2_pass_log": [
+            {
+              "pass_num": 1,
+              "checker_passed": false,
+              "edit_distance_chars": 17,
+              "span_char_length_proxy": 370,
+              "n_flags_remaining": 1,
+              "error": null,
+              "input_tokens": 360,
+              "output_tokens": 116
+            },
+            {
+              "pass_num": 2,
+              "checker_passed": true,
+              "edit_distance_chars": 4,
+              "span_char_length_proxy": 370,
+              "n_flags_remaining": 0,
+              "error": null,
+              "input_tokens": 362,
+              "output_tokens": 115
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "dataset": "injected_pool_repair_C2",
+      "examples": [
+        {
+          "input": "[en-ru_RU/named_entity_swap] Jakob Nielsen’s all-in on AI is melting my brain.",
+          "output": "У меня мозги плавятся от того, как Йорка Майк Лоулер обращается с ИИ.",
+          "predict_c2": "Якоб Нильсен обращается с ИИ.",
+          "metadata_row_id": "injected_error_augmentation:1427",
+          "metadata_language_pair": "en-ru_RU",
+          "metadata_invariant_category": "named_entity_swap",
+          "metadata_c2_attempted": true,
+          "metadata_c2_skip_reason": null,
+          "metadata_c2_fixed": true,
+          "metadata_c2_true_regression": false,
+          "metadata_c2_certificate_achieved": true,
+          "metadata_c2_n_passes": 1,
+          "metadata_c2_n_llm_calls": 1,
+          "metadata_c2_pass_log": [
+            {
+              "pass_num": 1,
+              "checker_passed": true,
+              "edit_distance_chars": 47,
+              "span_char_length_proxy": -23,
+              "fixed": true,
+              "true_regression": false,
+              "error": null,
+              "input_tokens": 165,
+              "output_tokens": 13
+            }
+          ]
+        },
+        {
+          "input": "[en-ru_RU/named_entity_swap] Perry Cooper, a media representative from the Port of Seattle, which oversees Seattle-Tacoma International Airport, said in an email that there are a wide variety of reaso...",
+          "output": "Перри Купер, представитель СМИ порта Сиэтла, курирующего международный аэропорт УльманнТакома, в электронном письме обратил внимание, что существует множество причин, по которым происходят аварии, от ...",
+          "predict_c2": "Перри Купер, представитель СМИ порта Сиэтла, курирующего международный аэропорт Сиэтл-Такома, в электронном письме обратил внимание, что существует множество причин, по которым происходят аварии, от п...",
+          "metadata_row_id": "injected_error_augmentation:1306",
+          "metadata_language_pair": "en-ru_RU",
+          "metadata_invariant_category": "named_entity_swap",
+          "metadata_c2_attempted": true,
+          "metadata_c2_skip_reason": null,
+          "metadata_c2_fixed": true,
+          "metadata_c2_true_regression": false,
+          "metadata_c2_certificate_achieved": true,
+          "metadata_c2_n_passes": 1,
+          "metadata_c2_n_llm_calls": 1,
+          "metadata_c2_pass_log": [
+            {
+              "pass_num": 1,
+              "checker_passed": true,
+              "edit_distance_chars": 7,
+              "span_char_length_proxy": 6,
+              "fixed": true,
+              "true_regression": false,
+              "error": null,
+              "input_tokens": 304,
+              "output_tokens": 98
+            }
+          ]
+        },
+        {
+          "input": "[en-ru_RU/named_entity_swap] Thus, we had the introduction of the Cost of Living (Tenant protection) (Scotland) Act 2022 nearly 18 months ago which sought to cap rents for a limited period to ease the...",
+          "output": "Так, почти 18 месяцев назад был принят закон о прожиточном минимуме (защите арендатора) (Швеции) от 2022 года, который должен был временно остановить рост цен на аренду жилья, чтобы снизить давление ф...",
+          "predict_c2": "Так, почти 18 месяцев назад был принят закон о прожиточном минимуме (защите арендатора) (Шотландии) от 2022 года, который должен был временно остановить рост цен на аренду жилья, чтобы снизить давлени...",
+          "metadata_row_id": "injected_error_augmentation:1215",
+          "metadata_language_pair": "en-ru_RU",
+          "metadata_invariant_category": "named_entity_swap",
+          "metadata_c2_attempted": true,
+          "metadata_c2_skip_reason": null,
+          "metadata_c2_fixed": true,
+          "metadata_c2_true_regression": false,
+          "metadata_c2_certificate_achieved": true,
+          "metadata_c2_n_passes": 1,
+          "metadata_c2_n_llm_calls": 1,
+          "metadata_c2_pass_log": [
+            {
+              "pass_num": 1,
+              "checker_passed": true,
+              "edit_distance_chars": 6,
+              "span_char_length_proxy": 9,
+              "fixed": true,
+              "true_regression": false,
+              "error": null,
+              "input_tokens": 518,
+              "output_tokens": 213
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

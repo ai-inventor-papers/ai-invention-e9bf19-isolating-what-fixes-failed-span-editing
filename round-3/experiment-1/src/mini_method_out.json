@@ -1,0 +1,4394 @@
+{
+  "metadata": {
+    "method_name": "iterative_checker_gated_span_repair_C2",
+    "description": "Condition C2: same narrow QE-span localization as conditions B/D from the prior B/D/C1 comparison (gen_art_experiment_3, iter_2), but the repaired span is iteratively re-verified by the 4-category content-invariant checker and re-repaired with a TARGETED prompt (up to MAX_PASSES=3), stopping on a certificate. Isolates whether iteration ALONE (no checker-broadened localization, unlike C1) closes C1's gap over B/D.",
+    "prior_run_reused_from": "/ai-inventor/aii_data/runs/run_VO5kqjjB2Uk5/3_invention_loop/iter_2/gen_art/gen_art_experiment_3",
+    "prior_run_row_id_identity_check": {
+      "prior_selected_rows_found": true,
+      "natural_match": true,
+      "injected_pool_match": true,
+      "injected_heldout_match": true
+    },
+    "repair_model": "google/gemma-3-12b-it",
+    "seed": 42,
+    "max_passes": 3,
+    "language_pairs": [
+      "en-ru_RU",
+      "en-uk_UA"
+    ],
+    "n_natural_per_pair_target": 160,
+    "n_injected_per_cell_target": 30,
+    "n_natural_rows_processed": 320,
+    "n_injected_pool_rows_processed": 240,
+    "n_injected_heldout_rows": 175,
+    "n_negation_deletion_structural_nonattempt": 60,
+    "checker_validation": {
+      "per_cell": {
+        "ru_RU|named_entity": {
+          "lang": "ru_RU",
+          "category": "named_entity",
+          "n_rows": 23,
+          "recall": 1.0,
+          "precision": 0.3239,
+          "n_flags_total": 71
+        },
+        "ru_RU|number_unit_date": {
+          "lang": "ru_RU",
+          "category": "number_unit_date",
+          "n_rows": 23,
+          "recall": 1.0,
+          "precision": 0.575,
+          "n_flags_total": 40
+        },
+        "ru_RU|negation_polarity": {
+          "lang": "ru_RU",
+          "category": "negation_polarity",
+          "n_rows": 23,
+          "recall": 0.5217,
+          "precision": 0.8571,
+          "n_flags_total": 14
+        },
+        "ru_RU|quantifier_scope": {
+          "lang": "ru_RU",
+          "category": "quantifier_scope",
+          "n_rows": 23,
+          "recall": 0.5652,
+          "precision": 0.5909,
+          "n_flags_total": 22
+        },
+        "uk_UA|named_entity": {
+          "lang": "uk_UA",
+          "category": "named_entity",
+          "n_rows": 23,
+          "recall": 0.6957,
+          "precision": 0.3696,
+          "n_flags_total": 46
+        },
+        "uk_UA|number_unit_date": {
+          "lang": "uk_UA",
+          "category": "number_unit_date",
+          "n_rows": 23,
+          "recall": 1.0,
+          "precision": 0.575,
+          "n_flags_total": 40
+        },
+        "uk_UA|negation_polarity": {
+          "lang": "uk_UA",
+          "category": "negation_polarity",
+          "n_rows": 23,
+          "recall": 0.6087,
+          "precision": 0.7778,
+          "n_flags_total": 18
+        },
+        "uk_UA|quantifier_scope": {
+          "lang": "uk_UA",
+          "category": "quantifier_scope",
+          "n_rows": 14,
+          "recall": 0.4286,
+          "precision": 0.5,
+          "n_flags_total": 12
+        }
+      },
+      "excluded_cells": [
+        "ru_RU|named_entity",
+        "uk_UA|named_entity",
+        "uk_UA|quantifier_scope"
+      ]
+    },
+    "cost_estimate_presweep": {
+      "n_probe_rows": 20,
+      "cost_per_row_pass1_usd": 6.4e-05,
+      "n_eligible_rows_full_sweep": 500,
+      "projected_worst_case_usd": 0.0956,
+      "projected_typical_usd": 0.0478,
+      "sub_budget_usd": 2.0,
+      "decision": "Projected worst-case $0.0956 is within sub-budget $2.00; proceeding with the full sweep at MAX_PASSES=3, all eligible rows, no reduction needed.",
+      "max_passes_used": 3
+    },
+    "cost_ledger": {
+      "spent_usd": 0.044814,
+      "cap_usd": 10.0,
+      "n_calls": 930,
+      "n_input_tokens": 416751,
+      "n_output_tokens": 159843
+    },
+    "sub_budget_usd": 2.0,
+    "sub_budget_respected": true,
+    "runtime_seconds": 1632.3,
+    "metrics": {
+      "natural_per_language_pair": {
+        "en-ru_RU": {
+          "delta_comet_mean": -0.022282234765589236,
+          "delta_comet_ci95": [
+            -0.03597214687615633,
+            -0.009994807839393615
+          ],
+          "n_scored": 160,
+          "edit_volume_mean": 0.1782,
+          "n_llm_calls_mean": 2.4188,
+          "n_passes_mean": 2.4188
+        },
+        "en-uk_UA": {
+          "delta_comet_mean": -0.01099104043096304,
+          "delta_comet_ci95": [
+            -0.017467901296913623,
+            -0.004755505919456482
+          ],
+          "n_scored": 160,
+          "edit_volume_mean": 0.1502,
+          "n_llm_calls_mean": 2.1688,
+          "n_passes_mean": 2.1688
+        }
+      },
+      "natural_pooled": {
+        "delta_comet_mean": -0.01663663759827614,
+        "delta_comet_ci95": [
+          -0.024302838277071713,
+          -0.008813321962952614
+        ],
+        "n_scored": 320,
+        "n_llm_calls_mean": 2.2938,
+        "n_passes_mean": 2.2938
+      },
+      "injected_category_table": [
+        {
+          "category": "named_entity_swap",
+          "language_pair": "en-ru_RU",
+          "n_rows": 30,
+          "n_c2_attempted": 30,
+          "n_structural_nonattempt": 0,
+          "fix_rate": 1.0,
+          "true_regression_rate": 0.1,
+          "certificate_rate": 0.9,
+          "n_passes_mean": 1.0,
+          "n_llm_calls_mean": 1.0
+        },
+        {
+          "category": "named_entity_swap",
+          "language_pair": "en-uk_UA",
+          "n_rows": 30,
+          "n_c2_attempted": 30,
+          "n_structural_nonattempt": 0,
+          "fix_rate": 1.0,
+          "true_regression_rate": 0.0333,
+          "certificate_rate": 0.9667,
+          "n_passes_mean": 1.0,
+          "n_llm_calls_mean": 1.0
+        },
+        {
+          "category": "number_unit_date_alteration",
+          "language_pair": "en-ru_RU",
+          "n_rows": 30,
+          "n_c2_attempted": 30,
+          "n_structural_nonattempt": 0,
+          "fix_rate": 1.0,
+          "true_regression_rate": 0.0333,
+          "certificate_rate": 0.9667,
+          "n_passes_mean": 1.0667,
+          "n_llm_calls_mean": 1.0667
+        },
+        {
+          "category": "number_unit_date_alteration",
+          "language_pair": "en-uk_UA",
+          "n_rows": 30,
+          "n_c2_attempted": 30,
+          "n_structural_nonattempt": 0,
+          "fix_rate": 0.9667,
+          "true_regression_rate": 0.1,
+          "certificate_rate": 0.8667,
+          "n_passes_mean": 1.3,
+          "n_llm_calls_mean": 1.3
+        },
+        {
+          "category": "negation_polarity_flip",
+          "language_pair": "en-ru_RU",
+          "n_rows": 30,
+          "fix_rate": "N/A (structural non-attempt)",
+          "true_regression_rate": "N/A (structural non-attempt)",
+          "n_structural_nonattempt": 30,
+          "n_c2_attempted": 0
+        },
+        {
+          "category": "negation_polarity_flip",
+          "language_pair": "en-uk_UA",
+          "n_rows": 30,
+          "fix_rate": "N/A (structural non-attempt)",
+          "true_regression_rate": "N/A (structural non-attempt)",
+          "n_structural_nonattempt": 30,
+          "n_c2_attempted": 0
+        },
+        {
+          "category": "quantifier_substitution",
+          "language_pair": "en-ru_RU",
+          "n_rows": 30,
+          "n_c2_attempted": 30,
+          "n_structural_nonattempt": 0,
+          "fix_rate": 0.9667,
+          "true_regression_rate": 0.0333,
+          "certificate_rate": 0.9333,
+          "n_passes_mean": 1.1667,
+          "n_llm_calls_mean": 1.1667
+        },
+        {
+          "category": "quantifier_substitution",
+          "language_pair": "en-uk_UA",
+          "n_rows": 30,
+          "n_c2_attempted": 30,
+          "n_structural_nonattempt": 0,
+          "fix_rate": 1.0,
+          "true_regression_rate": 0.1333,
+          "certificate_rate": 0.8667,
+          "n_passes_mean": 1.0,
+          "n_llm_calls_mean": 1.0
+        }
+      ],
+      "injected_pooled": {
+        "n_rows": 240,
+        "n_c2_attempted": 180,
+        "n_structural_nonattempt_negation": 60,
+        "fix_rate": 0.9889,
+        "true_regression_rate": 0.0722,
+        "certificate_rate": 0.9167,
+        "n_passes_mean": 1.0889,
+        "n_llm_calls_mean": 1.0889
+      },
+      "cegis_narrowing_signal": {
+        "n_multi_pass_rows": 228,
+        "n_edit_distance_narrowing_or_flat": 222,
+        "n_edit_distance_diverging": 6,
+        "interpretation": "A row 'narrows' if its LAST pass's edit distance from the prior-pass sentence is <= its FIRST pass's edit distance (a weak proxy for convergence toward a stable repair, since exact span boundaries drift as the whole sentence is rewritten each pass). This is descriptive, not a claim of formal CEGIS convergence -- see multi_pass_trends for the raw per-row sequences."
+      },
+      "multi_pass_trends": [
+        {
+          "row_id": "injected_error_augmentation:1203",
+          "category": "number_unit_date_alteration",
+          "language_pair": "en-ru_RU",
+          "n_passes": 3,
+          "char_length_trend": [
+            -183,
+            -173,
+            -174
+          ],
+          "edit_distance_trend": [
+            187,
+            10,
+            9
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "injected_error_augmentation:1653",
+          "category": "quantifier_substitution",
+          "language_pair": "en-ru_RU",
+          "n_passes": 3,
+          "char_length_trend": [
+            -360,
+            -364,
+            -362
+          ],
+          "edit_distance_trend": [
+            370,
+            4,
+            5
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "injected_error_augmentation:1385",
+          "category": "quantifier_substitution",
+          "language_pair": "en-ru_RU",
+          "n_passes": 2,
+          "char_length_trend": [
+            12,
+            5
+          ],
+          "edit_distance_trend": [
+            10,
+            10
+          ],
+          "certificate_achieved": true
+        },
+        {
+          "row_id": "injected_error_augmentation:1589",
+          "category": "quantifier_substitution",
+          "language_pair": "en-ru_RU",
+          "n_passes": 3,
+          "char_length_trend": [
+            6,
+            3,
+            4
+          ],
+          "edit_distance_trend": [
+            12,
+            12,
+            3
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "injected_error_augmentation:2019",
+          "category": "number_unit_date_alteration",
+          "language_pair": "en-uk_UA",
+          "n_passes": 3,
+          "char_length_trend": [
+            1,
+            1,
+            1
+          ],
+          "edit_distance_trend": [
+            2,
+            0,
+            0
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "injected_error_augmentation:1965",
+          "category": "number_unit_date_alteration",
+          "language_pair": "en-uk_UA",
+          "n_passes": 3,
+          "char_length_trend": [
+            3,
+            3,
+            3
+          ],
+          "edit_distance_trend": [
+            4,
+            0,
+            0
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "injected_error_augmentation:1740",
+          "category": "number_unit_date_alteration",
+          "language_pair": "en-uk_UA",
+          "n_passes": 2,
+          "char_length_trend": [
+            2,
+            2
+          ],
+          "edit_distance_trend": [
+            0,
+            3
+          ],
+          "certificate_achieved": true
+        },
+        {
+          "row_id": "injected_error_augmentation:1960",
+          "category": "number_unit_date_alteration",
+          "language_pair": "en-uk_UA",
+          "n_passes": 3,
+          "char_length_trend": [
+            5,
+            5,
+            5
+          ],
+          "edit_distance_trend": [
+            5,
+            0,
+            0
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "injected_error_augmentation:2066",
+          "category": "number_unit_date_alteration",
+          "language_pair": "en-uk_UA",
+          "n_passes": 3,
+          "char_length_trend": [
+            4,
+            4,
+            4
+          ],
+          "edit_distance_trend": [
+            4,
+            0,
+            0
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "wmt25_task3_natural:3466",
+          "category": "natural",
+          "language_pair": "en-ru_RU",
+          "n_passes": 3,
+          "char_length_trend": [
+            619,
+            609,
+            609
+          ],
+          "edit_distance_trend": [
+            69,
+            24,
+            5
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "wmt25_task3_natural:3306",
+          "category": "natural",
+          "language_pair": "en-ru_RU",
+          "n_passes": 2,
+          "char_length_trend": [
+            370,
+            370
+          ],
+          "edit_distance_trend": [
+            17,
+            4
+          ],
+          "certificate_achieved": true
+        },
+        {
+          "row_id": "wmt25_task3_natural:3547",
+          "category": "natural",
+          "language_pair": "en-ru_RU",
+          "n_passes": 3,
+          "char_length_trend": [
+            245,
+            245,
+            245
+          ],
+          "edit_distance_trend": [
+            48,
+            0,
+            0
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "wmt25_task3_natural:3354",
+          "category": "natural",
+          "language_pair": "en-ru_RU",
+          "n_passes": 3,
+          "char_length_trend": [
+            664,
+            664,
+            664
+          ],
+          "edit_distance_trend": [
+            90,
+            0,
+            0
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "wmt25_task3_natural:3146",
+          "category": "natural",
+          "language_pair": "en-ru_RU",
+          "n_passes": 3,
+          "char_length_trend": [
+            355,
+            355,
+            355
+          ],
+          "edit_distance_trend": [
+            79,
+            0,
+            0
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "wmt25_task3_natural:3600",
+          "category": "natural",
+          "language_pair": "en-ru_RU",
+          "n_passes": 3,
+          "char_length_trend": [
+            319,
+            317,
+            317
+          ],
+          "edit_distance_trend": [
+            57,
+            2,
+            6
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "wmt25_task3_natural:3918",
+          "category": "natural",
+          "language_pair": "en-ru_RU",
+          "n_passes": 3,
+          "char_length_trend": [
+            566,
+            566,
+            566
+          ],
+          "edit_distance_trend": [
+            10,
+            0,
+            0
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "wmt25_task3_natural:3770",
+          "category": "natural",
+          "language_pair": "en-ru_RU",
+          "n_passes": 3,
+          "char_length_trend": [
+            341,
+            347,
+            347
+          ],
+          "edit_distance_trend": [
+            101,
+            6,
+            0
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "wmt25_task3_natural:3969",
+          "category": "natural",
+          "language_pair": "en-ru_RU",
+          "n_passes": 2,
+          "char_length_trend": [
+            18,
+            -568
+          ],
+          "edit_distance_trend": [
+            140,
+            586
+          ],
+          "certificate_achieved": true
+        },
+        {
+          "row_id": "wmt25_task3_natural:3842",
+          "category": "natural",
+          "language_pair": "en-ru_RU",
+          "n_passes": 3,
+          "char_length_trend": [
+            323,
+            323,
+            323
+          ],
+          "edit_distance_trend": [
+            11,
+            0,
+            0
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "wmt25_task3_natural:3327",
+          "category": "natural",
+          "language_pair": "en-ru_RU",
+          "n_passes": 3,
+          "char_length_trend": [
+            459,
+            455,
+            455
+          ],
+          "edit_distance_trend": [
+            63,
+            5,
+            0
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "wmt25_task3_natural:3901",
+          "category": "natural",
+          "language_pair": "en-ru_RU",
+          "n_passes": 3,
+          "char_length_trend": [
+            616,
+            625,
+            625
+          ],
+          "edit_distance_trend": [
+            14,
+            43,
+            0
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "wmt25_task3_natural:3196",
+          "category": "natural",
+          "language_pair": "en-ru_RU",
+          "n_passes": 3,
+          "char_length_trend": [
+            398,
+            398,
+            398
+          ],
+          "edit_distance_trend": [
+            64,
+            0,
+            0
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "wmt25_task3_natural:3919",
+          "category": "natural",
+          "language_pair": "en-ru_RU",
+          "n_passes": 2,
+          "char_length_trend": [
+            29,
+            29
+          ],
+          "edit_distance_trend": [
+            14,
+            7
+          ],
+          "certificate_achieved": true
+        },
+        {
+          "row_id": "wmt25_task3_natural:3120",
+          "category": "natural",
+          "language_pair": "en-ru_RU",
+          "n_passes": 3,
+          "char_length_trend": [
+            437,
+            437,
+            437
+          ],
+          "edit_distance_trend": [
+            97,
+            0,
+            0
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "wmt25_task3_natural:3074",
+          "category": "natural",
+          "language_pair": "en-ru_RU",
+          "n_passes": 3,
+          "char_length_trend": [
+            591,
+            591,
+            591
+          ],
+          "edit_distance_trend": [
+            197,
+            0,
+            0
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "wmt25_task3_natural:3036",
+          "category": "natural",
+          "language_pair": "en-ru_RU",
+          "n_passes": 3,
+          "char_length_trend": [
+            682,
+            674,
+            671
+          ],
+          "edit_distance_trend": [
+            94,
+            9,
+            3
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "wmt25_task3_natural:3293",
+          "category": "natural",
+          "language_pair": "en-ru_RU",
+          "n_passes": 3,
+          "char_length_trend": [
+            473,
+            473,
+            473
+          ],
+          "edit_distance_trend": [
+            106,
+            0,
+            0
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "wmt25_task3_natural:3577",
+          "category": "natural",
+          "language_pair": "en-ru_RU",
+          "n_passes": 3,
+          "char_length_trend": [
+            366,
+            366,
+            366
+          ],
+          "edit_distance_trend": [
+            78,
+            0,
+            0
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "wmt25_task3_natural:3004",
+          "category": "natural",
+          "language_pair": "en-ru_RU",
+          "n_passes": 3,
+          "char_length_trend": [
+            598,
+            599,
+            610
+          ],
+          "edit_distance_trend": [
+            95,
+            2,
+            11
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "wmt25_task3_natural:3287",
+          "category": "natural",
+          "language_pair": "en-ru_RU",
+          "n_passes": 3,
+          "char_length_trend": [
+            306,
+            305,
+            306
+          ],
+          "edit_distance_trend": [
+            62,
+            8,
+            8
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "wmt25_task3_natural:3833",
+          "category": "natural",
+          "language_pair": "en-ru_RU",
+          "n_passes": 2,
+          "char_length_trend": [
+            549,
+            549
+          ],
+          "edit_distance_trend": [
+            21,
+            7
+          ],
+          "certificate_achieved": true
+        },
+        {
+          "row_id": "wmt25_task3_natural:3356",
+          "category": "natural",
+          "language_pair": "en-ru_RU",
+          "n_passes": 3,
+          "char_length_trend": [
+            445,
+            447,
+            447
+          ],
+          "edit_distance_trend": [
+            42,
+            15,
+            0
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "wmt25_task3_natural:3281",
+          "category": "natural",
+          "language_pair": "en-ru_RU",
+          "n_passes": 3,
+          "char_length_trend": [
+            546,
+            546,
+            546
+          ],
+          "edit_distance_trend": [
+            50,
+            0,
+            0
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "wmt25_task3_natural:3259",
+          "category": "natural",
+          "language_pair": "en-ru_RU",
+          "n_passes": 3,
+          "char_length_trend": [
+            514,
+            480,
+            480
+          ],
+          "edit_distance_trend": [
+            108,
+            44,
+            0
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "wmt25_task3_natural:3091",
+          "category": "natural",
+          "language_pair": "en-ru_RU",
+          "n_passes": 3,
+          "char_length_trend": [
+            760,
+            762,
+            750
+          ],
+          "edit_distance_trend": [
+            86,
+            7,
+            24
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "wmt25_task3_natural:3154",
+          "category": "natural",
+          "language_pair": "en-ru_RU",
+          "n_passes": 3,
+          "char_length_trend": [
+            480,
+            477,
+            479
+          ],
+          "edit_distance_trend": [
+            100,
+            3,
+            2
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "wmt25_task3_natural:3725",
+          "category": "natural",
+          "language_pair": "en-ru_RU",
+          "n_passes": 3,
+          "char_length_trend": [
+            509,
+            516,
+            516
+          ],
+          "edit_distance_trend": [
+            33,
+            19,
+            11
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "wmt25_task3_natural:3756",
+          "category": "natural",
+          "language_pair": "en-ru_RU",
+          "n_passes": 3,
+          "char_length_trend": [
+            397,
+            397,
+            397
+          ],
+          "edit_distance_trend": [
+            16,
+            0,
+            0
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "wmt25_task3_natural:3077",
+          "category": "natural",
+          "language_pair": "en-ru_RU",
+          "n_passes": 3,
+          "char_length_trend": [
+            483,
+            482,
+            483
+          ],
+          "edit_distance_trend": [
+            82,
+            4,
+            4
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "wmt25_task3_natural:3819",
+          "category": "natural",
+          "language_pair": "en-ru_RU",
+          "n_passes": 3,
+          "char_length_trend": [
+            252,
+            248,
+            248
+          ],
+          "edit_distance_trend": [
+            18,
+            18,
+            2
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "wmt25_task3_natural:3387",
+          "category": "natural",
+          "language_pair": "en-ru_RU",
+          "n_passes": 3,
+          "char_length_trend": [
+            440,
+            440,
+            440
+          ],
+          "edit_distance_trend": [
+            17,
+            0,
+            0
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "wmt25_task3_natural:3611",
+          "category": "natural",
+          "language_pair": "en-ru_RU",
+          "n_passes": 3,
+          "char_length_trend": [
+            455,
+            419,
+            417
+          ],
+          "edit_distance_trend": [
+            176,
+            97,
+            8
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "wmt25_task3_natural:3002",
+          "category": "natural",
+          "language_pair": "en-ru_RU",
+          "n_passes": 3,
+          "char_length_trend": [
+            704,
+            704,
+            704
+          ],
+          "edit_distance_trend": [
+            156,
+            0,
+            0
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "wmt25_task3_natural:3675",
+          "category": "natural",
+          "language_pair": "en-ru_RU",
+          "n_passes": 3,
+          "char_length_trend": [
+            508,
+            502,
+            502
+          ],
+          "edit_distance_trend": [
+            52,
+            6,
+            0
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "wmt25_task3_natural:3428",
+          "category": "natural",
+          "language_pair": "en-ru_RU",
+          "n_passes": 3,
+          "char_length_trend": [
+            482,
+            482,
+            482
+          ],
+          "edit_distance_trend": [
+            50,
+            0,
+            0
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "wmt25_task3_natural:3960",
+          "category": "natural",
+          "language_pair": "en-ru_RU",
+          "n_passes": 3,
+          "char_length_trend": [
+            322,
+            295,
+            381
+          ],
+          "edit_distance_trend": [
+            46,
+            50,
+            86
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "wmt25_task3_natural:3649",
+          "category": "natural",
+          "language_pair": "en-ru_RU",
+          "n_passes": 3,
+          "char_length_trend": [
+            424,
+            424,
+            424
+          ],
+          "edit_distance_trend": [
+            106,
+            0,
+            0
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "wmt25_task3_natural:3083",
+          "category": "natural",
+          "language_pair": "en-ru_RU",
+          "n_passes": 3,
+          "char_length_trend": [
+            485,
+            485,
+            485
+          ],
+          "edit_distance_trend": [
+            93,
+            0,
+            0
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "wmt25_task3_natural:3435",
+          "category": "natural",
+          "language_pair": "en-ru_RU",
+          "n_passes": 3,
+          "char_length_trend": [
+            424,
+            420,
+            422
+          ],
+          "edit_distance_trend": [
+            53,
+            5,
+            9
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "wmt25_task3_natural:3051",
+          "category": "natural",
+          "language_pair": "en-ru_RU",
+          "n_passes": 3,
+          "char_length_trend": [
+            415,
+            415,
+            415
+          ],
+          "edit_distance_trend": [
+            80,
+            0,
+            0
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "wmt25_task3_natural:3192",
+          "category": "natural",
+          "language_pair": "en-ru_RU",
+          "n_passes": 3,
+          "char_length_trend": [
+            735,
+            737,
+            743
+          ],
+          "edit_distance_trend": [
+            110,
+            2,
+            13
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "wmt25_task3_natural:3048",
+          "category": "natural",
+          "language_pair": "en-ru_RU",
+          "n_passes": 3,
+          "char_length_trend": [
+            547,
+            550,
+            551
+          ],
+          "edit_distance_trend": [
+            100,
+            4,
+            8
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "wmt25_task3_natural:3073",
+          "category": "natural",
+          "language_pair": "en-ru_RU",
+          "n_passes": 3,
+          "char_length_trend": [
+            520,
+            520,
+            520
+          ],
+          "edit_distance_trend": [
+            86,
+            10,
+            0
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "wmt25_task3_natural:3691",
+          "category": "natural",
+          "language_pair": "en-ru_RU",
+          "n_passes": 3,
+          "char_length_trend": [
+            576,
+            581,
+            581
+          ],
+          "edit_distance_trend": [
+            57,
+            11,
+            0
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "wmt25_task3_natural:3265",
+          "category": "natural",
+          "language_pair": "en-ru_RU",
+          "n_passes": 3,
+          "char_length_trend": [
+            500,
+            500,
+            500
+          ],
+          "edit_distance_trend": [
+            104,
+            0,
+            0
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "wmt25_task3_natural:3979",
+          "category": "natural",
+          "language_pair": "en-ru_RU",
+          "n_passes": 3,
+          "char_length_trend": [
+            546,
+            553,
+            546
+          ],
+          "edit_distance_trend": [
+            43,
+            10,
+            10
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "wmt25_task3_natural:3717",
+          "category": "natural",
+          "language_pair": "en-ru_RU",
+          "n_passes": 3,
+          "char_length_trend": [
+            499,
+            499,
+            499
+          ],
+          "edit_distance_trend": [
+            21,
+            0,
+            0
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "wmt25_task3_natural:3160",
+          "category": "natural",
+          "language_pair": "en-ru_RU",
+          "n_passes": 3,
+          "char_length_trend": [
+            533,
+            533,
+            533
+          ],
+          "edit_distance_trend": [
+            136,
+            0,
+            0
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "wmt25_task3_natural:3594",
+          "category": "natural",
+          "language_pair": "en-ru_RU",
+          "n_passes": 3,
+          "char_length_trend": [
+            369,
+            367,
+            367
+          ],
+          "edit_distance_trend": [
+            24,
+            3,
+            0
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "wmt25_task3_natural:3708",
+          "category": "natural",
+          "language_pair": "en-ru_RU",
+          "n_passes": 3,
+          "char_length_trend": [
+            425,
+            425,
+            425
+          ],
+          "edit_distance_trend": [
+            39,
+            0,
+            0
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "wmt25_task3_natural:3964",
+          "category": "natural",
+          "language_pair": "en-ru_RU",
+          "n_passes": 3,
+          "char_length_trend": [
+            293,
+            288,
+            276
+          ],
+          "edit_distance_trend": [
+            29,
+            12,
+            13
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "wmt25_task3_natural:3357",
+          "category": "natural",
+          "language_pair": "en-ru_RU",
+          "n_passes": 3,
+          "char_length_trend": [
+            346,
+            352,
+            345
+          ],
+          "edit_distance_trend": [
+            64,
+            8,
+            28
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "wmt25_task3_natural:3573",
+          "category": "natural",
+          "language_pair": "en-ru_RU",
+          "n_passes": 3,
+          "char_length_trend": [
+            592,
+            592,
+            592
+          ],
+          "edit_distance_trend": [
+            45,
+            0,
+            0
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "wmt25_task3_natural:3067",
+          "category": "natural",
+          "language_pair": "en-ru_RU",
+          "n_passes": 3,
+          "char_length_trend": [
+            584,
+            584,
+            584
+          ],
+          "edit_distance_trend": [
+            86,
+            0,
+            0
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "wmt25_task3_natural:3913",
+          "category": "natural",
+          "language_pair": "en-ru_RU",
+          "n_passes": 3,
+          "char_length_trend": [
+            342,
+            342,
+            340
+          ],
+          "edit_distance_trend": [
+            20,
+            0,
+            2
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "wmt25_task3_natural:3131",
+          "category": "natural",
+          "language_pair": "en-ru_RU",
+          "n_passes": 3,
+          "char_length_trend": [
+            726,
+            728,
+            722
+          ],
+          "edit_distance_trend": [
+            54,
+            24,
+            8
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "wmt25_task3_natural:3172",
+          "category": "natural",
+          "language_pair": "en-ru_RU",
+          "n_passes": 3,
+          "char_length_trend": [
+            430,
+            430,
+            430
+          ],
+          "edit_distance_trend": [
+            98,
+            0,
+            0
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "wmt25_task3_natural:3391",
+          "category": "natural",
+          "language_pair": "en-ru_RU",
+          "n_passes": 3,
+          "char_length_trend": [
+            472,
+            472,
+            472
+          ],
+          "edit_distance_trend": [
+            89,
+            0,
+            0
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "wmt25_task3_natural:3024",
+          "category": "natural",
+          "language_pair": "en-ru_RU",
+          "n_passes": 3,
+          "char_length_trend": [
+            538,
+            531,
+            521
+          ],
+          "edit_distance_trend": [
+            165,
+            7,
+            10
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "wmt25_task3_natural:3754",
+          "category": "natural",
+          "language_pair": "en-ru_RU",
+          "n_passes": 3,
+          "char_length_trend": [
+            373,
+            372,
+            371
+          ],
+          "edit_distance_trend": [
+            24,
+            1,
+            6
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "wmt25_task3_natural:3195",
+          "category": "natural",
+          "language_pair": "en-ru_RU",
+          "n_passes": 3,
+          "char_length_trend": [
+            641,
+            641,
+            641
+          ],
+          "edit_distance_trend": [
+            103,
+            0,
+            0
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "wmt25_task3_natural:3057",
+          "category": "natural",
+          "language_pair": "en-ru_RU",
+          "n_passes": 3,
+          "char_length_trend": [
+            631,
+            631,
+            631
+          ],
+          "edit_distance_trend": [
+            109,
+            0,
+            0
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "wmt25_task3_natural:3702",
+          "category": "natural",
+          "language_pair": "en-ru_RU",
+          "n_passes": 3,
+          "char_length_trend": [
+            586,
+            581,
+            579
+          ],
+          "edit_distance_trend": [
+            13,
+            5,
+            2
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "wmt25_task3_natural:3175",
+          "category": "natural",
+          "language_pair": "en-ru_RU",
+          "n_passes": 3,
+          "char_length_trend": [
+            748,
+            752,
+            752
+          ],
+          "edit_distance_trend": [
+            64,
+            10,
+            0
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "wmt25_task3_natural:3716",
+          "category": "natural",
+          "language_pair": "en-ru_RU",
+          "n_passes": 3,
+          "char_length_trend": [
+            555,
+            568,
+            560
+          ],
+          "edit_distance_trend": [
+            23,
+            20,
+            9
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "wmt25_task3_natural:3007",
+          "category": "natural",
+          "language_pair": "en-ru_RU",
+          "n_passes": 3,
+          "char_length_trend": [
+            669,
+            666,
+            662
+          ],
+          "edit_distance_trend": [
+            119,
+            9,
+            12
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "wmt25_task3_natural:3959",
+          "category": "natural",
+          "language_pair": "en-ru_RU",
+          "n_passes": 3,
+          "char_length_trend": [
+            397,
+            397,
+            397
+          ],
+          "edit_distance_trend": [
+            35,
+            0,
+            0
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "wmt25_task3_natural:3654",
+          "category": "natural",
+          "language_pair": "en-ru_RU",
+          "n_passes": 3,
+          "char_length_trend": [
+            383,
+            383,
+            383
+          ],
+          "edit_distance_trend": [
+            63,
+            0,
+            0
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "wmt25_task3_natural:3974",
+          "category": "natural",
+          "language_pair": "en-ru_RU",
+          "n_passes": 3,
+          "char_length_trend": [
+            489,
+            489,
+            489
+          ],
+          "edit_distance_trend": [
+            60,
+            0,
+            0
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "wmt25_task3_natural:3294",
+          "category": "natural",
+          "language_pair": "en-ru_RU",
+          "n_passes": 3,
+          "char_length_trend": [
+            585,
+            562,
+            556
+          ],
+          "edit_distance_trend": [
+            138,
+            25,
+            7
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "wmt25_task3_natural:3627",
+          "category": "natural",
+          "language_pair": "en-ru_RU",
+          "n_passes": 3,
+          "char_length_trend": [
+            278,
+            281,
+            282
+          ],
+          "edit_distance_trend": [
+            31,
+            5,
+            1
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "wmt25_task3_natural:3806",
+          "category": "natural",
+          "language_pair": "en-ru_RU",
+          "n_passes": 3,
+          "char_length_trend": [
+            491,
+            491,
+            491
+          ],
+          "edit_distance_trend": [
+            30,
+            0,
+            0
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "wmt25_task3_natural:3673",
+          "category": "natural",
+          "language_pair": "en-ru_RU",
+          "n_passes": 3,
+          "char_length_trend": [
+            677,
+            684,
+            677
+          ],
+          "edit_distance_trend": [
+            25,
+            21,
+            21
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "wmt25_task3_natural:3088",
+          "category": "natural",
+          "language_pair": "en-ru_RU",
+          "n_passes": 3,
+          "char_length_trend": [
+            549,
+            54,
+            58
+          ],
+          "edit_distance_trend": [
+            95,
+            498,
+            12
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "wmt25_task3_natural:3814",
+          "category": "natural",
+          "language_pair": "en-ru_RU",
+          "n_passes": 3,
+          "char_length_trend": [
+            188,
+            188,
+            188
+          ],
+          "edit_distance_trend": [
+            13,
+            0,
+            0
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "wmt25_task3_natural:3588",
+          "category": "natural",
+          "language_pair": "en-ru_RU",
+          "n_passes": 3,
+          "char_length_trend": [
+            420,
+            407,
+            415
+          ],
+          "edit_distance_trend": [
+            118,
+            44,
+            8
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "wmt25_task3_natural:3651",
+          "category": "natural",
+          "language_pair": "en-ru_RU",
+          "n_passes": 3,
+          "char_length_trend": [
+            418,
+            424,
+            427
+          ],
+          "edit_distance_trend": [
+            37,
+            6,
+            8
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "wmt25_task3_natural:3189",
+          "category": "natural",
+          "language_pair": "en-ru_RU",
+          "n_passes": 3,
+          "char_length_trend": [
+            736,
+            736,
+            744
+          ],
+          "edit_distance_trend": [
+            58,
+            21,
+            10
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "wmt25_task3_natural:3305",
+          "category": "natural",
+          "language_pair": "en-ru_RU",
+          "n_passes": 3,
+          "char_length_trend": [
+            617,
+            616,
+            616
+          ],
+          "edit_distance_trend": [
+            80,
+            1,
+            0
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "wmt25_task3_natural:3755",
+          "category": "natural",
+          "language_pair": "en-ru_RU",
+          "n_passes": 3,
+          "char_length_trend": [
+            229,
+            186,
+            185
+          ],
+          "edit_distance_trend": [
+            22,
+            46,
+            2
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "wmt25_task3_natural:3096",
+          "category": "natural",
+          "language_pair": "en-ru_RU",
+          "n_passes": 3,
+          "char_length_trend": [
+            515,
+            525,
+            515
+          ],
+          "edit_distance_trend": [
+            102,
+            10,
+            10
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "wmt25_task3_natural:3958",
+          "category": "natural",
+          "language_pair": "en-ru_RU",
+          "n_passes": 3,
+          "char_length_trend": [
+            827,
+            834,
+            834
+          ],
+          "edit_distance_trend": [
+            40,
+            7,
+            0
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "wmt25_task3_natural:3710",
+          "category": "natural",
+          "language_pair": "en-ru_RU",
+          "n_passes": 3,
+          "char_length_trend": [
+            471,
+            482,
+            475
+          ],
+          "edit_distance_trend": [
+            36,
+            11,
+            14
+          ],
+          "certificate_achieved": true
+        },
+        {
+          "row_id": "wmt25_task3_natural:3365",
+          "category": "natural",
+          "language_pair": "en-ru_RU",
+          "n_passes": 3,
+          "char_length_trend": [
+            441,
+            442,
+            447
+          ],
+          "edit_distance_trend": [
+            101,
+            25,
+            7
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "wmt25_task3_natural:3071",
+          "category": "natural",
+          "language_pair": "en-ru_RU",
+          "n_passes": 3,
+          "char_length_trend": [
+            433,
+            437,
+            438
+          ],
+          "edit_distance_trend": [
+            132,
+            12,
+            2
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "wmt25_task3_natural:3097",
+          "category": "natural",
+          "language_pair": "en-ru_RU",
+          "n_passes": 3,
+          "char_length_trend": [
+            492,
+            478,
+            478
+          ],
+          "edit_distance_trend": [
+            103,
+            19,
+            0
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "wmt25_task3_natural:3471",
+          "category": "natural",
+          "language_pair": "en-ru_RU",
+          "n_passes": 3,
+          "char_length_trend": [
+            699,
+            699,
+            699
+          ],
+          "edit_distance_trend": [
+            66,
+            0,
+            0
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "wmt25_task3_natural:3199",
+          "category": "natural",
+          "language_pair": "en-ru_RU",
+          "n_passes": 3,
+          "char_length_trend": [
+            685,
+            690,
+            655
+          ],
+          "edit_distance_trend": [
+            71,
+            29,
+            35
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "wmt25_task3_natural:3721",
+          "category": "natural",
+          "language_pair": "en-ru_RU",
+          "n_passes": 3,
+          "char_length_trend": [
+            232,
+            236,
+            233
+          ],
+          "edit_distance_trend": [
+            30,
+            8,
+            6
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "wmt25_task3_natural:3475",
+          "category": "natural",
+          "language_pair": "en-ru_RU",
+          "n_passes": 3,
+          "char_length_trend": [
+            458,
+            458,
+            458
+          ],
+          "edit_distance_trend": [
+            93,
+            0,
+            0
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "wmt25_task3_natural:3474",
+          "category": "natural",
+          "language_pair": "en-ru_RU",
+          "n_passes": 3,
+          "char_length_trend": [
+            526,
+            519,
+            524
+          ],
+          "edit_distance_trend": [
+            16,
+            7,
+            5
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "wmt25_task3_natural:3185",
+          "category": "natural",
+          "language_pair": "en-ru_RU",
+          "n_passes": 3,
+          "char_length_trend": [
+            536,
+            536,
+            536
+          ],
+          "edit_distance_trend": [
+            134,
+            9,
+            0
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "wmt25_task3_natural:3011",
+          "category": "natural",
+          "language_pair": "en-ru_RU",
+          "n_passes": 3,
+          "char_length_trend": [
+            951,
+            951,
+            954
+          ],
+          "edit_distance_trend": [
+            313,
+            0,
+            13
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "wmt25_task3_natural:3748",
+          "category": "natural",
+          "language_pair": "en-ru_RU",
+          "n_passes": 3,
+          "char_length_trend": [
+            531,
+            515,
+            498
+          ],
+          "edit_distance_trend": [
+            35,
+            27,
+            20
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "wmt25_task3_natural:3674",
+          "category": "natural",
+          "language_pair": "en-ru_RU",
+          "n_passes": 3,
+          "char_length_trend": [
+            742,
+            742,
+            742
+          ],
+          "edit_distance_trend": [
+            34,
+            0,
+            0
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "wmt25_task3_natural:3873",
+          "category": "natural",
+          "language_pair": "en-ru_RU",
+          "n_passes": 3,
+          "char_length_trend": [
+            434,
+            432,
+            434
+          ],
+          "edit_distance_trend": [
+            41,
+            12,
+            12
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "wmt25_task3_natural:3023",
+          "category": "natural",
+          "language_pair": "en-ru_RU",
+          "n_passes": 3,
+          "char_length_trend": [
+            613,
+            613,
+            613
+          ],
+          "edit_distance_trend": [
+            124,
+            0,
+            0
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "wmt25_task3_natural:3845",
+          "category": "natural",
+          "language_pair": "en-ru_RU",
+          "n_passes": 3,
+          "char_length_trend": [
+            455,
+            454,
+            453
+          ],
+          "edit_distance_trend": [
+            13,
+            7,
+            3
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "wmt25_task3_natural:3040",
+          "category": "natural",
+          "language_pair": "en-ru_RU",
+          "n_passes": 3,
+          "char_length_trend": [
+            459,
+            457,
+            457
+          ],
+          "edit_distance_trend": [
+            159,
+            2,
+            0
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "wmt25_task3_natural:3569",
+          "category": "natural",
+          "language_pair": "en-ru_RU",
+          "n_passes": 3,
+          "char_length_trend": [
+            195,
+            195,
+            195
+          ],
+          "edit_distance_trend": [
+            28,
+            4,
+            4
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "wmt25_task3_natural:3575",
+          "category": "natural",
+          "language_pair": "en-ru_RU",
+          "n_passes": 3,
+          "char_length_trend": [
+            492,
+            495,
+            495
+          ],
+          "edit_distance_trend": [
+            54,
+            10,
+            0
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "wmt25_task3_natural:3264",
+          "category": "natural",
+          "language_pair": "en-ru_RU",
+          "n_passes": 3,
+          "char_length_trend": [
+            359,
+            359,
+            359
+          ],
+          "edit_distance_trend": [
+            107,
+            0,
+            0
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "wmt25_task3_natural:3026",
+          "category": "natural",
+          "language_pair": "en-ru_RU",
+          "n_passes": 3,
+          "char_length_trend": [
+            857,
+            857,
+            857
+          ],
+          "edit_distance_trend": [
+            125,
+            0,
+            0
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "wmt25_task3_natural:3816",
+          "category": "natural",
+          "language_pair": "en-ru_RU",
+          "n_passes": 3,
+          "char_length_trend": [
+            390,
+            391,
+            377
+          ],
+          "edit_distance_trend": [
+            9,
+            4,
+            14
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "wmt25_task3_natural:3718",
+          "category": "natural",
+          "language_pair": "en-ru_RU",
+          "n_passes": 3,
+          "char_length_trend": [
+            372,
+            370,
+            372
+          ],
+          "edit_distance_trend": [
+            22,
+            3,
+            5
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "wmt25_task3_natural:3722",
+          "category": "natural",
+          "language_pair": "en-ru_RU",
+          "n_passes": 3,
+          "char_length_trend": [
+            679,
+            672,
+            671
+          ],
+          "edit_distance_trend": [
+            24,
+            12,
+            15
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "wmt25_task3_natural:3551",
+          "category": "natural",
+          "language_pair": "en-ru_RU",
+          "n_passes": 3,
+          "char_length_trend": [
+            654,
+            648,
+            -88
+          ],
+          "edit_distance_trend": [
+            20,
+            13,
+            738
+          ],
+          "certificate_achieved": true
+        },
+        {
+          "row_id": "wmt25_task3_natural:3581",
+          "category": "natural",
+          "language_pair": "en-ru_RU",
+          "n_passes": 3,
+          "char_length_trend": [
+            629,
+            622,
+            622
+          ],
+          "edit_distance_trend": [
+            60,
+            7,
+            0
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "wmt25_task3_natural:3753",
+          "category": "natural",
+          "language_pair": "en-ru_RU",
+          "n_passes": 3,
+          "char_length_trend": [
+            457,
+            465,
+            465
+          ],
+          "edit_distance_trend": [
+            12,
+            10,
+            0
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "wmt25_task3_natural:3605",
+          "category": "natural",
+          "language_pair": "en-ru_RU",
+          "n_passes": 3,
+          "char_length_trend": [
+            642,
+            641,
+            639
+          ],
+          "edit_distance_trend": [
+            62,
+            6,
+            6
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "wmt25_task3_natural:3956",
+          "category": "natural",
+          "language_pair": "en-ru_RU",
+          "n_passes": 3,
+          "char_length_trend": [
+            20,
+            18,
+            12
+          ],
+          "edit_distance_trend": [
+            19,
+            3,
+            8
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "wmt25_task3_natural:3328",
+          "category": "natural",
+          "language_pair": "en-ru_RU",
+          "n_passes": 3,
+          "char_length_trend": [
+            935,
+            920,
+            920
+          ],
+          "edit_distance_trend": [
+            111,
+            61,
+            0
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "wmt25_task3_natural:3713",
+          "category": "natural",
+          "language_pair": "en-ru_RU",
+          "n_passes": 3,
+          "char_length_trend": [
+            580,
+            581,
+            590
+          ],
+          "edit_distance_trend": [
+            52,
+            10,
+            13
+          ],
+          "certificate_achieved": true
+        },
+        {
+          "row_id": "wmt25_task3_natural:3546",
+          "category": "natural",
+          "language_pair": "en-ru_RU",
+          "n_passes": 3,
+          "char_length_trend": [
+            385,
+            384,
+            385
+          ],
+          "edit_distance_trend": [
+            13,
+            2,
+            2
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "wmt25_task3_natural:3976",
+          "category": "natural",
+          "language_pair": "en-ru_RU",
+          "n_passes": 3,
+          "char_length_trend": [
+            335,
+            335,
+            335
+          ],
+          "edit_distance_trend": [
+            42,
+            0,
+            0
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "wmt25_task3_natural:3539",
+          "category": "natural",
+          "language_pair": "en-ru_RU",
+          "n_passes": 3,
+          "char_length_trend": [
+            275,
+            277,
+            275
+          ],
+          "edit_distance_trend": [
+            26,
+            2,
+            2
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "wmt25_task3_natural:3653",
+          "category": "natural",
+          "language_pair": "en-ru_RU",
+          "n_passes": 3,
+          "char_length_trend": [
+            399,
+            399,
+            399
+          ],
+          "edit_distance_trend": [
+            55,
+            0,
+            0
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "wmt25_task3_natural:3555",
+          "category": "natural",
+          "language_pair": "en-ru_RU",
+          "n_passes": 3,
+          "char_length_trend": [
+            245,
+            245,
+            245
+          ],
+          "edit_distance_trend": [
+            27,
+            2,
+            0
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "wmt25_task3_natural:4686",
+          "category": "natural",
+          "language_pair": "en-uk_UA",
+          "n_passes": 3,
+          "char_length_trend": [
+            378,
+            318,
+            318
+          ],
+          "edit_distance_trend": [
+            113,
+            60,
+            0
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "wmt25_task3_natural:4810",
+          "category": "natural",
+          "language_pair": "en-uk_UA",
+          "n_passes": 3,
+          "char_length_trend": [
+            529,
+            529,
+            529
+          ],
+          "edit_distance_trend": [
+            11,
+            0,
+            0
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "wmt25_task3_natural:4441",
+          "category": "natural",
+          "language_pair": "en-uk_UA",
+          "n_passes": 3,
+          "char_length_trend": [
+            1001,
+            987,
+            908
+          ],
+          "edit_distance_trend": [
+            175,
+            18,
+            97
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "wmt25_task3_natural:4024",
+          "category": "natural",
+          "language_pair": "en-uk_UA",
+          "n_passes": 3,
+          "char_length_trend": [
+            653,
+            631,
+            628
+          ],
+          "edit_distance_trend": [
+            79,
+            22,
+            3
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "wmt25_task3_natural:4519",
+          "category": "natural",
+          "language_pair": "en-uk_UA",
+          "n_passes": 3,
+          "char_length_trend": [
+            689,
+            687,
+            689
+          ],
+          "edit_distance_trend": [
+            40,
+            6,
+            6
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "wmt25_task3_natural:4583",
+          "category": "natural",
+          "language_pair": "en-uk_UA",
+          "n_passes": 3,
+          "char_length_trend": [
+            588,
+            509,
+            509
+          ],
+          "edit_distance_trend": [
+            116,
+            81,
+            0
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "wmt25_task3_natural:4341",
+          "category": "natural",
+          "language_pair": "en-uk_UA",
+          "n_passes": 3,
+          "char_length_trend": [
+            638,
+            637,
+            639
+          ],
+          "edit_distance_trend": [
+            69,
+            7,
+            3
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "wmt25_task3_natural:4738",
+          "category": "natural",
+          "language_pair": "en-uk_UA",
+          "n_passes": 3,
+          "char_length_trend": [
+            283,
+            283,
+            283
+          ],
+          "edit_distance_trend": [
+            19,
+            0,
+            0
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "wmt25_task3_natural:4275",
+          "category": "natural",
+          "language_pair": "en-uk_UA",
+          "n_passes": 3,
+          "char_length_trend": [
+            552,
+            552,
+            552
+          ],
+          "edit_distance_trend": [
+            110,
+            0,
+            0
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "wmt25_task3_natural:4401",
+          "category": "natural",
+          "language_pair": "en-uk_UA",
+          "n_passes": 3,
+          "char_length_trend": [
+            535,
+            542,
+            535
+          ],
+          "edit_distance_trend": [
+            69,
+            10,
+            10
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "wmt25_task3_natural:4064",
+          "category": "natural",
+          "language_pair": "en-uk_UA",
+          "n_passes": 3,
+          "char_length_trend": [
+            556,
+            551,
+            551
+          ],
+          "edit_distance_trend": [
+            81,
+            5,
+            0
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "wmt25_task3_natural:4096",
+          "category": "natural",
+          "language_pair": "en-uk_UA",
+          "n_passes": 3,
+          "char_length_trend": [
+            499,
+            498,
+            499
+          ],
+          "edit_distance_trend": [
+            60,
+            2,
+            2
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "wmt25_task3_natural:4578",
+          "category": "natural",
+          "language_pair": "en-uk_UA",
+          "n_passes": 3,
+          "char_length_trend": [
+            208,
+            214,
+            214
+          ],
+          "edit_distance_trend": [
+            67,
+            27,
+            8
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "wmt25_task3_natural:4450",
+          "category": "natural",
+          "language_pair": "en-uk_UA",
+          "n_passes": 3,
+          "char_length_trend": [
+            544,
+            399,
+            397
+          ],
+          "edit_distance_trend": [
+            174,
+            145,
+            2
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "wmt25_task3_natural:4389",
+          "category": "natural",
+          "language_pair": "en-uk_UA",
+          "n_passes": 3,
+          "char_length_trend": [
+            482,
+            479,
+            481
+          ],
+          "edit_distance_trend": [
+            50,
+            8,
+            12
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "wmt25_task3_natural:4409",
+          "category": "natural",
+          "language_pair": "en-uk_UA",
+          "n_passes": 3,
+          "char_length_trend": [
+            465,
+            465,
+            465
+          ],
+          "edit_distance_trend": [
+            100,
+            0,
+            0
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "wmt25_task3_natural:4837",
+          "category": "natural",
+          "language_pair": "en-uk_UA",
+          "n_passes": 3,
+          "char_length_trend": [
+            78,
+            78,
+            78
+          ],
+          "edit_distance_trend": [
+            7,
+            0,
+            0
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "wmt25_task3_natural:4956",
+          "category": "natural",
+          "language_pair": "en-uk_UA",
+          "n_passes": 3,
+          "char_length_trend": [
+            385,
+            385,
+            385
+          ],
+          "edit_distance_trend": [
+            17,
+            0,
+            0
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "wmt25_task3_natural:4822",
+          "category": "natural",
+          "language_pair": "en-uk_UA",
+          "n_passes": 3,
+          "char_length_trend": [
+            494,
+            494,
+            494
+          ],
+          "edit_distance_trend": [
+            39,
+            0,
+            0
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "wmt25_task3_natural:4894",
+          "category": "natural",
+          "language_pair": "en-uk_UA",
+          "n_passes": 3,
+          "char_length_trend": [
+            382,
+            384,
+            385
+          ],
+          "edit_distance_trend": [
+            14,
+            4,
+            6
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "wmt25_task3_natural:4304",
+          "category": "natural",
+          "language_pair": "en-uk_UA",
+          "n_passes": 3,
+          "char_length_trend": [
+            681,
+            681,
+            681
+          ],
+          "edit_distance_trend": [
+            92,
+            0,
+            0
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "wmt25_task3_natural:4274",
+          "category": "natural",
+          "language_pair": "en-uk_UA",
+          "n_passes": 3,
+          "char_length_trend": [
+            463,
+            459,
+            459
+          ],
+          "edit_distance_trend": [
+            71,
+            8,
+            7
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "wmt25_task3_natural:4435",
+          "category": "natural",
+          "language_pair": "en-uk_UA",
+          "n_passes": 3,
+          "char_length_trend": [
+            491,
+            484,
+            484
+          ],
+          "edit_distance_trend": [
+            69,
+            12,
+            0
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "wmt25_task3_natural:4264",
+          "category": "natural",
+          "language_pair": "en-uk_UA",
+          "n_passes": 3,
+          "char_length_trend": [
+            650,
+            645,
+            645
+          ],
+          "edit_distance_trend": [
+            75,
+            17,
+            0
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "wmt25_task3_natural:4600",
+          "category": "natural",
+          "language_pair": "en-uk_UA",
+          "n_passes": 3,
+          "char_length_trend": [
+            224,
+            224,
+            224
+          ],
+          "edit_distance_trend": [
+            254,
+            0,
+            0
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "wmt25_task3_natural:4255",
+          "category": "natural",
+          "language_pair": "en-uk_UA",
+          "n_passes": 3,
+          "char_length_trend": [
+            410,
+            410,
+            410
+          ],
+          "edit_distance_trend": [
+            47,
+            0,
+            0
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "wmt25_task3_natural:4542",
+          "category": "natural",
+          "language_pair": "en-uk_UA",
+          "n_passes": 3,
+          "char_length_trend": [
+            663,
+            668,
+            646
+          ],
+          "edit_distance_trend": [
+            67,
+            6,
+            24
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "wmt25_task3_natural:4342",
+          "category": "natural",
+          "language_pair": "en-uk_UA",
+          "n_passes": 3,
+          "char_length_trend": [
+            494,
+            494,
+            494
+          ],
+          "edit_distance_trend": [
+            58,
+            0,
+            0
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "wmt25_task3_natural:4833",
+          "category": "natural",
+          "language_pair": "en-uk_UA",
+          "n_passes": 3,
+          "char_length_trend": [
+            397,
+            397,
+            397
+          ],
+          "edit_distance_trend": [
+            37,
+            0,
+            0
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "wmt25_task3_natural:4075",
+          "category": "natural",
+          "language_pair": "en-uk_UA",
+          "n_passes": 3,
+          "char_length_trend": [
+            590,
+            590,
+            590
+          ],
+          "edit_distance_trend": [
+            98,
+            0,
+            0
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "wmt25_task3_natural:4191",
+          "category": "natural",
+          "language_pair": "en-uk_UA",
+          "n_passes": 2,
+          "char_length_trend": [
+            459,
+            371
+          ],
+          "edit_distance_trend": [
+            118,
+            105
+          ],
+          "certificate_achieved": true
+        },
+        {
+          "row_id": "wmt25_task3_natural:4112",
+          "category": "natural",
+          "language_pair": "en-uk_UA",
+          "n_passes": 3,
+          "char_length_trend": [
+            572,
+            560,
+            555
+          ],
+          "edit_distance_trend": [
+            85,
+            24,
+            11
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "wmt25_task3_natural:4818",
+          "category": "natural",
+          "language_pair": "en-uk_UA",
+          "n_passes": 3,
+          "char_length_trend": [
+            183,
+            188,
+            182
+          ],
+          "edit_distance_trend": [
+            3,
+            5,
+            6
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "wmt25_task3_natural:4512",
+          "category": "natural",
+          "language_pair": "en-uk_UA",
+          "n_passes": 3,
+          "char_length_trend": [
+            539,
+            539,
+            539
+          ],
+          "edit_distance_trend": [
+            81,
+            0,
+            0
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "wmt25_task3_natural:4546",
+          "category": "natural",
+          "language_pair": "en-uk_UA",
+          "n_passes": 3,
+          "char_length_trend": [
+            452,
+            454,
+            447
+          ],
+          "edit_distance_trend": [
+            65,
+            4,
+            8
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "wmt25_task3_natural:4309",
+          "category": "natural",
+          "language_pair": "en-uk_UA",
+          "n_passes": 2,
+          "char_length_trend": [
+            402,
+            405
+          ],
+          "edit_distance_trend": [
+            73,
+            3
+          ],
+          "certificate_achieved": true
+        },
+        {
+          "row_id": "wmt25_task3_natural:4639",
+          "category": "natural",
+          "language_pair": "en-uk_UA",
+          "n_passes": 3,
+          "char_length_trend": [
+            693,
+            693,
+            693
+          ],
+          "edit_distance_trend": [
+            51,
+            0,
+            0
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "wmt25_task3_natural:4261",
+          "category": "natural",
+          "language_pair": "en-uk_UA",
+          "n_passes": 3,
+          "char_length_trend": [
+            666,
+            584,
+            584
+          ],
+          "edit_distance_trend": [
+            125,
+            94,
+            0
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "wmt25_task3_natural:4675",
+          "category": "natural",
+          "language_pair": "en-uk_UA",
+          "n_passes": 3,
+          "char_length_trend": [
+            289,
+            298,
+            288
+          ],
+          "edit_distance_trend": [
+            50,
+            13,
+            12
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "wmt25_task3_natural:4677",
+          "category": "natural",
+          "language_pair": "en-uk_UA",
+          "n_passes": 3,
+          "char_length_trend": [
+            730,
+            730,
+            730
+          ],
+          "edit_distance_trend": [
+            30,
+            0,
+            0
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "wmt25_task3_natural:4740",
+          "category": "natural",
+          "language_pair": "en-uk_UA",
+          "n_passes": 3,
+          "char_length_trend": [
+            434,
+            434,
+            434
+          ],
+          "edit_distance_trend": [
+            10,
+            0,
+            0
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "wmt25_task3_natural:4681",
+          "category": "natural",
+          "language_pair": "en-uk_UA",
+          "n_passes": 3,
+          "char_length_trend": [
+            165,
+            162,
+            162
+          ],
+          "edit_distance_trend": [
+            138,
+            3,
+            0
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "wmt25_task3_natural:4190",
+          "category": "natural",
+          "language_pair": "en-uk_UA",
+          "n_passes": 3,
+          "char_length_trend": [
+            401,
+            401,
+            401
+          ],
+          "edit_distance_trend": [
+            81,
+            0,
+            0
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "wmt25_task3_natural:4328",
+          "category": "natural",
+          "language_pair": "en-uk_UA",
+          "n_passes": 3,
+          "char_length_trend": [
+            602,
+            602,
+            602
+          ],
+          "edit_distance_trend": [
+            36,
+            0,
+            0
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "wmt25_task3_natural:4049",
+          "category": "natural",
+          "language_pair": "en-uk_UA",
+          "n_passes": 3,
+          "char_length_trend": [
+            467,
+            460,
+            460
+          ],
+          "edit_distance_trend": [
+            120,
+            12,
+            0
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "wmt25_task3_natural:4620",
+          "category": "natural",
+          "language_pair": "en-uk_UA",
+          "n_passes": 3,
+          "char_length_trend": [
+            293,
+            297,
+            305
+          ],
+          "edit_distance_trend": [
+            95,
+            4,
+            11
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "wmt25_task3_natural:4881",
+          "category": "natural",
+          "language_pair": "en-uk_UA",
+          "n_passes": 3,
+          "char_length_trend": [
+            249,
+            249,
+            249
+          ],
+          "edit_distance_trend": [
+            12,
+            0,
+            0
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "wmt25_task3_natural:4009",
+          "category": "natural",
+          "language_pair": "en-uk_UA",
+          "n_passes": 3,
+          "char_length_trend": [
+            1022,
+            1022,
+            1022
+          ],
+          "edit_distance_trend": [
+            101,
+            0,
+            0
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "wmt25_task3_natural:4001",
+          "category": "natural",
+          "language_pair": "en-uk_UA",
+          "n_passes": 3,
+          "char_length_trend": [
+            1214,
+            891,
+            899
+          ],
+          "edit_distance_trend": [
+            575,
+            344,
+            12
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "wmt25_task3_natural:4482",
+          "category": "natural",
+          "language_pair": "en-uk_UA",
+          "n_passes": 3,
+          "char_length_trend": [
+            236,
+            236,
+            236
+          ],
+          "edit_distance_trend": [
+            55,
+            0,
+            0
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "wmt25_task3_natural:4413",
+          "category": "natural",
+          "language_pair": "en-uk_UA",
+          "n_passes": 3,
+          "char_length_trend": [
+            510,
+            510,
+            510
+          ],
+          "edit_distance_trend": [
+            45,
+            0,
+            0
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "wmt25_task3_natural:4089",
+          "category": "natural",
+          "language_pair": "en-uk_UA",
+          "n_passes": 2,
+          "char_length_trend": [
+            610,
+            618
+          ],
+          "edit_distance_trend": [
+            76,
+            14
+          ],
+          "certificate_achieved": true
+        },
+        {
+          "row_id": "wmt25_task3_natural:4053",
+          "category": "natural",
+          "language_pair": "en-uk_UA",
+          "n_passes": 3,
+          "char_length_trend": [
+            513,
+            510,
+            513
+          ],
+          "edit_distance_trend": [
+            78,
+            5,
+            5
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "wmt25_task3_natural:4380",
+          "category": "natural",
+          "language_pair": "en-uk_UA",
+          "n_passes": 3,
+          "char_length_trend": [
+            340,
+            337,
+            337
+          ],
+          "edit_distance_trend": [
+            76,
+            5,
+            0
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "wmt25_task3_natural:4688",
+          "category": "natural",
+          "language_pair": "en-uk_UA",
+          "n_passes": 2,
+          "char_length_trend": [
+            605,
+            601
+          ],
+          "edit_distance_trend": [
+            30,
+            8
+          ],
+          "certificate_achieved": true
+        },
+        {
+          "row_id": "wmt25_task3_natural:4017",
+          "category": "natural",
+          "language_pair": "en-uk_UA",
+          "n_passes": 3,
+          "char_length_trend": [
+            683,
+            683,
+            683
+          ],
+          "edit_distance_trend": [
+            72,
+            0,
+            0
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "wmt25_task3_natural:4331",
+          "category": "natural",
+          "language_pair": "en-uk_UA",
+          "n_passes": 3,
+          "char_length_trend": [
+            523,
+            523,
+            523
+          ],
+          "edit_distance_trend": [
+            81,
+            0,
+            0
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "wmt25_task3_natural:4515",
+          "category": "natural",
+          "language_pair": "en-uk_UA",
+          "n_passes": 3,
+          "char_length_trend": [
+            341,
+            300,
+            297
+          ],
+          "edit_distance_trend": [
+            59,
+            51,
+            6
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "wmt25_task3_natural:4367",
+          "category": "natural",
+          "language_pair": "en-uk_UA",
+          "n_passes": 3,
+          "char_length_trend": [
+            752,
+            751,
+            752
+          ],
+          "edit_distance_trend": [
+            119,
+            7,
+            5
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "wmt25_task3_natural:4632",
+          "category": "natural",
+          "language_pair": "en-uk_UA",
+          "n_passes": 3,
+          "char_length_trend": [
+            374,
+            374,
+            374
+          ],
+          "edit_distance_trend": [
+            32,
+            0,
+            0
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "wmt25_task3_natural:4612",
+          "category": "natural",
+          "language_pair": "en-uk_UA",
+          "n_passes": 3,
+          "char_length_trend": [
+            684,
+            676,
+            675
+          ],
+          "edit_distance_trend": [
+            60,
+            12,
+            5
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "wmt25_task3_natural:4695",
+          "category": "natural",
+          "language_pair": "en-uk_UA",
+          "n_passes": 3,
+          "char_length_trend": [
+            379,
+            379,
+            379
+          ],
+          "edit_distance_trend": [
+            28,
+            0,
+            0
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "wmt25_task3_natural:4417",
+          "category": "natural",
+          "language_pair": "en-uk_UA",
+          "n_passes": 3,
+          "char_length_trend": [
+            754,
+            754,
+            754
+          ],
+          "edit_distance_trend": [
+            65,
+            0,
+            0
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "wmt25_task3_natural:4091",
+          "category": "natural",
+          "language_pair": "en-uk_UA",
+          "n_passes": 3,
+          "char_length_trend": [
+            835,
+            832,
+            812
+          ],
+          "edit_distance_trend": [
+            104,
+            11,
+            35
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "wmt25_task3_natural:4748",
+          "category": "natural",
+          "language_pair": "en-uk_UA",
+          "n_passes": 3,
+          "char_length_trend": [
+            214,
+            213,
+            213
+          ],
+          "edit_distance_trend": [
+            15,
+            1,
+            0
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "wmt25_task3_natural:4266",
+          "category": "natural",
+          "language_pair": "en-uk_UA",
+          "n_passes": 3,
+          "char_length_trend": [
+            534,
+            529,
+            529
+          ],
+          "edit_distance_trend": [
+            119,
+            16,
+            0
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "wmt25_task3_natural:4123",
+          "category": "natural",
+          "language_pair": "en-uk_UA",
+          "n_passes": 3,
+          "char_length_trend": [
+            512,
+            512,
+            512
+          ],
+          "edit_distance_trend": [
+            93,
+            0,
+            0
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "wmt25_task3_natural:4703",
+          "category": "natural",
+          "language_pair": "en-uk_UA",
+          "n_passes": 3,
+          "char_length_trend": [
+            717,
+            717,
+            717
+          ],
+          "edit_distance_trend": [
+            67,
+            0,
+            0
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "wmt25_task3_natural:4142",
+          "category": "natural",
+          "language_pair": "en-uk_UA",
+          "n_passes": 3,
+          "char_length_trend": [
+            314,
+            312,
+            312
+          ],
+          "edit_distance_trend": [
+            79,
+            4,
+            0
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "wmt25_task3_natural:4902",
+          "category": "natural",
+          "language_pair": "en-uk_UA",
+          "n_passes": 3,
+          "char_length_trend": [
+            405,
+            404,
+            405
+          ],
+          "edit_distance_trend": [
+            31,
+            5,
+            5
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "wmt25_task3_natural:4379",
+          "category": "natural",
+          "language_pair": "en-uk_UA",
+          "n_passes": 3,
+          "char_length_trend": [
+            426,
+            426,
+            426
+          ],
+          "edit_distance_trend": [
+            68,
+            0,
+            0
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "wmt25_task3_natural:4082",
+          "category": "natural",
+          "language_pair": "en-uk_UA",
+          "n_passes": 3,
+          "char_length_trend": [
+            599,
+            599,
+            599
+          ],
+          "edit_distance_trend": [
+            120,
+            0,
+            0
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "wmt25_task3_natural:4290",
+          "category": "natural",
+          "language_pair": "en-uk_UA",
+          "n_passes": 3,
+          "char_length_trend": [
+            452,
+            452,
+            452
+          ],
+          "edit_distance_trend": [
+            78,
+            0,
+            0
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "wmt25_task3_natural:4360",
+          "category": "natural",
+          "language_pair": "en-uk_UA",
+          "n_passes": 3,
+          "char_length_trend": [
+            396,
+            387,
+            391
+          ],
+          "edit_distance_trend": [
+            80,
+            14,
+            20
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "wmt25_task3_natural:4498",
+          "category": "natural",
+          "language_pair": "en-uk_UA",
+          "n_passes": 3,
+          "char_length_trend": [
+            319,
+            319,
+            319
+          ],
+          "edit_distance_trend": [
+            59,
+            0,
+            0
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "wmt25_task3_natural:4587",
+          "category": "natural",
+          "language_pair": "en-uk_UA",
+          "n_passes": 3,
+          "char_length_trend": [
+            328,
+            331,
+            328
+          ],
+          "edit_distance_trend": [
+            54,
+            6,
+            6
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "wmt25_task3_natural:4930",
+          "category": "natural",
+          "language_pair": "en-uk_UA",
+          "n_passes": 3,
+          "char_length_trend": [
+            337,
+            329,
+            317
+          ],
+          "edit_distance_trend": [
+            22,
+            12,
+            12
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "wmt25_task3_natural:4094",
+          "category": "natural",
+          "language_pair": "en-uk_UA",
+          "n_passes": 3,
+          "char_length_trend": [
+            727,
+            727,
+            727
+          ],
+          "edit_distance_trend": [
+            68,
+            0,
+            0
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "wmt25_task3_natural:4476",
+          "category": "natural",
+          "language_pair": "en-uk_UA",
+          "n_passes": 3,
+          "char_length_trend": [
+            424,
+            432,
+            423
+          ],
+          "edit_distance_trend": [
+            52,
+            20,
+            20
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "wmt25_task3_natural:4750",
+          "category": "natural",
+          "language_pair": "en-uk_UA",
+          "n_passes": 3,
+          "char_length_trend": [
+            411,
+            411,
+            411
+          ],
+          "edit_distance_trend": [
+            31,
+            0,
+            0
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "wmt25_task3_natural:4349",
+          "category": "natural",
+          "language_pair": "en-uk_UA",
+          "n_passes": 3,
+          "char_length_trend": [
+            1729,
+            859,
+            860
+          ],
+          "edit_distance_trend": [
+            981,
+            870,
+            18
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "wmt25_task3_natural:4146",
+          "category": "natural",
+          "language_pair": "en-uk_UA",
+          "n_passes": 3,
+          "char_length_trend": [
+            780,
+            780,
+            780
+          ],
+          "edit_distance_trend": [
+            64,
+            0,
+            0
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "wmt25_task3_natural:4746",
+          "category": "natural",
+          "language_pair": "en-uk_UA",
+          "n_passes": 3,
+          "char_length_trend": [
+            744,
+            739,
+            735
+          ],
+          "edit_distance_trend": [
+            23,
+            16,
+            7
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "wmt25_task3_natural:4167",
+          "category": "natural",
+          "language_pair": "en-uk_UA",
+          "n_passes": 3,
+          "char_length_trend": [
+            650,
+            650,
+            641
+          ],
+          "edit_distance_trend": [
+            64,
+            2,
+            15
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "wmt25_task3_natural:4985",
+          "category": "natural",
+          "language_pair": "en-uk_UA",
+          "n_passes": 3,
+          "char_length_trend": [
+            531,
+            534,
+            526
+          ],
+          "edit_distance_trend": [
+            17,
+            9,
+            8
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "wmt25_task3_natural:4458",
+          "category": "natural",
+          "language_pair": "en-uk_UA",
+          "n_passes": 3,
+          "char_length_trend": [
+            853,
+            853,
+            853
+          ],
+          "edit_distance_trend": [
+            109,
+            0,
+            0
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "wmt25_task3_natural:4611",
+          "category": "natural",
+          "language_pair": "en-uk_UA",
+          "n_passes": 3,
+          "char_length_trend": [
+            484,
+            479,
+            489
+          ],
+          "edit_distance_trend": [
+            80,
+            5,
+            23
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "wmt25_task3_natural:4744",
+          "category": "natural",
+          "language_pair": "en-uk_UA",
+          "n_passes": 3,
+          "char_length_trend": [
+            327,
+            328,
+            328
+          ],
+          "edit_distance_trend": [
+            39,
+            5,
+            0
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "wmt25_task3_natural:4898",
+          "category": "natural",
+          "language_pair": "en-uk_UA",
+          "n_passes": 3,
+          "char_length_trend": [
+            367,
+            359,
+            359
+          ],
+          "edit_distance_trend": [
+            0,
+            8,
+            0
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "wmt25_task3_natural:4385",
+          "category": "natural",
+          "language_pair": "en-uk_UA",
+          "n_passes": 3,
+          "char_length_trend": [
+            332,
+            332,
+            348
+          ],
+          "edit_distance_trend": [
+            76,
+            5,
+            22
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "wmt25_task3_natural:4947",
+          "category": "natural",
+          "language_pair": "en-uk_UA",
+          "n_passes": 3,
+          "char_length_trend": [
+            217,
+            217,
+            217
+          ],
+          "edit_distance_trend": [
+            30,
+            0,
+            0
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "wmt25_task3_natural:4804",
+          "category": "natural",
+          "language_pair": "en-uk_UA",
+          "n_passes": 3,
+          "char_length_trend": [
+            283,
+            283,
+            283
+          ],
+          "edit_distance_trend": [
+            64,
+            0,
+            0
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "wmt25_task3_natural:4150",
+          "category": "natural",
+          "language_pair": "en-uk_UA",
+          "n_passes": 3,
+          "char_length_trend": [
+            621,
+            623,
+            625
+          ],
+          "edit_distance_trend": [
+            63,
+            4,
+            18
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "wmt25_task3_natural:4734",
+          "category": "natural",
+          "language_pair": "en-uk_UA",
+          "n_passes": 3,
+          "char_length_trend": [
+            328,
+            326,
+            328
+          ],
+          "edit_distance_trend": [
+            38,
+            3,
+            3
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "wmt25_task3_natural:4893",
+          "category": "natural",
+          "language_pair": "en-uk_UA",
+          "n_passes": 3,
+          "char_length_trend": [
+            438,
+            439,
+            447
+          ],
+          "edit_distance_trend": [
+            33,
+            5,
+            13
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "wmt25_task3_natural:4168",
+          "category": "natural",
+          "language_pair": "en-uk_UA",
+          "n_passes": 3,
+          "char_length_trend": [
+            432,
+            432,
+            432
+          ],
+          "edit_distance_trend": [
+            97,
+            0,
+            0
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "wmt25_task3_natural:4066",
+          "category": "natural",
+          "language_pair": "en-uk_UA",
+          "n_passes": 3,
+          "char_length_trend": [
+            545,
+            545,
+            545
+          ],
+          "edit_distance_trend": [
+            134,
+            12,
+            12
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "wmt25_task3_natural:4739",
+          "category": "natural",
+          "language_pair": "en-uk_UA",
+          "n_passes": 3,
+          "char_length_trend": [
+            241,
+            241,
+            241
+          ],
+          "edit_distance_trend": [
+            56,
+            0,
+            0
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "wmt25_task3_natural:4197",
+          "category": "natural",
+          "language_pair": "en-uk_UA",
+          "n_passes": 3,
+          "char_length_trend": [
+            560,
+            562,
+            561
+          ],
+          "edit_distance_trend": [
+            101,
+            2,
+            4
+          ],
+          "certificate_achieved": false
+        },
+        {
+          "row_id": "wmt25_task3_natural:4950",
+          "category": "natural",
+          "language_pair": "en-uk_UA",
+          "n_passes": 3,
+          "char_length_trend": [
+            670,
+            670,
+            670
+          ],
+          "edit_distance_trend": [
+            36,
+            0,
+            0
+          ],
+          "certificate_achieved": false
+        }
+      ],
+      "gain_to_edit_ratio": [
+        {
+          "language_pair": "en-ru_RU",
+          "delta_comet_per_edit_volume": -0.125041
+        },
+        {
+          "language_pair": "en-uk_UA",
+          "delta_comet_per_edit_volume": -0.073176
+        }
+      ]
+    },
+    "comparison_table_B_D_C1_vs_C2": {
+      "prior_run_found": true,
+      "conditions": {
+        "B": {
+          "delta_comet_mean": -0.016440192796289922,
+          "delta_comet_ci95": [
+            -0.023672904632985593,
+            -0.010065690614283085
+          ],
+          "n_natural_scored": 320,
+          "fix_rate_pooled": 0.7375,
+          "true_regression_rate_pooled": 0.05,
+          "n_injected_scored": 240
+        },
+        "D": {
+          "delta_comet_mean": -0.015689943358302115,
+          "delta_comet_ci95": [
+            -0.022573553398251532,
+            -0.009700932446867228
+          ],
+          "n_natural_scored": 320,
+          "fix_rate_pooled": 0.7375,
+          "true_regression_rate_pooled": 0.05,
+          "n_injected_scored": 240
+        },
+        "C1": {
+          "delta_comet_mean": -0.003549609985202551,
+          "delta_comet_ci95": [
+            -0.007061060890555382,
+            -0.000843074731528759
+          ],
+          "n_natural_scored": 320,
+          "fix_rate_pooled": 0.4542,
+          "true_regression_rate_pooled": 0.125,
+          "n_injected_scored": 240
+        },
+        "C2": {
+          "delta_comet_mean": -0.01663663759827614,
+          "delta_comet_ci95": [
+            -0.024302838277071713,
+            -0.008813321962952614
+          ],
+          "n_natural_scored": 320,
+          "fix_rate_pooled": 0.9889,
+          "true_regression_rate_pooled": 0.0722,
+          "n_injected_scored": 180,
+          "certificate_rate_pooled": 0.9167,
+          "note": "C2's n_injected_scored excludes structural non-attempts (negation_polarity_flip deletions), n=60 -- B/D/C1's n_injected_scored (240) includes those rows with fixed=False by construction (see B/D/C1's own injected_pool_localization_protocol_caveat), so a raw fix_rate comparison against B/D is slightly conservative for B/D (their denominator is larger) -- reported as-is, not adjusted, and this note documents the asymmetry rather than silently normalizing it away."
+        }
+      },
+      "success_criterion_b_note": "Success criterion (b) asks whether C2 vs C1 improves regression rate and whether C2 improves DeltaCOMET over D. Read true_regression_rate_pooled and delta_comet_mean directly off this table for C1/D/C2."
+    },
+    "comet_available": true,
+    "delta_comet_metric": "Unbabel/wmt22-cometkiwi-da",
+    "checker_verdict_definitions": "injected-pool rows: checker_verdict.passed = fixed (corrupted_span string absent from the candidate sentence) AND NOT true_regression (no new invariant loss vs the pre-repair hypothesis, per checker.detect_all on metadata_clean_target_text) -- the SAME ground-truth definitions B/D/C1 used to compute fix_rate/true_regression_rate, reused rather than reinvented so the per-pass certificate and the headline metric cannot silently disagree. natural rows: checker_verdict.passed = checker.detect_all() (non-excluded cells only) returns zero flags overlapping the edited span's character range -- mirrors what C1 already computes in a single pass; C2 iterates it with a targeted re-repair prompt naming the still-flagged category/text.",
+    "negation_deletion_limitation": "negation_polarity_flip corruptions in the injected pool are DELETIONS (the target-language negation marker was removed, metadata_corrupted_span==''), so there is no contiguous substring to mask or target -- C2 (like B/D before it) marks these rows c2_attempted=False, skip_reason='negation_deletion_zero_width_span', and reports them as 'N/A (structural non-attempt)' in the per-category table rather than folding them into a misleading 0% fix rate. They remain in n_rows denominators throughout.",
+    "limitations_not_verified_identical_to_prior_run": [
+      "none -- row-ID identity to the prior B/D/C1 run was fully verified"
+    ]
+  },
+  "datasets": [
+    {
+      "dataset": "natural_repair_C2",
+      "examples": [
+        {
+          "input": "[en-ru_RU] You can get a folding leaf table, and if you saw off the bottom 15cm or so of the panels forming the sides and front of the table, and also don't bother to attach any of the the back leaf, then it becomes just the right height to mostly fit under the rear window.\\nIt's a little higher than the camper-fridge, but the camper fridge is pretty much the same height as a little bedside cabinet.\\nThere's also a small rectangular sink that fits nicely around the same width as the fridge alongside that cut down table.\\nAnd thus, the interior can be mostly constructed in my flat. The kids in the flat upstairs kept waving as me as I was doing a terrible job of cutting down those panels with a jigsaw in the yard.",
+          "output": "Можно приобрести складной стол, и если отпилить нижние 15 см или около того панелей, образующих бока и переднюю часть стола, а также не заморачиваться с креплением задней части, то он станет ровно такой высоты, чтобы в основном поместиться под задним окном.\\nОн немного выше, чем автодом-холодильник, но холодильник автодома примерно такой же высоты, как маленький прикроватный шкаф.\\nТам также есть небольшая прямоугольная раковина, которая хорошо вписывается в ту же ширину, что и холодильник, рядом с укороченным столом.\\nИ таким образом, интерьер можно в основном собрать в моей квартире. Дети в квартире наверху постоянно махали мне рукой, когда я делал ужасную работу по резке этих панелей электролобзиком во дворе.",
+          "predict_c2": "Можно приобрести складной стол, и если отпилить нижние 15 см или около того панелей, образующих боковые стороны и переднюю часть стола, а также не стоит прикреплять заднюю часть, то он станет ровно такой высоты, чтобы в основном поместиться под задним окном.\nОн немного выше, чем кемпер-холодильник, но кемпер-холодильник примерно такой же высоты, как маленький прикроватный шкаф.\nТам также есть небольшая прямоугольная раковина, которая хорошо вписывается в ту же ширину, что и холодильник, рядом с обрезанным столом.\nИ таким образом, интерьер можно в основном построить в моей квартире. Дети в квартире наверху постоянно махали мне, подшучивая, когда я делал ужасную работу по резке этих панелей пилой-лобзиком во дворе.",
+          "metadata_row_id": "wmt25_task3_natural:3466",
+          "metadata_language_pair": "en-ru_RU",
+          "metadata_domain": "social",
+          "metadata_c2_n_passes": 3,
+          "metadata_c2_n_llm_calls": 3,
+          "metadata_c2_certificate_achieved": false,
+          "metadata_c2_edit_volume": 0.2,
+          "metadata_c2_leakage": false,
+          "metadata_c2_no_op": false,
+          "metadata_c2_pass_log": [
+            {
+              "pass_num": 1,
+              "checker_passed": false,
+              "edit_distance_chars": 69,
+              "span_char_length_proxy": 619,
+              "n_flags_remaining": 1,
+              "error": null,
+              "input_tokens": 487,
+              "output_tokens": 200
+            },
+            {
+              "pass_num": 2,
+              "checker_passed": false,
+              "edit_distance_chars": 24,
+              "span_char_length_proxy": 609,
+              "n_flags_remaining": 1,
+              "error": null,
+              "input_tokens": 507,
+              "output_tokens": 198
+            },
+            {
+              "pass_num": 3,
+              "checker_passed": false,
+              "edit_distance_chars": 5,
+              "span_char_length_proxy": 609,
+              "n_flags_remaining": 1,
+              "error": null,
+              "input_tokens": 505,
+              "output_tokens": 198
+            }
+          ]
+        },
+        {
+          "input": "[en-ru_RU] Curve line up, down, connect on the left, and i'm going to go one, two, three, four little dots, and on the right -hand side, i'm going to do it again. I draw a curve line up, over, curve line in, connect, and i'm going to draw one, two, three, four little dots. I come all the way up to the top, and i'm going to draw a straight line, straight line, keep going, keep going, all the way across to divide up that space, and then i come down to the bottom, and i do straight line, straight line, straight line, all the way across.",
+          "output": "Кривая линия вверх, вниз, соединяем слева, и я нарисую одну, две, три, четыре маленьких точки, а на правой стороне я сделаю это снова. Я рисую кривую линию вверх, затем через, кривую линию внутрь, соединяю, и я нарисую одну, две, три, четыре маленьких точки. Я поднимаюсь вплоть до самого верха, и я рисую прямую линию, прямую линию, продолжаю, продолжаю, вплоть до самого края, чтобы разделить это пространство, а затем я опускаюсь вниз, и я рисую прямую линию, прямую линию, прямую линию, вплоть до самого края.",
+          "predict_c2": "Вверх, вниз, соединяюсь слева, и я нарисую одну, две, три, четыре маленьких точки, а на правой стороне я сделаю это снова. Я рисую кривую линию вверх, вниз, соединяюсь, и я нарисую одну, две, три, четыре маленьких точки. Я поднимаюсь вплоть до самого верха, и я рисую прямую линию, прямую линию, продолжаю, продолжаю вплоть до самого края, чтобы разделить это пространство, а затем я опускаюсь вниз, и я рисую прямую линию, прямую линию, прямую линию, вплоть до самого края.",
+          "metadata_row_id": "wmt25_task3_natural:3996",
+          "metadata_language_pair": "en-ru_RU",
+          "metadata_domain": "speech",
+          "metadata_c2_n_passes": 1,
+          "metadata_c2_n_llm_calls": 1,
+          "metadata_c2_certificate_achieved": true,
+          "metadata_c2_edit_volume": 0.131,
+          "metadata_c2_leakage": false,
+          "metadata_c2_no_op": false,
+          "metadata_c2_pass_log": [
+            {
+              "pass_num": 1,
+              "checker_passed": true,
+              "edit_distance_chars": 49,
+              "span_char_length_proxy": 316,
+              "n_flags_remaining": 0,
+              "error": null,
+              "input_tokens": 422,
+              "output_tokens": 141
+            }
+          ]
+        },
+        {
+          "input": "[en-ru_RU] 2/3\\nThis Ie Island #rum is from the Single island series. It was the only one I could get - besides the all island blend bottle, in my too brief ¾ day in #Naha #Okinawa Here's their webpage on this rum (translated)\\nhttps://onerum-jp.translate.goog/produ...\\nOrig: https://onerum.jp/product/ie-island-ru...\\nDo look up their about page too.",
+          "output": "2/3\\nЭтот ром Ie Island #rum из серии Single island. Это был единственный, который я смог купить, кроме бутылки с купажированным ромом со всех островов, за мои слишком короткие ¾ дня в #Наха #Окинава\\nВот их веб-страница об этом роме (переведена)\\nhttps://onerum-jp.translate.goog/produ...\\nОриг: https://onerum.jp/product/ie-island-ru...\\nТакже посмотрите их страницу \"О нас\".",
+          "predict_c2": "2/3\\nЭто ром Ie Island из серии Single island. Это был единственный, который я смог купить, кроме бутылки с купажированным ромом со всего острова, за мои слишком короткие ¾ дня в #Наха #Окинава\\nВот их веб-страница об этом роме (переведена)\\nhttps://onerum-jp.translate.goog/produ...\\nОригинал: https://onerum.jp/product/ie-island-ru...\\nТакже посмотрите их страницу \"О компании\".",
+          "metadata_row_id": "wmt25_task3_natural:3306",
+          "metadata_language_pair": "en-ru_RU",
+          "metadata_domain": "social",
+          "metadata_c2_n_passes": 2,
+          "metadata_c2_n_llm_calls": 2,
+          "metadata_c2_certificate_achieved": true,
+          "metadata_c2_edit_volume": 0.1333,
+          "metadata_c2_leakage": false,
+          "metadata_c2_no_op": false,
+          "metadata_c2_pass_log": [
+            {
+              "pass_num": 1,
+              "checker_passed": false,
+              "edit_distance_chars": 17,
+              "span_char_length_proxy": 370,
+              "n_flags_remaining": 1,
+              "error": null,
+              "input_tokens": 360,
+              "output_tokens": 116
+            },
+            {
+              "pass_num": 2,
+              "checker_passed": true,
+              "edit_distance_chars": 4,
+              "span_char_length_proxy": 370,
+              "n_flags_remaining": 0,
+              "error": null,
+              "input_tokens": 362,
+              "output_tokens": 115
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "dataset": "injected_pool_repair_C2",
+      "examples": [
+        {
+          "input": "[en-ru_RU/named_entity_swap] Jakob Nielsen’s all-in on AI is melting my brain.",
+          "output": "У меня мозги плавятся от того, как Йорка Майк Лоулер обращается с ИИ.",
+          "predict_c2": "Якоб Нильсен обращается с ИИ.",
+          "metadata_row_id": "injected_error_augmentation:1427",
+          "metadata_language_pair": "en-ru_RU",
+          "metadata_invariant_category": "named_entity_swap",
+          "metadata_c2_attempted": true,
+          "metadata_c2_skip_reason": null,
+          "metadata_c2_fixed": true,
+          "metadata_c2_true_regression": false,
+          "metadata_c2_certificate_achieved": true,
+          "metadata_c2_n_passes": 1,
+          "metadata_c2_n_llm_calls": 1,
+          "metadata_c2_pass_log": [
+            {
+              "pass_num": 1,
+              "checker_passed": true,
+              "edit_distance_chars": 47,
+              "span_char_length_proxy": -23,
+              "fixed": true,
+              "true_regression": false,
+              "error": null,
+              "input_tokens": 165,
+              "output_tokens": 13
+            }
+          ]
+        },
+        {
+          "input": "[en-ru_RU/named_entity_swap] Perry Cooper, a media representative from the Port of Seattle, which oversees Seattle-Tacoma International Airport, said in an email that there are a wide variety of reasons accidents occur, ranging from equipment to human error. So while it's easy enough to determine what type of plane you'll be on, it's more complicated to determine what that means from a safety perspective.",
+          "output": "Перри Купер, представитель СМИ порта Сиэтла, курирующего международный аэропорт УльманнТакома, в электронном письме обратил внимание, что существует множество причин, по которым происходят аварии, от проблем с оборудованием до человеческой ошибки. Таким образом, несмотря на то, что несложно выяснить, на каком именно самолете вы полетите, гораздо сложнее сделать вывод о том, что это означает с точки зрения безопасности.",
+          "predict_c2": "Перри Купер, представитель СМИ порта Сиэтла, курирующего международный аэропорт Сиэтл-Такома, в электронном письме обратил внимание, что существует множество причин, по которым происходят аварии, от проблем с оборудованием до человеческой ошибки. Таким образом, несмотря на то, что несложно выяснить, на каком именно самолете вы полетите, гораздо сложнее сделать вывод о том, что это означает с точки зрения безопасности.",
+          "metadata_row_id": "injected_error_augmentation:1306",
+          "metadata_language_pair": "en-ru_RU",
+          "metadata_invariant_category": "named_entity_swap",
+          "metadata_c2_attempted": true,
+          "metadata_c2_skip_reason": null,
+          "metadata_c2_fixed": true,
+          "metadata_c2_true_regression": false,
+          "metadata_c2_certificate_achieved": true,
+          "metadata_c2_n_passes": 1,
+          "metadata_c2_n_llm_calls": 1,
+          "metadata_c2_pass_log": [
+            {
+              "pass_num": 1,
+              "checker_passed": true,
+              "edit_distance_chars": 7,
+              "span_char_length_proxy": 6,
+              "fixed": true,
+              "true_regression": false,
+              "error": null,
+              "input_tokens": 304,
+              "output_tokens": 98
+            }
+          ]
+        },
+        {
+          "input": "[en-ru_RU/named_entity_swap] Thus, we had the introduction of the Cost of Living (Tenant protection) (Scotland) Act 2022 nearly 18 months ago which sought to cap rents for a limited period to ease the pressures of the cost-of-living crisis. What we find now from the latest Scottish Government statistics is that, in the last year alone, average rents have increased in all sized properties, ranging from the lowest rise of 11.7 per cent for one-bedroom to the highest figure of 14.3 per cent for two-bedroom homes. Every type of property (from one to four bedroom to a room in a property) has had a double digit increase in rents since the Cost of Living legislation was introduced in October 2022, exceeding the annual average increases in rents over the previous 12 years by a factor of at least three.",
+          "output": "Так, почти 18 месяцев назад был принят закон о прожиточном минимуме (защите арендатора) (Швеции) от 2022 года, который должен был временно остановить рост цен на аренду жилья, чтобы снизить давление финансового кризиса. На данный момент из актуальной государственной статистики Шотландии становится ясно, что даже за прошедший год средняя стоимость аренды недвижимости любого размера выросла. Рост составил от 11,7 процентов за квартиры с одной спальней до 14,3 процента за дома с двумя спальнями. Цены аренды всех видов недвижимости (квартир от одной до четырех спален, а также комнат в коммунальных квартирах) выросли на двузначные числа после принятия указа о прожиточном минимуме в октябре 2022 года, при этом ежегодный рост цен на аренду за последние 12 лет был превышен как минимум втрое.",
+          "predict_c2": "Так, почти 18 месяцев назад был принят закон о прожиточном минимуме (защите арендатора) (Шотландии) от 2022 года, который должен был временно остановить рост цен на аренду жилья, чтобы снизить давление финансового кризиса. На данный момент из актуальной государственной статистики Шотландии становится ясно, что даже за прошедший год средняя стоимость аренды недвижимости любого размера выросла. Рост составил от 11,7 процентов за квартиры с одной спальней до 14,3 процента за дома с двумя спальнями. Цены аренды всех видов недвижимости (квартир от одной до четырех спален, а также комнат в коммунальных квартирах) выросли на двузначные числа после принятия указа о прожиточном минимуме в октябре 2022 года, при этом ежегодный рост цен на аренду за последние 12 лет был превышен как минимум втрое.",
+          "metadata_row_id": "injected_error_augmentation:1215",
+          "metadata_language_pair": "en-ru_RU",
+          "metadata_invariant_category": "named_entity_swap",
+          "metadata_c2_attempted": true,
+          "metadata_c2_skip_reason": null,
+          "metadata_c2_fixed": true,
+          "metadata_c2_true_regression": false,
+          "metadata_c2_certificate_achieved": true,
+          "metadata_c2_n_passes": 1,
+          "metadata_c2_n_llm_calls": 1,
+          "metadata_c2_pass_log": [
+            {
+              "pass_num": 1,
+              "checker_passed": true,
+              "edit_distance_chars": 6,
+              "span_char_length_proxy": 9,
+              "fixed": true,
+              "true_regression": false,
+              "error": null,
+              "input_tokens": 518,
+              "output_tokens": 213
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
