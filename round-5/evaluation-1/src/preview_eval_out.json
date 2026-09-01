@@ -1,0 +1,746 @@
+{
+  "metadata": {
+    "evaluation_name": "reviewer_response_condition_c_disambiguation",
+    "description": "Reconciles four open Condition-C reviewer questions using ONLY existing computed results from three prior experiment artifacts (art_7Uc5PlFctjXi: B/D/C1; art_K8koUmGFDlLN: C2; art_6n9zJVKWXnio: C). No...",
+    "dependency_row_id_identity_check": {
+      "bddc1_vs_c2": {
+        "natural_row_ids": true,
+        "injected_pool_row_ids": true,
+        "injected_heldout_row_ids": true
+      },
+      "c2_vs_c": {
+        "natural_row_ids": true,
+        "injected_pool_row_ids": true,
+        "injected_heldout_row_ids": true
+      },
+      "bddc1_vs_c": {
+        "natural_row_ids": true,
+        "injected_pool_row_ids": true,
+        "injected_heldout_row_ids": true
+      },
+      "all_identical": true
+    },
+    "precision_tier_collapse_analysis": {
+      "source_files": {
+        "checker_precision_per_cell": "art_7Uc5PlFctjXi/checker_validation.json:per_cell,excluded_cells",
+        "certificate_rate_and_pass_count": "art_6n9zJVKWXnio/full_method_out.json:datasets[1].examples[*].metadata_c_certificate_achieved,metadata_c_n_passes (recomputed per-cell; cross-checked against metadata.metrics.injected_category_table)"
+      },
+      "usable_cells": [
+        {
+          "lang": "ru_RU",
+          "category": "number_unit_date",
+          "checker_precision": 0.575,
+          "checker_recall": 1.0,
+          "certificate_rate_condition_c": 0.0333,
+          "mean_pass_count_condition_c": 2.9667,
+          "n_rows": 30
+        },
+        {
+          "lang": "ru_RU",
+          "category": "negation_polarity",
+          "checker_precision": 0.8571,
+          "checker_recall": 0.5217,
+          "certificate_rate_condition_c": 0.3667,
+          "mean_pass_count_condition_c": 1.9667,
+          "n_rows": 30
+        },
+        {
+          "lang": "ru_RU",
+          "category": "quantifier_scope",
+          "checker_precision": 0.5909,
+          "checker_recall": 0.5652,
+          "certificate_rate_condition_c": 0.1333,
+          "mean_pass_count_condition_c": 2.7333,
+          "n_rows": 30
+        }
+      ],
+      "n_usable_cells": 5,
+      "n_excluded_cells_upstream": 3,
+      "low_statistical_power_flag": true,
+      "power_caveat": "Only 5 of 8 (language x category) cells are usable after Table 1's exclusion gate, and the tier split further divides them into 2 high-precision and 3 low-precision cells. This is far too small a samp...",
+      "high_precision_tier": {
+        "precision_range_target": "0.78-0.86",
+        "cells": [
+          "ru_RU|negation_polarity",
+          "uk_UA|negation_polarity"
+        ],
+        "n_cells": 2,
+        "mean_certificate_rate": 0.35,
+        "mean_pass_count": 2.0167,
+        "raw_certificate_rates": [
+          0.3667,
+          0.3333
+        ]
+      },
+      "low_precision_tier": {
+        "precision_range_target": "0.575-0.65",
+        "cells": [
+          "ru_RU|number_unit_date",
+          "ru_RU|quantifier_scope",
+          "uk_UA|number_unit_date"
+        ],
+        "n_cells": 3,
+        "mean_certificate_rate": 0.0889,
+        "mean_pass_count": 2.8444,
+        "raw_certificate_rates": [
+          0.0333,
+          0.1333,
+          0.1
+        ]
+      },
+      "collapse_pattern": "concentrated_in_low_precision_tier",
+      "interpretation": "This is consistent with checker-noise-driven churn concentrating certificate failure in the low-precision tier (mean certificate_rate 0.0889 vs 0.35 in the high-precision tier, a ~3.9x ratio), rather ...",
+      "second_stronger_evidence_line": "No widened-pass-budget artifact with per-pass false-positive tracking exists among the three actual dependencies provided at execution time (art_7Uc5PlFctjXi, art_K8koUmGFDlLN, art_6n9zJVKWXnio). The ...",
+      "confidence_caveat": "n=5 usable cells total, split 2/3 across tiers -- decisive conclusions are not warranted at this sample size; this is a suggestive first-order bound only."
+    },
+    "checker_eligibility_restricted_analysis": {
+      "source_files": {
+        "eligibility_gate": "art_7Uc5PlFctjXi/checker_validation.json:per_cell,excluded_cells (recall>=0.5 AND precision>=0.5 threshold)",
+        "B_D_C1_metrics": "art_7Uc5PlFctjXi/full_method_out.json:datasets[1].examples[*].metadata_{b,d,c1}_{fixed,true_regression}",
+        "C2_metrics": "art_K8koUmGFDlLN/full_method_out.json:datasets[1].examples[*].metadata_c2_{fixed,true_regression,certificate_achieved}",
+        "C_metrics": "art_6n9zJVKWXnio/full_method_out.json:datasets[1].examples[*].metadata_{fixed,true_regression,c_certificate_achieved}"
+      },
+      "plan_stated_scope_vs_actual": {
+        "plan_stated": "number_unit_date in both languages, and quantifier_scope in ru_RU only (per the hypothesis text)",
+        "actual_derived_from_threshold_rule": "5 cells pass Table 1's recall>=0.5 AND precision>=0.5 gate: ['ru_RU|negation_polarity', 'ru_RU|number_unit_date', 'ru_RU|quantifier_scope', 'uk_UA|negation_polarity', 'uk_UA|number_unit_date']. This i..."
+      },
+      "eligible_cells": [
+        "ru_RU|negation_polarity",
+        "ru_RU|number_unit_date",
+        "ru_RU|quantifier_scope"
+      ],
+      "n_eligible_cells_of_8": 5,
+      "comparison_table": {
+        "B": {
+          "full_pooled": {
+            "n_rows": 240,
+            "fix_rate": 0.7375,
+            "true_regression_rate": 0.05,
+            "certificate_rate": null
+          },
+          "restricted_to_eligible_cells": {
+            "n_rows": 150,
+            "fix_rate": 0.58,
+            "true_regression_rate": 0.04,
+            "certificate_rate": null
+          }
+        },
+        "D": {
+          "full_pooled": {
+            "n_rows": 240,
+            "fix_rate": 0.7375,
+            "true_regression_rate": 0.05,
+            "certificate_rate": null
+          },
+          "restricted_to_eligible_cells": {
+            "n_rows": 150,
+            "fix_rate": 0.58,
+            "true_regression_rate": 0.04,
+            "certificate_rate": null
+          }
+        },
+        "C1": {
+          "full_pooled": {
+            "n_rows": 240,
+            "fix_rate": 0.4542,
+            "true_regression_rate": 0.125,
+            "certificate_rate": null
+          },
+          "restricted_to_eligible_cells": {
+            "n_rows": 150,
+            "fix_rate": 0.54,
+            "true_regression_rate": 0.08,
+            "certificate_rate": null
+          }
+        },
+        "C2": {
+          "full_pooled": {
+            "n_rows": 240,
+            "fix_rate": 0.9889,
+            "true_regression_rate": 0.0722,
+            "certificate_rate": 0.9167
+          },
+          "restricted_to_eligible_cells": {
+            "n_rows": 150,
+            "fix_rate": 0.9778,
+            "true_regression_rate": 0.0556,
+            "certificate_rate": 0.9222
+          }
+        },
+        "C": {
+          "full_pooled": {
+            "n_rows": 240,
+            "fix_rate": 0.6278,
+            "true_regression_rate": 0.1833,
+            "certificate_rate": 0.2875
+          },
+          "restricted_to_eligible_cells": {
+            "n_rows": 150,
+            "fix_rate": 0.9333,
+            "true_regression_rate": 0.16,
+            "certificate_rate": 0.1933
+          }
+        }
+      },
+      "headline_ordering_survival": {
+        "c1_regression_worse_than_c2": {
+          "full": true,
+          "restricted": true
+        },
+        "c_regression_worst_of_all": {
+          "full": true,
+          "restricted": true
+        },
+        "certificate_collapse_c2_to_c": {
+          "full_pooled": {
+            "C2": 0.9167,
+            "C": 0.2875
+          },
+          "restricted_to_eligible_cells": {
+            "C2": 0.9222,
+            "C": 0.1933
+          }
+        }
+      },
+      "headline_ordering_survives_restriction": true,
+      "verdict": "The headline ordering (C1 has higher true_regression_rate than C2; Condition C has the highest true_regression_rate of all five conditions; certificate_rate collapses from C2 to C) SURVIVES restrictio...",
+      "row_count_caveat": "Restricted population covers 5 of 8 (language, category) cells, i.e. 150 of 240 injected-pool rows for Condition C (excluding negation cells where certificate_rate is computed from raw per-row fields ..."
+    },
+    "certificate_definition_by_category": {
+      "source_files": {
+        "scoring_logic": "art_6n9zJVKWXnio/method.py: excluded_cells_from_validation() (lines ~286-291) and Checker.detect_all(respect_exclusions=True) in checker.py (excluded (lang,cat) pairs are skipped entirely by detect_al...",
+        "row_level_evidence": "art_6n9zJVKWXnio/full_method_out.json:datasets[1].examples[*].metadata_c_pass_log[*].flag_categories"
+      },
+      "finding": "(b) A row's certificate status is computed over only the invariants the checker actually tracks and re-verifies for the CURRENT run's non-excluded (lang,category) cells, independent of whether the row...",
+      "worked_example": {
+        "row_id": "injected_error_augmentation:1215",
+        "language_pair": "en-ru_RU",
+        "metadata_invariant_category": "named_entity_swap",
+        "metadata_c_certificate_achieved": false,
+        "metadata_c_n_passes": 3,
+        "pass_log_flag_categories": [
+          [
+            "number_unit_date",
+            "quantifier_scope"
+          ],
+          [
+            "number_unit_date",
+            "quantifier_scope"
+          ],
+          [
+            "number_unit_date",
+            "quantifier_scope"
+          ]
+        ],
+        "explanation": "This row's known corruption is a named_entity_swap, but named_entity is an excluded cell for its language pair in this run, so detect_all() never flags the named-entity error itself -- the flag_catego..."
+      },
+      "categories_ever_flagged_in_condition_c": [
+        "negation_polarity",
+        "number_unit_date",
+        "quantifier_scope"
+      ],
+      "named_entity_never_flagged_confirmation": true,
+      "named_entity_rows_detail": [
+        {
+          "row_id": "injected_error_augmentation:1306",
+          "language_pair": "en-ru_RU",
+          "certificate_achieved": true,
+          "named_entity_ever_flagged_this_row": false
+        },
+        {
+          "row_id": "injected_error_augmentation:1215",
+          "language_pair": "en-ru_RU",
+          "certificate_achieved": false,
+          "named_entity_ever_flagged_this_row": false
+        },
+        {
+          "row_id": "injected_error_augmentation:1469",
+          "language_pair": "en-ru_RU",
+          "certificate_achieved": false,
+          "named_entity_ever_flagged_this_row": false
+        }
+      ],
+      "extra_finding_checker_validation_drift_across_runs": {
+        "description": "Condition C's own re-fit checker_validation.json-equivalent metadata (computed fresh in THIS run against the injected_heldout fold) reports named_entity recall=0.0, precision=0.0, n_flags_total=0 for ...",
+        "named_entity_cells_this_run": {
+          "ru_RU|named_entity": {
+            "lang": "ru_RU",
+            "category": "named_entity",
+            "n_rows": 23,
+            "recall": 0.0,
+            "precision": 0.0,
+            "n_flags_total": 0
+          },
+          "uk_UA|named_entity": {
+            "lang": "uk_UA",
+            "category": "named_entity",
+            "n_rows": 23,
+            "recall": 0.0,
+            "precision": 0.0,
+            "n_flags_total": 0
+          }
+        },
+        "named_entity_cells_original_bddc1_run": {
+          "ru_RU|named_entity": {
+            "lang": "ru_RU",
+            "category": "named_entity",
+            "n_rows": 23,
+            "recall": 1.0,
+            "precision": 0.3239,
+            "n_flags_total": 71
+          },
+          "uk_UA|named_entity": {
+            "lang": "uk_UA",
+            "category": "named_entity",
+            "n_rows": 23,
+            "recall": 0.6957,
+            "precision": 0.3696,
+            "n_flags_total": 46
+          }
+        }
+      }
+    },
+    "normal_approx_bias_direction": {
+      "source_files": {
+        "b_delta_comet_ci": "art_7Uc5PlFctjXi/full_method_out.json:metadata.metrics.pooled.B.delta_comet_ci95",
+        "c1_delta_comet_ci": "art_7Uc5PlFctjXi/full_method_out.json:metadata.metrics.pooled.C1.delta_comet_ci95",
+        "c2_delta_comet_ci": "art_6n9zJVKWXnio/full_method_out.json:metadata.comparison_table_B_D_C1_C2_vs_C.conditions.C2.delta_comet_ci95"
+      },
+      "metric_identified": "ΔCOMET pooled 95% bootstrap CI (the only metric with a persisted CI half-width in any of the three artifacts; fix_rate and true_regression_rate are reported as point estimates with no CI anywhere in t...",
+      "reported_half_widths": {
+        "B": 0.006804,
+        "C1": 0.003109,
+        "C2": 0.007745
+      },
+      "mathematical_argument": "Var(X-Y) = Var(X) + Var(Y) - 2*Cov(X,Y). Treating two measurements as independent when computing the variance of their difference means using Var_indep = Var(X)+Var(Y), omitting the -2*Cov(X,Y) term. ...",
+      "worked_numeric_examples": [
+        {
+          "assumed_correlation": 0.0,
+          "implied_covariance": 0.0,
+          "true_variance_of_difference": 1.81297e-05,
+          "independence_assumed_variance": 1.81297e-05,
+          "true_half_width_95pct": 0.008345,
+          "independence_assumed_half_width_95pct": 0.008345,
+          "independence_assumption_is_wider": true
+        },
+        {
+          "assumed_correlation": 0.3,
+          "implied_covariance": 1.8803e-06,
+          "true_variance_of_difference": 1.4369e-05,
+          "independence_assumed_variance": 1.81297e-05,
+          "true_half_width_95pct": 0.00743,
+          "independence_assumed_half_width_95pct": 0.008345,
+          "independence_assumption_is_wider": true
+        },
+        {
+          "assumed_correlation": 0.6,
+          "implied_covariance": 3.7607e-06,
+          "true_variance_of_difference": 1.06084e-05,
+          "independence_assumed_variance": 1.81297e-05,
+          "true_half_width_95pct": 0.006384,
+          "independence_assumed_half_width_95pct": 0.008345,
+          "independence_assumption_is_wider": true
+        }
+      ],
+      "worked_example_reading": "Using the actual reported ΔCOMET half-widths (C1=0.003109, C2=0.007745), at every assumed positive correlation tested (0.3, 0.6, 0.9) the true half-width is smaller than the independence-assumed half-...",
+      "plausible_positive_covariance_sources": [
+        "Same 320-row natural population scored under B, C1, and C2 (row-ID identity verified True across all three), so any per-row COMET-scoring noise (e.g. a sentence the checkpoint scores unusually harshly...",
+        "Same repair model (google/gemma-3-12b-it) and same OpenRouter client across B/D/C1/C2/C, so systematic per-sentence repair-difficulty effects (e.g. a long or syntactically unusual sentence that is har...",
+        "Same 4-category checker module (checker.py, copied verbatim across C1/C2/C) drives localization in three of the five conditions, so checker false positives/negatives on a given row propagate similarly..."
+      ],
+      "empirical_covariance_status": {
+        "attempted": true,
+        "result": "NOT COMPUTABLE from available data",
+        "reason": "No per-row DeltaCOMET array is persisted in any of the three artifacts' full_method_out.json for the natural-row datasets (checked art_7Uc5PlFctjXi's natural_repair_B_D_C1 and art_K8koUmGFDlLN's natur..."
+      },
+      "final_downgraded_claim": "The MATHEMATICAL DIRECTION of the bias is established unconditionally: IF Cov(X,Y) > 0, the independence-assumed interval is provably conservative (too wide), never too narrow. However, the SIGN of th...",
+      "what_would_be_needed": "Per-row paired ΔCOMET (or fix_rate/true_regression outcome) samples for at least two conditions scored on the identical row set, retained in the output JSON (not just the pooled bootstrap summary), wo..."
+    }
+  },
+  "metrics_agg": {
+    "row_id_identity_all_pairs_match": 1.0,
+    "n_usable_checker_cells_of_8": 5.0,
+    "precision_tier_high_mean_certificate_rate": 0.35,
+    "precision_tier_low_mean_certificate_rate": 0.0889,
+    "n_eligible_cells_restricted_analysis": 5.0,
+    "headline_ordering_survives_restriction": 1.0,
+    "named_entity_ever_flagged_in_condition_c": 0.0,
+    "normal_approx_direction_conditionally_established": 1.0,
+    "normal_approx_empirical_covariance_computable": 0.0
+  },
+  "datasets": [
+    {
+      "dataset": "reviewer_response_condition_c_analyses",
+      "examples": [
+        {
+          "input": "Does Condition C's certificate-rate collapse concentrate in checker cells with lower detection precision, or is it uniform across precision tiers (i.e. is it checker-noise-driven or a genuine cross-in...",
+          "output": "collapse_pattern=concentrated_in_low_precision_tier; high-precision tier mean certificate_rate=0.35 (n=2 cells) vs low-precision tier 0.0889 (n=3 cells). Correlational only; n is small.",
+          "eval_high_precision_tier_certificate_rate": 0.35,
+          "eval_low_precision_tier_certificate_rate": 0.0889,
+          "eval_n_usable_cells": 5.0,
+          "metadata_analysis": {
+            "source_files": {
+              "checker_precision_per_cell": "art_7Uc5PlFctjXi/checker_validation.json:per_cell,excluded_cells",
+              "certificate_rate_and_pass_count": "art_6n9zJVKWXnio/full_method_out.json:datasets[1].examples[*].metadata_c_certificate_achieved,metadata_c_n_passes (recomputed per-cell; cross-checked against metadata.metrics.injected_category_table)"
+            },
+            "usable_cells": [
+              {
+                "lang": "ru_RU",
+                "category": "number_unit_date",
+                "checker_precision": 0.575,
+                "checker_recall": 1.0,
+                "certificate_rate_condition_c": 0.0333,
+                "mean_pass_count_condition_c": 2.9667,
+                "n_rows": 30
+              },
+              {
+                "lang": "ru_RU",
+                "category": "negation_polarity",
+                "checker_precision": 0.8571,
+                "checker_recall": 0.5217,
+                "certificate_rate_condition_c": 0.3667,
+                "mean_pass_count_condition_c": 1.9667,
+                "n_rows": 30
+              },
+              {
+                "lang": "ru_RU",
+                "category": "quantifier_scope",
+                "checker_precision": 0.5909,
+                "checker_recall": 0.5652,
+                "certificate_rate_condition_c": 0.1333,
+                "mean_pass_count_condition_c": 2.7333,
+                "n_rows": 30
+              }
+            ],
+            "n_usable_cells": 5,
+            "n_excluded_cells_upstream": 3,
+            "low_statistical_power_flag": true,
+            "power_caveat": "Only 5 of 8 (language x category) cells are usable after Table 1's exclusion gate, and the tier split further divides them into 2 high-precision and 3 low-precision cells. This is far too small a samp...",
+            "high_precision_tier": {
+              "precision_range_target": "0.78-0.86",
+              "cells": [
+                "ru_RU|negation_polarity",
+                "uk_UA|negation_polarity"
+              ],
+              "n_cells": 2,
+              "mean_certificate_rate": 0.35,
+              "mean_pass_count": 2.0167,
+              "raw_certificate_rates": [
+                0.3667,
+                0.3333
+              ]
+            },
+            "low_precision_tier": {
+              "precision_range_target": "0.575-0.65",
+              "cells": [
+                "ru_RU|number_unit_date",
+                "ru_RU|quantifier_scope",
+                "uk_UA|number_unit_date"
+              ],
+              "n_cells": 3,
+              "mean_certificate_rate": 0.0889,
+              "mean_pass_count": 2.8444,
+              "raw_certificate_rates": [
+                0.0333,
+                0.1333,
+                0.1
+              ]
+            },
+            "collapse_pattern": "concentrated_in_low_precision_tier",
+            "interpretation": "This is consistent with checker-noise-driven churn concentrating certificate failure in the low-precision tier (mean certificate_rate 0.0889 vs 0.35 in the high-precision tier, a ~3.9x ratio), rather ...",
+            "second_stronger_evidence_line": "No widened-pass-budget artifact with per-pass false-positive tracking exists among the three actual dependencies provided at execution time (art_7Uc5PlFctjXi, art_K8koUmGFDlLN, art_6n9zJVKWXnio). The ...",
+            "confidence_caveat": "n=5 usable cells total, split 2/3 across tiers -- decisive conclusions are not warranted at this sample size; this is a suggestive first-order bound only."
+          }
+        },
+        {
+          "input": "Does the headline B/D/C1/C2/C ordering on fix_rate, true_regression_rate, and certificate_rate survive restriction to the fully checker-eligible (language, category) cells, or is it an artifact of poo...",
+          "output": "5 of 8 cells are fully eligible. Headline ordering survives restriction: True. See comparison_table for exact full-vs-restricted figures per condition.",
+          "eval_headline_ordering_survives_restriction": 1.0,
+          "eval_n_eligible_cells_of_8": 5.0,
+          "metadata_analysis": {
+            "source_files": {
+              "eligibility_gate": "art_7Uc5PlFctjXi/checker_validation.json:per_cell,excluded_cells (recall>=0.5 AND precision>=0.5 threshold)",
+              "B_D_C1_metrics": "art_7Uc5PlFctjXi/full_method_out.json:datasets[1].examples[*].metadata_{b,d,c1}_{fixed,true_regression}",
+              "C2_metrics": "art_K8koUmGFDlLN/full_method_out.json:datasets[1].examples[*].metadata_c2_{fixed,true_regression,certificate_achieved}",
+              "C_metrics": "art_6n9zJVKWXnio/full_method_out.json:datasets[1].examples[*].metadata_{fixed,true_regression,c_certificate_achieved}"
+            },
+            "plan_stated_scope_vs_actual": {
+              "plan_stated": "number_unit_date in both languages, and quantifier_scope in ru_RU only (per the hypothesis text)",
+              "actual_derived_from_threshold_rule": "5 cells pass Table 1's recall>=0.5 AND precision>=0.5 gate: ['ru_RU|negation_polarity', 'ru_RU|number_unit_date', 'ru_RU|quantifier_scope', 'uk_UA|negation_polarity', 'uk_UA|number_unit_date']. This i..."
+            },
+            "eligible_cells": [
+              "ru_RU|negation_polarity",
+              "ru_RU|number_unit_date",
+              "ru_RU|quantifier_scope"
+            ],
+            "n_eligible_cells_of_8": 5,
+            "comparison_table": {
+              "B": {
+                "full_pooled": {
+                  "n_rows": 240,
+                  "fix_rate": 0.7375,
+                  "true_regression_rate": 0.05,
+                  "certificate_rate": null
+                },
+                "restricted_to_eligible_cells": {
+                  "n_rows": 150,
+                  "fix_rate": 0.58,
+                  "true_regression_rate": 0.04,
+                  "certificate_rate": null
+                }
+              },
+              "D": {
+                "full_pooled": {
+                  "n_rows": 240,
+                  "fix_rate": 0.7375,
+                  "true_regression_rate": 0.05,
+                  "certificate_rate": null
+                },
+                "restricted_to_eligible_cells": {
+                  "n_rows": 150,
+                  "fix_rate": 0.58,
+                  "true_regression_rate": 0.04,
+                  "certificate_rate": null
+                }
+              },
+              "C1": {
+                "full_pooled": {
+                  "n_rows": 240,
+                  "fix_rate": 0.4542,
+                  "true_regression_rate": 0.125,
+                  "certificate_rate": null
+                },
+                "restricted_to_eligible_cells": {
+                  "n_rows": 150,
+                  "fix_rate": 0.54,
+                  "true_regression_rate": 0.08,
+                  "certificate_rate": null
+                }
+              },
+              "C2": {
+                "full_pooled": {
+                  "n_rows": 240,
+                  "fix_rate": 0.9889,
+                  "true_regression_rate": 0.0722,
+                  "certificate_rate": 0.9167
+                },
+                "restricted_to_eligible_cells": {
+                  "n_rows": 150,
+                  "fix_rate": 0.9778,
+                  "true_regression_rate": 0.0556,
+                  "certificate_rate": 0.9222
+                }
+              },
+              "C": {
+                "full_pooled": {
+                  "n_rows": 240,
+                  "fix_rate": 0.6278,
+                  "true_regression_rate": 0.1833,
+                  "certificate_rate": 0.2875
+                },
+                "restricted_to_eligible_cells": {
+                  "n_rows": 150,
+                  "fix_rate": 0.9333,
+                  "true_regression_rate": 0.16,
+                  "certificate_rate": 0.1933
+                }
+              }
+            },
+            "headline_ordering_survival": {
+              "c1_regression_worse_than_c2": {
+                "full": true,
+                "restricted": true
+              },
+              "c_regression_worst_of_all": {
+                "full": true,
+                "restricted": true
+              },
+              "certificate_collapse_c2_to_c": {
+                "full_pooled": {
+                  "C2": 0.9167,
+                  "C": 0.2875
+                },
+                "restricted_to_eligible_cells": {
+                  "C2": 0.9222,
+                  "C": 0.1933
+                }
+              }
+            },
+            "headline_ordering_survives_restriction": true,
+            "verdict": "The headline ordering (C1 has higher true_regression_rate than C2; Condition C has the highest true_regression_rate of all five conditions; certificate_rate collapses from C2 to C) SURVIVES restrictio...",
+            "row_count_caveat": "Restricted population covers 5 of 8 (language, category) cells, i.e. 150 of 240 injected-pool rows for Condition C (excluding negation cells where certificate_rate is computed from raw per-row fields ..."
+          }
+        },
+        {
+          "input": "When a row's own known-corrupted category is itself an excluded checker cell (e.g. named_entity_swap in en-ru_RU), is that row excluded from certificate_rate entirely, or scored certificate=True/False...",
+          "output": "Scored on the other invariants only (option b): the row stays in the certificate_rate denominator and its certificate reflects only non-excluded categories. Confirmed both from method.py's detect_all(...",
+          "eval_named_entity_never_flagged": 1.0,
+          "metadata_analysis": {
+            "source_files": {
+              "scoring_logic": "art_6n9zJVKWXnio/method.py: excluded_cells_from_validation() (lines ~286-291) and Checker.detect_all(respect_exclusions=True) in checker.py (excluded (lang,cat) pairs are skipped entirely by detect_al...",
+              "row_level_evidence": "art_6n9zJVKWXnio/full_method_out.json:datasets[1].examples[*].metadata_c_pass_log[*].flag_categories"
+            },
+            "finding": "(b) A row's certificate status is computed over only the invariants the checker actually tracks and re-verifies for the CURRENT run's non-excluded (lang,category) cells, independent of whether the row...",
+            "worked_example": {
+              "row_id": "injected_error_augmentation:1215",
+              "language_pair": "en-ru_RU",
+              "metadata_invariant_category": "named_entity_swap",
+              "metadata_c_certificate_achieved": false,
+              "metadata_c_n_passes": 3,
+              "pass_log_flag_categories": [
+                [
+                  "number_unit_date",
+                  "quantifier_scope"
+                ],
+                [
+                  "number_unit_date",
+                  "quantifier_scope"
+                ],
+                [
+                  "number_unit_date",
+                  "quantifier_scope"
+                ]
+              ],
+              "explanation": "This row's known corruption is a named_entity_swap, but named_entity is an excluded cell for its language pair in this run, so detect_all() never flags the named-entity error itself -- the flag_catego..."
+            },
+            "categories_ever_flagged_in_condition_c": [
+              "negation_polarity",
+              "number_unit_date",
+              "quantifier_scope"
+            ],
+            "named_entity_never_flagged_confirmation": true,
+            "named_entity_rows_detail": [
+              {
+                "row_id": "injected_error_augmentation:1306",
+                "language_pair": "en-ru_RU",
+                "certificate_achieved": true,
+                "named_entity_ever_flagged_this_row": false
+              },
+              {
+                "row_id": "injected_error_augmentation:1215",
+                "language_pair": "en-ru_RU",
+                "certificate_achieved": false,
+                "named_entity_ever_flagged_this_row": false
+              },
+              {
+                "row_id": "injected_error_augmentation:1469",
+                "language_pair": "en-ru_RU",
+                "certificate_achieved": false,
+                "named_entity_ever_flagged_this_row": false
+              }
+            ],
+            "extra_finding_checker_validation_drift_across_runs": {
+              "description": "Condition C's own re-fit checker_validation.json-equivalent metadata (computed fresh in THIS run against the injected_heldout fold) reports named_entity recall=0.0, precision=0.0, n_flags_total=0 for ...",
+              "named_entity_cells_this_run": {
+                "ru_RU|named_entity": {
+                  "lang": "ru_RU",
+                  "category": "named_entity",
+                  "n_rows": 23,
+                  "recall": 0.0,
+                  "precision": 0.0,
+                  "n_flags_total": 0
+                },
+                "uk_UA|named_entity": {
+                  "lang": "uk_UA",
+                  "category": "named_entity",
+                  "n_rows": 23,
+                  "recall": 0.0,
+                  "precision": 0.0,
+                  "n_flags_total": 0
+                }
+              },
+              "named_entity_cells_original_bddc1_run": {
+                "ru_RU|named_entity": {
+                  "lang": "ru_RU",
+                  "category": "named_entity",
+                  "n_rows": 23,
+                  "recall": 1.0,
+                  "precision": 0.3239,
+                  "n_flags_total": 71
+                },
+                "uk_UA|named_entity": {
+                  "lang": "uk_UA",
+                  "category": "named_entity",
+                  "n_rows": 23,
+                  "recall": 0.6957,
+                  "precision": 0.3696,
+                  "n_flags_total": 46
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "dataset": "precision_tier_cells",
+      "examples": [
+        {
+          "input": "Precision-tier cell ru_RU|number_unit_date: checker precision=0.575, recall=1.0. What is Condition C's certificate_rate and mean pass count on this cell?",
+          "output": "certificate_rate=0.0333, mean_pass_count=2.9667, n_rows=30.",
+          "eval_checker_precision": 0.575,
+          "eval_checker_recall": 1.0,
+          "eval_certificate_rate": 0.0333,
+          "eval_mean_pass_count": 2.9667,
+          "metadata_lang": "ru_RU",
+          "metadata_category": "number_unit_date"
+        },
+        {
+          "input": "Precision-tier cell ru_RU|negation_polarity: checker precision=0.8571, recall=0.5217. What is Condition C's certificate_rate and mean pass count on this cell?",
+          "output": "certificate_rate=0.3667, mean_pass_count=1.9667, n_rows=30.",
+          "eval_checker_precision": 0.8571,
+          "eval_checker_recall": 0.5217,
+          "eval_certificate_rate": 0.3667,
+          "eval_mean_pass_count": 1.9667,
+          "metadata_lang": "ru_RU",
+          "metadata_category": "negation_polarity"
+        },
+        {
+          "input": "Precision-tier cell ru_RU|quantifier_scope: checker precision=0.5909, recall=0.5652. What is Condition C's certificate_rate and mean pass count on this cell?",
+          "output": "certificate_rate=0.1333, mean_pass_count=2.7333, n_rows=30.",
+          "eval_checker_precision": 0.5909,
+          "eval_checker_recall": 0.5652,
+          "eval_certificate_rate": 0.1333,
+          "eval_mean_pass_count": 2.7333,
+          "metadata_lang": "ru_RU",
+          "metadata_category": "quantifier_scope"
+        }
+      ]
+    },
+    {
+      "dataset": "eligibility_restricted_per_condition_scope",
+      "examples": [
+        {
+          "input": "Condition B, scope=full_pooled: fix_rate, true_regression_rate, certificate_rate over the injected-pool rows in this scope?",
+          "output": "n_rows=240, fix_rate=0.7375, true_regression_rate=0.05, certificate_rate=None.",
+          "eval_fix_rate": 0.7375,
+          "eval_true_regression_rate": 0.05,
+          "eval_certificate_rate": -1.0,
+          "eval_n_rows": 240.0,
+          "metadata_condition": "B",
+          "metadata_scope": "full_pooled"
+        },
+        {
+          "input": "Condition B, scope=restricted_to_eligible_cells: fix_rate, true_regression_rate, certificate_rate over the injected-pool rows in this scope?",
+          "output": "n_rows=150, fix_rate=0.58, true_regression_rate=0.04, certificate_rate=None.",
+          "eval_fix_rate": 0.58,
+          "eval_true_regression_rate": 0.04,
+          "eval_certificate_rate": -1.0,
+          "eval_n_rows": 150.0,
+          "metadata_condition": "B",
+          "metadata_scope": "restricted_to_eligible_cells"
+        },
+        {
+          "input": "Condition D, scope=full_pooled: fix_rate, true_regression_rate, certificate_rate over the injected-pool rows in this scope?",
+          "output": "n_rows=240, fix_rate=0.7375, true_regression_rate=0.05, certificate_rate=None.",
+          "eval_fix_rate": 0.7375,
+          "eval_true_regression_rate": 0.05,
+          "eval_certificate_rate": -1.0,
+          "eval_n_rows": 240.0,
+          "metadata_condition": "D",
+          "metadata_scope": "full_pooled"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,2162 @@
+{
+  "metadata": {
+    "evaluation_name": "reviewer_response_condition_c_disambiguation",
+    "description": "Reconciles four open Condition-C reviewer questions using ONLY existing computed results from three prior experiment artifacts (art_7Uc5PlFctjXi: B/D/C1; art_K8koUmGFDlLN: C2; art_6n9zJVKWXnio: C). No new LLM calls, no new repairs, no new COMET scoring.",
+    "dependency_row_id_identity_check": {
+      "bddc1_vs_c2": {
+        "natural_row_ids": true,
+        "injected_pool_row_ids": true,
+        "injected_heldout_row_ids": true
+      },
+      "c2_vs_c": {
+        "natural_row_ids": true,
+        "injected_pool_row_ids": true,
+        "injected_heldout_row_ids": true
+      },
+      "bddc1_vs_c": {
+        "natural_row_ids": true,
+        "injected_pool_row_ids": true,
+        "injected_heldout_row_ids": true
+      },
+      "all_identical": true
+    },
+    "precision_tier_collapse_analysis": {
+      "source_files": {
+        "checker_precision_per_cell": "art_7Uc5PlFctjXi/checker_validation.json:per_cell,excluded_cells",
+        "certificate_rate_and_pass_count": "art_6n9zJVKWXnio/full_method_out.json:datasets[1].examples[*].metadata_c_certificate_achieved,metadata_c_n_passes (recomputed per-cell; cross-checked against metadata.metrics.injected_category_table)"
+      },
+      "usable_cells": [
+        {
+          "lang": "ru_RU",
+          "category": "number_unit_date",
+          "checker_precision": 0.575,
+          "checker_recall": 1.0,
+          "certificate_rate_condition_c": 0.0333,
+          "mean_pass_count_condition_c": 2.9667,
+          "n_rows": 30
+        },
+        {
+          "lang": "ru_RU",
+          "category": "negation_polarity",
+          "checker_precision": 0.8571,
+          "checker_recall": 0.5217,
+          "certificate_rate_condition_c": 0.3667,
+          "mean_pass_count_condition_c": 1.9667,
+          "n_rows": 30
+        },
+        {
+          "lang": "ru_RU",
+          "category": "quantifier_scope",
+          "checker_precision": 0.5909,
+          "checker_recall": 0.5652,
+          "certificate_rate_condition_c": 0.1333,
+          "mean_pass_count_condition_c": 2.7333,
+          "n_rows": 30
+        },
+        {
+          "lang": "uk_UA",
+          "category": "number_unit_date",
+          "checker_precision": 0.575,
+          "checker_recall": 1.0,
+          "certificate_rate_condition_c": 0.1,
+          "mean_pass_count_condition_c": 2.8333,
+          "n_rows": 30
+        },
+        {
+          "lang": "uk_UA",
+          "category": "negation_polarity",
+          "checker_precision": 0.7778,
+          "checker_recall": 0.6087,
+          "certificate_rate_condition_c": 0.3333,
+          "mean_pass_count_condition_c": 2.0667,
+          "n_rows": 30
+        }
+      ],
+      "n_usable_cells": 5,
+      "n_excluded_cells_upstream": 3,
+      "low_statistical_power_flag": true,
+      "power_caveat": "Only 5 of 8 (language x category) cells are usable after Table 1's exclusion gate, and the tier split further divides them into 2 high-precision and 3 low-precision cells. This is far too small a sample to support a confident causal conclusion; treat the pattern below as a correlational, first-order, hypothesis-generating signal only.",
+      "high_precision_tier": {
+        "precision_range_target": "0.78-0.86",
+        "cells": [
+          "ru_RU|negation_polarity",
+          "uk_UA|negation_polarity"
+        ],
+        "n_cells": 2,
+        "mean_certificate_rate": 0.35,
+        "mean_pass_count": 2.0167,
+        "raw_certificate_rates": [
+          0.3667,
+          0.3333
+        ]
+      },
+      "low_precision_tier": {
+        "precision_range_target": "0.575-0.65",
+        "cells": [
+          "ru_RU|number_unit_date",
+          "ru_RU|quantifier_scope",
+          "uk_UA|number_unit_date"
+        ],
+        "n_cells": 3,
+        "mean_certificate_rate": 0.0889,
+        "mean_pass_count": 2.8444,
+        "raw_certificate_rates": [
+          0.0333,
+          0.1333,
+          0.1
+        ]
+      },
+      "collapse_pattern": "concentrated_in_low_precision_tier",
+      "interpretation": "This is consistent with checker-noise-driven churn concentrating certificate failure in the low-precision tier (mean certificate_rate 0.0889 vs 0.35 in the high-precision tier, a ~3.9x ratio), rather than a uniform cross-invariant regression -- but this does NOT prove that checker noise is the sole or even dominant cause, and does not distinguish a noise-driven mechanism from a genuinely harder-to-satisfy invariant class that happens to also have lower checker precision (number_unit_date and quantifier_scope require the model to get an EXACT numeric/scope match, which is plausibly just harder to repair correctly regardless of checker noise). The two explanations are confounded in this data and cannot be separated without an independent measure of true repair difficulty per category.",
+      "second_stronger_evidence_line": "No widened-pass-budget artifact with per-pass false-positive tracking exists among the three actual dependencies provided at execution time (art_7Uc5PlFctjXi, art_K8koUmGFDlLN, art_6n9zJVKWXnio). The stronger second line of evidence the plan describes is unavailable; the precision-tier estimate below is the best available signal, not a supplementary check on a stronger one.",
+      "confidence_caveat": "n=5 usable cells total, split 2/3 across tiers -- decisive conclusions are not warranted at this sample size; this is a suggestive first-order bound only."
+    },
+    "checker_eligibility_restricted_analysis": {
+      "source_files": {
+        "eligibility_gate": "art_7Uc5PlFctjXi/checker_validation.json:per_cell,excluded_cells (recall>=0.5 AND precision>=0.5 threshold)",
+        "B_D_C1_metrics": "art_7Uc5PlFctjXi/full_method_out.json:datasets[1].examples[*].metadata_{b,d,c1}_{fixed,true_regression}",
+        "C2_metrics": "art_K8koUmGFDlLN/full_method_out.json:datasets[1].examples[*].metadata_c2_{fixed,true_regression,certificate_achieved}",
+        "C_metrics": "art_6n9zJVKWXnio/full_method_out.json:datasets[1].examples[*].metadata_{fixed,true_regression,c_certificate_achieved}"
+      },
+      "plan_stated_scope_vs_actual": {
+        "plan_stated": "number_unit_date in both languages, and quantifier_scope in ru_RU only (per the hypothesis text)",
+        "actual_derived_from_threshold_rule": "5 cells pass Table 1's recall>=0.5 AND precision>=0.5 gate: ['ru_RU|negation_polarity', 'ru_RU|number_unit_date', 'ru_RU|quantifier_scope', 'uk_UA|negation_polarity', 'uk_UA|number_unit_date']. This is WIDER than the plan's stated scope above: negation_polarity passes the threshold in BOTH languages (ru_RU recall=0.5217/precision=0.8571, uk_UA recall=0.6087/precision=0.7778) and was omitted from the plan's own restatement of the eligibility set. Named_entity is excluded in both languages and quantifier_scope is excluded in uk_UA only, matching the plan. The eligibility set used below is the one actually derivable from checker_validation.json's own threshold rule, not the plan's narrower restatement, since the threshold rule is the authoritative definition and the plan text appears to have under-listed it."
+      },
+      "eligible_cells": [
+        "ru_RU|negation_polarity",
+        "ru_RU|number_unit_date",
+        "ru_RU|quantifier_scope",
+        "uk_UA|negation_polarity",
+        "uk_UA|number_unit_date"
+      ],
+      "n_eligible_cells_of_8": 5,
+      "comparison_table": {
+        "B": {
+          "full_pooled": {
+            "n_rows": 240,
+            "fix_rate": 0.7375,
+            "true_regression_rate": 0.05,
+            "certificate_rate": null
+          },
+          "restricted_to_eligible_cells": {
+            "n_rows": 150,
+            "fix_rate": 0.58,
+            "true_regression_rate": 0.04,
+            "certificate_rate": null
+          }
+        },
+        "D": {
+          "full_pooled": {
+            "n_rows": 240,
+            "fix_rate": 0.7375,
+            "true_regression_rate": 0.05,
+            "certificate_rate": null
+          },
+          "restricted_to_eligible_cells": {
+            "n_rows": 150,
+            "fix_rate": 0.58,
+            "true_regression_rate": 0.04,
+            "certificate_rate": null
+          }
+        },
+        "C1": {
+          "full_pooled": {
+            "n_rows": 240,
+            "fix_rate": 0.4542,
+            "true_regression_rate": 0.125,
+            "certificate_rate": null
+          },
+          "restricted_to_eligible_cells": {
+            "n_rows": 150,
+            "fix_rate": 0.54,
+            "true_regression_rate": 0.08,
+            "certificate_rate": null
+          }
+        },
+        "C2": {
+          "full_pooled": {
+            "n_rows": 240,
+            "fix_rate": 0.9889,
+            "true_regression_rate": 0.0722,
+            "certificate_rate": 0.9167
+          },
+          "restricted_to_eligible_cells": {
+            "n_rows": 150,
+            "fix_rate": 0.9778,
+            "true_regression_rate": 0.0556,
+            "certificate_rate": 0.9222
+          }
+        },
+        "C": {
+          "full_pooled": {
+            "n_rows": 240,
+            "fix_rate": 0.6278,
+            "true_regression_rate": 0.1833,
+            "certificate_rate": 0.2875
+          },
+          "restricted_to_eligible_cells": {
+            "n_rows": 150,
+            "fix_rate": 0.9333,
+            "true_regression_rate": 0.16,
+            "certificate_rate": 0.1933
+          }
+        }
+      },
+      "headline_ordering_survival": {
+        "c1_regression_worse_than_c2": {
+          "full": true,
+          "restricted": true
+        },
+        "c_regression_worst_of_all": {
+          "full": true,
+          "restricted": true
+        },
+        "certificate_collapse_c2_to_c": {
+          "full_pooled": {
+            "C2": 0.9167,
+            "C": 0.2875
+          },
+          "restricted_to_eligible_cells": {
+            "C2": 0.9222,
+            "C": 0.1933
+          }
+        }
+      },
+      "headline_ordering_survives_restriction": true,
+      "verdict": "The headline ordering (C1 has higher true_regression_rate than C2; Condition C has the highest true_regression_rate of all five conditions; certificate_rate collapses from C2 to C) SURVIVES restriction to the fully checker-eligible cell population unchanged in direction, though magnitudes shift somewhat because the restricted population drops the named_entity and uk_UA/quantifier_scope rows entirely.",
+      "row_count_caveat": "Restricted population covers 5 of 8 (language, category) cells, i.e. 150 of 240 injected-pool rows for Condition C (excluding negation cells where certificate_rate is computed from raw per-row fields since the pre-aggregated table marks those as structural non-attempts for fix_rate/true_regression_rate purposes, not for certificate purposes -- see certificate_definition_by_category for why negation rows still carry a well-defined certificate value)."
+    },
+    "certificate_definition_by_category": {
+      "source_files": {
+        "scoring_logic": "art_6n9zJVKWXnio/method.py: excluded_cells_from_validation() (lines ~286-291) and Checker.detect_all(respect_exclusions=True) in checker.py (excluded (lang,cat) pairs are skipped entirely by detect_all, independent of the row's OWN corrupted/target category)",
+        "row_level_evidence": "art_6n9zJVKWXnio/full_method_out.json:datasets[1].examples[*].metadata_c_pass_log[*].flag_categories"
+      },
+      "finding": "(b) A row's certificate status is computed over only the invariants the checker actually tracks and re-verifies for the CURRENT run's non-excluded (lang,category) cells, independent of whether the row's own known-corrupted category is itself in an excluded cell. Condition C's method.py builds `Checker(excluded_cells=excluded)` from THIS run's own re-fit checker_validation, then calls `detect_all(..., respect_exclusions=True)`, which skips any (lang,cat) pair in excluded_cells entirely -- so a named_entity_swap row in en-ru_RU (an excluded cell) is NEVER checked for its OWN corruption category. It IS still included in the certificate_rate denominator (it is not dropped from the injected_category_table's n_rows/n_attempted), and its certificate is scored True/False based purely on whether the OTHER, non-excluded invariants (number_unit_date, negation_polarity, and quantifier_scope where not itself excluded) are clean in the current text.",
+      "worked_example": {
+        "row_id": "injected_error_augmentation:1215",
+        "language_pair": "en-ru_RU",
+        "metadata_invariant_category": "named_entity_swap",
+        "metadata_c_certificate_achieved": false,
+        "metadata_c_n_passes": 3,
+        "pass_log_flag_categories": [
+          [
+            "number_unit_date",
+            "quantifier_scope"
+          ],
+          [
+            "number_unit_date",
+            "quantifier_scope"
+          ],
+          [
+            "number_unit_date",
+            "quantifier_scope"
+          ]
+        ],
+        "explanation": "This row's known corruption is a named_entity_swap, but named_entity is an excluded cell for its language pair in this run, so detect_all() never flags the named-entity error itself -- the flag_categories logged across its passes (if any) come only from the other, non-excluded invariant checks, and its certificate_achieved value reflects only those."
+      },
+      "categories_ever_flagged_in_condition_c": [
+        "negation_polarity",
+        "number_unit_date",
+        "quantifier_scope"
+      ],
+      "named_entity_never_flagged_confirmation": true,
+      "named_entity_rows_detail": [
+        {
+          "row_id": "injected_error_augmentation:1306",
+          "language_pair": "en-ru_RU",
+          "certificate_achieved": true,
+          "named_entity_ever_flagged_this_row": false
+        },
+        {
+          "row_id": "injected_error_augmentation:1215",
+          "language_pair": "en-ru_RU",
+          "certificate_achieved": false,
+          "named_entity_ever_flagged_this_row": false
+        },
+        {
+          "row_id": "injected_error_augmentation:1469",
+          "language_pair": "en-ru_RU",
+          "certificate_achieved": false,
+          "named_entity_ever_flagged_this_row": false
+        },
+        {
+          "row_id": "injected_error_augmentation:1153",
+          "language_pair": "en-ru_RU",
+          "certificate_achieved": true,
+          "named_entity_ever_flagged_this_row": false
+        },
+        {
+          "row_id": "injected_error_augmentation:1186",
+          "language_pair": "en-ru_RU",
+          "certificate_achieved": true,
+          "named_entity_ever_flagged_this_row": false
+        },
+        {
+          "row_id": "injected_error_augmentation:1450",
+          "language_pair": "en-ru_RU",
+          "certificate_achieved": false,
+          "named_entity_ever_flagged_this_row": false
+        },
+        {
+          "row_id": "injected_error_augmentation:1481",
+          "language_pair": "en-ru_RU",
+          "certificate_achieved": false,
+          "named_entity_ever_flagged_this_row": false
+        },
+        {
+          "row_id": "injected_error_augmentation:1169",
+          "language_pair": "en-ru_RU",
+          "certificate_achieved": false,
+          "named_entity_ever_flagged_this_row": false
+        },
+        {
+          "row_id": "injected_error_augmentation:1484",
+          "language_pair": "en-ru_RU",
+          "certificate_achieved": false,
+          "named_entity_ever_flagged_this_row": false
+        },
+        {
+          "row_id": "injected_error_augmentation:1208",
+          "language_pair": "en-ru_RU",
+          "certificate_achieved": true,
+          "named_entity_ever_flagged_this_row": false
+        },
+        {
+          "row_id": "injected_error_augmentation:1460",
+          "language_pair": "en-ru_RU",
+          "certificate_achieved": false,
+          "named_entity_ever_flagged_this_row": false
+        },
+        {
+          "row_id": "injected_error_augmentation:1224",
+          "language_pair": "en-ru_RU",
+          "certificate_achieved": true,
+          "named_entity_ever_flagged_this_row": false
+        },
+        {
+          "row_id": "injected_error_augmentation:1402",
+          "language_pair": "en-ru_RU",
+          "certificate_achieved": false,
+          "named_entity_ever_flagged_this_row": false
+        },
+        {
+          "row_id": "injected_error_augmentation:1282",
+          "language_pair": "en-ru_RU",
+          "certificate_achieved": false,
+          "named_entity_ever_flagged_this_row": false
+        },
+        {
+          "row_id": "injected_error_augmentation:1468",
+          "language_pair": "en-ru_RU",
+          "certificate_achieved": false,
+          "named_entity_ever_flagged_this_row": false
+        },
+        {
+          "row_id": "injected_error_augmentation:1272",
+          "language_pair": "en-ru_RU",
+          "certificate_achieved": true,
+          "named_entity_ever_flagged_this_row": false
+        },
+        {
+          "row_id": "injected_error_augmentation:1228",
+          "language_pair": "en-ru_RU",
+          "certificate_achieved": true,
+          "named_entity_ever_flagged_this_row": false
+        },
+        {
+          "row_id": "injected_error_augmentation:1315",
+          "language_pair": "en-ru_RU",
+          "certificate_achieved": true,
+          "named_entity_ever_flagged_this_row": false
+        },
+        {
+          "row_id": "injected_error_augmentation:1209",
+          "language_pair": "en-ru_RU",
+          "certificate_achieved": false,
+          "named_entity_ever_flagged_this_row": false
+        },
+        {
+          "row_id": "injected_error_augmentation:1266",
+          "language_pair": "en-ru_RU",
+          "certificate_achieved": false,
+          "named_entity_ever_flagged_this_row": false
+        },
+        {
+          "row_id": "injected_error_augmentation:1269",
+          "language_pair": "en-ru_RU",
+          "certificate_achieved": true,
+          "named_entity_ever_flagged_this_row": false
+        },
+        {
+          "row_id": "injected_error_augmentation:1330",
+          "language_pair": "en-ru_RU",
+          "certificate_achieved": false,
+          "named_entity_ever_flagged_this_row": false
+        },
+        {
+          "row_id": "injected_error_augmentation:1242",
+          "language_pair": "en-ru_RU",
+          "certificate_achieved": true,
+          "named_entity_ever_flagged_this_row": false
+        },
+        {
+          "row_id": "injected_error_augmentation:1194",
+          "language_pair": "en-ru_RU",
+          "certificate_achieved": false,
+          "named_entity_ever_flagged_this_row": false
+        },
+        {
+          "row_id": "injected_error_augmentation:1174",
+          "language_pair": "en-ru_RU",
+          "certificate_achieved": true,
+          "named_entity_ever_flagged_this_row": false
+        },
+        {
+          "row_id": "injected_error_augmentation:1455",
+          "language_pair": "en-ru_RU",
+          "certificate_achieved": false,
+          "named_entity_ever_flagged_this_row": false
+        },
+        {
+          "row_id": "injected_error_augmentation:1149",
+          "language_pair": "en-ru_RU",
+          "certificate_achieved": false,
+          "named_entity_ever_flagged_this_row": false
+        },
+        {
+          "row_id": "injected_error_augmentation:1873",
+          "language_pair": "en-uk_UA",
+          "certificate_achieved": true,
+          "named_entity_ever_flagged_this_row": false
+        },
+        {
+          "row_id": "injected_error_augmentation:1957",
+          "language_pair": "en-uk_UA",
+          "certificate_achieved": false,
+          "named_entity_ever_flagged_this_row": false
+        },
+        {
+          "row_id": "injected_error_augmentation:1741",
+          "language_pair": "en-uk_UA",
+          "certificate_achieved": true,
+          "named_entity_ever_flagged_this_row": false
+        },
+        {
+          "row_id": "injected_error_augmentation:1664",
+          "language_pair": "en-uk_UA",
+          "certificate_achieved": false,
+          "named_entity_ever_flagged_this_row": false
+        },
+        {
+          "row_id": "injected_error_augmentation:1938",
+          "language_pair": "en-uk_UA",
+          "certificate_achieved": true,
+          "named_entity_ever_flagged_this_row": false
+        },
+        {
+          "row_id": "injected_error_augmentation:1931",
+          "language_pair": "en-uk_UA",
+          "certificate_achieved": true,
+          "named_entity_ever_flagged_this_row": false
+        },
+        {
+          "row_id": "injected_error_augmentation:1959",
+          "language_pair": "en-uk_UA",
+          "certificate_achieved": false,
+          "named_entity_ever_flagged_this_row": false
+        },
+        {
+          "row_id": "injected_error_augmentation:1679",
+          "language_pair": "en-uk_UA",
+          "certificate_achieved": true,
+          "named_entity_ever_flagged_this_row": false
+        },
+        {
+          "row_id": "injected_error_augmentation:1947",
+          "language_pair": "en-uk_UA",
+          "certificate_achieved": false,
+          "named_entity_ever_flagged_this_row": false
+        },
+        {
+          "row_id": "injected_error_augmentation:1776",
+          "language_pair": "en-uk_UA",
+          "certificate_achieved": true,
+          "named_entity_ever_flagged_this_row": false
+        },
+        {
+          "row_id": "injected_error_augmentation:1744",
+          "language_pair": "en-uk_UA",
+          "certificate_achieved": false,
+          "named_entity_ever_flagged_this_row": false
+        },
+        {
+          "row_id": "injected_error_augmentation:1880",
+          "language_pair": "en-uk_UA",
+          "certificate_achieved": true,
+          "named_entity_ever_flagged_this_row": false
+        },
+        {
+          "row_id": "injected_error_augmentation:1943",
+          "language_pair": "en-uk_UA",
+          "certificate_achieved": true,
+          "named_entity_ever_flagged_this_row": false
+        },
+        {
+          "row_id": "injected_error_augmentation:1886",
+          "language_pair": "en-uk_UA",
+          "certificate_achieved": false,
+          "named_entity_ever_flagged_this_row": false
+        },
+        {
+          "row_id": "injected_error_augmentation:1962",
+          "language_pair": "en-uk_UA",
+          "certificate_achieved": false,
+          "named_entity_ever_flagged_this_row": false
+        },
+        {
+          "row_id": "injected_error_augmentation:1928",
+          "language_pair": "en-uk_UA",
+          "certificate_achieved": true,
+          "named_entity_ever_flagged_this_row": false
+        },
+        {
+          "row_id": "injected_error_augmentation:2002",
+          "language_pair": "en-uk_UA",
+          "certificate_achieved": false,
+          "named_entity_ever_flagged_this_row": false
+        },
+        {
+          "row_id": "injected_error_augmentation:1981",
+          "language_pair": "en-uk_UA",
+          "certificate_achieved": false,
+          "named_entity_ever_flagged_this_row": false
+        },
+        {
+          "row_id": "injected_error_augmentation:1693",
+          "language_pair": "en-uk_UA",
+          "certificate_achieved": true,
+          "named_entity_ever_flagged_this_row": false
+        },
+        {
+          "row_id": "injected_error_augmentation:1771",
+          "language_pair": "en-uk_UA",
+          "certificate_achieved": false,
+          "named_entity_ever_flagged_this_row": false
+        },
+        {
+          "row_id": "injected_error_augmentation:2012",
+          "language_pair": "en-uk_UA",
+          "certificate_achieved": true,
+          "named_entity_ever_flagged_this_row": false
+        },
+        {
+          "row_id": "injected_error_augmentation:1840",
+          "language_pair": "en-uk_UA",
+          "certificate_achieved": false,
+          "named_entity_ever_flagged_this_row": false
+        },
+        {
+          "row_id": "injected_error_augmentation:1779",
+          "language_pair": "en-uk_UA",
+          "certificate_achieved": false,
+          "named_entity_ever_flagged_this_row": false
+        },
+        {
+          "row_id": "injected_error_augmentation:1750",
+          "language_pair": "en-uk_UA",
+          "certificate_achieved": false,
+          "named_entity_ever_flagged_this_row": false
+        },
+        {
+          "row_id": "injected_error_augmentation:1853",
+          "language_pair": "en-uk_UA",
+          "certificate_achieved": true,
+          "named_entity_ever_flagged_this_row": false
+        },
+        {
+          "row_id": "injected_error_augmentation:2006",
+          "language_pair": "en-uk_UA",
+          "certificate_achieved": true,
+          "named_entity_ever_flagged_this_row": false
+        },
+        {
+          "row_id": "injected_error_augmentation:1846",
+          "language_pair": "en-uk_UA",
+          "certificate_achieved": true,
+          "named_entity_ever_flagged_this_row": false
+        },
+        {
+          "row_id": "injected_error_augmentation:1685",
+          "language_pair": "en-uk_UA",
+          "certificate_achieved": true,
+          "named_entity_ever_flagged_this_row": false
+        },
+        {
+          "row_id": "injected_error_augmentation:1888",
+          "language_pair": "en-uk_UA",
+          "certificate_achieved": false,
+          "named_entity_ever_flagged_this_row": false
+        },
+        {
+          "row_id": "injected_error_augmentation:1718",
+          "language_pair": "en-uk_UA",
+          "certificate_achieved": true,
+          "named_entity_ever_flagged_this_row": false
+        },
+        {
+          "row_id": "injected_error_augmentation:1427",
+          "language_pair": "en-ru_RU",
+          "certificate_achieved": true,
+          "named_entity_ever_flagged_this_row": false
+        },
+        {
+          "row_id": "injected_error_augmentation:1221",
+          "language_pair": "en-ru_RU",
+          "certificate_achieved": true,
+          "named_entity_ever_flagged_this_row": false
+        },
+        {
+          "row_id": "injected_error_augmentation:1202",
+          "language_pair": "en-ru_RU",
+          "certificate_achieved": true,
+          "named_entity_ever_flagged_this_row": false
+        }
+      ],
+      "extra_finding_checker_validation_drift_across_runs": {
+        "description": "Condition C's own re-fit checker_validation.json-equivalent metadata (computed fresh in THIS run against the injected_heldout fold) reports named_entity recall=0.0, precision=0.0, n_flags_total=0 for BOTH language pairs -- a substantive change from art_7Uc5PlFctjXi's original checker_validation.json, which reported ru_RU named_entity recall=1.0/precision=0.3239 and uk_UA named_entity recall=0.6957/precision=0.3696 (both non-zero). The excluded_cells set is identical either way (named_entity fails the 0.5 threshold in both versions), so this drift is not consequential for the eligibility gate, but it independently corroborates the finding above: named_entity detection is effectively inert in Condition C's environment (possibly a Stanza NER resource/model availability difference between runs, undiagnosed further here since it does not change any excluded_cells or headline result).",
+        "named_entity_cells_this_run": {
+          "ru_RU|named_entity": {
+            "lang": "ru_RU",
+            "category": "named_entity",
+            "n_rows": 23,
+            "recall": 0.0,
+            "precision": 0.0,
+            "n_flags_total": 0
+          },
+          "uk_UA|named_entity": {
+            "lang": "uk_UA",
+            "category": "named_entity",
+            "n_rows": 23,
+            "recall": 0.0,
+            "precision": 0.0,
+            "n_flags_total": 0
+          }
+        },
+        "named_entity_cells_original_bddc1_run": {
+          "ru_RU|named_entity": {
+            "lang": "ru_RU",
+            "category": "named_entity",
+            "n_rows": 23,
+            "recall": 1.0,
+            "precision": 0.3239,
+            "n_flags_total": 71
+          },
+          "uk_UA|named_entity": {
+            "lang": "uk_UA",
+            "category": "named_entity",
+            "n_rows": 23,
+            "recall": 0.6957,
+            "precision": 0.3696,
+            "n_flags_total": 46
+          }
+        }
+      }
+    },
+    "normal_approx_bias_direction": {
+      "source_files": {
+        "b_delta_comet_ci": "art_7Uc5PlFctjXi/full_method_out.json:metadata.metrics.pooled.B.delta_comet_ci95",
+        "c1_delta_comet_ci": "art_7Uc5PlFctjXi/full_method_out.json:metadata.metrics.pooled.C1.delta_comet_ci95",
+        "c2_delta_comet_ci": "art_6n9zJVKWXnio/full_method_out.json:metadata.comparison_table_B_D_C1_C2_vs_C.conditions.C2.delta_comet_ci95"
+      },
+      "metric_identified": "ΔCOMET pooled 95% bootstrap CI (the only metric with a persisted CI half-width in any of the three artifacts; fix_rate and true_regression_rate are reported as point estimates with no CI anywhere in the dependency chain, so the 'conservative-direction' claim -- to the extent it can be reconstructed from these artifacts alone -- must be about ΔCOMET, or is otherwise unverifiable from available data).",
+      "reported_half_widths": {
+        "B": 0.006804,
+        "C1": 0.003109,
+        "C2": 0.007745
+      },
+      "mathematical_argument": "Var(X-Y) = Var(X) + Var(Y) - 2*Cov(X,Y). Treating two measurements as independent when computing the variance of their difference means using Var_indep = Var(X)+Var(Y), omitting the -2*Cov(X,Y) term. Whenever Cov(X,Y) > 0, subtracting a positive quantity makes the TRUE variance strictly smaller than Var_indep: Var_true = Var_indep - 2*Cov(X,Y) < Var_indep. A smaller true variance means a narrower true confidence interval than the independence-assumed one. So the independence assumption OVER-estimates the variance and produces a WIDER (more conservative, i.e. less likely to falsely reject a null of no difference), not narrower, interval whenever the true covariance is positive. The direction reverses (independence assumption becomes ANTI-conservative, i.e. too narrow) only if Cov(X,Y) < 0.",
+      "worked_numeric_examples": [
+        {
+          "assumed_correlation": 0.0,
+          "implied_covariance": 0.0,
+          "true_variance_of_difference": 1.81297e-05,
+          "independence_assumed_variance": 1.81297e-05,
+          "true_half_width_95pct": 0.008345,
+          "independence_assumed_half_width_95pct": 0.008345,
+          "independence_assumption_is_wider": true
+        },
+        {
+          "assumed_correlation": 0.3,
+          "implied_covariance": 1.8803e-06,
+          "true_variance_of_difference": 1.4369e-05,
+          "independence_assumed_variance": 1.81297e-05,
+          "true_half_width_95pct": 0.00743,
+          "independence_assumed_half_width_95pct": 0.008345,
+          "independence_assumption_is_wider": true
+        },
+        {
+          "assumed_correlation": 0.6,
+          "implied_covariance": 3.7607e-06,
+          "true_variance_of_difference": 1.06084e-05,
+          "independence_assumed_variance": 1.81297e-05,
+          "true_half_width_95pct": 0.006384,
+          "independence_assumed_half_width_95pct": 0.008345,
+          "independence_assumption_is_wider": true
+        },
+        {
+          "assumed_correlation": 0.9,
+          "implied_covariance": 5.641e-06,
+          "true_variance_of_difference": 6.8477e-06,
+          "independence_assumed_variance": 1.81297e-05,
+          "true_half_width_95pct": 0.005129,
+          "independence_assumed_half_width_95pct": 0.008345,
+          "independence_assumption_is_wider": true
+        }
+      ],
+      "worked_example_reading": "Using the actual reported ΔCOMET half-widths (C1=0.003109, C2=0.007745), at every assumed positive correlation tested (0.3, 0.6, 0.9) the true half-width is smaller than the independence-assumed half-width, confirming the direction of the bias holds for these specific numbers as long as the (unverified) covariance is in fact positive.",
+      "plausible_positive_covariance_sources": [
+        "Same 320-row natural population scored under B, C1, and C2 (row-ID identity verified True across all three), so any per-row COMET-scoring noise (e.g. a sentence the checkpoint scores unusually harshly regardless of which condition's output it sees) is shared across conditions and induces positive covariance between their pooled means.",
+        "Same repair model (google/gemma-3-12b-it) and same OpenRouter client across B/D/C1/C2/C, so systematic per-sentence repair-difficulty effects (e.g. a long or syntactically unusual sentence that is hard to repair well under ANY condition) correlate the conditions' errors on that row.",
+        "Same 4-category checker module (checker.py, copied verbatim across C1/C2/C) drives localization in three of the five conditions, so checker false positives/negatives on a given row propagate similarly into whichever condition uses checker-based localization on that row."
+      ],
+      "empirical_covariance_status": {
+        "attempted": true,
+        "result": "NOT COMPUTABLE from available data",
+        "reason": "No per-row DeltaCOMET array is persisted in any of the three artifacts' full_method_out.json for the natural-row datasets (checked art_7Uc5PlFctjXi's natural_repair_B_D_C1 and art_K8koUmGFDlLN's natural_repair_C2 example schemas directly: fields present are metadata_{b,d,c1,c2}_{n_llm_calls,edit_volume,leakage,no_op,...} and predict_* text, but no per-row COMET score or delta). Only the pooled bootstrap mean and CI are stored, which is exactly the summary statistic that collapses any row-level pairing information -- an empirical covariance between two conditions' per-row deltas cannot be reconstructed after the fact from pooled summaries alone. art_6n9zJVKWXnio's own paired_bootstrap_c_vs_c2_note independently confirms this same gap for the C-vs-C2 comparison it attempted."
+      },
+      "final_downgraded_claim": "The MATHEMATICAL DIRECTION of the bias is established unconditionally: IF Cov(X,Y) > 0, the independence-assumed interval is provably conservative (too wide), never too narrow. However, the SIGN of the actual covariance between any two of B/C1/C2/C's per-row ΔCOMET distributions cannot be estimated or bounded from the data retained in these three artifacts -- no per-row paired samples survive in a form that permits computing empirical covariance. The paper's claim should therefore be stated conditionally: 'IF the shared row population, repair model, and checker induce positive correlation between conditions (plausible on structural grounds, see plausible_positive_covariance_sources), THEN the normal-approximation independence substitute is conservative, not anti-conservative -- but this precondition is not verified from available data.' Downgraded from an unconditional assertion to a conditional one that is honest about what is and is not established.",
+      "what_would_be_needed": "Per-row paired ΔCOMET (or fix_rate/true_regression outcome) samples for at least two conditions scored on the identical row set, retained in the output JSON (not just the pooled bootstrap summary), would let a future run compute empirical Pearson/Spearman correlation directly and replace the conditional claim above with an unconditional, data-backed one. None of B/D/C1/C2/C's method.py scripts currently persist this per-row array to method_out.json."
+    }
+  },
+  "metrics_agg": {
+    "row_id_identity_all_pairs_match": 1.0,
+    "n_usable_checker_cells_of_8": 5.0,
+    "precision_tier_high_mean_certificate_rate": 0.35,
+    "precision_tier_low_mean_certificate_rate": 0.0889,
+    "n_eligible_cells_restricted_analysis": 5.0,
+    "headline_ordering_survives_restriction": 1.0,
+    "named_entity_ever_flagged_in_condition_c": 0.0,
+    "normal_approx_direction_conditionally_established": 1.0,
+    "normal_approx_empirical_covariance_computable": 0.0
+  },
+  "datasets": [
+    {
+      "dataset": "reviewer_response_condition_c_analyses",
+      "examples": [
+        {
+          "input": "Does Condition C's certificate-rate collapse concentrate in checker cells with lower detection precision, or is it uniform across precision tiers (i.e. is it checker-noise-driven or a genuine cross-invariant regression)?",
+          "output": "collapse_pattern=concentrated_in_low_precision_tier; high-precision tier mean certificate_rate=0.35 (n=2 cells) vs low-precision tier 0.0889 (n=3 cells). Correlational only; n is small.",
+          "eval_high_precision_tier_certificate_rate": 0.35,
+          "eval_low_precision_tier_certificate_rate": 0.0889,
+          "eval_n_usable_cells": 5.0,
+          "metadata_analysis": {
+            "source_files": {
+              "checker_precision_per_cell": "art_7Uc5PlFctjXi/checker_validation.json:per_cell,excluded_cells",
+              "certificate_rate_and_pass_count": "art_6n9zJVKWXnio/full_method_out.json:datasets[1].examples[*].metadata_c_certificate_achieved,metadata_c_n_passes (recomputed per-cell; cross-checked against metadata.metrics.injected_category_table)"
+            },
+            "usable_cells": [
+              {
+                "lang": "ru_RU",
+                "category": "number_unit_date",
+                "checker_precision": 0.575,
+                "checker_recall": 1.0,
+                "certificate_rate_condition_c": 0.0333,
+                "mean_pass_count_condition_c": 2.9667,
+                "n_rows": 30
+              },
+              {
+                "lang": "ru_RU",
+                "category": "negation_polarity",
+                "checker_precision": 0.8571,
+                "checker_recall": 0.5217,
+                "certificate_rate_condition_c": 0.3667,
+                "mean_pass_count_condition_c": 1.9667,
+                "n_rows": 30
+              },
+              {
+                "lang": "ru_RU",
+                "category": "quantifier_scope",
+                "checker_precision": 0.5909,
+                "checker_recall": 0.5652,
+                "certificate_rate_condition_c": 0.1333,
+                "mean_pass_count_condition_c": 2.7333,
+                "n_rows": 30
+              },
+              {
+                "lang": "uk_UA",
+                "category": "number_unit_date",
+                "checker_precision": 0.575,
+                "checker_recall": 1.0,
+                "certificate_rate_condition_c": 0.1,
+                "mean_pass_count_condition_c": 2.8333,
+                "n_rows": 30
+              },
+              {
+                "lang": "uk_UA",
+                "category": "negation_polarity",
+                "checker_precision": 0.7778,
+                "checker_recall": 0.6087,
+                "certificate_rate_condition_c": 0.3333,
+                "mean_pass_count_condition_c": 2.0667,
+                "n_rows": 30
+              }
+            ],
+            "n_usable_cells": 5,
+            "n_excluded_cells_upstream": 3,
+            "low_statistical_power_flag": true,
+            "power_caveat": "Only 5 of 8 (language x category) cells are usable after Table 1's exclusion gate, and the tier split further divides them into 2 high-precision and 3 low-precision cells. This is far too small a sample to support a confident causal conclusion; treat the pattern below as a correlational, first-order, hypothesis-generating signal only.",
+            "high_precision_tier": {
+              "precision_range_target": "0.78-0.86",
+              "cells": [
+                "ru_RU|negation_polarity",
+                "uk_UA|negation_polarity"
+              ],
+              "n_cells": 2,
+              "mean_certificate_rate": 0.35,
+              "mean_pass_count": 2.0167,
+              "raw_certificate_rates": [
+                0.3667,
+                0.3333
+              ]
+            },
+            "low_precision_tier": {
+              "precision_range_target": "0.575-0.65",
+              "cells": [
+                "ru_RU|number_unit_date",
+                "ru_RU|quantifier_scope",
+                "uk_UA|number_unit_date"
+              ],
+              "n_cells": 3,
+              "mean_certificate_rate": 0.0889,
+              "mean_pass_count": 2.8444,
+              "raw_certificate_rates": [
+                0.0333,
+                0.1333,
+                0.1
+              ]
+            },
+            "collapse_pattern": "concentrated_in_low_precision_tier",
+            "interpretation": "This is consistent with checker-noise-driven churn concentrating certificate failure in the low-precision tier (mean certificate_rate 0.0889 vs 0.35 in the high-precision tier, a ~3.9x ratio), rather than a uniform cross-invariant regression -- but this does NOT prove that checker noise is the sole or even dominant cause, and does not distinguish a noise-driven mechanism from a genuinely harder-to-satisfy invariant class that happens to also have lower checker precision (number_unit_date and quantifier_scope require the model to get an EXACT numeric/scope match, which is plausibly just harder to repair correctly regardless of checker noise). The two explanations are confounded in this data and cannot be separated without an independent measure of true repair difficulty per category.",
+            "second_stronger_evidence_line": "No widened-pass-budget artifact with per-pass false-positive tracking exists among the three actual dependencies provided at execution time (art_7Uc5PlFctjXi, art_K8koUmGFDlLN, art_6n9zJVKWXnio). The stronger second line of evidence the plan describes is unavailable; the precision-tier estimate below is the best available signal, not a supplementary check on a stronger one.",
+            "confidence_caveat": "n=5 usable cells total, split 2/3 across tiers -- decisive conclusions are not warranted at this sample size; this is a suggestive first-order bound only."
+          }
+        },
+        {
+          "input": "Does the headline B/D/C1/C2/C ordering on fix_rate, true_regression_rate, and certificate_rate survive restriction to the fully checker-eligible (language, category) cells, or is it an artifact of pooling contested and uncontested cells together?",
+          "output": "5 of 8 cells are fully eligible. Headline ordering survives restriction: True. See comparison_table for exact full-vs-restricted figures per condition.",
+          "eval_headline_ordering_survives_restriction": 1.0,
+          "eval_n_eligible_cells_of_8": 5.0,
+          "metadata_analysis": {
+            "source_files": {
+              "eligibility_gate": "art_7Uc5PlFctjXi/checker_validation.json:per_cell,excluded_cells (recall>=0.5 AND precision>=0.5 threshold)",
+              "B_D_C1_metrics": "art_7Uc5PlFctjXi/full_method_out.json:datasets[1].examples[*].metadata_{b,d,c1}_{fixed,true_regression}",
+              "C2_metrics": "art_K8koUmGFDlLN/full_method_out.json:datasets[1].examples[*].metadata_c2_{fixed,true_regression,certificate_achieved}",
+              "C_metrics": "art_6n9zJVKWXnio/full_method_out.json:datasets[1].examples[*].metadata_{fixed,true_regression,c_certificate_achieved}"
+            },
+            "plan_stated_scope_vs_actual": {
+              "plan_stated": "number_unit_date in both languages, and quantifier_scope in ru_RU only (per the hypothesis text)",
+              "actual_derived_from_threshold_rule": "5 cells pass Table 1's recall>=0.5 AND precision>=0.5 gate: ['ru_RU|negation_polarity', 'ru_RU|number_unit_date', 'ru_RU|quantifier_scope', 'uk_UA|negation_polarity', 'uk_UA|number_unit_date']. This is WIDER than the plan's stated scope above: negation_polarity passes the threshold in BOTH languages (ru_RU recall=0.5217/precision=0.8571, uk_UA recall=0.6087/precision=0.7778) and was omitted from the plan's own restatement of the eligibility set. Named_entity is excluded in both languages and quantifier_scope is excluded in uk_UA only, matching the plan. The eligibility set used below is the one actually derivable from checker_validation.json's own threshold rule, not the plan's narrower restatement, since the threshold rule is the authoritative definition and the plan text appears to have under-listed it."
+            },
+            "eligible_cells": [
+              "ru_RU|negation_polarity",
+              "ru_RU|number_unit_date",
+              "ru_RU|quantifier_scope",
+              "uk_UA|negation_polarity",
+              "uk_UA|number_unit_date"
+            ],
+            "n_eligible_cells_of_8": 5,
+            "comparison_table": {
+              "B": {
+                "full_pooled": {
+                  "n_rows": 240,
+                  "fix_rate": 0.7375,
+                  "true_regression_rate": 0.05,
+                  "certificate_rate": null
+                },
+                "restricted_to_eligible_cells": {
+                  "n_rows": 150,
+                  "fix_rate": 0.58,
+                  "true_regression_rate": 0.04,
+                  "certificate_rate": null
+                }
+              },
+              "D": {
+                "full_pooled": {
+                  "n_rows": 240,
+                  "fix_rate": 0.7375,
+                  "true_regression_rate": 0.05,
+                  "certificate_rate": null
+                },
+                "restricted_to_eligible_cells": {
+                  "n_rows": 150,
+                  "fix_rate": 0.58,
+                  "true_regression_rate": 0.04,
+                  "certificate_rate": null
+                }
+              },
+              "C1": {
+                "full_pooled": {
+                  "n_rows": 240,
+                  "fix_rate": 0.4542,
+                  "true_regression_rate": 0.125,
+                  "certificate_rate": null
+                },
+                "restricted_to_eligible_cells": {
+                  "n_rows": 150,
+                  "fix_rate": 0.54,
+                  "true_regression_rate": 0.08,
+                  "certificate_rate": null
+                }
+              },
+              "C2": {
+                "full_pooled": {
+                  "n_rows": 240,
+                  "fix_rate": 0.9889,
+                  "true_regression_rate": 0.0722,
+                  "certificate_rate": 0.9167
+                },
+                "restricted_to_eligible_cells": {
+                  "n_rows": 150,
+                  "fix_rate": 0.9778,
+                  "true_regression_rate": 0.0556,
+                  "certificate_rate": 0.9222
+                }
+              },
+              "C": {
+                "full_pooled": {
+                  "n_rows": 240,
+                  "fix_rate": 0.6278,
+                  "true_regression_rate": 0.1833,
+                  "certificate_rate": 0.2875
+                },
+                "restricted_to_eligible_cells": {
+                  "n_rows": 150,
+                  "fix_rate": 0.9333,
+                  "true_regression_rate": 0.16,
+                  "certificate_rate": 0.1933
+                }
+              }
+            },
+            "headline_ordering_survival": {
+              "c1_regression_worse_than_c2": {
+                "full": true,
+                "restricted": true
+              },
+              "c_regression_worst_of_all": {
+                "full": true,
+                "restricted": true
+              },
+              "certificate_collapse_c2_to_c": {
+                "full_pooled": {
+                  "C2": 0.9167,
+                  "C": 0.2875
+                },
+                "restricted_to_eligible_cells": {
+                  "C2": 0.9222,
+                  "C": 0.1933
+                }
+              }
+            },
+            "headline_ordering_survives_restriction": true,
+            "verdict": "The headline ordering (C1 has higher true_regression_rate than C2; Condition C has the highest true_regression_rate of all five conditions; certificate_rate collapses from C2 to C) SURVIVES restriction to the fully checker-eligible cell population unchanged in direction, though magnitudes shift somewhat because the restricted population drops the named_entity and uk_UA/quantifier_scope rows entirely.",
+            "row_count_caveat": "Restricted population covers 5 of 8 (language, category) cells, i.e. 150 of 240 injected-pool rows for Condition C (excluding negation cells where certificate_rate is computed from raw per-row fields since the pre-aggregated table marks those as structural non-attempts for fix_rate/true_regression_rate purposes, not for certificate purposes -- see certificate_definition_by_category for why negation rows still carry a well-defined certificate value)."
+          }
+        },
+        {
+          "input": "When a row's own known-corrupted category is itself an excluded checker cell (e.g. named_entity_swap in en-ru_RU), is that row excluded from certificate_rate entirely, or scored certificate=True/False based only on the other invariants?",
+          "output": "Scored on the other invariants only (option b): the row stays in the certificate_rate denominator and its certificate reflects only non-excluded categories. Confirmed both from method.py's detect_all(respect_exclusions=True) logic and from raw pass_log data: named_entity never appears among flagged categories in Condition C's run (True).",
+          "eval_named_entity_never_flagged": 1.0,
+          "metadata_analysis": {
+            "source_files": {
+              "scoring_logic": "art_6n9zJVKWXnio/method.py: excluded_cells_from_validation() (lines ~286-291) and Checker.detect_all(respect_exclusions=True) in checker.py (excluded (lang,cat) pairs are skipped entirely by detect_all, independent of the row's OWN corrupted/target category)",
+              "row_level_evidence": "art_6n9zJVKWXnio/full_method_out.json:datasets[1].examples[*].metadata_c_pass_log[*].flag_categories"
+            },
+            "finding": "(b) A row's certificate status is computed over only the invariants the checker actually tracks and re-verifies for the CURRENT run's non-excluded (lang,category) cells, independent of whether the row's own known-corrupted category is itself in an excluded cell. Condition C's method.py builds `Checker(excluded_cells=excluded)` from THIS run's own re-fit checker_validation, then calls `detect_all(..., respect_exclusions=True)`, which skips any (lang,cat) pair in excluded_cells entirely -- so a named_entity_swap row in en-ru_RU (an excluded cell) is NEVER checked for its OWN corruption category. It IS still included in the certificate_rate denominator (it is not dropped from the injected_category_table's n_rows/n_attempted), and its certificate is scored True/False based purely on whether the OTHER, non-excluded invariants (number_unit_date, negation_polarity, and quantifier_scope where not itself excluded) are clean in the current text.",
+            "worked_example": {
+              "row_id": "injected_error_augmentation:1215",
+              "language_pair": "en-ru_RU",
+              "metadata_invariant_category": "named_entity_swap",
+              "metadata_c_certificate_achieved": false,
+              "metadata_c_n_passes": 3,
+              "pass_log_flag_categories": [
+                [
+                  "number_unit_date",
+                  "quantifier_scope"
+                ],
+                [
+                  "number_unit_date",
+                  "quantifier_scope"
+                ],
+                [
+                  "number_unit_date",
+                  "quantifier_scope"
+                ]
+              ],
+              "explanation": "This row's known corruption is a named_entity_swap, but named_entity is an excluded cell for its language pair in this run, so detect_all() never flags the named-entity error itself -- the flag_categories logged across its passes (if any) come only from the other, non-excluded invariant checks, and its certificate_achieved value reflects only those."
+            },
+            "categories_ever_flagged_in_condition_c": [
+              "negation_polarity",
+              "number_unit_date",
+              "quantifier_scope"
+            ],
+            "named_entity_never_flagged_confirmation": true,
+            "named_entity_rows_detail": [
+              {
+                "row_id": "injected_error_augmentation:1306",
+                "language_pair": "en-ru_RU",
+                "certificate_achieved": true,
+                "named_entity_ever_flagged_this_row": false
+              },
+              {
+                "row_id": "injected_error_augmentation:1215",
+                "language_pair": "en-ru_RU",
+                "certificate_achieved": false,
+                "named_entity_ever_flagged_this_row": false
+              },
+              {
+                "row_id": "injected_error_augmentation:1469",
+                "language_pair": "en-ru_RU",
+                "certificate_achieved": false,
+                "named_entity_ever_flagged_this_row": false
+              },
+              {
+                "row_id": "injected_error_augmentation:1153",
+                "language_pair": "en-ru_RU",
+                "certificate_achieved": true,
+                "named_entity_ever_flagged_this_row": false
+              },
+              {
+                "row_id": "injected_error_augmentation:1186",
+                "language_pair": "en-ru_RU",
+                "certificate_achieved": true,
+                "named_entity_ever_flagged_this_row": false
+              },
+              {
+                "row_id": "injected_error_augmentation:1450",
+                "language_pair": "en-ru_RU",
+                "certificate_achieved": false,
+                "named_entity_ever_flagged_this_row": false
+              },
+              {
+                "row_id": "injected_error_augmentation:1481",
+                "language_pair": "en-ru_RU",
+                "certificate_achieved": false,
+                "named_entity_ever_flagged_this_row": false
+              },
+              {
+                "row_id": "injected_error_augmentation:1169",
+                "language_pair": "en-ru_RU",
+                "certificate_achieved": false,
+                "named_entity_ever_flagged_this_row": false
+              },
+              {
+                "row_id": "injected_error_augmentation:1484",
+                "language_pair": "en-ru_RU",
+                "certificate_achieved": false,
+                "named_entity_ever_flagged_this_row": false
+              },
+              {
+                "row_id": "injected_error_augmentation:1208",
+                "language_pair": "en-ru_RU",
+                "certificate_achieved": true,
+                "named_entity_ever_flagged_this_row": false
+              },
+              {
+                "row_id": "injected_error_augmentation:1460",
+                "language_pair": "en-ru_RU",
+                "certificate_achieved": false,
+                "named_entity_ever_flagged_this_row": false
+              },
+              {
+                "row_id": "injected_error_augmentation:1224",
+                "language_pair": "en-ru_RU",
+                "certificate_achieved": true,
+                "named_entity_ever_flagged_this_row": false
+              },
+              {
+                "row_id": "injected_error_augmentation:1402",
+                "language_pair": "en-ru_RU",
+                "certificate_achieved": false,
+                "named_entity_ever_flagged_this_row": false
+              },
+              {
+                "row_id": "injected_error_augmentation:1282",
+                "language_pair": "en-ru_RU",
+                "certificate_achieved": false,
+                "named_entity_ever_flagged_this_row": false
+              },
+              {
+                "row_id": "injected_error_augmentation:1468",
+                "language_pair": "en-ru_RU",
+                "certificate_achieved": false,
+                "named_entity_ever_flagged_this_row": false
+              },
+              {
+                "row_id": "injected_error_augmentation:1272",
+                "language_pair": "en-ru_RU",
+                "certificate_achieved": true,
+                "named_entity_ever_flagged_this_row": false
+              },
+              {
+                "row_id": "injected_error_augmentation:1228",
+                "language_pair": "en-ru_RU",
+                "certificate_achieved": true,
+                "named_entity_ever_flagged_this_row": false
+              },
+              {
+                "row_id": "injected_error_augmentation:1315",
+                "language_pair": "en-ru_RU",
+                "certificate_achieved": true,
+                "named_entity_ever_flagged_this_row": false
+              },
+              {
+                "row_id": "injected_error_augmentation:1209",
+                "language_pair": "en-ru_RU",
+                "certificate_achieved": false,
+                "named_entity_ever_flagged_this_row": false
+              },
+              {
+                "row_id": "injected_error_augmentation:1266",
+                "language_pair": "en-ru_RU",
+                "certificate_achieved": false,
+                "named_entity_ever_flagged_this_row": false
+              },
+              {
+                "row_id": "injected_error_augmentation:1269",
+                "language_pair": "en-ru_RU",
+                "certificate_achieved": true,
+                "named_entity_ever_flagged_this_row": false
+              },
+              {
+                "row_id": "injected_error_augmentation:1330",
+                "language_pair": "en-ru_RU",
+                "certificate_achieved": false,
+                "named_entity_ever_flagged_this_row": false
+              },
+              {
+                "row_id": "injected_error_augmentation:1242",
+                "language_pair": "en-ru_RU",
+                "certificate_achieved": true,
+                "named_entity_ever_flagged_this_row": false
+              },
+              {
+                "row_id": "injected_error_augmentation:1194",
+                "language_pair": "en-ru_RU",
+                "certificate_achieved": false,
+                "named_entity_ever_flagged_this_row": false
+              },
+              {
+                "row_id": "injected_error_augmentation:1174",
+                "language_pair": "en-ru_RU",
+                "certificate_achieved": true,
+                "named_entity_ever_flagged_this_row": false
+              },
+              {
+                "row_id": "injected_error_augmentation:1455",
+                "language_pair": "en-ru_RU",
+                "certificate_achieved": false,
+                "named_entity_ever_flagged_this_row": false
+              },
+              {
+                "row_id": "injected_error_augmentation:1149",
+                "language_pair": "en-ru_RU",
+                "certificate_achieved": false,
+                "named_entity_ever_flagged_this_row": false
+              },
+              {
+                "row_id": "injected_error_augmentation:1873",
+                "language_pair": "en-uk_UA",
+                "certificate_achieved": true,
+                "named_entity_ever_flagged_this_row": false
+              },
+              {
+                "row_id": "injected_error_augmentation:1957",
+                "language_pair": "en-uk_UA",
+                "certificate_achieved": false,
+                "named_entity_ever_flagged_this_row": false
+              },
+              {
+                "row_id": "injected_error_augmentation:1741",
+                "language_pair": "en-uk_UA",
+                "certificate_achieved": true,
+                "named_entity_ever_flagged_this_row": false
+              },
+              {
+                "row_id": "injected_error_augmentation:1664",
+                "language_pair": "en-uk_UA",
+                "certificate_achieved": false,
+                "named_entity_ever_flagged_this_row": false
+              },
+              {
+                "row_id": "injected_error_augmentation:1938",
+                "language_pair": "en-uk_UA",
+                "certificate_achieved": true,
+                "named_entity_ever_flagged_this_row": false
+              },
+              {
+                "row_id": "injected_error_augmentation:1931",
+                "language_pair": "en-uk_UA",
+                "certificate_achieved": true,
+                "named_entity_ever_flagged_this_row": false
+              },
+              {
+                "row_id": "injected_error_augmentation:1959",
+                "language_pair": "en-uk_UA",
+                "certificate_achieved": false,
+                "named_entity_ever_flagged_this_row": false
+              },
+              {
+                "row_id": "injected_error_augmentation:1679",
+                "language_pair": "en-uk_UA",
+                "certificate_achieved": true,
+                "named_entity_ever_flagged_this_row": false
+              },
+              {
+                "row_id": "injected_error_augmentation:1947",
+                "language_pair": "en-uk_UA",
+                "certificate_achieved": false,
+                "named_entity_ever_flagged_this_row": false
+              },
+              {
+                "row_id": "injected_error_augmentation:1776",
+                "language_pair": "en-uk_UA",
+                "certificate_achieved": true,
+                "named_entity_ever_flagged_this_row": false
+              },
+              {
+                "row_id": "injected_error_augmentation:1744",
+                "language_pair": "en-uk_UA",
+                "certificate_achieved": false,
+                "named_entity_ever_flagged_this_row": false
+              },
+              {
+                "row_id": "injected_error_augmentation:1880",
+                "language_pair": "en-uk_UA",
+                "certificate_achieved": true,
+                "named_entity_ever_flagged_this_row": false
+              },
+              {
+                "row_id": "injected_error_augmentation:1943",
+                "language_pair": "en-uk_UA",
+                "certificate_achieved": true,
+                "named_entity_ever_flagged_this_row": false
+              },
+              {
+                "row_id": "injected_error_augmentation:1886",
+                "language_pair": "en-uk_UA",
+                "certificate_achieved": false,
+                "named_entity_ever_flagged_this_row": false
+              },
+              {
+                "row_id": "injected_error_augmentation:1962",
+                "language_pair": "en-uk_UA",
+                "certificate_achieved": false,
+                "named_entity_ever_flagged_this_row": false
+              },
+              {
+                "row_id": "injected_error_augmentation:1928",
+                "language_pair": "en-uk_UA",
+                "certificate_achieved": true,
+                "named_entity_ever_flagged_this_row": false
+              },
+              {
+                "row_id": "injected_error_augmentation:2002",
+                "language_pair": "en-uk_UA",
+                "certificate_achieved": false,
+                "named_entity_ever_flagged_this_row": false
+              },
+              {
+                "row_id": "injected_error_augmentation:1981",
+                "language_pair": "en-uk_UA",
+                "certificate_achieved": false,
+                "named_entity_ever_flagged_this_row": false
+              },
+              {
+                "row_id": "injected_error_augmentation:1693",
+                "language_pair": "en-uk_UA",
+                "certificate_achieved": true,
+                "named_entity_ever_flagged_this_row": false
+              },
+              {
+                "row_id": "injected_error_augmentation:1771",
+                "language_pair": "en-uk_UA",
+                "certificate_achieved": false,
+                "named_entity_ever_flagged_this_row": false
+              },
+              {
+                "row_id": "injected_error_augmentation:2012",
+                "language_pair": "en-uk_UA",
+                "certificate_achieved": true,
+                "named_entity_ever_flagged_this_row": false
+              },
+              {
+                "row_id": "injected_error_augmentation:1840",
+                "language_pair": "en-uk_UA",
+                "certificate_achieved": false,
+                "named_entity_ever_flagged_this_row": false
+              },
+              {
+                "row_id": "injected_error_augmentation:1779",
+                "language_pair": "en-uk_UA",
+                "certificate_achieved": false,
+                "named_entity_ever_flagged_this_row": false
+              },
+              {
+                "row_id": "injected_error_augmentation:1750",
+                "language_pair": "en-uk_UA",
+                "certificate_achieved": false,
+                "named_entity_ever_flagged_this_row": false
+              },
+              {
+                "row_id": "injected_error_augmentation:1853",
+                "language_pair": "en-uk_UA",
+                "certificate_achieved": true,
+                "named_entity_ever_flagged_this_row": false
+              },
+              {
+                "row_id": "injected_error_augmentation:2006",
+                "language_pair": "en-uk_UA",
+                "certificate_achieved": true,
+                "named_entity_ever_flagged_this_row": false
+              },
+              {
+                "row_id": "injected_error_augmentation:1846",
+                "language_pair": "en-uk_UA",
+                "certificate_achieved": true,
+                "named_entity_ever_flagged_this_row": false
+              },
+              {
+                "row_id": "injected_error_augmentation:1685",
+                "language_pair": "en-uk_UA",
+                "certificate_achieved": true,
+                "named_entity_ever_flagged_this_row": false
+              },
+              {
+                "row_id": "injected_error_augmentation:1888",
+                "language_pair": "en-uk_UA",
+                "certificate_achieved": false,
+                "named_entity_ever_flagged_this_row": false
+              },
+              {
+                "row_id": "injected_error_augmentation:1718",
+                "language_pair": "en-uk_UA",
+                "certificate_achieved": true,
+                "named_entity_ever_flagged_this_row": false
+              },
+              {
+                "row_id": "injected_error_augmentation:1427",
+                "language_pair": "en-ru_RU",
+                "certificate_achieved": true,
+                "named_entity_ever_flagged_this_row": false
+              },
+              {
+                "row_id": "injected_error_augmentation:1221",
+                "language_pair": "en-ru_RU",
+                "certificate_achieved": true,
+                "named_entity_ever_flagged_this_row": false
+              },
+              {
+                "row_id": "injected_error_augmentation:1202",
+                "language_pair": "en-ru_RU",
+                "certificate_achieved": true,
+                "named_entity_ever_flagged_this_row": false
+              }
+            ],
+            "extra_finding_checker_validation_drift_across_runs": {
+              "description": "Condition C's own re-fit checker_validation.json-equivalent metadata (computed fresh in THIS run against the injected_heldout fold) reports named_entity recall=0.0, precision=0.0, n_flags_total=0 for BOTH language pairs -- a substantive change from art_7Uc5PlFctjXi's original checker_validation.json, which reported ru_RU named_entity recall=1.0/precision=0.3239 and uk_UA named_entity recall=0.6957/precision=0.3696 (both non-zero). The excluded_cells set is identical either way (named_entity fails the 0.5 threshold in both versions), so this drift is not consequential for the eligibility gate, but it independently corroborates the finding above: named_entity detection is effectively inert in Condition C's environment (possibly a Stanza NER resource/model availability difference between runs, undiagnosed further here since it does not change any excluded_cells or headline result).",
+              "named_entity_cells_this_run": {
+                "ru_RU|named_entity": {
+                  "lang": "ru_RU",
+                  "category": "named_entity",
+                  "n_rows": 23,
+                  "recall": 0.0,
+                  "precision": 0.0,
+                  "n_flags_total": 0
+                },
+                "uk_UA|named_entity": {
+                  "lang": "uk_UA",
+                  "category": "named_entity",
+                  "n_rows": 23,
+                  "recall": 0.0,
+                  "precision": 0.0,
+                  "n_flags_total": 0
+                }
+              },
+              "named_entity_cells_original_bddc1_run": {
+                "ru_RU|named_entity": {
+                  "lang": "ru_RU",
+                  "category": "named_entity",
+                  "n_rows": 23,
+                  "recall": 1.0,
+                  "precision": 0.3239,
+                  "n_flags_total": 71
+                },
+                "uk_UA|named_entity": {
+                  "lang": "uk_UA",
+                  "category": "named_entity",
+                  "n_rows": 23,
+                  "recall": 0.6957,
+                  "precision": 0.3696,
+                  "n_flags_total": 46
+                }
+              }
+            }
+          }
+        },
+        {
+          "input": "Is the normal-approximation independence substitute for the variance of a difference between two positively-correlated measurements conservative (too wide) or anti-conservative (too narrow), for this project's actual reported ΔCOMET confidence intervals?",
+          "output": "The MATHEMATICAL DIRECTION of the bias is established unconditionally: IF Cov(X,Y) > 0, the independence-assumed interval is provably conservative (too wide), never too narrow. However, the SIGN of the actual covariance between any two of B/C1/C2/C's per-row ΔCOMET distributions cannot be estimated or bounded from the data retained in these three artifacts -- no per-row paired samples survive in a form that permits computing empirical covariance. The paper's claim should therefore be stated conditionally: 'IF the shared row population, repair model, and checker induce positive correlation between conditions (plausible on structural grounds, see plausible_positive_covariance_sources), THEN the normal-approximation independence substitute is conservative, not anti-conservative -- but this precondition is not verified from available data.' Downgraded from an unconditional assertion to a conditional one that is honest about what is and is not established.",
+          "eval_direction_established_conditionally": 1.0,
+          "eval_empirical_covariance_computable": 0.0,
+          "metadata_analysis": {
+            "source_files": {
+              "b_delta_comet_ci": "art_7Uc5PlFctjXi/full_method_out.json:metadata.metrics.pooled.B.delta_comet_ci95",
+              "c1_delta_comet_ci": "art_7Uc5PlFctjXi/full_method_out.json:metadata.metrics.pooled.C1.delta_comet_ci95",
+              "c2_delta_comet_ci": "art_6n9zJVKWXnio/full_method_out.json:metadata.comparison_table_B_D_C1_C2_vs_C.conditions.C2.delta_comet_ci95"
+            },
+            "metric_identified": "ΔCOMET pooled 95% bootstrap CI (the only metric with a persisted CI half-width in any of the three artifacts; fix_rate and true_regression_rate are reported as point estimates with no CI anywhere in the dependency chain, so the 'conservative-direction' claim -- to the extent it can be reconstructed from these artifacts alone -- must be about ΔCOMET, or is otherwise unverifiable from available data).",
+            "reported_half_widths": {
+              "B": 0.006804,
+              "C1": 0.003109,
+              "C2": 0.007745
+            },
+            "mathematical_argument": "Var(X-Y) = Var(X) + Var(Y) - 2*Cov(X,Y). Treating two measurements as independent when computing the variance of their difference means using Var_indep = Var(X)+Var(Y), omitting the -2*Cov(X,Y) term. Whenever Cov(X,Y) > 0, subtracting a positive quantity makes the TRUE variance strictly smaller than Var_indep: Var_true = Var_indep - 2*Cov(X,Y) < Var_indep. A smaller true variance means a narrower true confidence interval than the independence-assumed one. So the independence assumption OVER-estimates the variance and produces a WIDER (more conservative, i.e. less likely to falsely reject a null of no difference), not narrower, interval whenever the true covariance is positive. The direction reverses (independence assumption becomes ANTI-conservative, i.e. too narrow) only if Cov(X,Y) < 0.",
+            "worked_numeric_examples": [
+              {
+                "assumed_correlation": 0.0,
+                "implied_covariance": 0.0,
+                "true_variance_of_difference": 1.81297e-05,
+                "independence_assumed_variance": 1.81297e-05,
+                "true_half_width_95pct": 0.008345,
+                "independence_assumed_half_width_95pct": 0.008345,
+                "independence_assumption_is_wider": true
+              },
+              {
+                "assumed_correlation": 0.3,
+                "implied_covariance": 1.8803e-06,
+                "true_variance_of_difference": 1.4369e-05,
+                "independence_assumed_variance": 1.81297e-05,
+                "true_half_width_95pct": 0.00743,
+                "independence_assumed_half_width_95pct": 0.008345,
+                "independence_assumption_is_wider": true
+              },
+              {
+                "assumed_correlation": 0.6,
+                "implied_covariance": 3.7607e-06,
+                "true_variance_of_difference": 1.06084e-05,
+                "independence_assumed_variance": 1.81297e-05,
+                "true_half_width_95pct": 0.006384,
+                "independence_assumed_half_width_95pct": 0.008345,
+                "independence_assumption_is_wider": true
+              },
+              {
+                "assumed_correlation": 0.9,
+                "implied_covariance": 5.641e-06,
+                "true_variance_of_difference": 6.8477e-06,
+                "independence_assumed_variance": 1.81297e-05,
+                "true_half_width_95pct": 0.005129,
+                "independence_assumed_half_width_95pct": 0.008345,
+                "independence_assumption_is_wider": true
+              }
+            ],
+            "worked_example_reading": "Using the actual reported ΔCOMET half-widths (C1=0.003109, C2=0.007745), at every assumed positive correlation tested (0.3, 0.6, 0.9) the true half-width is smaller than the independence-assumed half-width, confirming the direction of the bias holds for these specific numbers as long as the (unverified) covariance is in fact positive.",
+            "plausible_positive_covariance_sources": [
+              "Same 320-row natural population scored under B, C1, and C2 (row-ID identity verified True across all three), so any per-row COMET-scoring noise (e.g. a sentence the checkpoint scores unusually harshly regardless of which condition's output it sees) is shared across conditions and induces positive covariance between their pooled means.",
+              "Same repair model (google/gemma-3-12b-it) and same OpenRouter client across B/D/C1/C2/C, so systematic per-sentence repair-difficulty effects (e.g. a long or syntactically unusual sentence that is hard to repair well under ANY condition) correlate the conditions' errors on that row.",
+              "Same 4-category checker module (checker.py, copied verbatim across C1/C2/C) drives localization in three of the five conditions, so checker false positives/negatives on a given row propagate similarly into whichever condition uses checker-based localization on that row."
+            ],
+            "empirical_covariance_status": {
+              "attempted": true,
+              "result": "NOT COMPUTABLE from available data",
+              "reason": "No per-row DeltaCOMET array is persisted in any of the three artifacts' full_method_out.json for the natural-row datasets (checked art_7Uc5PlFctjXi's natural_repair_B_D_C1 and art_K8koUmGFDlLN's natural_repair_C2 example schemas directly: fields present are metadata_{b,d,c1,c2}_{n_llm_calls,edit_volume,leakage,no_op,...} and predict_* text, but no per-row COMET score or delta). Only the pooled bootstrap mean and CI are stored, which is exactly the summary statistic that collapses any row-level pairing information -- an empirical covariance between two conditions' per-row deltas cannot be reconstructed after the fact from pooled summaries alone. art_6n9zJVKWXnio's own paired_bootstrap_c_vs_c2_note independently confirms this same gap for the C-vs-C2 comparison it attempted."
+            },
+            "final_downgraded_claim": "The MATHEMATICAL DIRECTION of the bias is established unconditionally: IF Cov(X,Y) > 0, the independence-assumed interval is provably conservative (too wide), never too narrow. However, the SIGN of the actual covariance between any two of B/C1/C2/C's per-row ΔCOMET distributions cannot be estimated or bounded from the data retained in these three artifacts -- no per-row paired samples survive in a form that permits computing empirical covariance. The paper's claim should therefore be stated conditionally: 'IF the shared row population, repair model, and checker induce positive correlation between conditions (plausible on structural grounds, see plausible_positive_covariance_sources), THEN the normal-approximation independence substitute is conservative, not anti-conservative -- but this precondition is not verified from available data.' Downgraded from an unconditional assertion to a conditional one that is honest about what is and is not established.",
+            "what_would_be_needed": "Per-row paired ΔCOMET (or fix_rate/true_regression outcome) samples for at least two conditions scored on the identical row set, retained in the output JSON (not just the pooled bootstrap summary), would let a future run compute empirical Pearson/Spearman correlation directly and replace the conditional claim above with an unconditional, data-backed one. None of B/D/C1/C2/C's method.py scripts currently persist this per-row array to method_out.json."
+          }
+        }
+      ]
+    },
+    {
+      "dataset": "precision_tier_cells",
+      "examples": [
+        {
+          "input": "Precision-tier cell ru_RU|number_unit_date: checker precision=0.575, recall=1.0. What is Condition C's certificate_rate and mean pass count on this cell?",
+          "output": "certificate_rate=0.0333, mean_pass_count=2.9667, n_rows=30.",
+          "eval_checker_precision": 0.575,
+          "eval_checker_recall": 1.0,
+          "eval_certificate_rate": 0.0333,
+          "eval_mean_pass_count": 2.9667,
+          "metadata_lang": "ru_RU",
+          "metadata_category": "number_unit_date"
+        },
+        {
+          "input": "Precision-tier cell ru_RU|negation_polarity: checker precision=0.8571, recall=0.5217. What is Condition C's certificate_rate and mean pass count on this cell?",
+          "output": "certificate_rate=0.3667, mean_pass_count=1.9667, n_rows=30.",
+          "eval_checker_precision": 0.8571,
+          "eval_checker_recall": 0.5217,
+          "eval_certificate_rate": 0.3667,
+          "eval_mean_pass_count": 1.9667,
+          "metadata_lang": "ru_RU",
+          "metadata_category": "negation_polarity"
+        },
+        {
+          "input": "Precision-tier cell ru_RU|quantifier_scope: checker precision=0.5909, recall=0.5652. What is Condition C's certificate_rate and mean pass count on this cell?",
+          "output": "certificate_rate=0.1333, mean_pass_count=2.7333, n_rows=30.",
+          "eval_checker_precision": 0.5909,
+          "eval_checker_recall": 0.5652,
+          "eval_certificate_rate": 0.1333,
+          "eval_mean_pass_count": 2.7333,
+          "metadata_lang": "ru_RU",
+          "metadata_category": "quantifier_scope"
+        },
+        {
+          "input": "Precision-tier cell uk_UA|number_unit_date: checker precision=0.575, recall=1.0. What is Condition C's certificate_rate and mean pass count on this cell?",
+          "output": "certificate_rate=0.1, mean_pass_count=2.8333, n_rows=30.",
+          "eval_checker_precision": 0.575,
+          "eval_checker_recall": 1.0,
+          "eval_certificate_rate": 0.1,
+          "eval_mean_pass_count": 2.8333,
+          "metadata_lang": "uk_UA",
+          "metadata_category": "number_unit_date"
+        },
+        {
+          "input": "Precision-tier cell uk_UA|negation_polarity: checker precision=0.7778, recall=0.6087. What is Condition C's certificate_rate and mean pass count on this cell?",
+          "output": "certificate_rate=0.3333, mean_pass_count=2.0667, n_rows=30.",
+          "eval_checker_precision": 0.7778,
+          "eval_checker_recall": 0.6087,
+          "eval_certificate_rate": 0.3333,
+          "eval_mean_pass_count": 2.0667,
+          "metadata_lang": "uk_UA",
+          "metadata_category": "negation_polarity"
+        }
+      ]
+    },
+    {
+      "dataset": "eligibility_restricted_per_condition_scope",
+      "examples": [
+        {
+          "input": "Condition B, scope=full_pooled: fix_rate, true_regression_rate, certificate_rate over the injected-pool rows in this scope?",
+          "output": "n_rows=240, fix_rate=0.7375, true_regression_rate=0.05, certificate_rate=None.",
+          "eval_fix_rate": 0.7375,
+          "eval_true_regression_rate": 0.05,
+          "eval_certificate_rate": -1.0,
+          "eval_n_rows": 240.0,
+          "metadata_condition": "B",
+          "metadata_scope": "full_pooled"
+        },
+        {
+          "input": "Condition B, scope=restricted_to_eligible_cells: fix_rate, true_regression_rate, certificate_rate over the injected-pool rows in this scope?",
+          "output": "n_rows=150, fix_rate=0.58, true_regression_rate=0.04, certificate_rate=None.",
+          "eval_fix_rate": 0.58,
+          "eval_true_regression_rate": 0.04,
+          "eval_certificate_rate": -1.0,
+          "eval_n_rows": 150.0,
+          "metadata_condition": "B",
+          "metadata_scope": "restricted_to_eligible_cells"
+        },
+        {
+          "input": "Condition D, scope=full_pooled: fix_rate, true_regression_rate, certificate_rate over the injected-pool rows in this scope?",
+          "output": "n_rows=240, fix_rate=0.7375, true_regression_rate=0.05, certificate_rate=None.",
+          "eval_fix_rate": 0.7375,
+          "eval_true_regression_rate": 0.05,
+          "eval_certificate_rate": -1.0,
+          "eval_n_rows": 240.0,
+          "metadata_condition": "D",
+          "metadata_scope": "full_pooled"
+        },
+        {
+          "input": "Condition D, scope=restricted_to_eligible_cells: fix_rate, true_regression_rate, certificate_rate over the injected-pool rows in this scope?",
+          "output": "n_rows=150, fix_rate=0.58, true_regression_rate=0.04, certificate_rate=None.",
+          "eval_fix_rate": 0.58,
+          "eval_true_regression_rate": 0.04,
+          "eval_certificate_rate": -1.0,
+          "eval_n_rows": 150.0,
+          "metadata_condition": "D",
+          "metadata_scope": "restricted_to_eligible_cells"
+        },
+        {
+          "input": "Condition C1, scope=full_pooled: fix_rate, true_regression_rate, certificate_rate over the injected-pool rows in this scope?",
+          "output": "n_rows=240, fix_rate=0.4542, true_regression_rate=0.125, certificate_rate=None.",
+          "eval_fix_rate": 0.4542,
+          "eval_true_regression_rate": 0.125,
+          "eval_certificate_rate": -1.0,
+          "eval_n_rows": 240.0,
+          "metadata_condition": "C1",
+          "metadata_scope": "full_pooled"
+        },
+        {
+          "input": "Condition C1, scope=restricted_to_eligible_cells: fix_rate, true_regression_rate, certificate_rate over the injected-pool rows in this scope?",
+          "output": "n_rows=150, fix_rate=0.54, true_regression_rate=0.08, certificate_rate=None.",
+          "eval_fix_rate": 0.54,
+          "eval_true_regression_rate": 0.08,
+          "eval_certificate_rate": -1.0,
+          "eval_n_rows": 150.0,
+          "metadata_condition": "C1",
+          "metadata_scope": "restricted_to_eligible_cells"
+        },
+        {
+          "input": "Condition C2, scope=full_pooled: fix_rate, true_regression_rate, certificate_rate over the injected-pool rows in this scope?",
+          "output": "n_rows=240, fix_rate=0.9889, true_regression_rate=0.0722, certificate_rate=0.9167.",
+          "eval_fix_rate": 0.9889,
+          "eval_true_regression_rate": 0.0722,
+          "eval_certificate_rate": 0.9167,
+          "eval_n_rows": 240.0,
+          "metadata_condition": "C2",
+          "metadata_scope": "full_pooled"
+        },
+        {
+          "input": "Condition C2, scope=restricted_to_eligible_cells: fix_rate, true_regression_rate, certificate_rate over the injected-pool rows in this scope?",
+          "output": "n_rows=150, fix_rate=0.9778, true_regression_rate=0.0556, certificate_rate=0.9222.",
+          "eval_fix_rate": 0.9778,
+          "eval_true_regression_rate": 0.0556,
+          "eval_certificate_rate": 0.9222,
+          "eval_n_rows": 150.0,
+          "metadata_condition": "C2",
+          "metadata_scope": "restricted_to_eligible_cells"
+        },
+        {
+          "input": "Condition C, scope=full_pooled: fix_rate, true_regression_rate, certificate_rate over the injected-pool rows in this scope?",
+          "output": "n_rows=240, fix_rate=0.6278, true_regression_rate=0.1833, certificate_rate=0.2875.",
+          "eval_fix_rate": 0.6278,
+          "eval_true_regression_rate": 0.1833,
+          "eval_certificate_rate": 0.2875,
+          "eval_n_rows": 240.0,
+          "metadata_condition": "C",
+          "metadata_scope": "full_pooled"
+        },
+        {
+          "input": "Condition C, scope=restricted_to_eligible_cells: fix_rate, true_regression_rate, certificate_rate over the injected-pool rows in this scope?",
+          "output": "n_rows=150, fix_rate=0.9333, true_regression_rate=0.16, certificate_rate=0.1933.",
+          "eval_fix_rate": 0.9333,
+          "eval_true_regression_rate": 0.16,
+          "eval_certificate_rate": 0.1933,
+          "eval_n_rows": 150.0,
+          "metadata_condition": "C",
+          "metadata_scope": "restricted_to_eligible_cells"
+        }
+      ]
+    },
+    {
+      "dataset": "certificate_definition_named_entity_rows",
+      "examples": [
+        {
+          "input": "Row injected_error_augmentation:1306 (en-ru_RU, known corruption=named_entity_swap, an excluded checker cell): was named_entity ever flagged in this row's pass log, and was a certificate ultimately achieved?",
+          "output": "named_entity_ever_flagged=False, certificate_achieved=True.",
+          "eval_certificate_achieved": 1.0,
+          "eval_named_entity_flagged": 0.0,
+          "metadata_row_id": "injected_error_augmentation:1306",
+          "metadata_language_pair": "en-ru_RU"
+        },
+        {
+          "input": "Row injected_error_augmentation:1215 (en-ru_RU, known corruption=named_entity_swap, an excluded checker cell): was named_entity ever flagged in this row's pass log, and was a certificate ultimately achieved?",
+          "output": "named_entity_ever_flagged=False, certificate_achieved=False.",
+          "eval_certificate_achieved": 0.0,
+          "eval_named_entity_flagged": 0.0,
+          "metadata_row_id": "injected_error_augmentation:1215",
+          "metadata_language_pair": "en-ru_RU"
+        },
+        {
+          "input": "Row injected_error_augmentation:1469 (en-ru_RU, known corruption=named_entity_swap, an excluded checker cell): was named_entity ever flagged in this row's pass log, and was a certificate ultimately achieved?",
+          "output": "named_entity_ever_flagged=False, certificate_achieved=False.",
+          "eval_certificate_achieved": 0.0,
+          "eval_named_entity_flagged": 0.0,
+          "metadata_row_id": "injected_error_augmentation:1469",
+          "metadata_language_pair": "en-ru_RU"
+        },
+        {
+          "input": "Row injected_error_augmentation:1153 (en-ru_RU, known corruption=named_entity_swap, an excluded checker cell): was named_entity ever flagged in this row's pass log, and was a certificate ultimately achieved?",
+          "output": "named_entity_ever_flagged=False, certificate_achieved=True.",
+          "eval_certificate_achieved": 1.0,
+          "eval_named_entity_flagged": 0.0,
+          "metadata_row_id": "injected_error_augmentation:1153",
+          "metadata_language_pair": "en-ru_RU"
+        },
+        {
+          "input": "Row injected_error_augmentation:1186 (en-ru_RU, known corruption=named_entity_swap, an excluded checker cell): was named_entity ever flagged in this row's pass log, and was a certificate ultimately achieved?",
+          "output": "named_entity_ever_flagged=False, certificate_achieved=True.",
+          "eval_certificate_achieved": 1.0,
+          "eval_named_entity_flagged": 0.0,
+          "metadata_row_id": "injected_error_augmentation:1186",
+          "metadata_language_pair": "en-ru_RU"
+        },
+        {
+          "input": "Row injected_error_augmentation:1450 (en-ru_RU, known corruption=named_entity_swap, an excluded checker cell): was named_entity ever flagged in this row's pass log, and was a certificate ultimately achieved?",
+          "output": "named_entity_ever_flagged=False, certificate_achieved=False.",
+          "eval_certificate_achieved": 0.0,
+          "eval_named_entity_flagged": 0.0,
+          "metadata_row_id": "injected_error_augmentation:1450",
+          "metadata_language_pair": "en-ru_RU"
+        },
+        {
+          "input": "Row injected_error_augmentation:1481 (en-ru_RU, known corruption=named_entity_swap, an excluded checker cell): was named_entity ever flagged in this row's pass log, and was a certificate ultimately achieved?",
+          "output": "named_entity_ever_flagged=False, certificate_achieved=False.",
+          "eval_certificate_achieved": 0.0,
+          "eval_named_entity_flagged": 0.0,
+          "metadata_row_id": "injected_error_augmentation:1481",
+          "metadata_language_pair": "en-ru_RU"
+        },
+        {
+          "input": "Row injected_error_augmentation:1169 (en-ru_RU, known corruption=named_entity_swap, an excluded checker cell): was named_entity ever flagged in this row's pass log, and was a certificate ultimately achieved?",
+          "output": "named_entity_ever_flagged=False, certificate_achieved=False.",
+          "eval_certificate_achieved": 0.0,
+          "eval_named_entity_flagged": 0.0,
+          "metadata_row_id": "injected_error_augmentation:1169",
+          "metadata_language_pair": "en-ru_RU"
+        },
+        {
+          "input": "Row injected_error_augmentation:1484 (en-ru_RU, known corruption=named_entity_swap, an excluded checker cell): was named_entity ever flagged in this row's pass log, and was a certificate ultimately achieved?",
+          "output": "named_entity_ever_flagged=False, certificate_achieved=False.",
+          "eval_certificate_achieved": 0.0,
+          "eval_named_entity_flagged": 0.0,
+          "metadata_row_id": "injected_error_augmentation:1484",
+          "metadata_language_pair": "en-ru_RU"
+        },
+        {
+          "input": "Row injected_error_augmentation:1208 (en-ru_RU, known corruption=named_entity_swap, an excluded checker cell): was named_entity ever flagged in this row's pass log, and was a certificate ultimately achieved?",
+          "output": "named_entity_ever_flagged=False, certificate_achieved=True.",
+          "eval_certificate_achieved": 1.0,
+          "eval_named_entity_flagged": 0.0,
+          "metadata_row_id": "injected_error_augmentation:1208",
+          "metadata_language_pair": "en-ru_RU"
+        },
+        {
+          "input": "Row injected_error_augmentation:1460 (en-ru_RU, known corruption=named_entity_swap, an excluded checker cell): was named_entity ever flagged in this row's pass log, and was a certificate ultimately achieved?",
+          "output": "named_entity_ever_flagged=False, certificate_achieved=False.",
+          "eval_certificate_achieved": 0.0,
+          "eval_named_entity_flagged": 0.0,
+          "metadata_row_id": "injected_error_augmentation:1460",
+          "metadata_language_pair": "en-ru_RU"
+        },
+        {
+          "input": "Row injected_error_augmentation:1224 (en-ru_RU, known corruption=named_entity_swap, an excluded checker cell): was named_entity ever flagged in this row's pass log, and was a certificate ultimately achieved?",
+          "output": "named_entity_ever_flagged=False, certificate_achieved=True.",
+          "eval_certificate_achieved": 1.0,
+          "eval_named_entity_flagged": 0.0,
+          "metadata_row_id": "injected_error_augmentation:1224",
+          "metadata_language_pair": "en-ru_RU"
+        },
+        {
+          "input": "Row injected_error_augmentation:1402 (en-ru_RU, known corruption=named_entity_swap, an excluded checker cell): was named_entity ever flagged in this row's pass log, and was a certificate ultimately achieved?",
+          "output": "named_entity_ever_flagged=False, certificate_achieved=False.",
+          "eval_certificate_achieved": 0.0,
+          "eval_named_entity_flagged": 0.0,
+          "metadata_row_id": "injected_error_augmentation:1402",
+          "metadata_language_pair": "en-ru_RU"
+        },
+        {
+          "input": "Row injected_error_augmentation:1282 (en-ru_RU, known corruption=named_entity_swap, an excluded checker cell): was named_entity ever flagged in this row's pass log, and was a certificate ultimately achieved?",
+          "output": "named_entity_ever_flagged=False, certificate_achieved=False.",
+          "eval_certificate_achieved": 0.0,
+          "eval_named_entity_flagged": 0.0,
+          "metadata_row_id": "injected_error_augmentation:1282",
+          "metadata_language_pair": "en-ru_RU"
+        },
+        {
+          "input": "Row injected_error_augmentation:1468 (en-ru_RU, known corruption=named_entity_swap, an excluded checker cell): was named_entity ever flagged in this row's pass log, and was a certificate ultimately achieved?",
+          "output": "named_entity_ever_flagged=False, certificate_achieved=False.",
+          "eval_certificate_achieved": 0.0,
+          "eval_named_entity_flagged": 0.0,
+          "metadata_row_id": "injected_error_augmentation:1468",
+          "metadata_language_pair": "en-ru_RU"
+        },
+        {
+          "input": "Row injected_error_augmentation:1272 (en-ru_RU, known corruption=named_entity_swap, an excluded checker cell): was named_entity ever flagged in this row's pass log, and was a certificate ultimately achieved?",
+          "output": "named_entity_ever_flagged=False, certificate_achieved=True.",
+          "eval_certificate_achieved": 1.0,
+          "eval_named_entity_flagged": 0.0,
+          "metadata_row_id": "injected_error_augmentation:1272",
+          "metadata_language_pair": "en-ru_RU"
+        },
+        {
+          "input": "Row injected_error_augmentation:1228 (en-ru_RU, known corruption=named_entity_swap, an excluded checker cell): was named_entity ever flagged in this row's pass log, and was a certificate ultimately achieved?",
+          "output": "named_entity_ever_flagged=False, certificate_achieved=True.",
+          "eval_certificate_achieved": 1.0,
+          "eval_named_entity_flagged": 0.0,
+          "metadata_row_id": "injected_error_augmentation:1228",
+          "metadata_language_pair": "en-ru_RU"
+        },
+        {
+          "input": "Row injected_error_augmentation:1315 (en-ru_RU, known corruption=named_entity_swap, an excluded checker cell): was named_entity ever flagged in this row's pass log, and was a certificate ultimately achieved?",
+          "output": "named_entity_ever_flagged=False, certificate_achieved=True.",
+          "eval_certificate_achieved": 1.0,
+          "eval_named_entity_flagged": 0.0,
+          "metadata_row_id": "injected_error_augmentation:1315",
+          "metadata_language_pair": "en-ru_RU"
+        },
+        {
+          "input": "Row injected_error_augmentation:1209 (en-ru_RU, known corruption=named_entity_swap, an excluded checker cell): was named_entity ever flagged in this row's pass log, and was a certificate ultimately achieved?",
+          "output": "named_entity_ever_flagged=False, certificate_achieved=False.",
+          "eval_certificate_achieved": 0.0,
+          "eval_named_entity_flagged": 0.0,
+          "metadata_row_id": "injected_error_augmentation:1209",
+          "metadata_language_pair": "en-ru_RU"
+        },
+        {
+          "input": "Row injected_error_augmentation:1266 (en-ru_RU, known corruption=named_entity_swap, an excluded checker cell): was named_entity ever flagged in this row's pass log, and was a certificate ultimately achieved?",
+          "output": "named_entity_ever_flagged=False, certificate_achieved=False.",
+          "eval_certificate_achieved": 0.0,
+          "eval_named_entity_flagged": 0.0,
+          "metadata_row_id": "injected_error_augmentation:1266",
+          "metadata_language_pair": "en-ru_RU"
+        },
+        {
+          "input": "Row injected_error_augmentation:1269 (en-ru_RU, known corruption=named_entity_swap, an excluded checker cell): was named_entity ever flagged in this row's pass log, and was a certificate ultimately achieved?",
+          "output": "named_entity_ever_flagged=False, certificate_achieved=True.",
+          "eval_certificate_achieved": 1.0,
+          "eval_named_entity_flagged": 0.0,
+          "metadata_row_id": "injected_error_augmentation:1269",
+          "metadata_language_pair": "en-ru_RU"
+        },
+        {
+          "input": "Row injected_error_augmentation:1330 (en-ru_RU, known corruption=named_entity_swap, an excluded checker cell): was named_entity ever flagged in this row's pass log, and was a certificate ultimately achieved?",
+          "output": "named_entity_ever_flagged=False, certificate_achieved=False.",
+          "eval_certificate_achieved": 0.0,
+          "eval_named_entity_flagged": 0.0,
+          "metadata_row_id": "injected_error_augmentation:1330",
+          "metadata_language_pair": "en-ru_RU"
+        },
+        {
+          "input": "Row injected_error_augmentation:1242 (en-ru_RU, known corruption=named_entity_swap, an excluded checker cell): was named_entity ever flagged in this row's pass log, and was a certificate ultimately achieved?",
+          "output": "named_entity_ever_flagged=False, certificate_achieved=True.",
+          "eval_certificate_achieved": 1.0,
+          "eval_named_entity_flagged": 0.0,
+          "metadata_row_id": "injected_error_augmentation:1242",
+          "metadata_language_pair": "en-ru_RU"
+        },
+        {
+          "input": "Row injected_error_augmentation:1194 (en-ru_RU, known corruption=named_entity_swap, an excluded checker cell): was named_entity ever flagged in this row's pass log, and was a certificate ultimately achieved?",
+          "output": "named_entity_ever_flagged=False, certificate_achieved=False.",
+          "eval_certificate_achieved": 0.0,
+          "eval_named_entity_flagged": 0.0,
+          "metadata_row_id": "injected_error_augmentation:1194",
+          "metadata_language_pair": "en-ru_RU"
+        },
+        {
+          "input": "Row injected_error_augmentation:1174 (en-ru_RU, known corruption=named_entity_swap, an excluded checker cell): was named_entity ever flagged in this row's pass log, and was a certificate ultimately achieved?",
+          "output": "named_entity_ever_flagged=False, certificate_achieved=True.",
+          "eval_certificate_achieved": 1.0,
+          "eval_named_entity_flagged": 0.0,
+          "metadata_row_id": "injected_error_augmentation:1174",
+          "metadata_language_pair": "en-ru_RU"
+        },
+        {
+          "input": "Row injected_error_augmentation:1455 (en-ru_RU, known corruption=named_entity_swap, an excluded checker cell): was named_entity ever flagged in this row's pass log, and was a certificate ultimately achieved?",
+          "output": "named_entity_ever_flagged=False, certificate_achieved=False.",
+          "eval_certificate_achieved": 0.0,
+          "eval_named_entity_flagged": 0.0,
+          "metadata_row_id": "injected_error_augmentation:1455",
+          "metadata_language_pair": "en-ru_RU"
+        },
+        {
+          "input": "Row injected_error_augmentation:1149 (en-ru_RU, known corruption=named_entity_swap, an excluded checker cell): was named_entity ever flagged in this row's pass log, and was a certificate ultimately achieved?",
+          "output": "named_entity_ever_flagged=False, certificate_achieved=False.",
+          "eval_certificate_achieved": 0.0,
+          "eval_named_entity_flagged": 0.0,
+          "metadata_row_id": "injected_error_augmentation:1149",
+          "metadata_language_pair": "en-ru_RU"
+        },
+        {
+          "input": "Row injected_error_augmentation:1873 (en-uk_UA, known corruption=named_entity_swap, an excluded checker cell): was named_entity ever flagged in this row's pass log, and was a certificate ultimately achieved?",
+          "output": "named_entity_ever_flagged=False, certificate_achieved=True.",
+          "eval_certificate_achieved": 1.0,
+          "eval_named_entity_flagged": 0.0,
+          "metadata_row_id": "injected_error_augmentation:1873",
+          "metadata_language_pair": "en-uk_UA"
+        },
+        {
+          "input": "Row injected_error_augmentation:1957 (en-uk_UA, known corruption=named_entity_swap, an excluded checker cell): was named_entity ever flagged in this row's pass log, and was a certificate ultimately achieved?",
+          "output": "named_entity_ever_flagged=False, certificate_achieved=False.",
+          "eval_certificate_achieved": 0.0,
+          "eval_named_entity_flagged": 0.0,
+          "metadata_row_id": "injected_error_augmentation:1957",
+          "metadata_language_pair": "en-uk_UA"
+        },
+        {
+          "input": "Row injected_error_augmentation:1741 (en-uk_UA, known corruption=named_entity_swap, an excluded checker cell): was named_entity ever flagged in this row's pass log, and was a certificate ultimately achieved?",
+          "output": "named_entity_ever_flagged=False, certificate_achieved=True.",
+          "eval_certificate_achieved": 1.0,
+          "eval_named_entity_flagged": 0.0,
+          "metadata_row_id": "injected_error_augmentation:1741",
+          "metadata_language_pair": "en-uk_UA"
+        },
+        {
+          "input": "Row injected_error_augmentation:1664 (en-uk_UA, known corruption=named_entity_swap, an excluded checker cell): was named_entity ever flagged in this row's pass log, and was a certificate ultimately achieved?",
+          "output": "named_entity_ever_flagged=False, certificate_achieved=False.",
+          "eval_certificate_achieved": 0.0,
+          "eval_named_entity_flagged": 0.0,
+          "metadata_row_id": "injected_error_augmentation:1664",
+          "metadata_language_pair": "en-uk_UA"
+        },
+        {
+          "input": "Row injected_error_augmentation:1938 (en-uk_UA, known corruption=named_entity_swap, an excluded checker cell): was named_entity ever flagged in this row's pass log, and was a certificate ultimately achieved?",
+          "output": "named_entity_ever_flagged=False, certificate_achieved=True.",
+          "eval_certificate_achieved": 1.0,
+          "eval_named_entity_flagged": 0.0,
+          "metadata_row_id": "injected_error_augmentation:1938",
+          "metadata_language_pair": "en-uk_UA"
+        },
+        {
+          "input": "Row injected_error_augmentation:1931 (en-uk_UA, known corruption=named_entity_swap, an excluded checker cell): was named_entity ever flagged in this row's pass log, and was a certificate ultimately achieved?",
+          "output": "named_entity_ever_flagged=False, certificate_achieved=True.",
+          "eval_certificate_achieved": 1.0,
+          "eval_named_entity_flagged": 0.0,
+          "metadata_row_id": "injected_error_augmentation:1931",
+          "metadata_language_pair": "en-uk_UA"
+        },
+        {
+          "input": "Row injected_error_augmentation:1959 (en-uk_UA, known corruption=named_entity_swap, an excluded checker cell): was named_entity ever flagged in this row's pass log, and was a certificate ultimately achieved?",
+          "output": "named_entity_ever_flagged=False, certificate_achieved=False.",
+          "eval_certificate_achieved": 0.0,
+          "eval_named_entity_flagged": 0.0,
+          "metadata_row_id": "injected_error_augmentation:1959",
+          "metadata_language_pair": "en-uk_UA"
+        },
+        {
+          "input": "Row injected_error_augmentation:1679 (en-uk_UA, known corruption=named_entity_swap, an excluded checker cell): was named_entity ever flagged in this row's pass log, and was a certificate ultimately achieved?",
+          "output": "named_entity_ever_flagged=False, certificate_achieved=True.",
+          "eval_certificate_achieved": 1.0,
+          "eval_named_entity_flagged": 0.0,
+          "metadata_row_id": "injected_error_augmentation:1679",
+          "metadata_language_pair": "en-uk_UA"
+        },
+        {
+          "input": "Row injected_error_augmentation:1947 (en-uk_UA, known corruption=named_entity_swap, an excluded checker cell): was named_entity ever flagged in this row's pass log, and was a certificate ultimately achieved?",
+          "output": "named_entity_ever_flagged=False, certificate_achieved=False.",
+          "eval_certificate_achieved": 0.0,
+          "eval_named_entity_flagged": 0.0,
+          "metadata_row_id": "injected_error_augmentation:1947",
+          "metadata_language_pair": "en-uk_UA"
+        },
+        {
+          "input": "Row injected_error_augmentation:1776 (en-uk_UA, known corruption=named_entity_swap, an excluded checker cell): was named_entity ever flagged in this row's pass log, and was a certificate ultimately achieved?",
+          "output": "named_entity_ever_flagged=False, certificate_achieved=True.",
+          "eval_certificate_achieved": 1.0,
+          "eval_named_entity_flagged": 0.0,
+          "metadata_row_id": "injected_error_augmentation:1776",
+          "metadata_language_pair": "en-uk_UA"
+        },
+        {
+          "input": "Row injected_error_augmentation:1744 (en-uk_UA, known corruption=named_entity_swap, an excluded checker cell): was named_entity ever flagged in this row's pass log, and was a certificate ultimately achieved?",
+          "output": "named_entity_ever_flagged=False, certificate_achieved=False.",
+          "eval_certificate_achieved": 0.0,
+          "eval_named_entity_flagged": 0.0,
+          "metadata_row_id": "injected_error_augmentation:1744",
+          "metadata_language_pair": "en-uk_UA"
+        },
+        {
+          "input": "Row injected_error_augmentation:1880 (en-uk_UA, known corruption=named_entity_swap, an excluded checker cell): was named_entity ever flagged in this row's pass log, and was a certificate ultimately achieved?",
+          "output": "named_entity_ever_flagged=False, certificate_achieved=True.",
+          "eval_certificate_achieved": 1.0,
+          "eval_named_entity_flagged": 0.0,
+          "metadata_row_id": "injected_error_augmentation:1880",
+          "metadata_language_pair": "en-uk_UA"
+        },
+        {
+          "input": "Row injected_error_augmentation:1943 (en-uk_UA, known corruption=named_entity_swap, an excluded checker cell): was named_entity ever flagged in this row's pass log, and was a certificate ultimately achieved?",
+          "output": "named_entity_ever_flagged=False, certificate_achieved=True.",
+          "eval_certificate_achieved": 1.0,
+          "eval_named_entity_flagged": 0.0,
+          "metadata_row_id": "injected_error_augmentation:1943",
+          "metadata_language_pair": "en-uk_UA"
+        },
+        {
+          "input": "Row injected_error_augmentation:1886 (en-uk_UA, known corruption=named_entity_swap, an excluded checker cell): was named_entity ever flagged in this row's pass log, and was a certificate ultimately achieved?",
+          "output": "named_entity_ever_flagged=False, certificate_achieved=False.",
+          "eval_certificate_achieved": 0.0,
+          "eval_named_entity_flagged": 0.0,
+          "metadata_row_id": "injected_error_augmentation:1886",
+          "metadata_language_pair": "en-uk_UA"
+        },
+        {
+          "input": "Row injected_error_augmentation:1962 (en-uk_UA, known corruption=named_entity_swap, an excluded checker cell): was named_entity ever flagged in this row's pass log, and was a certificate ultimately achieved?",
+          "output": "named_entity_ever_flagged=False, certificate_achieved=False.",
+          "eval_certificate_achieved": 0.0,
+          "eval_named_entity_flagged": 0.0,
+          "metadata_row_id": "injected_error_augmentation:1962",
+          "metadata_language_pair": "en-uk_UA"
+        },
+        {
+          "input": "Row injected_error_augmentation:1928 (en-uk_UA, known corruption=named_entity_swap, an excluded checker cell): was named_entity ever flagged in this row's pass log, and was a certificate ultimately achieved?",
+          "output": "named_entity_ever_flagged=False, certificate_achieved=True.",
+          "eval_certificate_achieved": 1.0,
+          "eval_named_entity_flagged": 0.0,
+          "metadata_row_id": "injected_error_augmentation:1928",
+          "metadata_language_pair": "en-uk_UA"
+        },
+        {
+          "input": "Row injected_error_augmentation:2002 (en-uk_UA, known corruption=named_entity_swap, an excluded checker cell): was named_entity ever flagged in this row's pass log, and was a certificate ultimately achieved?",
+          "output": "named_entity_ever_flagged=False, certificate_achieved=False.",
+          "eval_certificate_achieved": 0.0,
+          "eval_named_entity_flagged": 0.0,
+          "metadata_row_id": "injected_error_augmentation:2002",
+          "metadata_language_pair": "en-uk_UA"
+        },
+        {
+          "input": "Row injected_error_augmentation:1981 (en-uk_UA, known corruption=named_entity_swap, an excluded checker cell): was named_entity ever flagged in this row's pass log, and was a certificate ultimately achieved?",
+          "output": "named_entity_ever_flagged=False, certificate_achieved=False.",
+          "eval_certificate_achieved": 0.0,
+          "eval_named_entity_flagged": 0.0,
+          "metadata_row_id": "injected_error_augmentation:1981",
+          "metadata_language_pair": "en-uk_UA"
+        },
+        {
+          "input": "Row injected_error_augmentation:1693 (en-uk_UA, known corruption=named_entity_swap, an excluded checker cell): was named_entity ever flagged in this row's pass log, and was a certificate ultimately achieved?",
+          "output": "named_entity_ever_flagged=False, certificate_achieved=True.",
+          "eval_certificate_achieved": 1.0,
+          "eval_named_entity_flagged": 0.0,
+          "metadata_row_id": "injected_error_augmentation:1693",
+          "metadata_language_pair": "en-uk_UA"
+        },
+        {
+          "input": "Row injected_error_augmentation:1771 (en-uk_UA, known corruption=named_entity_swap, an excluded checker cell): was named_entity ever flagged in this row's pass log, and was a certificate ultimately achieved?",
+          "output": "named_entity_ever_flagged=False, certificate_achieved=False.",
+          "eval_certificate_achieved": 0.0,
+          "eval_named_entity_flagged": 0.0,
+          "metadata_row_id": "injected_error_augmentation:1771",
+          "metadata_language_pair": "en-uk_UA"
+        },
+        {
+          "input": "Row injected_error_augmentation:2012 (en-uk_UA, known corruption=named_entity_swap, an excluded checker cell): was named_entity ever flagged in this row's pass log, and was a certificate ultimately achieved?",
+          "output": "named_entity_ever_flagged=False, certificate_achieved=True.",
+          "eval_certificate_achieved": 1.0,
+          "eval_named_entity_flagged": 0.0,
+          "metadata_row_id": "injected_error_augmentation:2012",
+          "metadata_language_pair": "en-uk_UA"
+        },
+        {
+          "input": "Row injected_error_augmentation:1840 (en-uk_UA, known corruption=named_entity_swap, an excluded checker cell): was named_entity ever flagged in this row's pass log, and was a certificate ultimately achieved?",
+          "output": "named_entity_ever_flagged=False, certificate_achieved=False.",
+          "eval_certificate_achieved": 0.0,
+          "eval_named_entity_flagged": 0.0,
+          "metadata_row_id": "injected_error_augmentation:1840",
+          "metadata_language_pair": "en-uk_UA"
+        },
+        {
+          "input": "Row injected_error_augmentation:1779 (en-uk_UA, known corruption=named_entity_swap, an excluded checker cell): was named_entity ever flagged in this row's pass log, and was a certificate ultimately achieved?",
+          "output": "named_entity_ever_flagged=False, certificate_achieved=False.",
+          "eval_certificate_achieved": 0.0,
+          "eval_named_entity_flagged": 0.0,
+          "metadata_row_id": "injected_error_augmentation:1779",
+          "metadata_language_pair": "en-uk_UA"
+        },
+        {
+          "input": "Row injected_error_augmentation:1750 (en-uk_UA, known corruption=named_entity_swap, an excluded checker cell): was named_entity ever flagged in this row's pass log, and was a certificate ultimately achieved?",
+          "output": "named_entity_ever_flagged=False, certificate_achieved=False.",
+          "eval_certificate_achieved": 0.0,
+          "eval_named_entity_flagged": 0.0,
+          "metadata_row_id": "injected_error_augmentation:1750",
+          "metadata_language_pair": "en-uk_UA"
+        },
+        {
+          "input": "Row injected_error_augmentation:1853 (en-uk_UA, known corruption=named_entity_swap, an excluded checker cell): was named_entity ever flagged in this row's pass log, and was a certificate ultimately achieved?",
+          "output": "named_entity_ever_flagged=False, certificate_achieved=True.",
+          "eval_certificate_achieved": 1.0,
+          "eval_named_entity_flagged": 0.0,
+          "metadata_row_id": "injected_error_augmentation:1853",
+          "metadata_language_pair": "en-uk_UA"
+        },
+        {
+          "input": "Row injected_error_augmentation:2006 (en-uk_UA, known corruption=named_entity_swap, an excluded checker cell): was named_entity ever flagged in this row's pass log, and was a certificate ultimately achieved?",
+          "output": "named_entity_ever_flagged=False, certificate_achieved=True.",
+          "eval_certificate_achieved": 1.0,
+          "eval_named_entity_flagged": 0.0,
+          "metadata_row_id": "injected_error_augmentation:2006",
+          "metadata_language_pair": "en-uk_UA"
+        },
+        {
+          "input": "Row injected_error_augmentation:1846 (en-uk_UA, known corruption=named_entity_swap, an excluded checker cell): was named_entity ever flagged in this row's pass log, and was a certificate ultimately achieved?",
+          "output": "named_entity_ever_flagged=False, certificate_achieved=True.",
+          "eval_certificate_achieved": 1.0,
+          "eval_named_entity_flagged": 0.0,
+          "metadata_row_id": "injected_error_augmentation:1846",
+          "metadata_language_pair": "en-uk_UA"
+        },
+        {
+          "input": "Row injected_error_augmentation:1685 (en-uk_UA, known corruption=named_entity_swap, an excluded checker cell): was named_entity ever flagged in this row's pass log, and was a certificate ultimately achieved?",
+          "output": "named_entity_ever_flagged=False, certificate_achieved=True.",
+          "eval_certificate_achieved": 1.0,
+          "eval_named_entity_flagged": 0.0,
+          "metadata_row_id": "injected_error_augmentation:1685",
+          "metadata_language_pair": "en-uk_UA"
+        },
+        {
+          "input": "Row injected_error_augmentation:1888 (en-uk_UA, known corruption=named_entity_swap, an excluded checker cell): was named_entity ever flagged in this row's pass log, and was a certificate ultimately achieved?",
+          "output": "named_entity_ever_flagged=False, certificate_achieved=False.",
+          "eval_certificate_achieved": 0.0,
+          "eval_named_entity_flagged": 0.0,
+          "metadata_row_id": "injected_error_augmentation:1888",
+          "metadata_language_pair": "en-uk_UA"
+        },
+        {
+          "input": "Row injected_error_augmentation:1718 (en-uk_UA, known corruption=named_entity_swap, an excluded checker cell): was named_entity ever flagged in this row's pass log, and was a certificate ultimately achieved?",
+          "output": "named_entity_ever_flagged=False, certificate_achieved=True.",
+          "eval_certificate_achieved": 1.0,
+          "eval_named_entity_flagged": 0.0,
+          "metadata_row_id": "injected_error_augmentation:1718",
+          "metadata_language_pair": "en-uk_UA"
+        },
+        {
+          "input": "Row injected_error_augmentation:1427 (en-ru_RU, known corruption=named_entity_swap, an excluded checker cell): was named_entity ever flagged in this row's pass log, and was a certificate ultimately achieved?",
+          "output": "named_entity_ever_flagged=False, certificate_achieved=True.",
+          "eval_certificate_achieved": 1.0,
+          "eval_named_entity_flagged": 0.0,
+          "metadata_row_id": "injected_error_augmentation:1427",
+          "metadata_language_pair": "en-ru_RU"
+        },
+        {
+          "input": "Row injected_error_augmentation:1221 (en-ru_RU, known corruption=named_entity_swap, an excluded checker cell): was named_entity ever flagged in this row's pass log, and was a certificate ultimately achieved?",
+          "output": "named_entity_ever_flagged=False, certificate_achieved=True.",
+          "eval_certificate_achieved": 1.0,
+          "eval_named_entity_flagged": 0.0,
+          "metadata_row_id": "injected_error_augmentation:1221",
+          "metadata_language_pair": "en-ru_RU"
+        },
+        {
+          "input": "Row injected_error_augmentation:1202 (en-ru_RU, known corruption=named_entity_swap, an excluded checker cell): was named_entity ever flagged in this row's pass log, and was a certificate ultimately achieved?",
+          "output": "named_entity_ever_flagged=False, certificate_achieved=True.",
+          "eval_certificate_achieved": 1.0,
+          "eval_named_entity_flagged": 0.0,
+          "metadata_row_id": "injected_error_augmentation:1202",
+          "metadata_language_pair": "en-ru_RU"
+        }
+      ]
+    },
+    {
+      "dataset": "normal_approx_worked_examples",
+      "examples": [
+        {
+          "input": "At assumed correlation r=0.0 between C1 and C2's pooled ΔCOMET (covariance=0.0), is the independence-assumed 95% CI half-width wider than the true one?",
+          "output": "true_half_width=0.008345, independence_assumed_half_width=0.008345, independence_assumption_is_wider=True.",
+          "eval_true_half_width": 0.008345,
+          "eval_independence_assumed_half_width": 0.008345,
+          "eval_independence_assumption_is_wider": 1.0,
+          "metadata_assumed_correlation": 0.0
+        },
+        {
+          "input": "At assumed correlation r=0.3 between C1 and C2's pooled ΔCOMET (covariance=1.8803e-06), is the independence-assumed 95% CI half-width wider than the true one?",
+          "output": "true_half_width=0.00743, independence_assumed_half_width=0.008345, independence_assumption_is_wider=True.",
+          "eval_true_half_width": 0.00743,
+          "eval_independence_assumed_half_width": 0.008345,
+          "eval_independence_assumption_is_wider": 1.0,
+          "metadata_assumed_correlation": 0.3
+        },
+        {
+          "input": "At assumed correlation r=0.6 between C1 and C2's pooled ΔCOMET (covariance=3.7607e-06), is the independence-assumed 95% CI half-width wider than the true one?",
+          "output": "true_half_width=0.006384, independence_assumed_half_width=0.008345, independence_assumption_is_wider=True.",
+          "eval_true_half_width": 0.006384,
+          "eval_independence_assumed_half_width": 0.008345,
+          "eval_independence_assumption_is_wider": 1.0,
+          "metadata_assumed_correlation": 0.6
+        },
+        {
+          "input": "At assumed correlation r=0.9 between C1 and C2's pooled ΔCOMET (covariance=5.641e-06), is the independence-assumed 95% CI half-width wider than the true one?",
+          "output": "true_half_width=0.005129, independence_assumed_half_width=0.008345, independence_assumption_is_wider=True.",
+          "eval_true_half_width": 0.005129,
+          "eval_independence_assumed_half_width": 0.008345,
+          "eval_independence_assumption_is_wider": 1.0,
+          "metadata_assumed_correlation": 0.9
+        }
+      ]
+    }
+  ]
+}
