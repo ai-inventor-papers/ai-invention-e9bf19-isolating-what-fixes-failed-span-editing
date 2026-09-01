@@ -1,0 +1,576 @@
+{
+  "wmt25_natural_rows": [
+    {
+      "doc_id": "en-zh_CN_#_news_#_nytimes.154208",
+      "segment_id": "176",
+      "target_lang": "zh_CN",
+      "system_id": "MMMT",
+      "source_segment": "But not Dave Portnoy. The founder and owner of Barstool Sports - the Utne Reader for the light-domestic-swilling, backslapping, Zyn-packing, parlay-chasing American male - Portnoy has long been treated as an avatar for everything that elite media is not. Barstool might be considered the outermost ring of the so-called manosphere, the vast realm of male-oriented alternative media that has been cred",
+      "hypothesis_segment": "但戴夫·波特诺伊不是这样的。作为Barstool Sports——一本专为热爱啤酒、爱拍马屁、惯于用ZYN解压、喜欢押注的美国男性而设的杂志——的创始者兼所有者，波特诺伊一直被视为精英媒体所不具备的一切的化身。Barstool可以被视为所谓“男权文化圈”的最外层，这是一片以男性为导向的另类媒体的广阔领域，这些媒体被认为促成了年轻男性选票向右倾的趋势。波特诺伊——一位有长期发表女性歧视言论和欺凌行为的特朗普支持者——曾被指控在激烈性交过程中未经同意拍摄女性的视频——他对这个标签并不避讳。（他否认了关于性行为不端的指控，并对发布这些指控的媒体提起诉讼；该诉讼被驳回了。）而他对贝利奇克和哈德森照片的留意点是哈德森戴的手链，形状像一个小橄榄球：“BB女友的手袋真酷。”他在X上发帖说，“橄榄球女女友手袋。”",
+      "overall": "0.7515233159065247",
+      "error_spans": "[{'start_i': 3, 'end_i': 4, 'severity': 'critical'}, {'start_i': 5, 'end_i': 13, 'severity': 'critical'}, {'start_i': 16, 'end_i': 31, 'severity': 'critical'}, {'start_i': 37, 'end_i': 60, 'severity': 'critical'}, {'start_i': 82, 'end_i': 83, 'severity': 'critical'}, {'start_i': 90, 'end_i': 92, 'severity': 'critical'}, {'start_i': 94, 'end_i': 101, 'severity': 'critical'}, {'start_i': 105, 'end_i': 113, 'severity': 'critical'}, {'start_i': 121, 'end_i': 125, 'severity': 'critical'}, {'start_i': 129, 'end_i': 131, 'severity': 'critical'}, {'start_i': 139, 'end_i': 143, 'severity': 'critical'}, {'start_i': 147, 'end_i': 148, 'severity': 'critical'}, {'start_i': 160, 'end_i': 162, 'severity': 'critical'}, {'start_i': 167, 'end_i': 169, 'severity': 'critical'}, {'start_i': 171, 'end_i': 172, 'severity': 'critical'}, {'start_i': 177, 'end_i': 178, 'severity': 'critical'}, {'start_i': 184, 'end_i': 185, 'severity': 'critical'}, {'start_i': 187, 'end_i': 193, 'severity': 'critical'}, {'start_i': 196, 'end_i': 200, 'severity': 'critical'}, {'start_i': 207, 'end_i': 209, 'severity': 'critical'}, {'start_i': 214, 'end_i': 234, 'severity': 'critical'}, {'start_i': 235, 'end_i': 244, 'severity': 'critical'}, {'start_i': 253, 'end_i': 258, 'severity': 'critical'}, {'start_i': 290, 'end_i': 293, 'severity': 'critical'}, {'start_i': 295, 'end_i': 297, 'severity': 'critical'}, {'start_i': 300, 'end_i': 303, 'severity': 'critical'}, {'start_i': 305, 'end_i': 306, 'severity': 'critical'}, {'start_i': 307, 'end_i': 311, 'severity': 'critical'}, {'start_i': 317, 'end_i': 321, 'severity': 'critical'}, {'start_i': 323, 'end_i': 331, 'severity': 'critical'}, {'start_i': 336, 'end_i': 338, 'severity': 'critical'}, {'start_i': 339, 'end_i': 340, 'severity': 'critical'}, {'start_i': 343, 'end_i': 351, 'severity': 'critical'}]",
+      "domain_name": "news"
+    },
+    {
+      "doc_id": "en-zh_CN_#_news_#_nytimes.154208",
+      "segment_id": "176",
+      "target_lang": "zh_CN",
+      "system_id": "Yolu",
+      "source_segment": "But not Dave Portnoy. The founder and owner of Barstool Sports - the Utne Reader for the light-domestic-swilling, backslapping, Zyn-packing, parlay-chasing American male - Portnoy has long been treated as an avatar for everything that elite media is not. Barstool might be considered the outermost ring of the so-called manosphere, the vast realm of male-oriented alternative media that has been cred",
+      "hypothesis_segment": "但戴夫·波特诺伊不是这样的。作为Barstool Sports——一本专为热爱啤酒、爱拍马屁、惯于用ZYN解压、喜欢押注的美国男性而设的杂志——的创始者兼所有者，波特诺伊一直被视为精英媒体所不具备的一切的化身。Barstool可以被视为所谓“男权文化圈”的最外层，这是一片以男性为导向的另类媒体的广阔领域，这些媒体被认为促成了年轻男性选票向右倾的趋势。波特诺伊——一位有长期发表女性歧视言论和欺凌行为的特朗普支持者——曾被指控在激烈性交过程中未经同意拍摄女性的视频——他对这个标签并不避讳。（他否认了关于性行为不端的指控，并对发布这些指控的媒体提起诉讼；该诉讼被驳回了。）而他对贝利奇克和哈德森照片的留意点是哈德森戴的手链，形状像一个小橄榄球：“BB女友的手袋真酷。”他在X上发帖说，“橄榄球女女友手袋。”",
+      "overall": "0.7515233159065247",
+      "error_spans": "[{'start_i': 3, 'end_i': 4, 'severity': 'critical'}, {'start_i': 5, 'end_i': 13, 'severity': 'critical'}, {'start_i': 16, 'end_i': 31, 'severity': 'critical'}, {'start_i': 37, 'end_i': 60, 'severity': 'critical'}, {'start_i': 82, 'end_i': 83, 'severity': 'critical'}, {'start_i': 90, 'end_i': 92, 'severity': 'critical'}, {'start_i': 94, 'end_i': 101, 'severity': 'critical'}, {'start_i': 105, 'end_i': 113, 'severity': 'critical'}, {'start_i': 121, 'end_i': 125, 'severity': 'critical'}, {'start_i': 129, 'end_i': 131, 'severity': 'critical'}, {'start_i': 139, 'end_i': 143, 'severity': 'critical'}, {'start_i': 147, 'end_i': 148, 'severity': 'critical'}, {'start_i': 160, 'end_i': 162, 'severity': 'critical'}, {'start_i': 167, 'end_i': 169, 'severity': 'critical'}, {'start_i': 171, 'end_i': 172, 'severity': 'critical'}, {'start_i': 177, 'end_i': 178, 'severity': 'critical'}, {'start_i': 184, 'end_i': 185, 'severity': 'critical'}, {'start_i': 187, 'end_i': 193, 'severity': 'critical'}, {'start_i': 196, 'end_i': 200, 'severity': 'critical'}, {'start_i': 207, 'end_i': 209, 'severity': 'critical'}, {'start_i': 214, 'end_i': 234, 'severity': 'critical'}, {'start_i': 235, 'end_i': 244, 'severity': 'critical'}, {'start_i': 253, 'end_i': 258, 'severity': 'critical'}, {'start_i': 290, 'end_i': 293, 'severity': 'critical'}, {'start_i': 295, 'end_i': 297, 'severity': 'critical'}, {'start_i': 300, 'end_i': 303, 'severity': 'critical'}, {'start_i': 305, 'end_i': 306, 'severity': 'critical'}, {'start_i': 307, 'end_i': 311, 'severity': 'critical'}, {'start_i': 317, 'end_i': 321, 'severity': 'critical'}, {'start_i': 323, 'end_i': 331, 'severity': 'critical'}, {'start_i': 336, 'end_i': 338, 'severity': 'critical'}, {'start_i': 339, 'end_i': 340, 'severity': 'critical'}, {'start_i': 343, 'end_i': 351, 'severity': 'critical'}]",
+      "domain_name": "news"
+    },
+    {
+      "doc_id": "en-zh_CN_#_news_#_guardian.230737",
+      "segment_id": "139",
+      "target_lang": "zh_CN",
+      "system_id": "MMMT",
+      "source_segment": "It's ridiculous, of course, as is the hello-little-people tone adopted by the former royal highness, in keeping with the general attitude of the famous towards the unfamous - namely, one of stating the bleeding obvious as though sharing the key to existence. Still, I find myself sympathising with Meghan, who in her Instagram post and its accompanying video faces the stark challenge of having to pa",
+      "hypothesis_segment": "这当然是可笑的，正如前皇室成员所采用的“对小人物的亲和”式语气一样，符合名人对非名人的普遍态度——即把显而易见的东西说得仿佛是分享了生存的秘诀。然而，我仍对梅根产生同情，她在自己的Instagram帖子及配套视频中面对的是一个严峻的挑战——她必须填补内容上的空缺。她对着镜头说：“这就是我所做的，过去几年我一直无法和你们分享，但现在可以了。”这里的“这”到底是什么，是什么阻碍了她与大家分享呢（可能和果酱有关，就像她之前的品牌一样，她通过寄送“限量版”罐装果酱给包括克里斯·詹纳、明迪·卡林和特蕾西·艾莉丝·罗斯在内的人来宣传这个品牌，据说她们还收到了一袋新的柠檬）。不管内容是什么，她暗示国外有一些“谣言”迫使她抢先公布As Ever的消息，因为在“我还没准备好之前，我想让你们先从我这里听到这个消息。”",
+      "overall": "0.7872632741928101",
+      "error_spans": "[{'start_i': 18, 'end_i': 19, 'severity': 'critical'}, {'start_i': 20, 'end_i': 27, 'severity': 'critical'}, {'start_i': 39, 'end_i': 40, 'severity': 'major'}, {'start_i': 52, 'end_i': 53, 'severity': 'critical'}, {'start_i': 62, 'end_i': 68, 'severity': 'critical'}, {'start_i': 90, 'end_i': 99, 'severity': 'critical'}, {'start_i': 123, 'end_i': 124, 'severity': 'critical'}, {'start_i': 125, 'end_i': 127, 'severity': 'critical'}, {'start_i': 143, 'end_i': 147, 'severity': 'critical'}, {'start_i': 152, 'end_i': 157, 'severity': 'critical'}, {'start_i': 160, 'end_i': 162, 'severity': 'critical'}, {'start_i': 166, 'end_i': 168, 'severity': 'critical'}, {'start_i': 175, 'end_i': 176, 'severity': 'critical'}, {'start_i': 186, 'end_i': 188, 'severity': 'critical'}, {'start_i': 190, 'end_i': 196, 'severity': 'critical'}, {'start_i': 199, 'end_i': 202, 'severity': 'critical'}, {'start_i': 208, 'end_i': 213, 'severity': 'critical'}, {'start_i': 222, 'end_i': 224, 'severity': 'critical'}, {'start_i': 225, 'end_i': 230, 'severity': 'critical'}, {'start_i': 233, 'end_i': 239, 'severity': 'critical'}, {'start_i': 240, 'end_i': 245, 'severity': 'critical'}, {'start_i': 246, 'end_i': 247, 'severity': 'critical'}, {'start_i': 249, 'end_i': 254, 'severity': 'critical'}, {'start_i': 278, 'end_i': 281, 'severity': 'critical'}, {'start_i': 295, 'end_i': 297, 'severity': 'critical'}, {'start_i': 301, 'end_i': 303, 'severity': 'critical'}, {'start_i': 307, 'end_i': 308, 'severity': 'critical'}, {'start_i': 309, 'end_i': 321, 'severity': 'critical'}, {'start_i': 326, 'end_i': 327, 'severity': 'critical'}, {'start_i': 334, 'end_i': 335, 'severity': 'critical'}]",
+      "domain_name": "news"
+    },
+    {
+      "doc_id": "en-cs_CZ_#_speech_#_vid_m6CcZN4S8mk",
+      "segment_id": "316",
+      "target_lang": "cs_CZ",
+      "system_id": "IRB-MT",
+      "source_segment": "I do actually use staplers, and then i just got some premium staples for it, so all is good in the hood. So that is everything for this haul video, i hope you guys enjoyed and maybe found some tips or something, i don't really know. I enjoyed back to school shopping, i enjoyed making this video for you guys. I'm really excited to use this stuff when school starts up, hopefully it will keep me a li",
+      "hypothesis_segment": "Používám svorky, a koupila jsem si k nim ještě kvalitní hřebíčky, takže je všechno v pořádku. A to je pro tohle video s nákupy všechno, doufám, že se vám líbilo a třeba jste něco zjistili, já nevím. Mně se fakt líbilo nakupování do školy, líbilo se mi to video pro vás natočit. Moc se těším, až tohle všechno budu používat, až začne škola, doufám, že mě to bude trochu inspirovat. Upřímně, cokoliv, c",
+      "overall": "0.7005825638771057",
+      "error_spans": "[{'start_i': 0, 'end_i': 93, 'severity': 'critical'}, {'start_i': 95, 'end_i': 98, 'severity': 'critical'}, {'start_i': 101, 'end_i': 126, 'severity': 'critical'}, {'start_i': 142, 'end_i': 143, 'severity': 'critical'}, {'start_i': 146, 'end_i': 153, 'severity': 'critical'}, {'start_i': 160, 'end_i': 200, 'severity': 'critical'}, {'start_i': 202, 'end_i': 205, 'severity': 'critical'}, {'start_i': 210, 'end_i': 237, 'severity': 'critical'}, {'start_i': 238, 'end_i': 241, 'severity': 'critical'}, {'start_i': 264, 'end_i': 271, 'severity': 'critical'}, {'start_i': 274, 'end_i': 276, 'severity': 'critical'}, {'start_i': 281, 'end_i': 284, 'severity': 'critical'}, {'start_i': 346, 'end_i': 347, 'severity': 'critical'}, {'start_i': 380, 'end_i': 382, 'severity': 'critical'}, {'start_i': 385, 'end_i': 386, 'severity': 'critical'}, {'start_i': 389, 'end_i': 392, 'severity': 'critical'}, {'start_i': 397, 'end_i': 535, 'severity': 'critical'}, {'start_i': 552, 'end_i': 553, 'severity': 'critical'}, {'start_i': 595, 'end_i': 601, 'severity': 'critical'}, {'start_i': 604, 'end_i': 611, 'severity': 'critical'}, {'start_i': 633, 'end_i': 634, 'severity': 'critical'}, {'start_i': 715, 'end_i': 718, 'severity': 'critical'}, {'start_i': 737, 'end_i': 738, 'severity': 'critical'}, {'start_i': 747, 'end_i': 748, 'severity': 'critical'}, {'start_i': 759, 'end_i': 760, 'severity': 'critical'}, {'start_i': 776, 'end_i': 788, 'severity': 'critical'}]",
+      "domain_name": "speech"
+    },
+    {
+      "doc_id": "en-cs_CZ_#_literary_#_rink_rats_chapter1",
+      "segment_id": "32",
+      "target_lang": "cs_CZ",
+      "system_id": "GemTrans",
+      "source_segment": "Ryan pouted slightly at the soft scolding, his shoulders sinking just a bit. He looked down at his plate, quiet for a moment as he pushed a fry through the last streak of ketchup. “So he’s my age?” he asked, his voice more thoughtful now.\\nKyle nodded. “Same grade. He’ll turn fifteen in May,” he said, watching Ryan closely for a reaction.\\nBut nothing came. Ryan simply continued to eat the last of",
+      "hypothesis_segment": "Ryan se mírně zamračil, když ho jemně okázali, a jeho ramena se trochu sklopila. Chvíli se zadíval na svůj talíř a pak vidličkou rozmazał poslední kousek kečupu po hranolce.\\n„Takže je stejně starý jako já?“ zeptal se, a jeho hlas zněl teď už uvážlivěji.\\n„Ano, chodí do stejné třídy. V květnu mu bude patnáct,“ odpověděl Kyle a pozorně sledoval, jak Ryan reaguje.\\nAle nic se nestalo. Ryan jen dál j",
+      "overall": "0.7133172750473022",
+      "error_spans": "[{'start_i': 22, 'end_i': 23, 'severity': 'critical'}, {'start_i': 28, 'end_i': 46, 'severity': 'critical'}, {'start_i': 80, 'end_i': 98, 'severity': 'critical'}, {'start_i': 112, 'end_i': 158, 'severity': 'critical'}, {'start_i': 160, 'end_i': 179, 'severity': 'critical'}, {'start_i': 191, 'end_i': 197, 'severity': 'critical'}, {'start_i': 207, 'end_i': 218, 'severity': 'critical'}, {'start_i': 230, 'end_i': 232, 'severity': 'critical'}, {'start_i': 242, 'end_i': 247, 'severity': 'critical'}, {'start_i': 267, 'end_i': 270, 'severity': 'critical'}, {'start_i': 277, 'end_i': 283, 'severity': 'critical'}, {'start_i': 286, 'end_i': 291, 'severity': 'critical'}, {'start_i': 301, 'end_i': 309, 'severity': 'critical'}, {'start_i': 319, 'end_i': 320, 'severity': 'critical'}, {'start_i': 325, 'end_i': 326, 'severity': 'critical'}, {'start_i': 334, 'end_i': 336, 'severity': 'critical'}, {'start_i': 345, 'end_i': 346, 'severity': 'critical'}, {'start_i': 363, 'end_i': 475, 'severity': 'critical'}, {'start_i': 476, 'end_i': 491, 'severity': 'critical'}, {'start_i': 494, 'end_i': 498, 'severity': 'critical'}, {'start_i': 501, 'end_i': 519, 'severity': 'critical'}, {'start_i': 548, 'end_i': 551, 'severity': 'critical'}, {'start_i': 582, 'end_i': 641, 'severity': 'critical'}, {'start_i': 660, 'end_i': 664, 'severity': 'critical'}, {'start_i': 689, 'end_i': 692, 'severity': 'critical'}]",
+      "domain_name": "literary"
+    },
+    {
+      "doc_id": "en-cs_CZ_#_literary_#_rink_rats_chapter1",
+      "segment_id": "10",
+      "target_lang": "cs_CZ",
+      "system_id": "Algharb",
+      "source_segment": "“I’ll see you at practice, okay?” Kyle wrapped an arm around Ryan’s shoulders, pulling him close and pressing a kiss to his soft, blonde curls. “Have a great day. Love you.”\\n“Love you too.”\\nKyle stood for a moment, watching as Ryan disappeared through the arched doorway of the main building. As the door swung shut behind his son, Kyle took a deep breath, knowing this was just the beginning of a ",
+      "hypothesis_segment": "„Uvidíme se na tréninku, dobře?“ Kupl si Kyle kolem ramenou, přitáhl ho blíž a políbil ho na jemné blonďaté kadeře. „Hezký den. Miluju tě.“\\n„Taky tě miluju.“\\nKyle chvíli stál a díval se, jak Ryan zmizel v prohloubeném portálu hlavní budovy. Když se dveře za jeho synem zavřely, Kyle se hluboce nadechl, věděl, že tohle je jen začátek nové cesty pro oba.\\nPo celém životě plném přísných rozvrhů půso",
+      "overall": "0.7456527948379517",
+      "error_spans": "[{'start_i': 0, 'end_i': 1, 'severity': 'critical'}, {'start_i': 30, 'end_i': 76, 'severity': 'critical'}, {'start_i': 78, 'end_i': 83, 'severity': 'critical'}, {'start_i': 86, 'end_i': 127, 'severity': 'critical'}, {'start_i': 134, 'end_i': 137, 'severity': 'critical'}, {'start_i': 139, 'end_i': 146, 'severity': 'critical'}, {'start_i': 158, 'end_i': 161, 'severity': 'critical'}, {'start_i': 192, 'end_i': 241, 'severity': 'critical'}, {'start_i': 264, 'end_i': 270, 'severity': 'critical'}, {'start_i': 287, 'end_i': 288, 'severity': 'critical'}, {'start_i': 293, 'end_i': 302, 'severity': 'critical'}, {'start_i': 310, 'end_i': 311, 'severity': 'critical'}, {'start_i': 333, 'end_i': 335, 'severity': 'critical'}, {'start_i': 357, 'end_i': 359, 'severity': 'critical'}, {'start_i': 365, 'end_i': 372, 'severity': 'critical'}, {'start_i': 395, 'end_i': 396, 'severity': 'critical'}, {'start_i': 414, 'end_i': 418, 'severity': 'critical'}, {'start_i': 426, 'end_i': 439, 'severity': 'critical'}, {'start_i': 441, 'end_i': 446, 'severity': 'critical'}, {'start_i': 471, 'end_i': 476, 'severity': 'critical'}, {'start_i': 488, 'end_i': 502, 'severity': 'critical'}, {'start_i': 514, 'end_i': 516, 'severity': 'critical'}, {'start_i': 519, 'end_i': 520, 'severity': 'critical'}, {'start_i': 533, 'end_i': 547, 'severity': 'critical'}, {'start_i': 548, 'end_i': 563, 'severity': 'critical'}]",
+      "domain_name": "literary"
+    },
+    {
+      "doc_id": "en-ja_JP_#_literary_#_rink_rats_chapter2",
+      "segment_id": "62",
+      "target_lang": "ja_JP",
+      "system_id": "TowerPlus-9B",
+      "source_segment": "Declan rose to his feet, clutching the duffel a little tighter.\\nLuc gave him a nod. “Practice starts in twenty. Coach Reynolds will meet you on the ice.”\\nKyle stood too, that same calm energy still radiating off him. “I’ll see you after. Nicole’s making chicken parm tonight. Hope you’re hungry.”\\nDeclan gave a half-smile without meaning to. “Yeah. Sounds good.”\\nAnd with that, he turned and head",
+      "hypothesis_segment": "デクランはダッフルバッグを少しぎゅっと握りしめ、立ち上がった。\\nルクは彼にうなずいた。「練習は20時に始まる。レイノルズコーチがアイスで君に合流する。」\\n同じ落ち着き払ったエネルギーが彼から放たれ、カイルも立ち上がった。「後で会おう。ニコールが今夜チキンパルミを作るんだ。お腹空いてるといいな。」\\nデクランは思わずにっこり笑った。「うん。おいしそうだ。」\\nそう言うと、彼は頭の中で駆け巡る無数のことを考えすぎないように努めながら、廊下へと向かった。\\n練習は、鮮やかなパス、鋭いターン、そしてスケート靴が新しいアイスに当たる時だけに訪れる間違いない高揚感の連続で過ぎ去った。デクランはその調整に時間を要する必要はなかった。最初の練習から彼の本能が働き出した。間もなく、人々の視線が向けられ、コーチたちの間で静かなうなずきが交わされた。",
+      "overall": "0.8267499208450317",
+      "error_spans": "[{'start_i': 0, 'end_i': 24, 'severity': 'critical'}, {'start_i': 27, 'end_i': 28, 'severity': 'critical'}, {'start_i': 31, 'end_i': 43, 'severity': 'critical'}, {'start_i': 48, 'end_i': 50, 'severity': 'critical'}, {'start_i': 58, 'end_i': 59, 'severity': 'critical'}, {'start_i': 60, 'end_i': 61, 'severity': 'critical'}, {'start_i': 65, 'end_i': 69, 'severity': 'critical'}, {'start_i': 71, 'end_i': 73, 'severity': 'critical'}, {'start_i': 78, 'end_i': 104, 'severity': 'critical'}, {'start_i': 105, 'end_i': 107, 'severity': 'critical'}, {'start_i': 108, 'end_i': 109, 'severity': 'critical'}, {'start_i': 113, 'end_i': 114, 'severity': 'critical'}, {'start_i': 126, 'end_i': 135, 'severity': 'critical'}, {'start_i': 138, 'end_i': 141, 'severity': 'critical'}, {'start_i': 153, 'end_i': 154, 'severity': 'critical'}, {'start_i': 157, 'end_i': 170, 'severity': 'critical'}, {'start_i': 172, 'end_i': 178, 'severity': 'critical'}, {'start_i': 181, 'end_i': 187, 'severity': 'critical'}, {'start_i': 188, 'end_i': 215, 'severity': 'critical'}, {'start_i': 219, 'end_i': 223, 'severity': 'critical'}, {'start_i': 227, 'end_i': 228, 'severity': 'critical'}, {'start_i': 229, 'end_i': 232, 'severity': 'critical'}, {'start_i': 243, 'end_i': 245, 'severity': 'critical'}, {'start_i': 246, 'end_i': 247, 'severity': 'critical'}, {'start_i': 250, 'end_i': 255, 'severity': 'critical'}, {'start_i': 256, 'end_i': 262, 'severity': 'critical'}, {'start_i': 273, 'end_i': 276, 'severity': 'critical'}, {'start_i': 278, 'end_i': 280, 'severity': 'critical'}, {'start_i': 295, 'end_i': 300, 'severity': 'critical'}, {'start_i': 304, 'end_i': 305, 'severity': 'critical'}, {'start_i': 318, 'end_i': 320, 'severity': 'critical'}, {'start_i': 324, 'end_i': 326, 'severity': 'critical'}, {'start_i': 327, 'end_i': 329, 'severity': 'critical'}, {'start_i': 338, 'end_i': 348, 'severity': 'critical'}, {'start_i': 360, 'end_i': 362, 'severity': 'critical'}, {'start_i': 370, 'end_i': 371, 'severity': 'critical'}]",
+      "domain_name": "literary"
+    },
+    {
+      "doc_id": "en-ja_JP_#_literary_#_rink_rats_chapter1",
+      "segment_id": "25",
+      "target_lang": "ja_JP",
+      "system_id": "NTTSU",
+      "source_segment": "“Hey,” Kyle hummed, giving Ryan’s shoulder a light squeeze to catch his attention. “Tell your mom about practice. She’s been waiting all day to hear about it.”\\nRyan perked up, his eyes brightening a little. “The rink’s insane, it’s like NHL-level. Uncle Luc- I mean, Coach Luc had us doing some light drills, mostly puck work and conditioning,” he said, trying to keep his voice even, though the exc",
+      "hypothesis_segment": "「おい」とケイルがふわっと声をかけ、リーアンの肩を軽く押して注意を引いた。 「練習の話、お母さんにも伝えておいてね」 「練習って何だよ」リーアンが眉をひそめた。 「サッカーの練習だよ。お母さんは一昨日から、練習の話を聞いていたんだ。」\\nリーアンは目を輝かせ、少し興奮したように見えた。 「あのスケートリンク、すごいよ。まるでNHLのレベルみたい。」 「リューさん、つまり、コーチリューのことか」リーアンは続けた。「私たちには少し軽めの練習をさせてくれたよ。ほとんどはパックワークやコンディション調整だ。」彼は興奮を抑えようと努めたが、それでも抑えきれないのがわかった。\\n「えっ？」ニコールは興味深げに前傾姿勢で聞き入った。 「本当に合っている感じだったの？」\\nリーアンは頷いた。 「うん。」 「みんなすごいけど、僕もそれなりに頑張れたと思うよ。」 「ルークコーチは最初の日は僕たちにあまりプレッ",
+      "overall": "0.7748609781265259",
+      "error_spans": "[{'start_i': 1, 'end_i': 3, 'severity': 'critical'}, {'start_i': 4, 'end_i': 5, 'severity': 'critical'}, {'start_i': 58, 'end_i': 62, 'severity': 'critical'}, {'start_i': 64, 'end_i': 67, 'severity': 'critical'}, {'start_i': 72, 'end_i': 77, 'severity': 'critical'}, {'start_i': 79, 'end_i': 105, 'severity': 'critical'}, {'start_i': 106, 'end_i': 117, 'severity': 'critical'}, {'start_i': 126, 'end_i': 127, 'severity': 'critical'}, {'start_i': 147, 'end_i': 154, 'severity': 'critical'}, {'start_i': 165, 'end_i': 166, 'severity': 'critical'}, {'start_i': 175, 'end_i': 198, 'severity': 'critical'}, {'start_i': 203, 'end_i': 205, 'severity': 'critical'}, {'start_i': 206, 'end_i': 211, 'severity': 'critical'}, {'start_i': 213, 'end_i': 216, 'severity': 'critical'}, {'start_i': 217, 'end_i': 220, 'severity': 'critical'}, {'start_i': 234, 'end_i': 240, 'severity': 'critical'}, {'start_i': 243, 'end_i': 250, 'severity': 'critical'}, {'start_i': 251, 'end_i': 253, 'severity': 'critical'}, {'start_i': 255, 'end_i': 257, 'severity': 'critical'}, {'start_i': 268, 'end_i': 274, 'severity': 'critical'}, {'start_i': 275, 'end_i': 278, 'severity': 'critical'}, {'start_i': 280, 'end_i': 284, 'severity': 'critical'}, {'start_i': 286, 'end_i': 290, 'severity': 'critical'}, {'start_i': 302, 'end_i': 306, 'severity': 'critical'}, {'start_i': 315, 'end_i': 328, 'severity': 'critical'}, {'start_i': 338, 'end_i': 339, 'severity': 'critical'}, {'start_i': 344, 'end_i': 345, 'severity': 'critical'}, {'start_i': 346, 'end_i': 356, 'severity': 'critical'}, {'start_i': 358, 'end_i': 360, 'severity': 'critical'}, {'start_i': 361, 'end_i': 370, 'severity': 'critical'}, {'start_i': 378, 'end_i': 381, 'severity': 'critical'}, {'start_i': 399, 'end_i': 400, 'severity': 'critical'}, {'start_i': 416, 'end_i': 424, 'severity': 'critical'}, {'start_i': 428, 'end_i': 432, 'severity': 'critical'}]",
+      "domain_name": "literary"
+    },
+    {
+      "doc_id": "en-ja_JP_#_literary_#_rink_rats_chapter2",
+      "segment_id": "62",
+      "target_lang": "ja_JP",
+      "system_id": "Algharb",
+      "source_segment": "Declan rose to his feet, clutching the duffel a little tighter.\\nLuc gave him a nod. “Practice starts in twenty. Coach Reynolds will meet you on the ice.”\\nKyle stood too, that same calm energy still radiating off him. “I’ll see you after. Nicole’s making chicken parm tonight. Hope you’re hungry.”\\nDeclan gave a half-smile without meaning to. “Yeah. Sounds good.”\\nAnd with that, he turned and head",
+      "hypothesis_segment": "デクランは立ち上がり、ダッフルバッグをもう少しきつく握りしめた。\\nルークは彼に頷いた。「練習は20分後に始まるよ。レイノルズコーチがリンクで会うって」\\nカイルも立ち上がり、同じ穏やかなエネルギーを放っていた。「後で会おう。今夜はニコールがチキンパルメザンを作るんだ。お腹が空いているといいな。」\\nデクランは思わず微笑んだ。「ああ。いいね。」\\nそして彼はそう言うと、自分の頭の中を駆け巡る無数の思いを深く考えすぎないようにしながら、廊下へ向かって歩き出した。\\n練習は瞬く間に過ぎ去った。鮮やかなパスと鋭いターンの連続の中、スケートが新たな氷を捉えた時にのみ訪れる、あの紛れもない高揚感と共に。デクランに調整の時間など不要だった——最初のドリルから彼の本能が覚醒したのだ。 すぐに、周りの人々の視線が集まり、教練たちの間で静かに了承のうなずきが交わされるようになった。",
+      "overall": "0.8123443126678467",
+      "error_spans": "[{'start_i': 0, 'end_i': 1, 'severity': 'critical'}, {'start_i': 11, 'end_i': 18, 'severity': 'critical'}, {'start_i': 19, 'end_i': 23, 'severity': 'critical'}, {'start_i': 28, 'end_i': 29, 'severity': 'critical'}, {'start_i': 33, 'end_i': 38, 'severity': 'critical'}, {'start_i': 39, 'end_i': 41, 'severity': 'critical'}, {'start_i': 57, 'end_i': 61, 'severity': 'critical'}, {'start_i': 62, 'end_i': 76, 'severity': 'critical'}, {'start_i': 77, 'end_i': 78, 'severity': 'critical'}, {'start_i': 79, 'end_i': 80, 'severity': 'critical'}, {'start_i': 99, 'end_i': 100, 'severity': 'critical'}, {'start_i': 121, 'end_i': 128, 'severity': 'critical'}, {'start_i': 135, 'end_i': 137, 'severity': 'critical'}, {'start_i': 138, 'end_i': 139, 'severity': 'critical'}, {'start_i': 156, 'end_i': 161, 'severity': 'critical'}, {'start_i': 180, 'end_i': 182, 'severity': 'critical'}, {'start_i': 190, 'end_i': 199, 'severity': 'critical'}, {'start_i': 200, 'end_i': 205, 'severity': 'critical'}, {'start_i': 207, 'end_i': 209, 'severity': 'critical'}, {'start_i': 219, 'end_i': 221, 'severity': 'critical'}, {'start_i': 223, 'end_i': 224, 'severity': 'critical'}, {'start_i': 231, 'end_i': 232, 'severity': 'critical'}, {'start_i': 233, 'end_i': 234, 'severity': 'critical'}, {'start_i': 251, 'end_i': 253, 'severity': 'critical'}, {'start_i': 256, 'end_i': 258, 'severity': 'critical'}, {'start_i': 266, 'end_i': 278, 'severity': 'critical'}, {'start_i': 289, 'end_i': 290, 'severity': 'critical'}, {'start_i': 305, 'end_i': 307, 'severity': 'critical'}, {'start_i': 317, 'end_i': 336, 'severity': 'critical'}, {'start_i': 338, 'end_i': 340, 'severity': 'critical'}, {'start_i': 353, 'end_i': 354, 'severity': 'critical'}, {'start_i': 357, 'end_i': 359, 'severity': 'critical'}, {'start_i': 367, 'end_i': 369, 'severity': 'critical'}]",
+      "domain_name": "literary"
+    },
+    {
+      "doc_id": "en-ru_RU_#_speech_#_vid_3vpEaAjDgtI",
+      "segment_id": "275",
+      "target_lang": "ru_RU",
+      "system_id": "SalamandraTA",
+      "source_segment": "Get decoloration on my face so i get decoloration on my face if you can see i've got these spots on my face a little bit so i use up close and personal. Hi guys. Um, i use this wonderball hashtag not sponsored there you go, oh, this is very melted and i just might just put it on my face like this and rub it around. It smells really good guys smell it doesn't smell great. Yep and the reason i use m",
+      "hypothesis_segment": "«Позвольте мне получить обесцвечивание на моем лице, поэтому я получу обесцвечивание на моем лице, если вы можете увидеть, что у меня есть эти пятна на моем лице немного, поэтому я использую «близкий и личный». Привет, ребята. Хм, я использую этот хэштег «wonderball», не спонсируемый, там вы идете, о, это очень расплавлено, и я просто могу просто положить его на мое лицо таким образом и потереть е",
+      "overall": "0.5642784237861633",
+      "error_spans": "[{'start_i': 0, 'end_i': 4, 'severity': 'major'}, {'start_i': 8, 'end_i': 10, 'severity': 'major'}, {'start_i': 14, 'end_i': 38, 'severity': 'major'}, {'start_i': 62, 'end_i': 84, 'severity': 'major'}, {'start_i': 91, 'end_i': 92, 'severity': 'major'}, {'start_i': 97, 'end_i': 106, 'severity': 'major'}, {'start_i': 121, 'end_i': 122, 'severity': 'major'}, {'start_i': 138, 'end_i': 148, 'severity': 'major'}, {'start_i': 155, 'end_i': 170, 'severity': 'major'}, {'start_i': 187, 'end_i': 189, 'severity': 'major'}, {'start_i': 190, 'end_i': 208, 'severity': 'major'}, {'start_i': 249, 'end_i': 254, 'severity': 'major'}, {'start_i': 256, 'end_i': 268, 'severity': 'major'}, {'start_i': 271, 'end_i': 282, 'severity': 'major'}, {'start_i': 284, 'end_i': 299, 'severity': 'major'}, {'start_i': 312, 'end_i': 324, 'severity': 'major'}, {'start_i': 414, 'end_i': 418, 'severity': 'critical'}, {'start_i': 421, 'end_i': 488, 'severity': 'critical'}, {'start_i': 523, 'end_i': 525, 'severity': 'major'}, {'start_i': 535, 'end_i': 556, 'severity': 'major'}, {'start_i': 619, 'end_i': 626, 'severity': 'major'}, {'start_i': 627, 'end_i': 636, 'severity': 'major'}, {'start_i': 646, 'end_i': 648, 'severity': 'major'}, {'start_i': 656, 'end_i': 657, 'severity': 'major'}, {'start_i': 676, 'end_i': 678, 'severity': 'major'}, {'start_i': 682, 'end_i': 693, 'severity': 'major'}, {'start_i': 703, 'end_i': 704, 'severity': 'major'}, {'start_i': 708, 'end_i': 719, 'severity': 'major'}, {'start_i': 722, 'end_i': 726, 'severity': 'major'}, {'start_i': 729, 'end_i': 730, 'severity': 'major'}, {'start_i': 732, 'end_i': 740, 'severity': 'major'}]",
+      "domain_name": "speech"
+    },
+    {
+      "doc_id": "en-ru_RU_#_speech_#_vid_Si9CnnVI8sk",
+      "segment_id": "307",
+      "target_lang": "ru_RU",
+      "system_id": "SalamandraTA",
+      "source_segment": "Extra runs and they they batted a righty and a lefty which made the bowler have to figure that out because he's aiming for that wide line because that's the longer boundary. Well that wide line to a lefty batsman's behind his legs and that's that's a wide so that's runs and they ran on everything. Meanwhile, pakistan running on nothing doing nothing to force extra runs look at this you can see the",
+      "hypothesis_segment": "Большое количество пробежек было вызвано тем, что они использовали правую руку и левую руку, что заставило боулера выяснить это, потому что он нацеливается на эту широкую линию, потому что это более длинная граница. Хорошо, что широкая линия для леворукого бэтсмена находится позади его ног, и это широкая линия, поэтому это пробежки, и они бежали на всё. Тем временем, пакистанцы бегали ни на что не",
+      "overall": "0.554951012134552",
+      "error_spans": "[{'start_i': 0, 'end_i': 5, 'severity': 'major'}, {'start_i': 18, 'end_i': 27, 'severity': 'major'}, {'start_i': 53, 'end_i': 65, 'severity': 'major'}, {'start_i': 73, 'end_i': 78, 'severity': 'major'}, {'start_i': 84, 'end_i': 91, 'severity': 'major'}, {'start_i': 106, 'end_i': 127, 'severity': 'major'}, {'start_i': 142, 'end_i': 145, 'severity': 'major'}, {'start_i': 198, 'end_i': 199, 'severity': 'major'}, {'start_i': 206, 'end_i': 214, 'severity': 'major'}, {'start_i': 215, 'end_i': 223, 'severity': 'major'}, {'start_i': 227, 'end_i': 234, 'severity': 'major'}, {'start_i': 241, 'end_i': 265, 'severity': 'major'}, {'start_i': 297, 'end_i': 304, 'severity': 'major'}, {'start_i': 305, 'end_i': 311, 'severity': 'major'}, {'start_i': 324, 'end_i': 333, 'severity': 'major'}, {'start_i': 340, 'end_i': 354, 'severity': 'major'}, {'start_i': 381, 'end_i': 410, 'severity': 'major'}, {'start_i': 442, 'end_i': 466, 'severity': 'major'}, {'start_i': 536, 'end_i': 541, 'severity': 'major'}, {'start_i': 628, 'end_i': 635, 'severity': 'major'}, {'start_i': 653, 'end_i': 660, 'severity': 'major'}, {'start_i': 664, 'end_i': 670, 'severity': 'major'}, {'start_i': 709, 'end_i': 719, 'severity': 'major'}, {'start_i': 720, 'end_i': 726, 'severity': 'major'}, {'start_i': 766, 'end_i': 771, 'severity': 'major'}]",
+      "domain_name": "speech"
+    },
+    {
+      "doc_id": "en-ru_RU_#_speech_#_vid_n-mmxFdva4w",
+      "segment_id": "318",
+      "target_lang": "ru_RU",
+      "system_id": "CommandA-MT",
+      "source_segment": "Yeah, that's what i'm going to do. Right, and another big actor was there. I didn't know that was there. Morgan freeman, he came out. He gave the old joe clark lean on me speech, right? He came, what seems to be the problem? That's how i go to my office right now. Son, what seems to be the problem? Can't you read the goddamn sign, son? The goddamn sign says, hot sauce and mild sauce with your meal",
+      "hypothesis_segment": "Да, именно это я и собираюсь сделать. Кстати, там был ещё один известный актёр. Я не знал, что он там был. Морган Фриман появился и произнёс ту самую старую речь Джо Кларка \"Опирайся на меня\", верно? Он пришёл и спросил: \"В чём проблема?\" Вот так я иду в свой офис прямо сейчас. Сынок, в чём проблема? Ты не можешь прочитать этот чертов знак, сынок? На чертовом знаке написано: \"Горячий соус и мягкий",
+      "overall": "0.7328309416770935",
+      "error_spans": "[{'start_i': 175, 'end_i': 179, 'severity': 'critical'}, {'start_i': 182, 'end_i': 185, 'severity': 'critical'}, {'start_i': 334, 'end_i': 336, 'severity': 'critical'}, {'start_i': 357, 'end_i': 361, 'severity': 'critical'}, {'start_i': 366, 'end_i': 367, 'severity': 'critical'}, {'start_i': 379, 'end_i': 393, 'severity': 'critical'}, {'start_i': 394, 'end_i': 413, 'severity': 'critical'}, {'start_i': 414, 'end_i': 420, 'severity': 'critical'}, {'start_i': 425, 'end_i': 427, 'severity': 'critical'}, {'start_i': 432, 'end_i': 437, 'severity': 'critical'}, {'start_i': 442, 'end_i': 459, 'severity': 'critical'}, {'start_i': 499, 'end_i': 502, 'severity': 'critical'}, {'start_i': 523, 'end_i': 528, 'severity': 'critical'}, {'start_i': 530, 'end_i': 546, 'severity': 'critical'}, {'start_i': 565, 'end_i': 570, 'severity': 'critical'}, {'start_i': 591, 'end_i': 598, 'severity': 'critical'}, {'start_i': 600, 'end_i': 615, 'severity': 'critical'}, {'start_i': 646, 'end_i': 675, 'severity': 'critical'}, {'start_i': 679, 'end_i': 704, 'severity': 'critical'}, {'start_i': 705, 'end_i': 741, 'severity': 'critical'}, {'start_i': 748, 'end_i': 749, 'severity': 'critical'}, {'start_i': 762, 'end_i': 773, 'severity': 'critical'}, {'start_i': 787, 'end_i': 863, 'severity': 'critical'}, {'start_i': 879, 'end_i': 880, 'severity': 'critical'}, {'start_i': 900, 'end_i': 913, 'severity': 'critical'}]",
+      "domain_name": "speech"
+    },
+    {
+      "doc_id": "en-uk_UA_#_speech_#_vid_u2JNW0Ftyzg",
+      "segment_id": "326",
+      "target_lang": "uk_UA",
+      "system_id": "GemTrans",
+      "source_segment": "Let me stick this guy, every time i interview him, i spank him every time, i pull his trousers down, i say, you naughty boy, you naughty boy. Why would you want to peel another man? Why would you want to peel my trousers down? Sadly, you've got a nice butt. Your friends do that, your friends do that, your friends, i watch everything, i watch everything. My job is to watch everything. Do you like m",
+      "hypothesis_segment": "Я завжди роблю це з ним, кожного разу, коли беру у нього інтерв'ю, я \"шльопаю\" його, я знімаю з нього штани, я кажу: \"Ти неслухняний хлопчик, ти неслухняний хлопчик\". Навіщо тобі знімати штани з іншої людини? Навіщо тобі знімати мої штани? На жаль, у тебе гарні сідниці. Твої друзі роблять це, твої друзі роблять це, твої друзі... Я все бачу, я все бачу. Моя робота — бачити все. Тобі подобаються мої",
+      "overall": "0.6549690365791321",
+      "error_spans": "[{'start_i': 0, 'end_i': 23, 'severity': 'critical'}, {'start_i': 68, 'end_i': 78, 'severity': 'critical'}, {'start_i': 123, 'end_i': 127, 'severity': 'critical'}, {'start_i': 132, 'end_i': 141, 'severity': 'critical'}, {'start_i': 144, 'end_i': 150, 'severity': 'critical'}, {'start_i': 151, 'end_i': 164, 'severity': 'critical'}, {'start_i': 194, 'end_i': 200, 'severity': 'critical'}, {'start_i': 228, 'end_i': 232, 'severity': 'critical'}, {'start_i': 242, 'end_i': 248, 'severity': 'critical'}, {'start_i': 255, 'end_i': 269, 'severity': 'critical'}, {'start_i': 275, 'end_i': 289, 'severity': 'critical'}, {'start_i': 292, 'end_i': 327, 'severity': 'critical'}, {'start_i': 402, 'end_i': 404, 'severity': 'critical'}, {'start_i': 426, 'end_i': 434, 'severity': 'critical'}, {'start_i': 442, 'end_i': 443, 'severity': 'critical'}, {'start_i': 448, 'end_i': 460, 'severity': 'critical'}, {'start_i': 464, 'end_i': 472, 'severity': 'critical'}, {'start_i': 473, 'end_i': 484, 'severity': 'critical'}, {'start_i': 486, 'end_i': 489, 'severity': 'critical'}, {'start_i': 491, 'end_i': 509, 'severity': 'critical'}, {'start_i': 511, 'end_i': 534, 'severity': 'critical'}, {'start_i': 536, 'end_i': 539, 'severity': 'critical'}, {'start_i': 541, 'end_i': 551, 'severity': 'critical'}, {'start_i': 573, 'end_i': 574, 'severity': 'critical'}, {'start_i': 595, 'end_i': 607, 'severity': 'critical'}, {'start_i': 628, 'end_i': 631, 'severity': 'critical'}, {'start_i': 685, 'end_i': 697, 'severity': 'critical'}, {'start_i': 700, 'end_i': 703, 'severity': 'critical'}, {'start_i': 705, 'end_i': 708, 'severity': 'critical'}]",
+      "domain_name": "speech"
+    },
+    {
+      "doc_id": "en-uk_UA_#_news_#_guardian.231314",
+      "segment_id": "159",
+      "target_lang": "uk_UA",
+      "system_id": "SalamandraTA",
+      "source_segment": "And it's that kind of reshaping of reality that needs a coherent European response. Recently, the US vice-president, JD Vance, who has the exact same face-beard as the main male oppressor in the TV adaptation of The Handmaid's Tale, came and told the Munich security conference that Scotland had made it illegal to pray silently in your own home. Many things are illegal in Scotland. Fruit, for examp",
+      "hypothesis_segment": "Відповідна реакція Європи необхідна для перетворення реальності саме таким чином. Нещодавно американський віце-президент ДД Вейнз, у якого точнісінько таке ж обличчя з бородою, як у головного чоловічого гнобителя в телевізійній адаптації «Повії», приїхав на конференцію з питань безпеки в Мюнхені й заявив, що в Шотландії заборонено мовчати під час молитви у власному домі. У Шотландії багато чого за",
+      "overall": "0.7829154133796692",
+      "error_spans": "[{'start_i': 0, 'end_i': 81, 'severity': 'critical'}, {'start_i': 105, 'end_i': 129, 'severity': 'critical'}, {'start_i': 130, 'end_i': 132, 'severity': 'critical'}, {'start_i': 138, 'end_i': 176, 'severity': 'critical'}, {'start_i': 181, 'end_i': 244, 'severity': 'critical'}, {'start_i': 257, 'end_i': 258, 'severity': 'critical'}, {'start_i': 305, 'end_i': 306, 'severity': 'critical'}, {'start_i': 321, 'end_i': 355, 'severity': 'critical'}, {'start_i': 363, 'end_i': 370, 'severity': 'critical'}, {'start_i': 397, 'end_i': 410, 'severity': 'critical'}, {'start_i': 440, 'end_i': 441, 'severity': 'critical'}, {'start_i': 472, 'end_i': 473, 'severity': 'critical'}, {'start_i': 485, 'end_i': 493, 'severity': 'critical'}, {'start_i': 495, 'end_i': 512, 'severity': 'critical'}, {'start_i': 524, 'end_i': 526, 'severity': 'critical'}, {'start_i': 529, 'end_i': 538, 'severity': 'critical'}, {'start_i': 547, 'end_i': 559, 'severity': 'critical'}, {'start_i': 563, 'end_i': 595, 'severity': 'critical'}, {'start_i': 598, 'end_i': 600, 'severity': 'critical'}, {'start_i': 640, 'end_i': 641, 'severity': 'critical'}, {'start_i': 648, 'end_i': 650, 'severity': 'critical'}, {'start_i': 673, 'end_i': 719, 'severity': 'critical'}, {'start_i': 741, 'end_i': 745, 'severity': 'critical'}, {'start_i': 757, 'end_i': 785, 'severity': 'critical'}, {'start_i': 790, 'end_i': 805, 'severity': 'critical'}, {'start_i': 930, 'end_i': 940, 'severity': 'critical'}, {'start_i': 952, 'end_i': 976, 'severity': 'critical'}]",
+      "domain_name": "news"
+    },
+    {
+      "doc_id": "en-uk_UA_#_literary_#_rink_rats_chapter1",
+      "segment_id": "32",
+      "target_lang": "uk_UA",
+      "system_id": "SalamandraTA",
+      "source_segment": "Ryan pouted slightly at the soft scolding, his shoulders sinking just a bit. He looked down at his plate, quiet for a moment as he pushed a fry through the last streak of ketchup. “So he’s my age?” he asked, his voice more thoughtful now.\\nKyle nodded. “Same grade. He’ll turn fifteen in May,” he said, watching Ryan closely for a reaction.\\nBut nothing came. Ryan simply continued to eat the last of",
+      "hypothesis_segment": "Раян трохи наморщився від м'якого докірливого зауваження, і його плечі трохи похилилися. Він подивився на свою тарілку, затих на мить, коли проштовхував смажену картоплинку крізь останню смужку кетчупу.\\n\"Що ж, він такий же старий, як я?\", – запитав він, і тепер його голос звучав більш вдумливо.\\nКайл кивнув головою. \"Такий самий клас. У травні йому виповниться п'ятнадцять\", – сказав він, уважно с",
+      "overall": "0.7774490118026733",
+      "error_spans": "[{'start_i': 10, 'end_i': 18, 'severity': 'critical'}, {'start_i': 21, 'end_i': 56, 'severity': 'critical'}, {'start_i': 76, 'end_i': 87, 'severity': 'critical'}, {'start_i': 92, 'end_i': 95, 'severity': 'critical'}, {'start_i': 118, 'end_i': 128, 'severity': 'critical'}, {'start_i': 133, 'end_i': 178, 'severity': 'critical'}, {'start_i': 201, 'end_i': 239, 'severity': 'critical'}, {'start_i': 241, 'end_i': 253, 'severity': 'critical'}, {'start_i': 286, 'end_i': 291, 'severity': 'critical'}, {'start_i': 318, 'end_i': 377, 'severity': 'critical'}, {'start_i': 391, 'end_i': 393, 'severity': 'critical'}, {'start_i': 398, 'end_i': 402, 'severity': 'critical'}, {'start_i': 434, 'end_i': 466, 'severity': 'critical'}, {'start_i': 480, 'end_i': 481, 'severity': 'critical'}, {'start_i': 493, 'end_i': 497, 'severity': 'critical'}, {'start_i': 502, 'end_i': 558, 'severity': 'critical'}, {'start_i': 563, 'end_i': 565, 'severity': 'critical'}, {'start_i': 572, 'end_i': 576, 'severity': 'critical'}, {'start_i': 583, 'end_i': 584, 'severity': 'critical'}, {'start_i': 602, 'end_i': 609, 'severity': 'critical'}, {'start_i': 612, 'end_i': 615, 'severity': 'critical'}, {'start_i': 622, 'end_i': 630, 'severity': 'critical'}, {'start_i': 653, 'end_i': 656, 'severity': 'critical'}, {'start_i': 660, 'end_i': 662, 'severity': 'critical'}, {'start_i': 677, 'end_i': 779, 'severity': 'critical'}, {'start_i': 785, 'end_i': 786, 'severity': 'critical'}, {'start_i': 802, 'end_i': 803, 'severity': 'critical'}]",
+      "domain_name": "literary"
+    },
+    {
+      "doc_id": "en-is_IS_#_social_#_114294867111841563",
+      "segment_id": "233",
+      "target_lang": "is_IS",
+      "system_id": "NLLB",
+      "source_segment": "When I want the familiar comforts of the SN30 Pro but with all the features of a modern controller, the 8BitDo Pro 2 has been my multi-platform controller of choice.\\nEverything about this is a functional upgrade from the SN30 Pro: more comfortable grips, hall-effect sticks, analog triggers, programmable back paddles, a physical X/D/S/A mode toggle switch, and a [somewhat] easily replaceable batte",
+      "hypothesis_segment": "Þegar ég vil þekkta þægindi SN30 Pro en með öllum eiginleikum nútíma stjórnandi, hefur 8BitDo Pro 2 verið fjölmiðla stjórnandi val minn.\\nAllt í þessu er virkni uppfærsla frá SN30 Pro: þægilegri gripir, halla-áhrif stöngur, analog kveikjur, forritanlegur aftur paddles, líkamlegur X / D / S / A stillingu toggle breytir, og [aðeins] auðveldlega skipta rafhlöðu með möguleika á að nota AAs í pinch. Ég",
+      "overall": "0.6401052474975586",
+      "error_spans": "[{'start_i': 8, 'end_i': 19, 'severity': 'major'}, {'start_i': 68, 'end_i': 79, 'severity': 'major'}, {'start_i': 80, 'end_i': 86, 'severity': 'major'}, {'start_i': 91, 'end_i': 93, 'severity': 'major'}, {'start_i': 105, 'end_i': 126, 'severity': 'critical'}, {'start_i': 153, 'end_i': 158, 'severity': 'major'}, {'start_i': 167, 'end_i': 168, 'severity': 'major'}, {'start_i': 194, 'end_i': 201, 'severity': 'major'}, {'start_i': 202, 'end_i': 222, 'severity': 'major'}, {'start_i': 249, 'end_i': 260, 'severity': 'major'}, {'start_i': 264, 'end_i': 268, 'severity': 'major'}, {'start_i': 269, 'end_i': 282, 'severity': 'major'}, {'start_i': 292, 'end_i': 319, 'severity': 'major'}, {'start_i': 323, 'end_i': 344, 'severity': 'major'}, {'start_i': 345, 'end_i': 351, 'severity': 'major'}, {'start_i': 355, 'end_i': 356, 'severity': 'major'}, {'start_i': 358, 'end_i': 360, 'severity': 'major'}, {'start_i': 384, 'end_i': 396, 'severity': 'major'}, {'start_i': 401, 'end_i': 407, 'severity': 'major'}, {'start_i': 414, 'end_i': 438, 'severity': 'major'}, {'start_i': 441, 'end_i': 445, 'severity': 'major'}, {'start_i': 447, 'end_i': 457, 'severity': 'major'}, {'start_i': 462, 'end_i': 466, 'severity': 'major'}, {'start_i': 482, 'end_i': 489, 'severity': 'major'}, {'start_i': 515, 'end_i': 520, 'severity': 'major'}, {'start_i': 546, 'end_i': 570, 'severity': 'major'}, {'start_i': 575, 'end_i': 580, 'severity': 'major'}, {'start_i': 608, 'end_i': 617, 'severity': 'major'}, {'start_i': 660, 'end_i': 666, 'severity': 'major'}, {'start_i': 676, 'end_i': 680, 'severity': 'major'}, {'start_i': 756, 'end_i': 763, 'severity': 'major'}, {'start_i': 770, 'end_i': 793, 'severity': 'major'}, {'start_i': 797, 'end_i': 803, 'severity': 'major'}, {'start_i': 873, 'end_i': 876, 'severity': 'critical'}, {'start_i': 881, 'end_i': 888, 'severity': 'critical'}]",
+      "domain_name": "social"
+    },
+    {
+      "doc_id": "en-is_IS_#_speech_#_vid_QGNXASdL_ss",
+      "segment_id": "302",
+      "target_lang": "is_IS",
+      "system_id": "TranssionTranslate",
+      "source_segment": "Otherwise you need to pre -order the wyze phone too. I missed that point so we're ready to throw that out there if you order in june or july, which i know june is gone so if you order in july you get $75 off of wyze phone using my code you'll go to techless .com slash trevor and you'll use the code trevor at checkout you do that i get a kickback it helps out a lot and it's like a win -win situatio",
+      "hypothesis_segment": "Annars þarftu líka að panta Wyze símann fyrirfram.Ég missti af þeim punkti svo við erum tilbúin að nefna það ef þú pantar í júní eða júlí, sem ég veit að júní er liðinn. Svo ef þú pantar í júlí færðu $75 afslátt af Wyze síma. Með því að nota kóðann minn ferðu á techless.com Slash Trevor og notar kóðann Trevor við greiðslu. Ef þú gerir það fæ ég afslátt, það hjálpar mikið og þetta er eins og win-wi",
+      "overall": "0.736259400844574",
+      "error_spans": "[{'start_i': 27, 'end_i': 39, 'severity': 'critical'}, {'start_i': 45, 'end_i': 108, 'severity': 'critical'}, {'start_i': 138, 'end_i': 142, 'severity': 'critical'}, {'start_i': 145, 'end_i': 168, 'severity': 'critical'}, {'start_i': 211, 'end_i': 224, 'severity': 'critical'}, {'start_i': 253, 'end_i': 259, 'severity': 'critical'}, {'start_i': 261, 'end_i': 270, 'severity': 'critical'}, {'start_i': 271, 'end_i': 287, 'severity': 'critical'}, {'start_i': 303, 'end_i': 307, 'severity': 'major'}, {'start_i': 330, 'end_i': 340, 'severity': 'critical'}, {'start_i': 343, 'end_i': 346, 'severity': 'critical'}, {'start_i': 349, 'end_i': 350, 'severity': 'critical'}, {'start_i': 401, 'end_i': 402, 'severity': 'critical'}, {'start_i': 428, 'end_i': 431, 'severity': 'critical'}, {'start_i': 444, 'end_i': 491, 'severity': 'critical'}, {'start_i': 545, 'end_i': 548, 'severity': 'critical'}, {'start_i': 566, 'end_i': 568, 'severity': 'critical'}, {'start_i': 592, 'end_i': 594, 'severity': 'critical'}, {'start_i': 609, 'end_i': 614, 'severity': 'critical'}, {'start_i': 632, 'end_i': 636, 'severity': 'critical'}, {'start_i': 637, 'end_i': 647, 'severity': 'critical'}, {'start_i': 651, 'end_i': 662, 'severity': 'critical'}, {'start_i': 666, 'end_i': 675, 'severity': 'critical'}, {'start_i': 680, 'end_i': 688, 'severity': 'critical'}, {'start_i': 701, 'end_i': 709, 'severity': 'critical'}, {'start_i': 718, 'end_i': 729, 'severity': 'critical'}, {'start_i': 733, 'end_i': 739, 'severity': 'critical'}, {'start_i': 769, 'end_i': 771, 'severity': 'critical'}, {'start_i': 801, 'end_i': 802, 'severity': 'critical'}, {'start_i': 805, 'end_i': 807, 'severity': 'critical'}, {'start_i': 821, 'end_i': 822, 'severity': 'critical'}, {'start_i': 834, 'end_i': 835, 'severity': 'critical'}, {'start_i': 843, 'end_i': 851, 'severity': 'critical'}, {'start_i': 869, 'end_i': 873, 'severity': 'critical'}, {'start_i': 875, 'end_i': 879, 'severity': 'critical'}]",
+      "domain_name": "speech"
+    },
+    {
+      "doc_id": "en-is_IS_#_social_#_114294867111841563",
+      "segment_id": "233",
+      "target_lang": "is_IS",
+      "system_id": "Gemma-3-27B",
+      "source_segment": "When I want the familiar comforts of the SN30 Pro but with all the features of a modern controller, the 8BitDo Pro 2 has been my multi-platform controller of choice.\\nEverything about this is a functional upgrade from the SN30 Pro: more comfortable grips, hall-effect sticks, analog triggers, programmable back paddles, a physical X/D/S/A mode toggle switch, and a [somewhat] easily replaceable batte",
+      "hypothesis_segment": "Þegar ég vildi þægilega þægindi SN30 Pro en með allan virkni nútímalegs stjórnartækis, hefur 8BitDo Pro 2 verið stjórnartækið mitt á mörgum vettvöngum.\\nAllt um þetta er virkni uppfærsla frá SN30 Pro: þægilegri grip, hall-áhrifastik, analog útblástursstýringar, forritanlegar bakkpaddar, fysiskur X/D/S/A stillingarrofi og [að nokkuðu] auðvelt skiptanleg rafhlöð með valkosti um að nota AA í knípinni",
+      "overall": "0.6309340000152588",
+      "error_spans": "[{'start_i': 5, 'end_i': 18, 'severity': 'critical'}, {'start_i': 19, 'end_i': 34, 'severity': 'critical'}, {'start_i': 40, 'end_i': 85, 'severity': 'critical'}, {'start_i': 97, 'end_i': 99, 'severity': 'major'}, {'start_i': 111, 'end_i': 124, 'severity': 'critical'}, {'start_i': 125, 'end_i': 150, 'severity': 'critical'}, {'start_i': 157, 'end_i': 160, 'severity': 'critical'}, {'start_i': 169, 'end_i': 176, 'severity': 'major'}, {'start_i': 183, 'end_i': 184, 'severity': 'major'}, {'start_i': 204, 'end_i': 205, 'severity': 'major'}, {'start_i': 216, 'end_i': 232, 'severity': 'major'}, {'start_i': 240, 'end_i': 243, 'severity': 'critical'}, {'start_i': 250, 'end_i': 251, 'severity': 'critical'}, {'start_i': 275, 'end_i': 286, 'severity': 'major'}, {'start_i': 287, 'end_i': 296, 'severity': 'major'}, {'start_i': 315, 'end_i': 319, 'severity': 'major'}, {'start_i': 322, 'end_i': 348, 'severity': 'major'}, {'start_i': 358, 'end_i': 362, 'severity': 'major'}, {'start_i': 386, 'end_i': 398, 'severity': 'critical'}, {'start_i': 416, 'end_i': 425, 'severity': 'critical'}, {'start_i': 433, 'end_i': 447, 'severity': 'critical'}, {'start_i': 460, 'end_i': 466, 'severity': 'critical'}, {'start_i': 477, 'end_i': 486, 'severity': 'critical'}, {'start_i': 490, 'end_i': 498, 'severity': 'critical'}, {'start_i': 503, 'end_i': 512, 'severity': 'critical'}, {'start_i': 527, 'end_i': 559, 'severity': 'critical'}, {'start_i': 570, 'end_i': 572, 'severity': 'critical'}, {'start_i': 578, 'end_i': 620, 'severity': 'critical'}, {'start_i': 637, 'end_i': 645, 'severity': 'critical'}, {'start_i': 677, 'end_i': 678, 'severity': 'critical'}, {'start_i': 771, 'end_i': 793, 'severity': 'critical'}, {'start_i': 797, 'end_i': 809, 'severity': 'critical'}, {'start_i': 810, 'end_i': 845, 'severity': 'critical'}, {'start_i': 854, 'end_i': 883, 'severity': 'critical'}]",
+      "domain_name": "social"
+    }
+  ],
+  "wmt24pp_by_lang": {
+    "cs_CZ": [
+      {
+        "document_id": "test-en-news_beverly_press.3585",
+        "segment_id": 2,
+        "domain": "news",
+        "source": "\"People Swimming in the Swimming Pool\" from 2022 is one Vicente Siso artwork that will display at Tierra del Sol Gallery beginning Jan. 13. (photo courtesy of Vicente Siso)",
+        "target": "„Lidé koupající se v plaveckém bazénu“ z roku 2022 je jedním z uměleckých děl Vicenta Sisoa, která se budou vystavovat v galerii Tierra del Sol od 13. ledna. (foto se svolením Vicenta Sisoa)",
+        "is_bad_source": false
+      },
+      {
+        "document_id": "test-en-news_euronews-en.43091",
+        "segment_id": 33,
+        "domain": "news",
+        "source": "Ignacio Sánchez Recarte, secretary general of the Comité Européen des Entreprises Vins trade association representing some 7,000 wine producers across Europe, is dismissive of the concerns of the beer makers. He told Euronews that a market dominated by multinational brewing conglomerates bears no comparison with one comprised almost entirely of small, domestic producers.",
+        "target": "Generální tajemník obchodní asociace Comité Européen des Entreprises Vins a zástupce přibližně 7 000 výrobců vína v celé Evropě Ignacio Sánchez Recarte odmítá obavy výrobců piva. Pro Euronews řekl, že trh, kterému dominují mezinárodní pivovarnické konglomeráty, nemá smysl porovnávat s trhem, který je složený z převážně malých lokálních producentů.",
+        "is_bad_source": false
+      },
+      {
+        "document_id": "test-en-news_newsweek.63908",
+        "segment_id": 56,
+        "domain": "news",
+        "source": "\"That [1 percent cut] is supposed to be motivation and leverage to get 12 separate bills done,\" Massie told Newsweek. \"So, I think we could do a one-year CR, we can argue, and then we hit that tiny little bump in the road, then hopefully everybody's motivated to come to their senses. That's the way I would do it.\"",
+        "target": "„Toto (1% snížení výdajů) by měla být motivace a páka k prosazení všech 12 návrhů,“ uvedl Massie pro Newsweek. „Takže si myslím, že bychom případně mohli uplatnit jednoroční CR. Poté někde narazíme na nějakou tu malou překážku a to snad bude všechny dostatečně motivovat k tomu, aby dostali rozum. Tak bych to udělal já.“",
+        "is_bad_source": false
+      },
+      {
+        "document_id": "test-en-news_beverly_press.3585",
+        "segment_id": 3,
+        "domain": "news",
+        "source": "Tierra del Sol is pleased to present \"Vicente Siso: Memories of the Land and Water\" at the new gallery location in West Hollywood. Siso has been an artist in the Studio Arts Program since 2012, this marks his debut solo exhibition. Siso was born 1962 in Madrid and raised between Venezuela, Trinidad and Miami; he moved with his family to Southern California in his early 20s.",
+        "target": "Tierra del Sol s potěšením uvádí výstavu „Vicente Siso: Vzpomínky země a vody“ v nových galerijních prostorách v západním Hollywoodu. Siso je od roku 2012 v programu Studiové umění. Toto je jeho první samostatná výstava. Narodil se roku 1962 v Madridu a vyrůstal střídavě ve Venezuele, na Trinidadu a v Miami. S rodinou se přestěhoval do jižní Kalifornie krátce po svých 20. narozeninách.",
+        "is_bad_source": false
+      },
+      {
+        "document_id": "test-en-news_beverly_press.3585",
+        "segment_id": 4,
+        "domain": "news",
+        "source": "Masterfully working across subject matter, Siso has generated a prolific series of landscapes, portraits, and still-life works rendered in either acrylic, pastel, pencil or watercolor. Drawing from family portraits, his own reference photographs, and recollection, his colorful compositions demonstrate his range of interests and skill across media. Siso's tropical landscapes and seascapes reflect the geographies of his past, employing rich patterns and incorporating people to make meaningful connections between culture, memory and the environment. Siso titles his artworks in a mix of Spanish and English, signifying the celebrated and integral complexities of his life in Los Angeles County. \"Vicente Siso: Memories of the Land and Water\" opens on Saturday, Jan. 13, with a reception from 6-8 p.m. The exhibition is on view through Sunday, March 3.",
+        "target": "Siso mistrně pracuje na různá témata a vytvořil širokou škálu krajinek, portrétů a zátiší provedených akrylem, pastelem, tužkou nebo akvarelem. Jeho barvité kompozice čerpající z rodinných portrétů, vlastních fotografií a vzpomínek ukazují rozsah jeho zájmů a schopností napříč různými médii. Sisovy krajinky s tropickými a mořskými motivy odrážejí jeho minulost. Spojují bohaté vzory a lidi, aby vytvářely smysluplné propojení mezi kulturou, vzpomínkami a místy. Siso svá díla pojmenovává směsicí španělštiny a angličtiny, čímž vyjadřuje oslavnou a nedílnou složitost svého života v okrese Los Angeles. Výstava „Vicente Siso: Vzpomínky země a vody“ bude zahájena v sobotu 13. ledna vernisáží, která se bude konat od 18. do 20. hodiny. Výstavu bude možné shlédnout do neděle 3. března.",
+        "is_bad_source": false
+      },
+      {
+        "document_id": "test-en-news_beverly_press.3585",
+        "segment_id": 5,
+        "domain": "news",
+        "source": "The Tierra del Sol Gallery is located at 7414 Santa Monica Blvd. For information, visit tierradelsolgallery.org.",
+        "target": "Galerie Tierra del Sol se nachází na adrese Santa Monica Blvd 7414. Více informací najdete na webu tierradelsolgallery.org.",
+        "is_bad_source": false
+      },
+      {
+        "document_id": "test-en-news_brisbanetimes.com.au.228963",
+        "segment_id": 7,
+        "domain": "news",
+        "source": "At the precinct level, we just need to look at the Sydney CBD as an example of an area which has grown from its pre-settlement landscape into a two-storey city, from a maximum height of 150 feet to the soaring towers of today. At a much scaled-down level, the same can occur across Sydney's town centres located around transport nodes. Inner suburbs must also evolve, with a swing to more affordable apartment living at heights below the tree tops on key sites. Of course, the new growth in housing needs to be well-designed and trees, landscaping and parks need to be included along with other essential infrastructure.",
+        "target": "Na úrovni okrsků se stačí podívat na Centrální obchodní čtvrť v Sydney jako na příklad toho, jak se krajina před osídlením rozrostla na dvouúrovňové město, z původní maximální výšky 50 metrů do tyčících se výškových budov dneška. V mnohem menším měřítku může k témuž dojít v dalších městských částech Sydney, která se nacházejí kolem dopravních uzlů. Vnitřní předměstí se také musejí vyvíjet a na klíčových lokalitách je nutné přejít k cenově dostupnějšímu bydlení ve výškách nepřesahujících koruny stromů. Nová bytová výstavba musí být samozřejmě dobře navržena a spolu s další základní infrastrukturou je nutné zahrnout také krajinné úpravy a parky.",
+        "is_bad_source": false
+      },
+      {
+        "document_id": "test-en-news_brisbanetimes.com.au.228963",
+        "segment_id": 8,
+        "domain": "news",
+        "source": "Our planning system also needs to adapt so that planners in suburban councils, who seem to be less supportive of change, are not the only determinants of the future shape of their suburbs. A way forward could be to have an independent decision-making body that championed quality design as long as it fitted below the tree tops and incorporated family living, large balconies, common gardens and presented a friendly appearance. This could be a role for the current NSW government architect working within a carefully crafted complying code.",
+        "target": "Náš systém plánování se také musí přizpůsobit, aby úředníci v samosprávných orgánech, kteří se zdají být méně ochotní podporovat změny, nebyli jedinými, kdo bude rozhodovat o budoucí podobě předměstí. Ukázkovým řešením by mohl být nezávislý rozhodovací orgán, který by bojoval za kvalitu návrhů a splňování podmínky maximální výšky budov pro rodinné bydlení, s velkými balkony, společnými zahradami a příjemným vzhledem. To by mohlo být úlohou současného architekta z pověření vlády Nového Jižního Walesu, který by pracoval v rámci pečlivě vypracovaného kodexu.",
+        "is_bad_source": false
+      }
+    ],
+    "is_IS": [
+      {
+        "document_id": "test-en-news_beverly_press.3585",
+        "segment_id": 2,
+        "domain": "news",
+        "source": "\"People Swimming in the Swimming Pool\" from 2022 is one Vicente Siso artwork that will display at Tierra del Sol Gallery beginning Jan. 13. (photo courtesy of Vicente Siso)",
+        "target": "„Fólk að synda í sundlaug“ frá 2022 er eitt af málverkunum sem Vicente Siso mun sýna í Tierra del Sol-galleríinu frá 13. janúar (mynd birt með leyfi Vicente Siso)",
+        "is_bad_source": false
+      },
+      {
+        "document_id": "test-en-news_brisbanetimes.com.au.228963",
+        "segment_id": 7,
+        "domain": "news",
+        "source": "At the precinct level, we just need to look at the Sydney CBD as an example of an area which has grown from its pre-settlement landscape into a two-storey city, from a maximum height of 150 feet to the soaring towers of today. At a much scaled-down level, the same can occur across Sydney's town centres located around transport nodes. Inner suburbs must also evolve, with a swing to more affordable apartment living at heights below the tree tops on key sites. Of course, the new growth in housing needs to be well-designed and trees, landscaping and parks need to be included along with other essential infrastructure.",
+        "target": "Þegar kemur að hverfum þá þurfum við ekki annað en að horfa til viðskiptahverfisins í Sydney til að sjá dæmi um svæði sem hefur vaxið upp úr landslaginu fyrir landnám í tveggja hæða borg, og síðan úr 150 feta hámarkshæð sinni upp í skýjakljúfana sem einkenna hverfið í dag. Það er ekkert sem stöðvar aðra bæjarkjarna með öflugar almenningssamgöngur í að fara sömu leið á mun minni skala. Nærliggjandi úthverfi þurfa einnig að þróast, með tilfærslu á tilteknum svæðum yfir í hagstæðari íbúðir í byggingum sem ekki tróna yfir borgarlandslaginu. Að sjálfsögðu þarf þessi þróun að vera þaulhönnuð og gera ráð fyrir trjám, borgarlandslagi og almenningsgörðum, sem og öðrum þörfum innviðum.",
+        "is_bad_source": false
+      },
+      {
+        "document_id": "test-en-news_brisbanetimes.com.au.228963",
+        "segment_id": 8,
+        "domain": "news",
+        "source": "Our planning system also needs to adapt so that planners in suburban councils, who seem to be less supportive of change, are not the only determinants of the future shape of their suburbs. A way forward could be to have an independent decision-making body that championed quality design as long as it fitted below the tree tops and incorporated family living, large balconies, common gardens and presented a friendly appearance. This could be a role for the current NSW government architect working within a carefully crafted complying code.",
+        "target": "Það verður að vera hægt að aðlaga borgarskipulag okkar svo að skipuleggjendur í úthverfabæjarráðum – sem virðast vera minna hallir undir breytingar – séu ekki þeir einu sem hafa ákvörðunarvald um framtíðarsýn úthverfanna sinna. Ein leið gæti verið að koma á fót sjálfstæðri ákvörðunarnefnd sem hefði að leiðarljósi hágæða hönnun svo lengi sem hún miðaðist við uppbyggingu án háhýsa og fæli í sér fjölskyldulíf, stórar svalir, sameiginlega garða og vinalegt yfirbragð. Innan marka úthugsaðrar byggingarreglugerðar væri þetta hlutverk sem núverandi ríkisarkitekt Nýja-Suður-Wales gæti sinnt.",
+        "is_bad_source": false
+      },
+      {
+        "document_id": "test-en-news_beverly_press.3585",
+        "segment_id": 3,
+        "domain": "news",
+        "source": "Tierra del Sol is pleased to present \"Vicente Siso: Memories of the Land and Water\" at the new gallery location in West Hollywood. Siso has been an artist in the Studio Arts Program since 2012, this marks his debut solo exhibition. Siso was born 1962 in Madrid and raised between Venezuela, Trinidad and Miami; he moved with his family to Southern California in his early 20s.",
+        "target": "Tierra del Sol kynnir með stolti „Vicente Siso: minningar um landið og vatnið“, gallerísýningu á nýrri staðsetningu í Vestur-Hollywood. Siso hefur verið einn af listamönnunum á listabrautinni síðan 2012, en þetta er fyrsta einkasýningin hans. Siso fæddist í Madríd árið 1962 og ólst upp í Venesúela, Trínidad og Miami. Upp úr tvítugu fluttist hann til Suður-Kaliforníu með fjölskyldu sinni.",
+        "is_bad_source": false
+      },
+      {
+        "document_id": "test-en-news_beverly_press.3585",
+        "segment_id": 4,
+        "domain": "news",
+        "source": "Masterfully working across subject matter, Siso has generated a prolific series of landscapes, portraits, and still-life works rendered in either acrylic, pastel, pencil or watercolor. Drawing from family portraits, his own reference photographs, and recollection, his colorful compositions demonstrate his range of interests and skill across media. Siso's tropical landscapes and seascapes reflect the geographies of his past, employing rich patterns and incorporating people to make meaningful connections between culture, memory and the environment. Siso titles his artworks in a mix of Spanish and English, signifying the celebrated and integral complexities of his life in Los Angeles County. \"Vicente Siso: Memories of the Land and Water\" opens on Saturday, Jan. 13, with a reception from 6-8 p.m. The exhibition is on view through Sunday, March 3.",
+        "target": "Með mismunandi efnistökum hefur Siso skapað afkastamikla seríu af landslagsmálverkum, andlitsmyndum og kyrralífsmyndum sem eru ýmist gerðar með akríl, pastel, blýanti eða vatnslitum. Í litríkum verkum sínum sýnir Siso fram á fjölbreyttan efnivið og víðtækar nálganir og byggir ýmist á fjölskyldumyndum, minningum eða eigin ljósmyndum. Landslagsmyndir hans af suðrænum svæðum og hafinu endurspegla landslag fortíðar hans, og beitir hann áhrifamiklum mynstrum og mannlýsingum til að draga fram merkingarþrungnar tengingar á milli menningarheima, minninga og umhverfis. Siso titlar málverk sín með blöndu af spænsku og ensku, sem er táknrænt fyrir þau djúpstæðu og margbrotnu tengsl sem einkenna líf hans í Los Angeles-sýslu. „Vicente Siso: minningar um landið og vatnið“ opnar laugardaginn 13. janúar með galleríopnun frá 18–20. Sýningin stendur til sunnudagsins 3. mars.",
+        "is_bad_source": false
+      },
+      {
+        "document_id": "test-en-news_beverly_press.3585",
+        "segment_id": 5,
+        "domain": "news",
+        "source": "The Tierra del Sol Gallery is located at 7414 Santa Monica Blvd. For information, visit tierradelsolgallery.org.",
+        "target": "Tierra del Sol-galleríið er staðsett á Santa Monica Blvd nr. 7414. Fyrir frekari upplýsingar, sjá tierradelsolgallery.org.",
+        "is_bad_source": false
+      }
+    ],
+    "ja_JP": [
+      {
+        "document_id": "test-en-news_brisbanetimes.com.au.228963",
+        "segment_id": 10,
+        "domain": "news",
+        "source": "Chris Johnson is a former NSW government architect (1995-2005) and executive director, NSW Department of Planning (2005-2009). He was CEO of Urban Taskforce Australia between 2011 and 2019.",
+        "target": "クリス・ジョンソンは元ニューサウスウェールズ州政府建築家（1995～2005年）、ニューサウスウェールズ州計画局長（2005～2009年）。2011年から2019年までアーバン・タスクフォース・オーストラリアのCEO。",
+        "is_bad_source": false
+      },
+      {
+        "document_id": "test-en-news_csmonitor.com.7750",
+        "segment_id": 12,
+        "domain": "news",
+        "source": "Last year, the World Economic Forum forecast that it would take five generations to achieve gender equality in every nation. Now the World Bank wants to rapidly accelerate that time frame.",
+        "target": "昨年、世界経済フォーラムはすべての国でジェンダー平等を実現できるまでには５世代かかるだろうと予想した。しかし、世界銀行はその期間を大幅に短縮したい考えだ。",
+        "is_bad_source": false
+      },
+      {
+        "document_id": "test-en-news_economist.14223",
+        "segment_id": 21,
+        "domain": "news",
+        "source": "In Germany, where workers and bosses run many companies jointly, a big strike is unusual. A wave of big strikes is almost unheard of. Right now the country of \"co-determination\" is simultaneously facing an eight-day \"action week\" by irate farmers, who blocked roads with tractors, a three-day strike of railway workers and, to top it off, a looming strike of doctors, who already closed surgeries between Christmas and New Year's Day. This Mistgabelmop (pitchfork mob), as some have taken to calling it, will test Germany's harmonious labour relations in the year to come.",
+        "target": "労働者と経営者が共同経営する会社が多いドイツにおいて、大規模なストライキは異例だ。大規模ストライキが相次ぐ事態はほぼ前例がない。現在、この「共同決定」の国は、憤る農民がトラクターで道路を封鎖した８日間の「活動週間」、鉄道従事者の３日間ストライキ、その上、医師らが既にクリスマスから元旦まで診療所を閉鎖するなど、複数のストライキに同時に直面している。この、通称ミストガベルモップ（熊手を持った暴徒）によって、ドイツの調和的な労使関係は来年試練を迎えることになるだろう。",
+        "is_bad_source": false
+      },
+      {
+        "document_id": "test-en-news_beverly_press.3585",
+        "segment_id": 5,
+        "domain": "news",
+        "source": "The Tierra del Sol Gallery is located at 7414 Santa Monica Blvd. For information, visit tierradelsolgallery.org.",
+        "target": "ティエラ・デル・ソル・ギャラリーの住所は7414 Santa Monica Blvd。詳細はtierradelsolgallery.orgにアクセス。",
+        "is_bad_source": false
+      },
+      {
+        "document_id": "test-en-news_newsrepublic.com.6817",
+        "segment_id": 40,
+        "domain": "news",
+        "source": "Tim Whitehouse, a former EPA enforcement attorney and the executive director of Public Employees for Environmental Responsibility, praised the Biden administration's recent improvements on enforcement while acknowledging the strong headwinds such efforts face. \"It takes years of sustained funding and political support to build a good enforcement program,\" he told me. \"The instability in Congress is not only demoralizing to EPA staff but undermines their ability to think strategically over the long term.\"",
+        "target": "環境保護庁の元法執行弁護士で、Public Employees for Environmental Responsibility代表のティム・ホワイトハウス氏は、バイデン政権によるここ最近の法の執行に改善が見られることを称えつつも、そうした取り組みが困難な状況に直面していることを認めた。同氏は「優れた執行プログラムを構築するためには、長年にわたる継続的な資金調達と政治的支援が必要です」と私に語った。「議会の不安定さは環境保護庁職員のやる気を低下させているだけでなく、長い目で見れば戦略的思考能力を損なうことにもなります」",
+        "is_bad_source": false
+      },
+      {
+        "document_id": "test-en-news_scotsman.87458",
+        "segment_id": 99,
+        "domain": "news",
+        "source": "Scottish tenants are likely to face further alarming rent increases if experts are not heeded (Picture: Adobe)",
+        "target": "専門家の意見が聞き入れられなければ、スコットランドの賃貸物件利用者はさらなる家賃高騰に直面する恐れがある（写真：Adobe）",
+        "is_bad_source": false
+      },
+      {
+        "document_id": "test-en-news_seattle_times.799809",
+        "segment_id": 130,
+        "domain": "news",
+        "source": "Hailey Ockinga is an anti-incarceration activist and community organizer, and the executive director of Beyond These Walls in Washington state.",
+        "target": "ヘイリー・オッキンガ氏: 反収監の活動家、 地域活動家。ワシントン州のBeyond These Wallsのエグゼクテイブ・ディレクターを務めている。",
+        "is_bad_source": false
+      },
+      {
+        "document_id": "test-en-news_seattle_times.799809",
+        "segment_id": 131,
+        "domain": "news",
+        "source": "Ethan Frenchman is a Disability Rights Washington staff attorney who advocates for people with disabilities in jails and prisons.",
+        "target": "イーサン・フレンチマン氏: Disability Rights Washingtonの専属弁護士として、拘置所や刑務所にて障害者を擁護している。",
+        "is_bad_source": false
+      }
+    ],
+    "ru_RU": [
+      {
+        "document_id": "test-en-news_beverly_press.3585",
+        "segment_id": 2,
+        "domain": "news",
+        "source": "\"People Swimming in the Swimming Pool\" from 2022 is one Vicente Siso artwork that will display at Tierra del Sol Gallery beginning Jan. 13. (photo courtesy of Vicente Siso)",
+        "target": "Картина 2022 года \"Люди, плавающие в бассейне\" – одна из работ Висенте Сисо, которая будет выставлена в галерее Тьерра дель Соль начиная с 13 января. (Фото: Висент Сисо.)",
+        "is_bad_source": false
+      },
+      {
+        "document_id": "test-en-news_csmonitor.com.7750",
+        "segment_id": 18,
+        "domain": "news",
+        "source": "The bank's plan would target norms and institutions that may still require generational shifts. It has taken Rwanda more than two decades to establish itself as a model for land reforms that boost economic empowerment for women.\"No one benefits if women are held back,\" Rwanda President Paul Kagame said, arguing for land reform in 2015. \"We have to change mindsets, not just the laws.\"",
+        "target": "План банка нацелен на нормы и структуры, требующие смены поколений. Руанде понадобилось более двадцати лет, чтобы стать примером земельных реформ, которые усилили экономическую независимость женщин. \"Все проиграют, если препятствовать женщинам, – сказал президент Руанды Поль Кагаме, аргументируя необходимость земельной реформы в 2015 году. – Нам нужно изменить мировоззрение, а не только законы\".",
+        "is_bad_source": false
+      },
+      {
+        "document_id": "test-en-news_economist.14223",
+        "segment_id": 21,
+        "domain": "news",
+        "source": "In Germany, where workers and bosses run many companies jointly, a big strike is unusual. A wave of big strikes is almost unheard of. Right now the country of \"co-determination\" is simultaneously facing an eight-day \"action week\" by irate farmers, who blocked roads with tractors, a three-day strike of railway workers and, to top it off, a looming strike of doctors, who already closed surgeries between Christmas and New Year's Day. This Mistgabelmop (pitchfork mob), as some have taken to calling it, will test Germany's harmonious labour relations in the year to come.",
+        "target": "В Германии, где крупными компаниями совместно управляют рабочие и руководители, в большой забастовке нет ничего необычного. Но волна больших забастовок - это что-то неслыханное. Прямо сейчас страна с \"совместным управлением\" может столкнуться одновременно с восьмидневной \"неделей действия\" разгневанных фермеров, блокирующих дороги тракторами, трёхдневной забастовкой железнодорожных работников и, к тому же, надвигающейся забастовкой врачей, уже закрывавших операционные с Рождества по Новый Год.  Эта Mistgabelmop (толпа с вилами), как некоторые её уже называют, проверит прочность трудовых отношений между администрацией и профсоюзами в наступающем году.",
+        "is_bad_source": false
+      },
+      {
+        "document_id": "test-en-news_beverly_press.3585",
+        "segment_id": 3,
+        "domain": "news",
+        "source": "Tierra del Sol is pleased to present \"Vicente Siso: Memories of the Land and Water\" at the new gallery location in West Hollywood. Siso has been an artist in the Studio Arts Program since 2012, this marks his debut solo exhibition. Siso was born 1962 in Madrid and raised between Venezuela, Trinidad and Miami; he moved with his family to Southern California in his early 20s.",
+        "target": "Галерея Тьерра дель Соль рада представить выставку \"Винсенте Сисо: воспоминания о земле и воде\" в новом выставочном пространстве в Западном Голливуде. Сисо участвует в программе Студио Артс с 2012 года, и это его первая персональная выставка. Сисо родился в 1962 году в Мадриде и провёл детство в Венесуэле, Тринидаде и Майами. Он переехал в южную Калифорнию вместе с семьей в 20 с небольшим.",
+        "is_bad_source": false
+      },
+      {
+        "document_id": "test-en-news_beverly_press.3585",
+        "segment_id": 4,
+        "domain": "news",
+        "source": "Masterfully working across subject matter, Siso has generated a prolific series of landscapes, portraits, and still-life works rendered in either acrylic, pastel, pencil or watercolor. Drawing from family portraits, his own reference photographs, and recollection, his colorful compositions demonstrate his range of interests and skill across media. Siso's tropical landscapes and seascapes reflect the geographies of his past, employing rich patterns and incorporating people to make meaningful connections between culture, memory and the environment. Siso titles his artworks in a mix of Spanish and English, signifying the celebrated and integral complexities of his life in Los Angeles County. \"Vicente Siso: Memories of the Land and Water\" opens on Saturday, Jan. 13, with a reception from 6-8 p.m. The exhibition is on view through Sunday, March 3.",
+        "target": "Мастерски раскрывая темы, Сисо написал обширную серию пейзажей, портретов и натюрмортов акрилом, пастелью, карандашом и акварелью. Его яркие композиции, основанные на семейных портретах, личных фотографиях и воспоминаниях, демонстрируют масштаб его интересов и умение работать разными средствами. Тропические пейзажи Сисо отражают географию его прошлого, используя роскошные узоры и изображения людей, чтобы связать культуру, память и среду. Названия работ Сисо состоят из смеси испанского и английского, отражая известные и неизбежные трудности его жизни в Лос-Анджелесе. Выставка \"Винсенте Сисо: воспоминания о земле и воде\" откроется в субботу, 13 января, торжественная часть открытия пройдет с 18 до 20. Выставка продлится до воскресенья, 3 марта.",
+        "is_bad_source": false
+      },
+      {
+        "document_id": "test-en-news_beverly_press.3585",
+        "segment_id": 5,
+        "domain": "news",
+        "source": "The Tierra del Sol Gallery is located at 7414 Santa Monica Blvd. For information, visit tierradelsolgallery.org.",
+        "target": "Галерея Тьерра дель Соль находится по адресу бульвар Санта Моника, 7414. Дополнительная информация доступна на tierradelsolgallery.org.",
+        "is_bad_source": false
+      },
+      {
+        "document_id": "test-en-news_brisbanetimes.com.au.228963",
+        "segment_id": 7,
+        "domain": "news",
+        "source": "At the precinct level, we just need to look at the Sydney CBD as an example of an area which has grown from its pre-settlement landscape into a two-storey city, from a maximum height of 150 feet to the soaring towers of today. At a much scaled-down level, the same can occur across Sydney's town centres located around transport nodes. Inner suburbs must also evolve, with a swing to more affordable apartment living at heights below the tree tops on key sites. Of course, the new growth in housing needs to be well-designed and trees, landscaping and parks need to be included along with other essential infrastructure.",
+        "target": "На уровне округа нам необходимо рассмотреть Центральный деловой район Сиднея как пример района, сначала выросшего до двухэтажных зданий, а затем - от домов высотой до 150 футов до сегодняшних гигантских башен. В значительно меньшем масштабе то же самое может произойти в других центрах Сиднея, расположенных рядом с транспортными узлами. Жилые районы в пригородах также должны развиваться с переходом к более доступному жилью на высоте ниже верхушек деревьев в ключевых местах. Разумеется, новый рост жилого строительства должен быть тщательно спланирован с учетом высадки деревьев, работы с ландшафтом и организации парков в составе ключевой инфраструктуры.",
+        "is_bad_source": false
+      },
+      {
+        "document_id": "test-en-news_brisbanetimes.com.au.228963",
+        "segment_id": 8,
+        "domain": "news",
+        "source": "Our planning system also needs to adapt so that planners in suburban councils, who seem to be less supportive of change, are not the only determinants of the future shape of their suburbs. A way forward could be to have an independent decision-making body that championed quality design as long as it fitted below the tree tops and incorporated family living, large balconies, common gardens and presented a friendly appearance. This could be a role for the current NSW government architect working within a carefully crafted complying code.",
+        "target": "И наша система планирования должна адаптироваться таким образом, чтобы чиновники местного самоуправления, ответственные за городское планирование, обычно не слишком благодушно расположенные к любым изменениям, не были единственными, кто решает судьбу проекта. Значительным шагом вперёд может стать создание независимой организации, которая, исходя из современных представлений о качественном дизайне, может продвигать привлекательные малоэтажные проекты с семейным жильём, просторными балконами и дворами общего пользования. Эту роль мог бы взять на себя главный архитектор штата Новый Южный Уэльс после утверждения соответствующего свода правил.",
+        "is_bad_source": false
+      }
+    ],
+    "uk_UA": [
+      {
+        "document_id": "test-en-news_beverly_press.3585",
+        "segment_id": 2,
+        "domain": "news",
+        "source": "\"People Swimming in the Swimming Pool\" from 2022 is one Vicente Siso artwork that will display at Tierra del Sol Gallery beginning Jan. 13. (photo courtesy of Vicente Siso)",
+        "target": "«Люди, які плавають у басейні» 2022 року є однією з робіт Вісенте Сісо, яку буде показано в галереї Tierra del Sol починаючи з 13 січня (фото надано Вісенте Сісо)",
+        "is_bad_source": false
+      },
+      {
+        "document_id": "test-en-news_brisbanetimes.com.au.228963",
+        "segment_id": 7,
+        "domain": "news",
+        "source": "At the precinct level, we just need to look at the Sydney CBD as an example of an area which has grown from its pre-settlement landscape into a two-storey city, from a maximum height of 150 feet to the soaring towers of today. At a much scaled-down level, the same can occur across Sydney's town centres located around transport nodes. Inner suburbs must also evolve, with a swing to more affordable apartment living at heights below the tree tops on key sites. Of course, the new growth in housing needs to be well-designed and trees, landscaping and parks need to be included along with other essential infrastructure.",
+        "target": "На рівні округу нам достатньо поглянути на центральний діловий район Сіднея, який виріс на незаселеній території й перетворився на дворівневе місто з високими сучасними вежами. На значно меншому рівні такий самий розвиток характерний і для центрів міст Сіднея, що розташовуються поблизу транспортних вузлів. Внутрішні передмістя також мають еволюціонувати, надавши перевагу доступним квартирам у будівлях, що не перевищуватимуть висоту дерев у ключових місцях. Звичайно ж, нові будівлі мають бути спроєктовані належним чином, і в такі проеєкти, крім іншої важливої інфраструктури, мають вноситися дерева, озеленення й парки",
+        "is_bad_source": false
+      },
+      {
+        "document_id": "test-en-news_euronews-en.43091",
+        "segment_id": 38,
+        "domain": "news",
+        "source": "\"We therefore advocate for an ambitious PPWR but need a level playing field in packaging legislation where beer and other alcoholic beverages play by the same rules, with each sector contributing fairly to reaching the targets and supporting collection systems,\" Spillane told. \"Any other approach puts the brewers at a competitive disadvantage.\"",
+        "target": "«Тому ми виступаємо за амбіційний PPWR, але нам потрібні рівні умови в законодавстві про пакування, за яких пиво й інші алкогольні напої діятимуть згідно з однаковими правилами й водночас кожен сектор робитиме справедливий внесок у досягнення цілей і підтримку систем збору», – заявив Спіллейн. «Будь-які інші підходи ставлять пивоварів у невигідне конкурентне становище.»",
+        "is_bad_source": false
+      },
+      {
+        "document_id": "test-en-news_beverly_press.3585",
+        "segment_id": 3,
+        "domain": "news",
+        "source": "Tierra del Sol is pleased to present \"Vicente Siso: Memories of the Land and Water\" at the new gallery location in West Hollywood. Siso has been an artist in the Studio Arts Program since 2012, this marks his debut solo exhibition. Siso was born 1962 in Madrid and raised between Venezuela, Trinidad and Miami; he moved with his family to Southern California in his early 20s.",
+        "target": "Галерея Tierra del Sol рада представити виставку «Вісенте Сісо: Спогади про землю й воду» у новій галереї в Західному Голлівуді. Сісо є учасником програми Studio Arts Program із 2012 року, і це його дебютна персональна виставка. Сісо народився 1962 року в Мадриді й зростав у Венесуелі, Тринідаді й Маямі; на початку 20-х років він разом із сім’єю переїхав у Південну Каліфорнію.",
+        "is_bad_source": false
+      },
+      {
+        "document_id": "test-en-news_beverly_press.3585",
+        "segment_id": 4,
+        "domain": "news",
+        "source": "Masterfully working across subject matter, Siso has generated a prolific series of landscapes, portraits, and still-life works rendered in either acrylic, pastel, pencil or watercolor. Drawing from family portraits, his own reference photographs, and recollection, his colorful compositions demonstrate his range of interests and skill across media. Siso's tropical landscapes and seascapes reflect the geographies of his past, employing rich patterns and incorporating people to make meaningful connections between culture, memory and the environment. Siso titles his artworks in a mix of Spanish and English, signifying the celebrated and integral complexities of his life in Los Angeles County. \"Vicente Siso: Memories of the Land and Water\" opens on Saturday, Jan. 13, with a reception from 6-8 p.m. The exhibition is on view through Sunday, March 3.",
+        "target": "Майстерно втілюючи різні теми, Сісо створив велику серію пейзажів, портретів і натюрмортів, виконаних акрилом, пастеллю, олівцем і аквареллю. Його барвисті композиції, створені на основі сімейних портретів, власних знімків і спогадів, демонструють діапазон його інтересів і майстерність у роботі з різними засобами. У своїх роботах Сісо зображує тропічні пейзажі й морські ландшафти, які віддзеркалюють маршрути його минулих подорожей, а також об’єднує розкішні візерунки й людей, щоб передати змістовні зв’язки між культурою, пам’яттю та довкіллям. Сісо придумає назви своїх робіт, використовуючи суміш іспанської та англійської мов, що вказує на знаменні й невід’ємні складнощі, з якими він стикається, проживаючи в Лос-Анджелесі. Виставка «Вісенте Сісо: Спогади про землю й воду» відкривається в суботу 13 січня (18:00–20:00) і працює до неділі 3 березня.",
+        "is_bad_source": false
+      },
+      {
+        "document_id": "test-en-news_brisbanetimes.com.au.228963",
+        "segment_id": 8,
+        "domain": "news",
+        "source": "Our planning system also needs to adapt so that planners in suburban councils, who seem to be less supportive of change, are not the only determinants of the future shape of their suburbs. A way forward could be to have an independent decision-making body that championed quality design as long as it fitted below the tree tops and incorporated family living, large balconies, common gardens and presented a friendly appearance. This could be a role for the current NSW government architect working within a carefully crafted complying code.",
+        "target": "Нашу систему планування також слід адаптувати так, щоб спеціалісти з планування в радах передмість, які, як здається, не дуже зацікавлені в змінах, не були єдиним фактором, який визначає майбутній вид передмість. Одним із вирішень цієї проблеми може бути формування незалежного органу, який підтримуватиме якісні проєкти лише за умови, що будівлі не перевищуватимуть верхівки дерев і будуть багатоквартирними, матимуть великі балкони, загальні сади й приємний вигляд. Цю роль міг би взяти на себе поточний урядовий архітектор штату Новий Південний Уельс, який працюватиме, дотримуючись чітко розробленого кодексу відповідності.",
+        "is_bad_source": false
+      },
+      {
+        "document_id": "test-en-news_brisbanetimes.com.au.228963",
+        "segment_id": 9,
+        "domain": "news",
+        "source": "Over the past decade, our lives have changed through technology, with many working from home, and Sydney has gained an impressive network of metro and light rail systems. Our ability to purchase online has changed the way we shop, and friends and family seem closer because of smartphone communication. All of these adaptations from one system to another can also occur in our built environment through a planning focus on adaptive reuse rather than preferencing heritage preservation.",
+        "target": "За останнє десятиліття наше життя значно змінилося завдяки технологіям: чимало людей працюють із дому, і в Сіднеї тепер є надзвичайно широка мережа метро й легкорейкового транспорту. Можливість купувати товари в Інтернеті змінила наше уявлення про шопінг, а друзі й сім’я стали набагато ближчими завдяки смартфонам. Усі ці адаптації від однієї системи до іншої можуть також реалізуватися й у будівельному середовищі, якщо під час планування зосередитися на адаптивному повторному використанні, а не на збереженні спадку.",
+        "is_bad_source": false
+      }
+    ],
+    "zh_CN": [
+      {
+        "document_id": "test-en-news_beverly_press.3585",
+        "segment_id": 2,
+        "domain": "news",
+        "source": "\"People Swimming in the Swimming Pool\" from 2022 is one Vicente Siso artwork that will display at Tierra del Sol Gallery beginning Jan. 13. (photo courtesy of Vicente Siso)",
+        "target": "2022 年创作的《泳池戏水》是维森特·西索的一幅作品，将于 1 月 13 日起在 Tierra del Sol 画廊展出。（图片由维森特·西索提供）",
+        "is_bad_source": false
+      },
+      {
+        "document_id": "test-en-news_brisbanetimes.com.au.228963",
+        "segment_id": 7,
+        "domain": "news",
+        "source": "At the precinct level, we just need to look at the Sydney CBD as an example of an area which has grown from its pre-settlement landscape into a two-storey city, from a maximum height of 150 feet to the soaring towers of today. At a much scaled-down level, the same can occur across Sydney's town centres located around transport nodes. Inner suburbs must also evolve, with a swing to more affordable apartment living at heights below the tree tops on key sites. Of course, the new growth in housing needs to be well-designed and trees, landscaping and parks need to be included along with other essential infrastructure.",
+        "target": "在区域层面，我们只需要以悉尼中央商务区为例。这个地区一路走来，从原生地貌到两层民居，再从最高不过150英尺的建筑，到如今高耸入云的摩天楼。在更小的尺度上，交通枢纽周边的悉尼市区各中心也可能遵循同样的发展路径。近郊也必须发展起来，在关键地段建设低于树顶高度、更经济适用的公寓楼。当然，新开发的住房需要精心设计，综合考量树木、景观、公园以及其他必要的基础设施。",
+        "is_bad_source": false
+      },
+      {
+        "document_id": "test-en-news_csmonitor.com.7750",
+        "segment_id": 18,
+        "domain": "news",
+        "source": "The bank's plan would target norms and institutions that may still require generational shifts. It has taken Rwanda more than two decades to establish itself as a model for land reforms that boost economic empowerment for women.\"No one benefits if women are held back,\" Rwanda President Paul Kagame said, arguing for land reform in 2015. \"We have to change mindsets, not just the laws.\"",
+        "target": "世界银行的计划将针对那些可能仍需几代人才能转变的规范和制度。卢旺达花了 20 多年时间推进增强女性经济权能的土地改革，最终成为典范。“如果女性受到阻碍，没有人会受益，”卢旺达总统保罗·卡加梅在 2015 年主张土地改革时表示，“我们必须改变观念，而不仅仅是法律。”",
+        "is_bad_source": false
+      },
+      {
+        "document_id": "test-en-news_economist.14223",
+        "segment_id": 21,
+        "domain": "news",
+        "source": "In Germany, where workers and bosses run many companies jointly, a big strike is unusual. A wave of big strikes is almost unheard of. Right now the country of \"co-determination\" is simultaneously facing an eight-day \"action week\" by irate farmers, who blocked roads with tractors, a three-day strike of railway workers and, to top it off, a looming strike of doctors, who already closed surgeries between Christmas and New Year's Day. This Mistgabelmop (pitchfork mob), as some have taken to calling it, will test Germany's harmonious labour relations in the year to come.",
+        "target": "在德国，许多公司都由工人和老板共同经营，大规模罢工并不常见。多行业大规模罢工潮更是闻所未闻。现在，这个“共同决策”的国家正面临着愤怒农民长达八天的“行动周”，他们用拖拉机封锁了道路；铁路工人也举行了为期三天的罢工；更糟糕的是，医生们可能也要举行罢工，他们已经在圣诞节和元旦期间关闭了诊所。一些人称之为“干草叉暴民”（Mistgabelmop），这场风暴将在未来一年考验德国和谐的劳资关系。",
+        "is_bad_source": false
+      },
+      {
+        "document_id": "test-en-news_economist.14223",
+        "segment_id": 23,
+        "domain": "news",
+        "source": "In an effort to defuse the tension with the farmers, the government agreed to a gradual removal of the diesel subsidy over three years and to keeping the exemption from the car tax. The farmers pooh-poohed the concessions as insufficient. On January 4th an aggressive group of them prevented Robert Habeck, the economy minister, from disembarking from a ferry on his return from a family holiday. If the train drivers are similarly unimpressed, that could prove expensive for German business, reckons IW Köln, a think-tank. The rail strike could cost businesses €100m ($110m) a day if it forced them to interrupt production. The car, chemical and steel industries, Germany's biggest, are especially reliant on rail transport.",
+        "target": "为了缓和与农民之间的紧张关系，政府同意在三年内逐步取消柴油补贴，并保留汽车税的豁免政策。农民们对这些让步嗤之以鼻，认为远远不够。1 月 4 日，经济部长罗伯特·哈贝克在结束家庭假期后，乘坐渡轮返回时，遭到一群激进分子的阻拦，无法下船。智库 IW Köln 认为，如果火车司机也对政府的方案不买账，那么对德国企业来说，代价可能十分高昂。如果铁路罢工迫使企业中断生产，每天可能造成 1 亿欧元（1.1 亿美元）的损失。作为德国的支柱产业，汽车、化工和钢铁行业尤其依赖铁路运输。",
+        "is_bad_source": false
+      },
+      {
+        "document_id": "test-en-news_economist.14223",
+        "segment_id": 25,
+        "domain": "news",
+        "source": "Thomas Puls of IW Köln fears that the strikes will harm the image of Germany as a place for business. Local bosses are already fretting about a German version of the gilets jaunes protests in France in 2018, which culminated in yellow-jacketed demonstrators torching cars on the Champs-Elysées and the police stepping in with tear gas. Jochen Kopelke, head of Germany's police union, warned in an interview with Tagesspiegel, a daily, that the farmers were probably \"just the start of an enormous wave of protest this year.\" Germany was the only big economy to shrink in 2023, and the year ended on an especially sour note, with an unexpected drop in business confidence in December. This year is shaping up to be even tougher.",
+        "target": "IW Köln 的托马斯·普尔斯担心，罢工将损害德国作为商业投资地的形象。当地老板们已经开始担心德国版“黄马甲”运动重演——2018 年的法国黄马甲运动最终演变成身穿黄马甲的示威者在香榭丽舍大街焚烧汽车，警察施放催泪瓦斯驱散人群。德国警察工会主席约亨·科佩尔克在接受《每日镜报》采访时警告说，农民的抗议活动可能“只是今年大规模抗议浪潮的开始”。2023 年，德国是唯一一个出现经济萎缩的主要经济体，年末经济形势尤其严峻，12 月商业信心指数意外下降。今年的经济形势预计将更加艰难。",
+        "is_bad_source": false
+      },
+      {
+        "document_id": "test-en-news_pa.52742",
+        "segment_id": 63,
+        "domain": "news",
+        "source": "The SEC rejected applications for similar funds for years. Last year, however, the U.S. Court of Appeals for the District of Columbia ruled against the SEC's refusal to approve an application from Grayscale to convert a derivative fund into one that would directly bitcoin, calling the SEC's position \"",
+        "target": "美国证监会多年来一直拒绝类似基金的申请。然而，去年美国哥伦比亚特区上诉法院裁定，美国证监会拒绝批准 Grayscale 将其衍生品基金转换为直接持有比特币的基金的决定是错误的。",
+        "is_bad_source": false
+      },
+      {
+        "document_id": "test-en-news_scotsman.87458",
+        "segment_id": 99,
+        "domain": "news",
+        "source": "Scottish tenants are likely to face further alarming rent increases if experts are not heeded (Picture: Adobe)",
+        "target": "如果不听取专家意见，苏格兰租户可能面临进一步惊人的租金上涨（图片：Adobe）。",
+        "is_bad_source": false
+      }
+    ]
+  }
+}
