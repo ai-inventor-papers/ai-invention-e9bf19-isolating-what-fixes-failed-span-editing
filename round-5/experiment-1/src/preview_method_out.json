@@ -1,0 +1,113 @@
+{
+  "metadata": {
+    "quality_metric_path_taken": "real_wmt22_cometkiwi_da",
+    "attempts_log": [
+      {
+        "ts": 1788259435.0800827,
+        "endpoint": "https://huggingface.co",
+        "status": "SUCCESS",
+        "elapsed_s": 10.81262755393982,
+        "error": null
+      }
+    ],
+    "condition_c_delta_comet_natural_pooled_mean": -0.017250826023519038,
+    "condition_c_delta_comet_natural_bootstrap_ci": {
+      "mean": -0.017250826023519038,
+      "ci_low": -0.02513922154903412,
+      "ci_high": -0.010303167533129454,
+      "n_boot": 10000,
+      "n": 320
+    },
+    "condition_c_delta_comet_by_language_pair": {
+      "en-ru_RU": {
+        "mean_delta_comet": -0.02280415818095207,
+        "n": 160
+      },
+      "en-uk_UA": {
+        "mean_delta_comet": -0.011697493866086007,
+        "n": 160
+      }
+    },
+    "condition_c_n_natural_rows_scored": 320,
+    "condition_c_n_rows_no_op_c2_repair": 16,
+    "condition_c_delta_comet_per_row": [
+      {
+        "row_id": "wmt25_task3_natural:3466",
+        "language_pair": "en-ru_RU",
+        "comet_before": 0.6824009418487549,
+        "comet_after": 0.7059078216552734,
+        "delta_comet": 0.023506879806518555,
+        "certificate_achieved": false,
+        "n_passes": 3
+      },
+      {
+        "row_id": "wmt25_task3_natural:3996",
+        "language_pair": "en-ru_RU",
+        "comet_before": 0.6361685991287231,
+        "comet_after": 0.6349713802337646,
+        "delta_comet": -0.001197218894958496,
+        "certificate_achieved": true,
+        "n_passes": 1
+      },
+      {
+        "row_id": "wmt25_task3_natural:3306",
+        "language_pair": "en-ru_RU",
+        "comet_before": 0.7957398891448975,
+        "comet_after": 0.7989163994789124,
+        "delta_comet": 0.0031765103340148926,
+        "certificate_achieved": true,
+        "n_passes": 2
+      }
+    ],
+    "directly_comparable_to_C1_C2_real_comet_numbers": true,
+    "comet_model_used": "Unbabel/wmt22-cometkiwi-da",
+    "schema_version": "exp_gen_sol_out",
+    "method_name": "rescue_condition_c_missing_quality_score",
+    "condition_c_source_artifact": "art_6n9zJVKWXnio",
+    "condition_b_source_artifact": "art_G9ppuk8aHUhW",
+    "total_wallclock_s": 91.1616849899292
+  },
+  "datasets": [
+    {
+      "dataset": "condition_c_natural_real_comet_rescore",
+      "examples": [
+        {
+          "input": "[en-ru_RU] You can get a folding leaf table, and if you saw off the bottom 15cm or so of the panels forming the sides and front of the table, and also don't bother to attach any of the the back leaf, ...",
+          "output": "Можно приобрести складной стол, и если отпилить нижние 15 см или около того панелей, образующих бока и переднюю часть стола, а также не заморачиваться с креплением задней части, то он станет ровно так...",
+          "predict_c2_post_repair": "Можно приобрести складной стол, и если отпилить нижние 15 см или около того панелей, образующих боковые стороны и переднюю часть стола, а также не стоит прикреплять заднюю часть, то он станет ровно та...",
+          "metadata_row_id": "wmt25_task3_natural:3466",
+          "metadata_language_pair": "en-ru_RU",
+          "metadata_comet_before": 0.6824009418487549,
+          "metadata_comet_after": 0.7059078216552734,
+          "metadata_delta_comet": 0.023506879806518555,
+          "metadata_c2_certificate_achieved": false,
+          "metadata_c2_n_passes": 3
+        },
+        {
+          "input": "[en-ru_RU] Curve line up, down, connect on the left, and i'm going to go one, two, three, four little dots, and on the right -hand side, i'm going to do it again. I draw a curve line up, over, curve l...",
+          "output": "Кривая линия вверх, вниз, соединяем слева, и я нарисую одну, две, три, четыре маленьких точки, а на правой стороне я сделаю это снова. Я рисую кривую линию вверх, затем через, кривую линию внутрь, сое...",
+          "predict_c2_post_repair": "Вверх, вниз, соединяюсь слева, и я нарисую одну, две, три, четыре маленьких точки, а на правой стороне я сделаю это снова. Я рисую кривую линию вверх, вниз, соединяюсь, и я нарисую одну, две, три, чет...",
+          "metadata_row_id": "wmt25_task3_natural:3996",
+          "metadata_language_pair": "en-ru_RU",
+          "metadata_comet_before": 0.6361685991287231,
+          "metadata_comet_after": 0.6349713802337646,
+          "metadata_delta_comet": -0.001197218894958496,
+          "metadata_c2_certificate_achieved": true,
+          "metadata_c2_n_passes": 1
+        },
+        {
+          "input": "[en-ru_RU] 2/3\\nThis Ie Island #rum is from the Single island series. It was the only one I could get - besides the all island blend bottle, in my too brief ¾ day in #Naha #Okinawa Here's their webpag...",
+          "output": "2/3\\nЭтот ром Ie Island #rum из серии Single island. Это был единственный, который я смог купить, кроме бутылки с купажированным ромом со всех островов, за мои слишком короткие ¾ дня в #Наха #Окинава\\...",
+          "predict_c2_post_repair": "2/3\\nЭто ром Ie Island из серии Single island. Это был единственный, который я смог купить, кроме бутылки с купажированным ромом со всего острова, за мои слишком короткие ¾ дня в #Наха #Окинава\\nВот и...",
+          "metadata_row_id": "wmt25_task3_natural:3306",
+          "metadata_language_pair": "en-ru_RU",
+          "metadata_comet_before": 0.7957398891448975,
+          "metadata_comet_after": 0.7989163994789124,
+          "metadata_delta_comet": 0.0031765103340148926,
+          "metadata_c2_certificate_achieved": true,
+          "metadata_c2_n_passes": 2
+        }
+      ]
+    }
+  ]
+}
