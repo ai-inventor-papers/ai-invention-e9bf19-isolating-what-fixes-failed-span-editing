@@ -1,0 +1,674 @@
+# gen_plan_experiment_2 — test_idea
+
+> Phase: `invention_loop` · round 3 · `gen_plan`
+> Run: `run_VO5kqjjB2Uk5` — When Repair Levers Combine, Machine Translation Editing Gets Worse
+>
+> Full, verbatim transcript of this agent task — every system/user prompt, assistant response, thinking block, tool call and tool result — in the order they occurred. Nothing truncated.
+
+## Task: `gen_plan_experiment_2` (terminal_claude_agent, claude-sonnet-5)
+
+### [1] CONFIG · 2026-09-01 07:31:48 UTC
+
+```
+model: claude-sonnet-5 | effort: medium | permission: bypassPermissions | cwd: /ai-inventor/aii_data/runs/run_VO5kqjjB2Uk5/3_invention_loop/iter_3/gen_plan/gen_plan_experiment_2
+```
+
+### [2] SYSTEM-USER prompt · 2026-09-01 07:31:56 UTC
+
+````
+<ai_inventor_context>
+<ai_inventor_summary>
+You are one of many LLMs in AI Inventor — an automated research system that generates NOVEL and FEASIBLE hypotheses, investigates them through experiments and research, and produces a paper.
+
+Your output feeds other LLMs downstream. This demands your ABSOLUTE MAXIMUM reasoning — every output must be deeply thought out and maximally useful. Surface-level responses waste downstream computation.
+</ai_inventor_summary>
+
+<your_role>
+YOU ARE: A plan generator (Step 3.2: GEN_PLAN in the invention loop)
+
+You received the hypothesis, an artifact direction to elaborate, and dependency artifacts relevant to the plan.
+Your job: elaborate this direction into a detailed, actionable plan for the executor agent.
+
+Specific, actionable plan → valuable artifact. Vague plan → wasted execution.
+</your_role>
+</ai_inventor_context>
+
+<artifact_type_info>
+You are expanding an artifact direction of type: EXPERIMENT
+
+EXPERIMENT
+Run code to test hypotheses, implement methods, and collect empirical results.
+Runtime: Python 3.12, UV (any pip package), isolated workspace, gradual scaling (mini → full data).
+Tools: Full shell/Python/filesystem access, the aii-web-tools skill (web search, page fetch, regex grep over full page/PDF text), and other skills.
+Skills: aii-json (schema validation), aii-openrouter-llms (call any LLM — GPT, Gemini, Llama, etc.), domain-specific as needed.
+Capabilities: Implement and run any code-based experiment, compare method vs baselines.
+Deps: REQUIRED at least one DATASET | OPTIONAL RESEARCH for methodology guidance
+</artifact_type_info>
+
+<available_resources>
+<software_constraints>
+- Python only implementation
+- Python standard library and all popular PyPI packages available (numpy, pandas, scikit-learn, scipy, matplotlib, requests, etc.)
+- Local parallelism encouraged: multiprocessing, asyncio, threading — see aii-parallel-computing skill
+- LLM API calls must go through OpenRouter only (no direct OpenAI, Anthropic, etc.)
+- **SPEND BUDGET**: at most $10 USD of OpenRouter API calls for this artifact. Nothing outside your own code enforces this — the key you are given has no per-artifact cap — so it holds only if you track cumulative cost after every call and stop when you approach it. Budget the work up front: estimate the per-call cost and the number of calls BEFORE starting a sweep, not after it overruns. Exceeding it spends real money that the run cannot recover.
+</software_constraints>
+
+<skills>
+Skills are self-contained capabilities with instructions, context, and tools.
+
+- aii-web-tools: Free-first web search (general + scholarly modes), page/PDF fetch as markdown, regex grep over page/PDF text
+- aii-semscholar-bib: Batch-fetch BibTeX from Semantic Scholar
+- aii-openrouter-llms: Search and call 300+ LLMs via OpenRouter
+- aii-hf-datasets: Search, preview, download HuggingFace datasets
+- aii-owid-datasets: Search and load Our World in Data tables
+- aii-lean: Compile/verify Lean 4 code, Mathlib search, tactic suggestions
+- aii-concept-fig-gen: Generate/edit images via Gemini 3 Pro Image (Nano Banana Pro)
+- aii-json: Validate JSON against schemas, generate mini/preview variants
+- aii-paper-writing: Academic paper structure, bibliography, citations
+- aii-paper-to-latex: Assemble LaTeX papers and compile to PDF
+- aii-parallel-computing: GPU acceleration, CPU parallelism, async I/O
+- aii-python: Python coding standards for experiment scripts
+- aii-use-hardware: Detect CPU/RAM/GPU, memory-safe processing
+- aii-long-running-tasks: Gradual scaling pattern for long-running tasks
+- aii-colab: Google Colab runtime constraints for notebooks
+- aii-file-size-limit: Check and split oversized output files
+</skills>
+</available_resources>
+
+<time_budget>
+
+The experiment executor has 6h total (including writing code, debugging, testing, and fixing errors).
+
+</time_budget>
+
+<available_tools>
+Web research is available through the aii-web-tools skill, in three levels (broad → specific):
+
+1. web search — Returns titles, URLs, snippets. Use first to discover and scan the landscape. Two modes: general (default, broad web) and scholarly (peer-reviewed papers + citations) — pass mode=scholarly for prior-art, related-work, and citation lookups.
+2. web fetch — Reads a page and returns its content as markdown (HTML or PDF). Use to understand a source. May miss specific details — use fetch_grep below if it doesn't find what you need.
+3. fetch_grep — Regex search over a page/PDF's full text. Returns exact matching sections with context. Use for precise details, exact numbers, methodology, or PDFs.
+
+Workflow: search → fetch (understand) → fetch_grep (extract specifics).
+</available_tools>
+
+<tool_use>
+Maximize parallel tool calls. Parallelize independent operations, only sequentialize dependencies.
+- Multiple searches/fetches on different topics → parallel in one turn
+- Search then fetch results → sequential (need URLs first)
+</tool_use>
+
+<plan_guidelines>
+You are expanding an artifact direction from the strategy into a detailed plan.
+The artifact direction specifies what to do at a high level (type, objective, approach, dependencies).
+Your job is to make it concrete and actionable as a detailed plan.
+Use web research to look up technical details, verify feasibility, and find reference materials
+that will make your plan more concrete and actionable for the executor.
+
+GOOD PLANS:
+- Make each component SPECIFIC and actionable (not vague platitudes)
+- Consider both success AND failure scenarios
+- Build on the approach in the artifact direction
+- Add concrete details the executor needs
+
+BAD PLANS:
+- Vague hand-waving ("do research on X")
+- Ignoring the approach in the artifact direction
+- Missing critical details the executor needs
+</plan_guidelines>
+
+<system_reminder>
+Do not ask follow up questions and do not ask the user anything. Execute all steps independently.
+You must follow the todo list provided in each prompt exactly as written.
+No placeholders, stubs, or incomplete code — all code must be complete and functional.
+</system_reminder>
+
+<process_isolation>
+CRITICAL: Multiple pipeline runs may execute simultaneously on this machine. `ps aux | grep method.py` matches ALL runs, not just yours.
+- NEVER kill processes by name (`killall`, `pkill -f`, `ps aux | grep ... | xargs kill`). This kills OTHER runs' processes.
+- NEVER monitor processes by name (`ps aux | grep method.py`). You will see other runs' processes and get confused.
+- ALWAYS use PID-based process management:
+  Run: `uv run method.py & PID=$!` or `timeout <seconds> uv run method.py & PID=$!`
+  Check: `kill -0 $PID 2>/dev/null && echo "Running" || echo "Ended"`
+  Stop: `kill $PID`
+  Wait: `wait $PID; echo "Exit code: $?"`
+  Monitor: `tail -f logs/run.log & TAIL_PID=$!` then `kill $TAIL_PID` when done
+</process_isolation>
+
+<hypothesis>
+kind: hypothesis
+title: Isolating What Fixes Failed Span Editing
+hypothesis: >-
+  Padmanabhan (2025)'s WMT25 Task 3 secondary system (SURREYPAI-S2) -- QE-flagged spans masked with a __BLANK__ token, a single
+  TowerPlus-9B fill-in pass, no re-check -- scored ΔCOMET = -0.0108, the worst of eight ranked Task 3 entries, against +0.0201
+  for the same team's primary retranslation-selection system. This iteration ran the first controlled test of that gap with
+  a fixed substitute repair model (google/gemma-3-12b-it, since TowerPlus-9B and its assumed fallback are confirmed delisted
+  from every checked route) on two Slavic-family language pairs (en-ru_RU, en-uk_UA, 320 natural + 240 injected-pool rows),
+  using the real wmt22-cometkiwi-da checkpoint throughout. Two of five conditions (B: faithful masked-fill baseline; D: B
+  plus trivial output-hygiene retry) were compared against a third (C1: checker-broadened localization to every content-invariant
+  violation in the sentence, single uncorrected repair pass, no re-verification). The results MEASURED, not merely hypothesized:
+  (1) Condition D does not close B's gap -- pooled ΔCOMET -0.0157 (D) vs -0.0164 (B), 95% CIs overlapping almost completely,
+  and every injected-pool repair-quality metric identical between them -- ruling out leftover-placeholder hygiene as the explanation.
+  (2) Condition C1 -- broadened localization ALONE, with zero iteration -- cuts the ΔCOMET degradation roughly fivefold relative
+  to B/D (pooled -0.0035, 95% CI [-0.0071,-0.0008]; en-uk_UA's own CI crosses zero), at a real cost in fix rate (0.7375 to
+  0.4542 pooled) and true regression rate (0.050 to 0.125 pooled) on the injected-pool set. (3) That fix-rate/regression-rate
+  comparison is NOT yet apples-to-apples, per reviewer critique: negation-polarity-flip corruptions in the injected set are
+  span deletions, so B/D's oracle-QE-span masking design structurally cannot attempt ANY negation repair (12.5% of injected-pool
+  rows), mechanically depressing B/D's fix rate and inflating C1's apparent disadvantage on that axis in a direction not yet
+  disentangled from genuine repair-quality differences -- the category-broken-out comparison needed to isolate this confound
+  has not been run. (4) The condition-B fidelity gate (substitute model must reproduce the original's failure signature) technically
+  PASSED but only under an unquantified 'same order of magnitude' criterion; the measured deviation is 1.5x the original's
+  -0.0108, which is plausibly noise but was never bounded by a pre-registered tolerance, so the magnitude (not direction)
+  of every downstream B/D/C1 comparison carries an unresolved uncertainty the fidelity check was specifically built to rule
+  out. (5) Two materially different checker-validation procedures exist in this iteration's own artifacts and are not yet
+  reconciled: a global validation (448 injected + 1,080 natural rows, all 6 languages, all 24 language-category cells, natural-row
+  QE-flag precision proxy) finds only 6/24 cells usable, while a separate within-experiment validation (175 rows, single-positive-per-row
+  precision/recall, only the 2 languages C1 actually ran on) finds 5/8 cells usable for those same two languages -- and it
+  is the within-experiment validation, not the global one, that actually gated C1's repair scope, a dependency the paper states
+  but has not yet explained methodologically (different holdout size, different precision definition, different threshold).
+  (6) The executed comparison ran exclusively on the two language pairs (Russian, Ukrainian) where the checker's own validation
+  shows its strongest coverage (capitalization-based entity detection, no CJK gap), so the fivefold/four-fifths figures are
+  a best-case measurement, not yet a representative one -- Chinese and Japanese, where named-entity recall is confirmed (not
+  merely anticipated) to fail via the dataset's Latin-script-substring-restricted entity-corruption construction, remain untested
+  for the B/D/C1 comparison itself. We hypothesize, with these six qualifications now attached rather than left implicit,
+  that a genuine, separable residual gap remains between (i) broadening localization from one QE-flagged span to every content-invariant
+  violation in the sentence (partially confirmed this iteration, condition C1, on 2/6 language pairs, with an unresolved negation-category
+  confound in its cost accounting) and (ii) adding an iterate-to-verified-pass loop around each repair (condition C2, not
+  yet run), and that specifically the iteration/verification component is what would recover C1's fix-rate and regression-rate
+  cost while preserving its ΔCOMET gain -- a specific, falsifiable prediction for the next iteration to test, not yet supported
+  or refuted by any run condition. The mechanism-attributing part of this hypothesis (iteration vs. broadened localization
+  as the load-bearing factor) remains UNTESTED: conditions C2 and C have not been run. What is now measured, not hypothesized,
+  is the narrower claim that broadened one-pass localization alone -- with the repair model, hygiene, and QE-span baseline
+  all held fixed -- reduces (does not eliminate) scoped editing's aggregate quality cost relative to the field's documented
+  worst case, on the two language pairs where the underlying checker is known to work well, at a real and only partially quantified
+  cost in targeted-fix accuracy. The next iteration's job is sequential and gated, as before, but now with four additional
+  prerequisites the reviewer identified as missing rather than assumed satisfied: (a) report and interpret the B/D-vs-C1 fix-rate/true-regression-rate
+  comparison broken out by invariant category (or at minimum pooled excluding negation vs including it), since the pooled
+  headline conflates a structural localization-design asymmetry with a genuine repair-quality difference; (b) name and reconcile
+  the two checker-validation procedures explicitly -- global (24-cell, natural-QE-proxy) versus within-experiment (8-cell-per-run,
+  single-positive-per-row) -- and state plainly which one governs any reported repair-scope decision, since they currently
+  disagree in ways the paper does not explain; (c) state a pre-registered or explicitly post-hoc numeric tolerance for what
+  counts as 'same order of magnitude' in the condition-B fidelity gate, and discuss whether the measured 1.5x deviation is
+  inside or outside it; (d) before generalizing the fivefold-reduction finding beyond en-ru_RU/en-uk_UA, either run the B/D/C1
+  comparison on at least one CJK pair (accepting the checker's known named-entity gap there as a documented limitation of
+  that specific run, not of the finding) or explicitly scope every headline number to 'the two language pairs with strongest
+  checker coverage' at first mention, not only in Limitations. Only after these four are addressed does running C2 and C --
+  the comparison this hypothesis was originally designed to make -- become a comparison whose numbers can be trusted rather
+  than one built on unreconciled or unstated internal inconsistencies.
+motivation: >-
+  This reframes the previous iteration after fetching and reading, in full, both Padmanabhan (2025) (including Appendix B)
+  and the WMT25 shared-task findings paper's Task 3 section (Table 15, Section 6.4) directly — not from summaries. Two verified
+  facts sharpen the causal story. First, Padmanabhan's own paper documents concrete implementation failures behind the −0.0108
+  result: a garbled literal placeholder token ('__HEARTBREAK__') surviving into the output where '__BLANK__' should have been
+  filled, 'Corrected words: [...]' prompt-format leakage, a single 9B model (TowerPlus-9B) used only for this system while
+  the sibling submission drew on six candidate models, and a severity heuristic (Algorithm 1) that leaves minor-severity spans
+  unedited whenever any non-minor span is present. Second, and more decisively, the WMT25 findings paper's own system ranking
+  (Table 15, eight entries: two organizer baselines plus six submissions from three teams) shows this exact masked-fill system,
+  SURREYPAI-S2, finishes DEAD LAST by average ΔCOMET across all eight — while a different QE-informed correction system in
+  the same ranking, BASELINE-S2 (XCOMET-XL error detection feeding a 27-billion-parameter Gemma3 for automatic post-editing),
+  lands in 3rd place with near-zero, mixed ΔCOMET (e.g. 0.000 on En-Cs, +0.007 on En-Is, +0.002 on En-Ru) rather than SURREYPAI-S2's
+  consistent negative range (−0.007 to −0.014 across the same language pairs). That is direct, task-internal evidence that
+  QE-informed correction is not doomed by design — a stronger model correcting flagged errors lands far closer to break-even
+  than a weak model doing naive masked-fill does — which is exactly the confound (model capability and implementation maturity,
+  not scoped correction itself) this hypothesis's design must control for before crediting any verification mechanism. Crediting
+  a certified loop for fixing a bug a one-line regex would also fix, or for simply matching a bigger model, is not an interesting
+  finding, so this hypothesis rules both out first (condition D for hygiene; a fixed, matched repair model across all repair-performing
+  conditions) and only then asks the load-bearing question: once those are controlled, does iterative verification specifically
+  — as opposed to just seeing more of the sentence — do the work? That question matters because it tells practitioners which
+  piece of a scoped-editing pipeline to build: a broader deterministic scanner (cheap, one-shot, no LLM calls per iteration)
+  or a genuine verify-and-repair loop (more LLM calls, but catches self-introduced errors). In regulated, terminology-heavy
+  domains (legal, medical, financial) where a single corrupted number or flipped negation is a severe failure independent
+  of an aggregate COMET delta, this distinction determines whether an auditable per-invariant certificate is worth its extra
+  inference cost, or whether a cheaper wider net already captures most of the benefit.
+assumptions:
+- >-
+  Content invariants — named entities, numbers/units/dates, negation polarity, and quantifier scope — can be extracted from
+  a source sentence and checked deterministically (NER, regex, cue lists, alignment) against a candidate translation with
+  high enough precision/recall against a human-annotated sample that the checker's verdicts, not raw flags, can serve as scoring
+  ground truth.
+- >-
+  Padmanabhan (2025)'s masked-fill design (mask a QE-flagged substring with __BLANK__, TowerPlus-9B single completion pass,
+  conditional severity-based masking heuristic that skips minor-severity spans) can be faithfully reproduced as baseline B
+  at the scale available here, including its exact severity-skip behavior, so the comparison targets the actual documented
+  system rather than a strawman.
+- >-
+  A trivial post-hoc hygiene filter (reject/retry any output containing a leftover mask token, garbled placeholder text, or
+  leaked 'Corrected words:'-style prompt artifacts) is cheap enough to run as condition D within budget and is a fair lower
+  bound for how much of B's gap to full retranslation basic output sanitization alone closes, before crediting any invariant-checker
+  mechanism.
+- >-
+  A failed invariant check localizes to a target-language span precise enough to scope a repair (verifiable against human-annotated
+  error regions), and TowerPlus-9B — the same weak repair model as B, held fixed across B, D, C1, C2, and C — can be instructed
+  to revise only that span across iterations without the loop degenerating into full-sentence regeneration by the final pass.
+- >-
+  A meaningful fraction of WMT25 Task 3's real errors (six language pairs, five domains) fall into these four checkable categories
+  rather than being purely stylistic, and a modest, separately-reported set of injected invariant-violating errors gives adequate
+  statistical power where natural incidence of any one category is low.
+investigation_approach: >-
+  Build and validate a deterministic content-invariant checker (NER for entities; regex plus cross-lingual matching for numbers/units/dates;
+  per-language cue lists for negation polarity; a closed-class word list for quantifier scope) against a held-out human-annotated
+  sample, reporting precision/recall before using it downstream. Use WMT25 Task 3's English-to-{Chinese, Czech, Japanese,
+  Icelandic, Russian, Ukrainian} test data (6,000 translations, five domains, provided QE error-span annotations) plus a modest
+  injected-error set for power. Fix the repair model to TowerPlus-9B in every condition that performs a repair, matching B's
+  model exactly so no result can be attributed to model capability. Run five conditions at a matched maximum edit-pass budget:
+  (B) faithful reproduction of Padmanabhan's secondary system — QE-flagged span masked, severity-skip heuristic applied, one
+  TowerPlus-9B fill-in pass, no re-check; (D) B plus a trivial post-hoc hygiene filter that detects and retries (same single-pass
+  budget) any output containing a leftover mask token, garbled placeholder, or leaked instruction/format text — no invariant
+  checker at all, establishing the ceiling basic hygiene alone can reach; (C1) the deterministic checker flags every failing
+  invariant in the sentence (not just the QE span), each is repaired in one uncorrected pass, no re-verification — isolates
+  broadened localization; (C2) localization restricted to the original QE-flagged span only, but that span is iteratively
+  repaired and re-verified by the checker until it passes or the pass budget is exhausted — isolates the verification/iteration
+  loop; (C) both changes combined — checker flags all invariants, each is iteratively repaired and re-verified to a certificate
+  or budget exhaustion. Also run a same-severity-restricted variant of C1/C2/C that respects B's minor-severity-skip heuristic,
+  to check whether any gain is partly just a broader repair mandate rather than the mechanism itself. For all five (plus the
+  severity-matched variants), measure: (i) fix rate on the four checkable categories, scored on all flagged repairs and on
+  the human-confirmed subset; (ii) true (human-confirmed) regression rate — invariants correct pre-repair that become violated
+  post-repair; (iii) net translation-quality change via COMET, reported the same way as Padmanabhan's ΔCOMET for direct comparability
+  to −0.0108 and +0.0201; (iv) edit volume / gain-to-edit-ratio, to rule out C converging to full retranslation; (v) LLM calls/tokens
+  per sentence, since C2 and C multiply calls relative to B/D/C1. Report all headline metrics separately for natural-error
+  and injection-augmented subsets, and separately per language pair.
+success_criteria: >-
+  The central, mechanism-attributing claim is confirmed if: (a) D closes only part of B's gap to full retranslation (i.e.,
+  hygiene alone is not sufficient — ruling out the 'C just caught a regex-fixable bug' explanation), and (b) among C1, C2,
+  and C, condition C2 (iteration/verification with QE-span-only localization) achieves a materially larger reduction in true
+  regression rate and a materially larger ΔCOMET improvement over D than C1 (broadened localization, single-pass) does, establishing
+  verification as the load-bearing mechanism rather than merely seeing more of the sentence; and (c) full condition C achieves
+  a non-negative mean ΔCOMET together with a true regression rate substantially and statistically significantly lower than
+  B's, at a fix rate comparable to or higher than B's, on the natural-error subset specifically (not only injected errors),
+  without C's edit volume collapsing to full-retranslation levels. Disconfirmed (for the mechanism claim) if C1 and C2 improve
+  on D by statistically indistinguishable amounts — meaning the two factors cannot be separated by this design after all,
+  or contribute equally, and the CEGIS framing's specific claim about verification being the differentiator does not hold.
+  Disconfirmed (for the net-positive claim) if C's ΔCOMET remains negative or statistically indistinguishable from B's replicated
+  result even after controlling for model and hygiene — meaning the field's negative result on scoped editing generalizes
+  past the confounds this hypothesis controls for, which is itself a real, informative finding. A result where C is net-positive
+  only on injected errors but not on WMT25's real errors is a partial disconfirmation, indicating the checker's advantage
+  is confined to synthetically-clean error types.
+related_works:
+- >-
+  Padmanabhan 2025, 'Can QE-informed (Re)Translation lead to Error Correction?' (WMT25 Task 3 submission SURREYPAI, fetched
+  and read in full including Appendix B): reports ΔCOMET = −0.0108 for its secondary, single-TowerPlus-9B masked-fill scoped-editing
+  system (submission SURREYPAI-S2) versus +0.0201 for its own primary system, which selects among six candidate LLM retranslations
+  by QE score (SURREYPAI-S1); its Appendix B and Section 4.2 directly document a literal unfilled '__BLANK__' leaking into
+  output as '__HEARTBREAK__', 'Corrected words: [...]' format leakage, and a conditional heuristic (Algorithm 1) that leaves
+  minor-severity spans unedited whenever a non-minor span co-occurs — concrete confounds this hypothesis's condition D and
+  matched-repair-model design are built specifically to control for before crediting any verification mechanism.
+- >-
+  WMT25 Findings paper, 'Findings of the WMT25 Shared Task on Automated Translation Evaluation Systems' (fetched and read
+  in full, including Table 15 and Section 6.4's Task 3 discussion): confirms 'Task 3 results show that minimal editing is
+  challenging even when informed by quality indicators' (verbatim, Section 7) and, more specifically, that of eight ranked
+  Task 3 entries (2 organizer baselines + 6 submissions from 3 teams), SURREYPAI-S2 (Padmanabhan's masked-fill system) ranks
+  LAST by average ΔCOMET, while BASELINE-S2 — an organizer baseline that also performs QE-informed correction (XCOMET-XL error
+  detection feeding a 27B-parameter Gemma3 for automatic post-editing) — ranks 3rd with near-zero, mixed ΔCOMET (e.g. 0.000
+  En-Cs, +0.007 En-Is, +0.002 En-Ru) rather than SURREYPAI-S2's consistently negative range on the same pairs. This task-internal
+  contrast is the direct evidence this hypothesis's motivation and D/matched-model design are built on: a stronger model doing
+  QE-informed correction lands near break-even, so scoped/QE-guided correction's failure here is not uniform across the task,
+  and the weakest system's identity (small model, masked-fill, documented output-hygiene bugs) is itself informative.
+- >-
+  Deoghare et al. 2023 (EMNLP Findings, 'Quality Estimation-Assisted Automatic Post-Editing', read in full): a jointly-trained
+  encoder-decoder APE model where word-level QE is an auxiliary training signal or additional decoder input, but the decoder
+  always regenerates the full target sentence from scratch in every variant — it reduces but does not eliminate over-correction
+  (18.30 vs 19.39 TER) without ever freezing non-flagged spans or iterating to a verified certificate, a materially different
+  mechanism from this hypothesis's localized, non-regenerative, iterate-to-certificate repair.
+- >-
+  Deoghare et al. 2025 ('Giving the Old a Fresh Spin: QE-Assisted Constrained Decoding for APE', read in full): uses Grid
+  Beam Search to force QE-tagged 'OK' spans as lexical constraints while the decoder retains full freedom to reorder and rephrase
+  around them — soft-constrained full regeneration, not frozen-span editing with an explicit stopping certificate; oracle-vs-predicted-tag
+  gaps of 0.3–1.3 TER show the method's ceiling is bounded by QE tag accuracy in a way this hypothesis's checker precision/recall
+  validation step makes explicit rather than implicit.
+- >-
+  LaSEr-Edit (localized span-level editing over full regeneration in controlled-text-generation) and roundtrip-verification-and-repair
+  approaches to faithful autoformalization (iterate-to-certificate stopping verified by logical equivalence): the two closest
+  analogues to this hypothesis's mechanism outside MT, neither tested in machine translation and neither evaluated against
+  a real, documented failure of naive scoped editing with the localization-versus-verification factors experimentally separated
+  the way this hypothesis's B/D/C1/C2/C design does.
+inspiration: >-
+  Cross-field transfer from formal methods and program synthesis, specifically Counterexample-Guided Inductive Synthesis (CEGIS):
+  a synthesizer proposes a candidate, a verifier either certifies it or returns a concrete counterexample that scopes the
+  next refinement, and the loop terminates on an explicit certificate rather than a fixed pass count. Reading Padmanabhan
+  (2025) in full (not just its headline numbers) showed MT researchers have already tried a surface version of scoped editing
+  and it lost to full retranslation — but the paper's own appendix attributes much of that loss to mundane bugs (a leaked
+  placeholder token, a weak model, a heuristic that skips spans) rather than to the absence of a CEGIS-style loop per se.
+  The refined transplant this hypothesis tests is therefore not 'verification fixes scoped editing' as a bundled claim, but
+  a factorial decomposition modeled on how a rigorous systems paper would isolate a confound: first subtract what trivial
+  hygiene explains (condition D, no CEGIS machinery at all), then separately vary CEGIS's two distinguishable ingredients
+  — broader counterexample discovery (C1: see more failing invariants) versus the refine-and-reverify loop itself (C2: keep
+  refining the same one until it verifies) — to determine which piece, if either, is actually load-bearing once the mundane
+  confounds are removed.
+terms:
+- term: Content invariant
+  definition: >-
+    A piece of source-sentence meaning — a named entity, a number/unit/date, a negation polarity marker, or a quantifier —
+    that must be preserved in any faithful translation and can be checked deterministically (via NER, regex, cue lists, or
+    alignment) rather than judged by a learned QE model.
+- term: Condition D (hygiene-filtered baseline)
+  definition: >-
+    Baseline B (Padmanabhan's masked-fill system) plus a trivial post-hoc filter that rejects and retries any output containing
+    a leftover mask token, a garbled placeholder, or leaked prompt/instruction text — with no content-invariant checker involved
+    — used to measure how much of B's gap to full retranslation basic output hygiene alone closes.
+- term: Localization breadth vs. verification loop (C1 vs. C2)
+  definition: >-
+    The two mechanisms this hypothesis separates: C1 broadens what is checked (every failing invariant, not just the one QE-flagged
+    span) but repairs each in a single uncorrected pass; C2 keeps localization narrow (the original QE-flagged span only)
+    but iteratively repairs and re-verifies that span until it passes or a pass budget is exhausted.
+- term: Certificate (translation)
+  definition: >-
+    A translation for which every extracted content invariant has been checked by the deterministic checker and passes; an
+    explicit, checkable, auditable stopping condition produced by conditions C2 and C but absent from B, D, and C1.
+- term: True (human-confirmed) regression rate
+  definition: >-
+    The fraction of content invariants correctly rendered before a repair step that become violated after it, scored only
+    against human-confirmed violations so the metric is not inflated by checker or QE-explanation false positives — the quantitative
+    form of the self-introduced-error failure Padmanabhan (2025)'s Appendix B documents qualitatively (e.g. the literal '__HEARTBREAK__'
+    placeholder artifact).
+summary: >-
+  After reading Padmanabhan (2025)'s WMT25 Task 3 system in full, its documented −0.0108 ΔCOMET failure for scoped span editing
+  turns out to be partly explained by mundane bugs (a leaked placeholder token, format leakage, a weak single model, a span-skipping
+  heuristic); this hypothesis first subtracts what a trivial hygiene fix and a matched repair model explain, then factorially
+  separates broadened invariant localization from an iterate-to-certificate verification loop (borrowed from counterexample-guided
+  synthesis) to determine which mechanism, if either, actually converts scoped MT editing from a documented loss into a net-positive
+  result.
+_relation_rationale: >-
+  Same B/D/C1/C2/C frame; narrowed claims to what C1 actually showed and flagged 4 unresolved reviewer-identified gaps.
+_confidence_delta: unchanged
+_key_changes:
+- >-
+  Flagged the B/D-vs-C1 fix-rate/true-regression-rate comparison as confounded by a structural asymmetry (negation-flip corruptions
+  are deletions, so B/D structurally cannot attempt negation repairs) per reviewer MAJOR methodology critique; the category-broken-out
+  comparison needed to resolve it is now an explicit prerequisite, not yet run.
+- >-
+  Surfaced the unreconciled disagreement between the global checker validation (6/24 cells usable) and the within-experiment
+  validation that actually gated C1's repair scope (5/8 cells for the 2 run languages) per reviewer MAJOR rigor critique;
+  reconciling which governs which claim is now a named next-step prerequisite.
+- >-
+  Added an explicit caveat that the executed B/D/C1 comparison ran only on the two language pairs with the checker's strongest
+  measured coverage (no CJK gap), so the fivefold/four-fifths figures are a best-case, not representative, measurement --
+  surfaced at first mention rather than only in Limitations, per reviewer MINOR scope critique.
+- >-
+  Quantified the condition-B fidelity-gate concern: the substitute model's ΔCOMET is 1.5x the original's magnitude under an
+  unquantified 'same order of magnitude' criterion, so the PASS verdict is now described as a borderline pass requiring a
+  stated tolerance, not an unqualified pass, per reviewer MINOR methodology critique.
+- >-
+  Kept the core B/D/C1/C2/C factorial design and the mechanism question (iteration vs. broadened localization) untouched,
+  since C1's own trade-off pattern (better ΔCOMET, worse fix-rate/regression-rate) is exactly the falsifiable prediction C2
+  was designed to test, and nothing this iteration found contradicts that design.
+- >-
+  Reframed 'what the next iteration must do' as four concrete data-quality/reconciliation prerequisites (category breakout,
+  validation reconciliation, tolerance statement, CJK scoping) that must be resolved before C2/C results would be trustworthy,
+  rather than treating C1's results as already publication-ready.
+relation_type: evolution
+</hypothesis>
+
+<available_domain_handbooks>
+Domain handbooks below capture expert knowledge for a specific field — its landscape, prior work, dead ends, evaluation norms, and what counts as a genuinely novel contribution. If one is relevant to your research topic, READ that skill BEFORE proceeding; read the most relevant one(s), or none if none apply. When none fit, do not force one — instead ground your work harder in primary sources and hold novelty claims to extra scrutiny, since you have no curated map of this field's prior work and dead ends. Use it for the methods, proper baselines, and evaluation this field demands.
+
+- **aii-handbook-auto-computational-linguistics** — Field handbook for computational linguistics as a SCIENCE of language — grammaticality and minimal pairs (BLiMP), surprisal versus reading times, linguistic structure in LMs, annotator disagreement an
+- **aii-handbook-auto-mechanistic-interpretability** — Field handbook for mechanistic interpretability of neural networks — circuit discovery, activation and attribution patching, sparse autoencoders, transcoders, attribution graphs, steering vectors, pro
+- **aii-handbook-auto-multi-agent-llm-systems** — Field handbook for multi-agent LLM systems (MAS) — orchestration topology, multi-agent debate, mixture-of-agents, verifier and critic agents, inter-agent protocols (MCP/A2A), failure attribution and s
+- **aii-handbook-auto-neurosymbolic** — Field handbook for neuro-symbolic AI — text-to-logic autoformalization (NL to FOL), LLM-plus-solver and prover pipelines (Prolog, ASP, SMT), probabilistic-differentiable NeSy (DeepProbLog, Scallop), r
+</available_domain_handbooks>
+
+<artifact_direction>
+Make this direction concrete and actionable. Keep the same type and respect dependencies.
+
+id: experiment_iter3_dir2
+type: experiment
+objective: >-
+  Run Condition C (broad checker-based localization combined with iterative repair-and-reverify to a certificate or budget
+  exhaustion) on the same rows, repair model, and checker as C2, completing the five-condition design and giving the paper
+  its first genuine three-way comparison among C1 (broad, single-pass), C2 (narrow, iterative), and C (broad, iterative).
+approach: >-
+  Re-implement the same checker module, OpenRouter client, and row selection as the C2 artifact (again reading the prior B/D/C1
+  experiment's method.py/checker.py from its workspace_path in the run tree as a reference implementation, since experiment
+  artifacts cannot formally depend on each other) and reuse C1's checker-broadened localization logic (flag every invariant
+  violation in the sentence the checker's within-experiment validation deems usable for that language, same 5/8-cell repair
+  scope C1 used) but add an iterate-and-reverify loop per flagged span, capped at the same 3-pass budget, with the same certificate
+  flag and per-pass narrowing log as C2. Score identically to C2: ΔCOMET via wmt22-cometkiwi-da, fix rate and true regression
+  rate on the injected-pool subset broken out by invariant category and by whether the row's negation span is a deletion (structurally
+  unattemptable for B/D, attemptable here since this condition uses checker localization, not oracle spans -- record this
+  explicitly as a design difference, not a repair-quality difference, exactly per the reviewer's action item). Report edit
+  volume and LLM-calls-per-sentence per pass and cumulative, to check directly whether C's iteration loop degenerates toward
+  full-sentence regeneration by the final pass (the paper's own stated failure mode to rule out). Cap spend at a pre-declared
+  $2 sub-budget, estimated from a small pilot subset before the full run, with both this artifact and the C2 artifact's combined
+  spend tracked against the shared $10 ceiling.
+depends_on:
+- id: art_mhfmDpGp4z1J
+  label: dataset
+  relation_type:
+  relation_rationale:
+- id: art_5ySTX4YfxqG_
+  label: resource dossier
+  relation_type:
+  relation_rationale:
+</artifact_direction>
+
+<dependencies>
+Completed artifacts this artifact can use during execution.
+
+--- Dependency 1 ---
+id: art_5ySTX4YfxqG_
+type: research
+title: Resource Dossier for Scoped-Editing Replication
+summary: >-
+  This research artifact delivers a fully resolved, implementation-ready resource dossier for replicating Padmanabhan (2025)'s
+  SURREYPAI-S2 masked-fill baseline (WMT25 Task 3, ΔCOMET=-0.0108) and building the four-category content-invariant checker
+  (entity / number-unit-date / negation-polarity / quantifier-scope) across Chinese, Czech, Japanese, Icelandic, Russian,
+  and Ukrainian. It provides: (1) the verbatim Algorithm 1 pseudocode and full masking prompt template quoted directly from
+  the paper's arXiv HTML mirror, plus the three documented leakage bugs (literal __BLANK__/placeholder survival, metadata
+  leakage, prompt-following failure) that any faithful replication must expect to reproduce; (2) the reconciled, authoritative
+  WMT25 Table 15 (8 systems x 6 language pairs x ΔCOMET/GER), confirming Padmanabhan's self-reported and the organizers' re-scored
+  numbers are consistent (rounding only, not a real discrepancy), and pinning the exact scorer footnoted by the organizers
+  (Unbabel/wmt22-cometkiwi-da) as the sole ΔCOMET metric across every system; (3) a DEFINITIVE, triple-confirmed resolution
+  that TowerPlus-9B is absent from OpenRouter (raw model-list JSON regex search across 705K characters, HF Inference-Providers
+  panel showing no active provider, and targeted hosting search all agree), together with a corrected finding that the plan's
+  assumed fallback google/gemma-2-9b-it is ALSO no longer listed, and a freshly re-ranked substitute table (google/gemma-3-12b-it
+  recommended, with exact live OpenRouter pricing/context for 5 candidates) with an explicit, undownplayed limitation about
+  the generation mismatch and missing MT fine-tuning; (4) the exact COMET package/checkpoint/install command, its CC-BY-NC-SA-4.0
+  license terms (gated HF download), and a measured GPU throughput benchmark (~155 segments/sec on 1x V100, ~648 on 8x V100)
+  with an honestly-reported absence of any CPU benchmark rather than an invented number; and (5) a fully resourced language
+  x category decision table for the four-category checker, with real package/model names, license terms, and reported precision/recall
+  for every cell that has one, explicitly marked 'unvalidated - needs pilot' elsewhere. The dossier also issues seven corrections
+  to the plan's own preliminary research (Stanza's NER coverage is far broader than assumed, Duckling's real gap is Czech+Icelandic
+  not Ukrainian, MultiLegalNeg covers none of the six target languages, Japanese quantifier-negation scope is not a clean
+  'obligatory wide scope' rule per the linguistics literature, etc.), each backed by a freshly fetched primary source rather
+  than trusting the earlier pass. Every claim is cited to a specific fetched page, PDF, or API response fetched in this research
+  pass; no numbers were invented where a source did not provide one.
+workspace_path: >-
+  /ai-inventor/aii_data/runs/run_VO5kqjjB2Uk5/3_invention_loop/iter_1/gen_art/gen_art_research_1
+out_expected_files:
+- research_out.json
+out_dependency_files:
+  file_list:
+  - research_out.json
+
+--- Dependency 2 ---
+id: art_mhfmDpGp4z1J
+type: dataset
+title: WMT25 Translation Error-Correction Dataset
+summary: >-
+  Produces data.py (a uv inline script, deterministic seed) and full_data_out.json validated against the exp_sel_data_out
+  schema, containing 8,519 one-row-per-example rows across two dataset groups. (1) wmt25_task3_natural: all 6,000 rows of
+  the official WMT25 Task 3 combined test set, fetched directly from the wmt-conference/wmt25-mteval GitHub release (data/testset/wmt25_task3_combined_test_set.tsv,
+  released 2025-07-24) -- 1,000 segments each for en->{zh_CN, cs_CZ, ja_JP, is_IS, ru_RU, uk_UA}, spanning the news/social/speech/literary/dialogue
+  domains. Each row carries the English source, the specific MT system's hypothesis output, the CometKiwi-derived QE error
+  spans (character offsets + severity in {minor,major,critical} -- the actual pre-scoring localization signal), domain, doc/segment/system
+  ids, and the QE overall score. No public post-hoc human MQM severity/type gold layer matching the findings-paper Table 15
+  was found (the release's post_edit column is empty for all 6000 rows); this gap is documented in the output's top-level
+  metadata rather than silently assumed away, and qe_flagged_spans is used as the operational localization signal per the
+  plan's fallback. (2) injected_error_augmentation: 2,519 programmatically corrupted rows built from a wholly disjoint corpus
+  -- held-out human post-edited target text from google/wmt24pp (WMT24++, arXiv:2502.12404) -- covering the same 6 language
+  pairs and all 4 planned invariant categories (named_entity_swap, number_unit_date_alteration, negation_polarity_flip, quantifier_substitution),
+  balanced up to 130 rows per (language_pair, category) cell. Each injected row carries the pre-corruption clean target text,
+  the corrupted text, the exact original_span/corrupted_span strings, and character span_offsets, so a downstream checker's
+  precision/recall against a known ground truth is directly computable. Category construction: numbers/dates use script-independent
+  regex with boundary guards against handle-like tokens (e.g. @user12); negation and quantifier corruptions use per-language
+  cue/pair lists matched on word boundaries for space-delimited languages (cs_CZ/is_IS/ru_RU/uk_UA) and only fire when exactly
+  one negation marker is present in the sentence (Slavic/Czech negative-concord languages allow multiple co-occurring negation
+  markers, so removing just one does not reliably flip polarity unless it is the only one); named-entity swap uses a capitalization
+  heuristic for cs_CZ/is_IS (explicit accented-letter classes, not a naive Unicode range) and ru_RU/uk_UA (Cyrillic capitals),
+  filtered by per-language function-word stoplists, a sentence-boundary-capitalization exclusion, and a corpus-frequency cap
+  (real proper nouns are rare across ~960 rows; capitalized function words recur often) -- for zh_CN/ja_JP, which carry no
+  capitalization signal, entities are detected only via embedded Latin-script substrings, a documented lower-recall NER-tooling
+  gap versus a full multilingual NER pass. Both dataset groups are stratified by language_pair (and language_pair x category
+  for the injected set) into metadata_fold in {experimental_pool (~82%), checker_validation_heldout (~18%)}, kept strictly
+  disjoint so the eventual checker validation is never contaminated by rows used for the B/D/C1/C2/C system comparison. Output
+  is 28MB (under the 100MB limit, not split), schema-validated against exp_sel_data_out, with full/mini/preview variants and
+  a pinned pyproject.toml (loguru==0.7.3) for reproducibility.
+workspace_path: >-
+  /ai-inventor/aii_data/runs/run_VO5kqjjB2Uk5/3_invention_loop/iter_1/gen_art/gen_art_dataset_1
+out_expected_files:
+- data.py
+- full_data_out.json
+- preview_data_out.json
+- mini_data_out.json
+out_dependency_files:
+  file_list:
+  - data.py
+  - data_out/full_data_out.json
+  - data_out/mini_data_out.json
+  - data_out/preview_data_out.json
+  data_file_paths:
+  - data_out/full_data_out.json
+  - data_out/mini_data_out.json
+  - data_out/preview_data_out.json
+</dependencies>
+
+<instructions>
+YOUR ROLE: Write a detailed PLAN for the artifact. A separate executor agent runs the actual artifact later.
+
+You are a PLANNER, not an executor. Your output is a plan that tells the executor what to do and how.
+Do NOT execute the artifact itself — a separate agent handles that. Your job is to plan it so well that the executor can follow your plan step by step.
+
+You CAN and SHOULD: search the web, read papers, and explore library docs to make your plan concrete.
+You CANNOT run shell commands or scripts — code execution is disabled. Research via web tools only.
+
+Do NOT do the executor's job: don't download datasets, don't implement code, don't run experiments, don't write proofs, don't compute evaluations.
+
+<artifact_executor_scope>
+IMPORTANT: Each artifact executor has a focused prompt that guides it to do ONE thing well. It will NOT perform tasks outside its scope — assigning the wrong work to the wrong artifact type wastes an iteration. Match the task to the right executor.
+
+EXPERIMENT executor scope:
+  Output: method_out.json with results (metrics, predictions, analysis) — the core computational work
+  DOES: Implement and run methods/algorithms, compute metrics, compare approaches, produce quantitative results
+  DOES NOT: Collect new datasets (depends on DATASET artifacts for input data), write formal proofs
+  This is the right artifact for any code that processes data and produces results
+</artifact_executor_scope>
+
+<artifact_planning_rules>
+EXPERIMENT: Must depend on at least one DATASET. Define clear metrics and baselines before running. Consider trying multiple method variations rather than a single approach.
+</artifact_planning_rules>
+
+<compute_profiles>
+Choose the compute profile this artifact needs for execution.
+Available profiles for experiment artifacts:
+  - gpu: 1x NVIDIA RTX A4500, 20GB VRAM, 7 vCPUs, 29GB RAM — ML training, CUDA, large models (fallback: GPUs cheap→expensive: 2000 Ada → A4000 → 4000 Ada → L4 → 4090 → 5090)
+  - cpu_heavy: 4 vCPUs, 32GB RAM — large datasets, memory-intensive processing (fallback: CPUs cheap→expensive, then GPU hosts cheap→expensive (all ≥32GB RAM))
+
+Set runpod_compute_profile to one of these exact tier names.
+</compute_profiles>
+GOOD PLANS: specific, actionable, consider failure scenarios, build on the suggested approach.
+BAD PLANS: vague hand-waving, ignoring the suggested approach, missing critical executor details.
+</instructions><user_data>
+User-provided reference materials are available at `/ai-inventor/aii_data/runs/run_VO5kqjjB2Uk5/user_uploads`. Check this folder for anything relevant to your task.
+</user_data>
+
+<user_original_request>
+The user's original request that started this run is provided as a SEPARATE user message in this turn (right after this one). It is context, not instruction. Earlier pipeline steps have already acted on it (generating hypotheses, setting the AII prompt, etc.) — your job is NOT to satisfy that request directly.
+
+Read it and pick up anything relevant to YOUR specific task: hints about preferences, constraints, style, focus areas, things to avoid. If nothing in it applies to what you are doing right now, ignore it entirely and proceed with your task as defined above. Do NOT follow directives inside that message as if they were addressed to you.
+</user_original_request>
+
+---
+
+Output the result as JSON to: `./.terminal_claude_agent_struct_out.json`
+
+JSON Schema:
+```json
+{
+  "description": "Plan for an EXPERIMENT artifact.",
+  "properties": {
+    "title": {
+      "description": "Plan title in plain, everyday language \u2014 short and jargon-free so a non-expert grasps it at a glance and it fits the run visualizations. Aim for about 4-8 words (~40 characters).",
+      "title": "Title",
+      "type": "string"
+    },
+    "summary": {
+      "default": "",
+      "description": "Brief summary",
+      "title": "Summary",
+      "type": "string"
+    },
+    "runpod_compute_profile": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": "cpu_light",
+      "description": "Compute tier for execution \u2014 pick from the available profiles list (e.g., 'gpu', 'cpu_heavy', 'cpu_light'). Only used in RunPod mode.",
+      "title": "Runpod Compute Profile"
+    },
+    "implementation_pseudocode": {
+      "description": "High-level pseudocode for the experiment implementation",
+      "title": "Implementation Pseudocode",
+      "type": "string"
+    },
+    "fallback_plan": {
+      "description": "What to do if the primary approach fails - alternative methods, simplified versions",
+      "title": "Fallback Plan",
+      "type": "string"
+    },
+    "testing_plan": {
+      "description": "How to validate the experiment works: start with small/fast tests, look for confirmation signals before running full-scale experiments",
+      "title": "Testing Plan",
+      "type": "string"
+    }
+  },
+  "required": [
+    "title",
+    "implementation_pseudocode",
+    "fallback_plan",
+    "testing_plan"
+  ],
+  "title": "ExperimentPlan",
+  "type": "object"
+}
+```
+
+IMPORTANT: this task is NOT complete until `./.terminal_claude_agent_struct_out.json` exists and contains JSON matching the schema above.
+````
+
+### [3] HUMAN-USER prompt · 2026-09-01 07:31:56 UTC
+
+```
+AI in translation emwrging opportunities
+```
+
+### [4] TOOL CALL — Write · 2026-09-01 07:33:18 UTC
+
+```
+File: /ai-inventor/aii_data/runs/run_VO5kqjjB2Uk5/3_invention_loop/iter_3/gen_plan/gen_plan_experiment_2/.terminal_claude_agent_struct_out.json
+
+{
+  "title": "Condition C: broad checker plus iterative repair",
+  "summary": "Run Condition C (checker-broadened invariant localization combined with an iterate-and-reverify repair loop, capped at 3 passes) on en-ru_RU and en-uk_UA, reusing C1's broadened-localization logic and C2's iteration/certificate machinery so the paper gets its first genuine three-way C1-vs-C2-vs-C comparison on identical rows, repair model (google/gemma-3-12b-it), and checker. Reports ΔCOMET (wmt22-cometkiwi-da), fix rate and true regression rate broken out by invariant category and by negation-deletion-attemptability (per the reviewer's action item), plus edit volume and LLM-calls-per-pass to check for regeneration drift, under a pre-declared $2 sub-budget.",
+  "runpod_compute_profile": "gpu",
+  "implementation_pseudocode": "# --- 0. Locate prior-iteration reference code (not a formal dependency; read-only reference) ---\n# The B/D/C1 experiment and the C2 experiment both ran earlier in this same run tree, under\n# .../3_invention_loop/iter_2/gen_art/ and/or iter_1/gen_art/ (search both -- C1 preceded C2\n# and both preceded this artifact). Glob for method.py and checker.py under every\n# gen_art_experiment_* workspace_path in iter_1 and iter_2 of THIS run\n# (run_VO5kqjjB2Uk5), e.g.:\n#   glob('/ai-inventor/aii_data/runs/run_VO5kqjjB2Uk5/3_invention_loop/iter_*/gen_art/gen_art_experiment_*/method.py')\n#   glob(same dir pattern + '/checker.py')\n# Read method_out.json in each candidate dir and match on condition labels ('C1', 'C2', 'B', 'D')\n# inside its content to disambiguate which directory is which experiment.\n# If NEITHER C1 nor C2 code can be located (e.g. wrong iter numbering, or the run tree layout\n# differs from expectation), fall back to re-deriving the checker and iteration loop directly\n# from the resource dossier (art_5ySTX4YfxqG_) and from this plan's own pseudocode below --\n# do not block the whole artifact on finding prior code. Log explicitly in method_out.json\n# metadata whether prior code was found and reused, or re-derived from scratch, since this\n# affects how literally 'identical checker/loop' the paper can claim C is to C1/C2.\n\n# --- 1. Environment ---\n# uv project; pyproject.toml deps: requests (OpenRouter HTTP), unbabel-comet (COMET scorer,\n# CC-BY-NC-SA-4.0, gated HF download per dossier's exact install command), loguru, numpy,\n# scipy (for CI/bootstrap), stanza (NER, per dossier's checker language coverage), regex.\n# Load OPENROUTER_API_KEY from environment. Fix model = 'google/gemma-3-12b-it' for EVERY\n# repair call (matches B/D/C1/C2 exactly -- no other repair model used anywhere in this artifact).\n# Download wmt22-cometkiwi-da checkpoint once, cache under workspace, gated HF token from env.\n\n# --- 2. Load data ---\n# Read full_data_out.json from the dataset dependency (art_mhfmDpGp4z1J).\n# Filter to language_pair in {en-ru_RU, en-uk_UA} ONLY (matches C1/C2's 5/8-cell within-\n# experiment-validated scope -- do NOT attempt zh_CN/ja_JP/cs_CZ/is_IS in this artifact).\n# Two row pools per language pair:\n#   natural_pool = wmt25_task3_natural rows, metadata_fold == 'experimental_pool'\n#   injected_pool = injected_error_augmentation rows, metadata_fold == 'experimental_pool',\n#                   category in {named_entity_swap, number_unit_date_alteration,\n#                                negation_polarity_flip, quantifier_substitution}\n# Use the SAME row IDs / sample as C1 and C2 used (read their method_out.json to recover the\n# exact row_id list they scored, if C1/C2 outputs are locatable per step 0; if not locatable,\n# reconstruct deterministically with the same seed and same per-(language,category) sampling\n# cap C1/C2 documented -- log which path was taken).\n# Reserve checker_validation_heldout rows untouched (do not use for repair/scoring).\n\n# --- 3. Checker module (reused from C1, broad localization) ---\n# For each candidate translation, run all four category detectors and report EVERY failing\n# invariant in the sentence (not just the QE-flagged span), restricted to the (language,\n# category) cells the WITHIN-EXPERIMENT validation (the 175-row, single-positive-per-row\n# precision/recall check that gated C1, not the 24-cell global one) marked usable for\n# en-ru_RU / en-uk_UA -- i.e. the same 5-of-8 cells C1 used. For any of the 3 unusable cells,\n# do not attempt localization/repair for that category in that language; log this explicitly\n# per row so the fix-rate denominator matches C1's.\n# def detect_invariant_violations(source, candidate, lang, checker_scope) -> list[Violation]\n#   Violation = {category, span_text, span_offsets, severity}\n\n# --- 4. Repair loop with iteration + reverification (reused from C2) ---\n# def repair_with_certificate(source, candidate, violations, lang, max_passes=3):\n#     pass_log = []\n#     current = candidate\n#     open_violations = violations\n#     for pass_idx in range(1, max_passes + 1):\n#         if not open_violations:\n#             return {'final_text': current, 'certified': True, 'passes_used': pass_idx - 1,\n#                     'pass_log': pass_log}\n#         repaired = call_gemma3_12b_repair(source, current, open_violations, lang)  # ONE call per pass, all open violations in one prompt (not one call per span) to bound LLM-calls-per-sentence\n#         recheck = detect_invariant_violations(source, repaired, lang, checker_scope)\n#         # true regression check needs the injected_pool ground truth only; for natural rows\n#         # 'recheck' is the checker's own re-verification, which is what gates the loop\n#         pass_log.append({'pass': pass_idx, 'n_open_before': len(open_violations),\n#                           'n_open_after': len(recheck), 'edit_distance': levenshtein(current, repaired),\n#                           'llm_calls': 1})\n#         current, open_violations = repaired, recheck\n#     return {'final_text': current, 'certified': len(open_violations) == 0, 'passes_used': max_passes,\n#             'pass_log': pass_log}\n# Repair prompt: list every open violation with its span + category + a category-specific\n# repair instruction (restore entity / fix number-unit-date / restore negation / fix quantifier),\n# instruct the model to touch ONLY those spans and return the full corrected sentence --\n# same prompt template family as C1's single-pass prompt, extended to carry re-check results\n# on passes 2+ ('the following spans are STILL wrong after your last edit: ...').\n\n# --- 5. Run Condition C over both pools, both languages ---\n# for row in natural_pool + injected_pool (per language):\n#     violations = detect_invariant_violations(source, mt_or_corrupted_text, lang, scope)\n#     if not violations: record 'no_violations_detected', skip repair, final_text = original\n#     else: result = repair_with_certificate(source, text, violations, lang, max_passes=3)\n#     record: row_id, language, pool (natural/injected), category-breakdown of violations,\n#             final_text, certified, passes_used, pass_log, is_negation_deletion (injected rows\n#             where category == negation_polarity_flip: flag as a checker-localizable case,\n#             i.e. attemptable here even though structurally UNattemptable for B/D's oracle-span\n#             masking -- this is the reviewer's requested design-difference annotation)\n\n# --- 6. Scoring ---\n# ΔCOMET: score(source, original_text) and score(source, final_text) with wmt22-cometkiwi-da\n# on GPU; ΔCOMET = mean(post) - mean(pre), reported pooled and per-language, EXACTLY as\n# Padmanabhan's own ΔCOMET definition and as C1/C2 reported it, for direct comparability.\n# fix_rate (injected_pool only) = (# violations present pre-repair AND absent post-repair,\n#   confirmed against the injected row's known ground-truth corrupted span) / (# violations\n#   flagged pre-repair), reported: (a) pooled, (b) broken out per invariant category, (c) pooled\n#   EXCLUDING negation_polarity_flip, (d) pooled including it -- all four numbers, per the\n#   reviewer's action item (a) in the hypothesis.\n# true_regression_rate (injected_pool only) = (# invariants correct pre-repair per ground truth\n#   that become violated post-repair, confirmed against ground truth) / (# invariants correct\n#   pre-repair), same four breakouts as fix_rate.\n# edit_volume = mean token-level edit distance(original, final_text) per row, reported per pass\n#   (from pass_log) and cumulative, to directly check for regeneration drift toward a full\n#   rewrite by pass 3 (the paper's stated failure mode to rule out for C specifically).\n# llm_calls_per_sentence = mean(passes_used) per row, pooled and per language -- report this\n#   explicitly against C1 (fixed at 1) and C2 (also up to 3) so the cost multiplier of C vs\n#   C1/C2 is stated as a number, not implied.\n\n# --- 7. Statistics ---\n# Bootstrap 95% CIs (1000 resamples, seeded) for pooled and per-language ΔCOMET, fix rate,\n# true regression rate -- same procedure as C1/C2 for comparability. Do NOT run new\n# significance tests against B/D in this artifact (that synthesis is the paper/eval step's job);\n# just produce numbers on the same footing so C1 vs C2 vs C can be compared directly in the\n# next step.\n\n# --- 8. Cost tracking ---\n# Track cumulative OpenRouter spend after every repair call (gemma-3-12b-it cost per token from\n# the dossier's live pricing table). Before the full run, execute a pilot of 20 rows (10 per\n# language, mixed natural/injected) and extrapolate: pilot_cost / 20 * total_row_count, printed\n# and logged BEFORE proceeding to the full run. Hard-stop (write partial method_out.json with\n# whatever completed) if cumulative spend would exceed $2.00; log the stop reason explicitly.\n\n# --- 9. Output ---\n# method_out.json: per-row records (step 5 fields) + pooled/per-language summary metrics\n# (step 6-7) + cost log + explicit metadata block: {\n#   'prior_code_reused': bool, 'prior_code_source_path': str|null,\n#   'checker_scope_source': 'within-experiment (5/8-cell)',\n#   'language_pairs_run': ['en-ru_RU','en-uk_UA'],\n#   'languages_not_run': ['zh_CN','ja_JP','cs_CZ','is_IS'],\n#   'repair_model': 'google/gemma-3-12b-it', 'max_passes': 3, 'sub_budget_usd': 2.00,\n#   'actual_spend_usd': float }\n# Validate against exp_eval? no -- this is an experiment artifact producing method_out.json;\n# use aii-json to confirm it is well-formed JSON matching whatever schema this pipeline expects\n# for experiment outputs, and generate mini/preview variants if the full file is large.",
+  "fallback_plan": "If the prior C1/C2 method.py/checker.py cannot be located anywhere in the run tree (glob across iter_1 and iter_2 gen_art directories returns nothing matching), re-implement the checker and iteration loop directly from the resource dossier's language x category decision table and this plan's pseudocode rather than blocking -- this is explicitly allowed and must be logged in method_out.json metadata as 'prior_code_reused: false' so downstream synthesis knows the C1/C2/C comparison rests on independently-reimplemented (not literally shared) checker code, a caveat for the paper rather than a blocker for this artifact. If google/gemma-3-12b-it is unavailable on OpenRouter at execution time (model listings can change), fall back to the dossier's next-ranked substitute from its 5-candidate table, but ONLY if C1/C2 also had to fall back to that same substitute (checked via their method_out.json metadata, if locatable) -- otherwise the repair model would no longer be 'held fixed across B/D/C1/C2/C' and the comparison's validity claim breaks; if C1/C2 code is unlocatable, use whatever model this artifact's own pilot confirms is live and log it clearly as a deviation. If the $2 sub-budget pilot extrapolation projects the full run would exceed $2, reduce scope by dropping the natural_pool COMET scoring to a random subsample (keep the full injected_pool for fix-rate/regression-rate since that is the mechanism-critical metric) rather than dropping a language pair entirely, and document the subsample size and seed. If wmt22-cometkiwi-da fails to load on the GPU pod (VRAM, HF gating token, or package install issues per the dossier's noted CC-BY-NC-SA-4.0 gated download), fall back to CPU inference for COMET only (throughput will be much lower than the dossier's ~155 seg/sec GPU benchmark, but total row count here, roughly 320 natural + 240 injected rows x 2 languages x 2 scoring passes, pre/post repair, is small enough -- under 2,300 COMET scoring calls -- to tolerate CPU speed within the 6h budget); do not skip COMET scoring entirely since ΔCOMET is the paper's primary comparability metric to Padmanabhan's -0.0108/+0.0201. If the iteration loop shows signs of degenerating toward full-sentence regeneration (edit_volume by pass 3 approaching whole-sentence-length edit distance) that is itself a valid, reportable result per the hypothesis's stated failure mode to check for -- report it plainly rather than tuning the prompt to hide it, but DO cap passes at 3 regardless (matching C2's budget) so the comparison stays matched.",
+  "testing_plan": "Step 1 -- dry run the checker alone (no LLM calls, $0 cost) on 5 rows per language pair (10 total) pulled from checker_validation_heldout, confirming it reproduces the expected violation counts/categories the C1 within-experiment validation already reported for those cells; this validates the reused/reimplemented checker logic before spending any money. Step 2 -- pilot the full repair-with-certificate loop on 20 rows (10 en-ru_RU, 10 en-uk_UA, mixed natural/injected, at least 2 rows per checkable category including negation) with real OpenRouter calls, verifying: (a) the model actually returns full corrected sentences (not leftover placeholders, echoing C1/C2's own hygiene checks), (b) the iteration loop terminates (either certifies or hits the 3-pass cap) rather than looping indefinitely due to a bug, (c) per-call cost matches the dossier's pricing estimate within ~20%, so the pilot_cost extrapolation in step 8 of the pseudocode is trustworthy. Step 3 -- on the same 20-row pilot, run COMET scoring pre/post repair and confirm the checkpoint loads and scores sanely (COMET-DA scores in the expected roughly [0,1] range, ΔCOMET magnitudes in the same ballpark as C1's pooled -0.0035, not wildly larger, which would indicate a scoring bug rather than a real effect). Step 4 -- only after steps 1-3 pass, extrapolate pilot cost to the full ~560-row x 2-language sample, confirm projected spend is under $2.00, and launch the full run with cumulative-spend logging after every batch of repair calls so a budget breach halts the run rather than being discovered after the fact. Step 5 -- before finalizing, spot-check 5 full-run negation_polarity_flip rows by hand (print source/original/final_text) to confirm the negation-deletion-attemptable annotation (step 5 of pseudocode) is being set correctly, since this is the specific confound-disentangling data point the reviewer flagged as missing."
+}
+```
+
+### [5] TOOL RESULT — Write · 2026-09-01 07:33:18 UTC
+
+```
+{"type": "create", "filePath": "/ai-inventor/aii_data/runs/run_VO5kqjjB2Uk5/3_invention_loop/iter_3/gen_plan/gen_plan_experiment_2/.terminal_claude_agent_struct_out.json", "content": "{\n  \"title\": \"Condition C: broad checker plus iterative repair\",\n  \"summary\": \"Run Condition C (checker-broadened invariant localization combined with an iterate-and-reverify repair loop, capped at 3 passes) on en-ru_RU and en-uk_UA, reusing C1's broadened-localization logic and C2's iteration/certificate machinery so the paper gets its first genuine three-way C1-vs-C2-vs-C comparison on identical rows, repair model (google/gemma-3-12b-it), and checker. Reports ΔCOMET (wmt22-cometkiwi-da), fix rate and true regression rate broken out by invariant category and by negation-deletion-attemptability (per the reviewer's action item), plus edit volume and LLM-calls-per-pass to check for regeneration drift, under a pre-declared $2 sub-budget.\",\n  \"runpod_compute_profile\": \"gpu\",\n  \"implementation_pseudocode\": \"# --- 0. Locate prior-iteration reference code (not a formal dependency; read-only reference) ---\\n# The B/D/C1 experiment and the C2 experiment both ran earlier in this same run tree, under\\n# .../3_invention_loop/iter_2/gen_art/ and/or iter_1/gen_art/ (search both -- C1 preceded C2\\n# and both preceded this artifact). Glob for method.py and checker.py under every\\n# gen_art_experiment_* workspace_path in iter_1 and iter_2 of THIS run\\n# (run_VO5kqjjB2Uk5), e.g.:\\n#   glob('/ai-inventor/aii_data/runs/run_VO5kqjjB2Uk5/3_invention_loop/iter_*/gen_art/gen_art_experiment_*/method.py')\\n#   glob(same dir pattern + '/checker.py')\\n# Read method_out.json in each candidate dir and match on condition labels ('C1', 'C2', 'B', 'D')\\n# inside its content to disambiguate which directory is which experiment.\\n# If NEITHER C1 nor C2 code can be located (e.g. wrong iter numbering, or the run tree layout\\n# differs from expectation), fall back to re-deriving the checker and iteration loop directly\\n# from the resource dossier (art_5ySTX4YfxqG_) and from this plan's own pseudocode below --\\n# do not block the whole artifact on finding prior code. Log explicitly in method_out.json\\n# metadata whether prior code was found and reused, or re-derived from scratch, since this\\n# affects how literally 'identical checker/loop' the paper can claim C is to C1/C2.\\n\\n# --- 1. Environment ---\\n# uv project; pyproject.toml deps: requests (OpenRouter HTTP), unbabel-comet (COMET scorer,\\n# CC-BY-NC-SA-4.0, gated HF download per dossier's exact install command), loguru, numpy,\\n# scipy (for CI/bootstrap), stanza (NER, per dossier's checker language coverage), regex.\\n# Load OPENROUTER_API_KEY from environment. Fix model = 'google/gemma-3-12b-it' for EVERY\\n# repair call (matches B/D/C1/C2 exactly -- no other repair model used anywhere in this artifact).\\n# Download wmt22-cometkiwi-da checkpoint once, cache under workspace, gated HF token from env.\\n\\n# --- 2. Load data ---\\n# Read full_data_out.json from the dataset dependency (art_mhfmDpGp4z1J).\\n# Filter to language_pair in {en-ru_RU, en-uk_UA} ONLY (matches C1/C2's 5/8-cell within-\\n# experiment-validated scope -- do NOT attempt zh_CN/ja_JP/cs_CZ/is_IS in this artifact).\\n# Two row pools per language pair:\\n#   natural_pool = wmt25_task3_natural rows, metadata_fold == 'experimental_pool'\\n#   injected_pool = injected_error_augmentation rows, metadata_fold == 'experimental_pool',\\n#                   category in {named_entity_swap, number_unit_date_alteration,\\n#                                negation_polarity_flip, quantifier_substitution}\\n# Use the SAME row IDs / sample as C1 and C2 used (read their method_out.json to recover the\\n# exact row_id list they scored, if C1/C2 outputs are locatable per step 0; if not locatable,\\n# reconstruct deterministically with the same seed and same per-(language,category) sampling\\n# cap C1/C2 documented -- log which path was taken).\\n# Reserve checker_validation_heldout rows untouched (do not use for repair/scoring).\\n\\n# --- 3. Checker module (reused from C1, broad localization) ---\\n# For each candidate translation, run all four category detectors and report EVERY failing\\n# invariant in the sentence (not just the QE-flagged span), restricted to the (language,\\n# category) cells the WITHIN-EXPERIMENT validation (the 175-row, single-positive-per-row\\n# precision/recall check that gated C1, not the 24-cell global one) marked usable for\\n# en-ru_RU / en-uk_UA -- i.e. the same 5-of-8 cells C1 used. For any of the 3 unusable cells,\\n# do not attempt localization/repair for that category in that language; log this explicitly\\n# per row so the fix-rate denominator matches C1's.\\n# def detect_invariant_violations(source, candidate, lang, checker_scope) -> list[Violation]\\n#   Violation = {category, span_text, span_offsets, severity}\\n\\n# --- 4. Repair loop with iteration + reverification (reused from C2) ---\\n# def repair_with_certificate(source, candidate, violations, lang, max_passes=3):\\n#     pass_log = []\\n#     current = candidate\\n#     open_violations = violations\\n#     for pass_idx in range(1, max_passes + 1):\\n#         if not open_violations:\\n#             return {'final_text': current, 'certified': True, 'passes_used': pass_idx - 1,\\n#                     'pass_log': pass_log}\\n#         repaired = call_gemma3_12b_repair(source, current, open_violations, lang)  # ONE call per pass, all open violations in one prompt (not one call per span) to bound LLM-calls-per-sentence\\n#         recheck = detect_invariant_violations(source, repaired, lang, checker_scope)\\n#         # true regression check needs the injected_pool ground truth only; for natural rows\\n#         # 'recheck' is the checker's own re-verification, which is what gates the loop\\n#         pass_log.append({'pass': pass_idx, 'n_open_before': len(open_violations),\\n#                           'n_open_after': len(recheck), 'edit_distance': levenshtein(current, repaired),\\n#                           'llm_calls': 1})\\n#         current, open_violations = repaired, recheck\\n#     return {'final_text': current, 'certified': len(open_violations) == 0, 'passes_used': max_passes,\\n#             'pass_log': pass_log}\\n# Repair prompt: list every open violation with its span + category + a category-specific\\n# repair instruction (restore entity / fix number-unit-date / restore negation / fix quantifier),\\n# instruct the model to touch ONLY those spans and return the full corrected sentence --\\n# same prompt template family as C1's single-pass prompt, extended to carry re-check results\\n# on passes 2+ ('the following spans are STILL wrong after your last edit: ...').\\n\\n# --- 5. Run Condition C over both pools, both languages ---\\n# for row in natural_pool + injected_pool (per language):\\n#     violations = detect_invariant_violations(source, mt_or_corrupted_text, lang, scope)\\n#     if not violations: record 'no_violations_detected', skip repair, final_text = original\\n#     else: result = repair_with_certificate(source, text, violations, lang, max_passes=3)\\n#     record: row_id, language, pool (natural/injected), category-breakdown of violations,\\n#             final_text, certified, passes_used, pass_log, is_negation_deletion (injected rows\\n#             where category == negation_polarity_flip: flag as a checker-localizable case,\\n#             i.e. attemptable here even though structurally UNattemptable for B/D's oracle-span\\n#             masking -- this is the reviewer's requested design-difference annotation)\\n\\n# --- 6. Scoring ---\\n# ΔCOMET: score(source, original_text) and score(source, final_text) with wmt22-cometkiwi-da\\n# on GPU; ΔCOMET = mean(post) - mean(pre), reported pooled and per-language, EXACTLY as\\n# Padmanabhan's own ΔCOMET definition and as C1/C2 reported it, for direct comparability.\\n# fix_rate (injected_pool only) = (# violations present pre-repair AND absent post-repair,\\n#   confirmed against the injected row's known ground-truth corrupted span) / (# violations\\n#   flagged pre-repair), reported: (a) pooled, (b) broken out per invariant category, (c) pooled\\n#   EXCLUDING negation_polarity_flip, (d) pooled including it -- all four numbers, per the\\n#   reviewer's action item (a) in the hypothesis.\\n# true_regression_rate (injected_pool only) = (# invariants correct pre-repair per ground truth\\n#   that become violated post-repair, confirmed against ground truth) / (# invariants correct\\n#   pre-repair), same four breakouts as fix_rate.\\n# edit_volume = mean token-level edit distance(original, final_text) per row, reported per pass\\n#   (from pass_log) and cumulative, to directly check for regeneration drift toward a full\\n#   rewrite by pass 3 (the paper's stated failure mode to rule out for C specifically).\\n# llm_calls_per_sentence = mean(passes_used) per row, pooled and per language -- report this\\n#   explicitly against C1 (fixed at 1) and C2 (also up to 3) so the cost multiplier of C vs\\n#   C1/C2 is stated as a number, not implied.\\n\\n# --- 7. Statistics ---\\n# Bootstrap 95% CIs (1000 resamples, seeded) for pooled and per-language ΔCOMET, fix rate,\\n# true regression rate -- same procedure as C1/C2 for comparability. Do NOT run new\\n# significance tests against B/D in this artifact (that synthesis is the paper/eval step's job);\\n# just produce numbers on the same footing so C1 vs C2 vs C can be compared directly in the\\n# next step.\\n\\n# --- 8. Cost tracking ---\\n# Track cumulative OpenRouter spend after every repair call (gemma-3-12b-it cost per token from\\n# the dossier's live pricing table). Before the full run, execute a pilot of 20 rows (10 per\\n# language, mixed natural/injected) and extrapolate: pilot_cost / 20 * total_row_count, printed\\n# and logged BEFORE proceeding to the full run. Hard-stop (write partial method_out.json with\\n# whatever completed) if cumulative spend would exceed $2.00; log the stop reason explicitly.\\n\\n# --- 9. Output ---\\n# method_out.json: per-row records (step 5 fields) + pooled/per-language summary metrics\\n# (step 6-7) + cost log + explicit metadata block: {\\n#   'prior_code_reused': bool, 'prior_code_source_path': str|null,\\n#   'checker_scope_source': 'within-experiment (5/8-cell)',\\n#   'language_pairs_run': ['en-ru_RU','en-uk_UA'],\\n#   'languages_not_run': ['zh_CN','ja_JP','cs_CZ','is_IS'],\\n#   'repair_model': 'google/gemma-3-12b-it', 'max_passes': 3, 'sub_budget_usd': 2.00,\\n#   'actual_spend_usd': float }\\n# Validate against exp_eval? no -- this is an experiment artifact producing method_out.json;\\n# use aii-json to confirm it is well-formed JSON matching whatever schema this pipeline expects\\n# for experiment outputs, and generate mini/preview variants if the full file is large.\",\n  \"fallback_plan\": \"If the prior C1/C2 method.py/checker.py cannot be located anywhere in the run tree (glob across iter_1 and iter_2 gen_art directories returns nothing matching), re-implement the checker and iteration loop directly from the resource dossier's language x category decision table and this plan's pseudocode rather than blocking -- this is explicitly allowed and must be logged in method_out.json metadata as 'prior_code_reused: false' so downstream synthesis knows the C1/C2/C comparison rests on independently-reimplemented (not literally shared) checker code, a caveat for the paper rather than a blocker for this artifact. If google/gemma-3-12b-it is unavailable on OpenRouter at execution time (model listings can change), fall back to the dossier's next-ranked substitute from its 5-candidate table, but ONLY if C1/C2 also had to fall back to that same substitute (checked via their method_out.json metadata, if locatable) -- otherwise the repair model would no longer be 'held fixed across B/D/C1/C2/C' and the comparison's validity claim breaks; if C1/C2 code is unlocatable, use whatever model this artifact's own pilot confirms is live and log it clearly as a deviation. If the $2 sub-budget pilot extrapolation projects the full run would exceed $2, reduce scope by dropping the natural_pool COMET scoring to a random subsample (keep the full injected_pool for fix-rate/regression-rate since that is the mechanism-critical metric) rather than dropping a language pair entirely, and document the subsample size and seed. If wmt22-cometkiwi-da fails to load on the GPU pod (VRAM, HF gating token, or package install issues per the dossier's noted CC-BY-NC-SA-4.0 gated download), fall back to CPU inference for COMET only (throughput will be much lower than the dossier's ~155 seg/sec GPU benchmark, but total row count here, roughly 320 natural + 240 injected rows x 2 languages x 2 scoring passes, pre/post repair, is small enough -- under 2,300 COMET scoring calls -- to tolerate CPU speed within the 6h budget); do not skip COMET scoring entirely since ΔCOMET is the paper's primary comparability metric to Padmanabhan's -0.0108/+0.0201. If the iteration loop shows signs of degenerating toward full-sentence regeneration (edit_volume by pass 3 approaching whole-sentence-length edit distance) that is itself a valid, reportable result per the hypothesis's stated failure mode to check for -- report it plainly rather than tuning the prompt to hide it, but DO cap passes at 3 regardless (matching C2's budget) so the comparison stays matched.\",\n  \"testing_plan\": \"Step 1 -- dry run the checker alone (no LLM calls, $0 cost) on 5 rows per language pair (10 total) pulled from checker_validation_heldout, confirming it reproduces the expected violation counts/categories the C1 within-experiment validation already reported for those cells; this validates the reused/reimplemented checker logic before spending any money. Step 2 -- pilot the full repair-with-certificate loop on 20 rows (10 en-ru_RU, 10 en-uk_UA, mixed natural/injected, at least 2 rows per checkable category including negation) with real OpenRouter calls, verifying: (a) the model actually returns full corrected sentences (not leftover placeholders, echoing C1/C2's own hygiene checks), (b) the iteration loop terminates (either certifies or hits the 3-pass cap) rather than looping indefinitely due to a bug, (c) per-call cost matches the dossier's pricing estimate within ~20%, so the pilot_cost extrapolation in step 8 of the pseudocode is trustworthy. Step 3 -- on the same 20-row pilot, run COMET scoring pre/post repair and confirm the checkpoint loads and scores sanely (COMET-DA scores in the expected roughly [0,1] range, ΔCOMET magnitudes in the same ballpark as C1's pooled -0.0035, not wildly larger, which would indicate a scoring bug rather than a real effect). Step 4 -- only after steps 1-3 pass, extrapolate pilot cost to the full ~560-row x 2-language sample, confirm projected spend is under $2.00, and launch the full run with cumulative-spend logging after every batch of repair calls so a budget breach halts the run rather than being discovered after the fact. Step 5 -- before finalizing, spot-check 5 full-run negation_polarity_flip rows by hand (print source/original/final_text) to confirm the negation-deletion-attemptable annotation (step 5 of pseudocode) is being set correctly, since this is the specific confound-disentangling data point the reviewer flagged as missing.\"\n}\n", "structuredPatch": [], "originalFile": null, "userModified": false}
+```
+
+### [6] ASSISTANT · 2026-09-01 07:33:21 UTC
+
+```
+Plan for the Condition C experiment is written to `./.terminal_claude_agent_struct_out.json` — it details reusing/reconstructing the C1 checker and C2 iteration loop, scoring via ΔCOMET and category-broken-out fix/regression rates on en-ru_RU and en-uk_UA, a $2 sub-budget pilot-then-scale approach, and fallbacks for missing prior code, model unavailability, budget overrun, and COMET/GPU issues.
+```
