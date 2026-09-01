@@ -1,0 +1,28 @@
+{
+  "type": "custom_bar_ci_highlight",
+  "figure_id": "fig2",
+  "title": "Five Conditions, One Real Metric",
+  "xlabel": "Condition",
+  "ylabel": "Mean ΔCOMET (pooled natural rows)",
+  "aspect": "16:9",
+  "y_min": -0.030,
+  "y_max": 0.005,
+  "reference_line_y": 0.0,
+  "caption": "Mean ΔCOMET (pooled natural-row sample, both language pairs) for all five conditions, all now scored on the identical real wmt22-cometkiwi-da checkpoint. Error bars are 95% bootstrap confidence intervals. Condition C's interval overlaps B's and C2's almost completely and does not overlap C1's at all: combining both repair levers does not recover broadened localization's quality gain.",
+  "categories": [
+    "B (faithful baseline)",
+    "D (hygiene retry)",
+    "C1 (broad, single-pass)",
+    "C2 (narrow, iterative)",
+    "C (broad, iterative)"
+  ],
+  "values": [-0.0164, -0.0157, -0.0035, -0.0166, -0.0173],
+  "ci_lower": [-0.0237, -0.0226, -0.0071, -0.0243, -0.0251],
+  "ci_upper": [-0.0101, -0.0097, -0.0008, -0.0088, -0.0103],
+  "highlight_index": 2,
+  "highlight_color": "#0173B2",
+  "base_color": "#DE8F05",
+  "highlight_label": "C1 (broad, single-pass) — significantly different",
+  "base_label": "B, D, C2, C — mutually overlapping CIs",
+  "significance_note": "C1's 95% CI does not overlap B, D, C2, or C; all other pairs overlap"
+}

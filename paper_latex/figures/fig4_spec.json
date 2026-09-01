@@ -1,0 +1,23 @@
+{
+  "note": "No catalogued chart_gen.py type supports per-point labels + two-tier series coloring + x-range-scoped horizontal reference lines simultaneously (scatter has no point-label or hline support; pareto adds an unwanted frontier line). Rendered instead with hand-written matplotlib via fig4_gen.py, importing chart_style/chart_geometry house-style helpers (apply_house_style, place_legend, place_point_label, fit_legends, clear_legends_of_data, fit_tick_labels, fit_titles, fit_point_labels, assert_text_is_legible, assert_legends_clear_of_data, assert_series_are_distinguishable, assert_axis_names_are_unique) so the figure still matches the paper's house style. This file records the exact data plotted, for reproducibility.",
+  "type": "scatter",
+  "title": "Certificate Rate Tracks Checker Precision",
+  "xlabel": "Checker precision (within-experiment validation)",
+  "ylabel": "Condition C certificate rate",
+  "xlim": [0.5, 0.9],
+  "ylim": [0.0, 0.5],
+  "aspect": "1:1",
+  "points": [
+    {"tier": "low", "precision": 0.575, "certrate": 0.0333, "label": "ru_RU number_unit_date"},
+    {"tier": "low", "precision": 0.591, "certrate": 0.1333, "label": "ru_RU quantifier_scope"},
+    {"tier": "low", "precision": 0.575, "certrate": 0.100, "label": "uk_UA number_unit_date"},
+    {"tier": "high", "precision": 0.857, "certrate": 0.3667, "label": "ru_RU negation_polarity"},
+    {"tier": "high", "precision": 0.778, "certrate": 0.3333, "label": "uk_UA negation_polarity"}
+  ],
+  "reference_lines": [
+    {"tier": "low", "y": 0.089, "x_range": [0.575, 0.591], "label": "low-precision tier mean = 0.089"},
+    {"tier": "high", "y": 0.35, "x_range": [0.778, 0.857], "label": "high-precision tier mean = 0.35"}
+  ],
+  "colors": {"low": "PALETTE[1] (orange)", "high": "PALETTE[0] (blue)"},
+  "renderer": "fig4_gen.py"
+}

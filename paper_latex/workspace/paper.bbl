@@ -1,0 +1,133 @@
+\begin{thebibliography}{14}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Deoghare et~al.(2023)Deoghare, Kanojia, Blain, Ranasinghe, and
+  Bhattacharyya]{Deoghare2023}
+S.~Deoghare, Diptesh Kanojia, Frédéric Blain, Tharindu Ranasinghe, and
+  Pushpak Bhattacharyya.
+\newblock Quality estimation-assisted automatic post-editing.
+\newblock In \emph{Conference on Empirical Methods in Natural Language
+  Processing}, pages 1686--1698, 2023.
+\newblock \doi{10.18653/v1/2023.findings-emnlp.115}.
+
+\bibitem[Deoghare et~al.(2025)Deoghare, Kanojia, and
+  Bhattacharyya]{Deoghare2025}
+S.~Deoghare, Diptesh Kanojia, and Pushpak Bhattacharyya.
+\newblock Giving the old a fresh spin: Quality estimation-assisted constrained
+  decoding for automatic post-editing.
+\newblock In \emph{North American Chapter of the Association for Computational
+  Linguistics}, volume abs/2501.17265, 2025.
+\newblock \doi{10.48550/arXiv.2501.17265}.
+
+\bibitem[Deutsch et~al.(2025)Deutsch, Briakou, Caswell, Finkelstein, Galor,
+  Juraska, Kovacs, Lui, Rei, Riesa, Rijhwani, Riley, Salesky, Trabelsi,
+  Winkler, Zhang, and Freitag]{Deutsch2025}
+Daniel Deutsch, Eleftheria Briakou, Isaac Caswell, Mara Finkelstein, Rebecca
+  Galor, Juraj Juraska, Geza Kovacs, Alison Lui, Ricardo Rei, Jason Riesa,
+  Shruti Rijhwani, Parker Riley, Elizabeth Salesky, Firas Trabelsi, Stephanie
+  Winkler, Biao Zhang, and Markus Freitag.
+\newblock Wmt24++: Expanding the language coverage of wmt24 to 55 languages \&
+  dialects.
+\newblock In \emph{Annual Meeting of the Association for Computational
+  Linguistics}, pages 12257--12284, 2025.
+\newblock \doi{10.48550/arXiv.2502.12404}.
+
+\bibitem[Feng et~al.(2025)Feng, Zhang, Li, Wu, Liao, Liu, Lang, Feng, Wu, and
+  Liu]{Feng2025}
+Zhaopeng Feng, Yan Zhang, Hao Li, Bei Wu, Jiayu Liao, Wenqiang Liu, Jun Lang,
+  Yang Feng, Jian Wu, and Zuozhu Liu.
+\newblock Tear: Improving llm-based machine translation with systematic
+  self-refinement.
+\newblock In \emph{North American Chapter of the Association for Computational
+  Linguistics}, pages 3922--3938, 2025.
+\newblock \doi{10.18653/v1/2025.findings-naacl.218}.
+
+\bibitem[Jha and Seshia(2015)]{Jha2015}
+Susmit Jha and S.~Seshia.
+\newblock A theory of formal synthesis via inductive learning.
+\newblock In \emph{Acta Informatica}, volume~54, pages 693--726, 2015.
+\newblock \doi{10.1007/s00236-017-0294-5}.
+
+\bibitem[Ki and Carpuat(2024)]{Ki2024}
+Dayeon Ki and Marine Carpuat.
+\newblock Guiding large language models to post-edit machine translation with
+  error annotations.
+\newblock In \emph{NAACL-HLT}, pages 4253--4273, 2024.
+\newblock \doi{10.48550/arXiv.2404.07851}.
+
+\bibitem[Lavie et~al.(2025)Lavie, Hanneman, Agrawal, Kanojia, Lo, Zouhar,
+  Blain, Zerva, Avramidis, Deoghare, Sindhujan, Wang, Adelani, Thompson, Kocmi,
+  Freitag, and Deutsch]{Lavie2025}
+A.~Lavie, Greg Hanneman, Sweta Agrawal, Diptesh Kanojia, Chi-Kiu Lo, Vilém
+  Zouhar, Frédéric Blain, Chrysoula Zerva, Eleftherios Avramidis,
+  S.~Deoghare, Archchana Sindhujan, Jiayi Wang, David~Ifeoluwa Adelani, Brian
+  Thompson, Tom Kocmi, Markus Freitag, and Daniel Deutsch.
+\newblock Findings of the wmt25 shared task on automated translation evaluation
+  systems: Linguistic diversity is challenging and references still help.
+\newblock In \emph{Conference on Machine Translation}, pages 436--483, 2025.
+\newblock \doi{10.18653/v1/2025.wmt-1.24}.
+
+\bibitem[Lu et~al.(2024)Lu, Ding, Zhang, Zhang, and Tao]{Lu2024}
+Qingyu Lu, Liang Ding, Kanjian Zhang, Jinxia Zhang, and D.~Tao.
+\newblock Mqm-ape: Toward high-quality error annotation predictors with
+  automatic post-editing in llm translation evaluators.
+\newblock In \emph{International Conference on Computational Linguistics},
+  pages 5570--5587, 2024.
+\newblock \doi{10.48550/arXiv.2409.14335}.
+
+\bibitem[Madaan et~al.(2023)Madaan, Tandon, Gupta, Hallinan, Gao, Wiegreffe,
+  Alon, Dziri, Prabhumoye, Yang, Welleck, Majumder, Gupta, Yazdanbakhsh, and
+  Clark]{Madaan2023}
+Aman Madaan, Niket Tandon, Prakhar Gupta, Skyler Hallinan, Luyu Gao, Sarah
+  Wiegreffe, Uri Alon, Nouha Dziri, Shrimai Prabhumoye, Yiming Yang,
+  S.~Welleck, Bodhisattwa~Prasad Majumder, Shashank Gupta, A.~Yazdanbakhsh, and
+  Peter Clark.
+\newblock Self-refine: Iterative refinement with self-feedback.
+\newblock In \emph{Neural Information Processing Systems}, volume
+  abs/2303.17651, 2023.
+\newblock \doi{10.48550/arXiv.2303.17651}.
+
+\bibitem[Padmanabhan(2025)]{Padmanabhan2025}
+Govardhan Padmanabhan.
+\newblock Can qe-informed (re)translation lead to error correction?
+\newblock \emph{ArXiv}, abs/2511.13884, 2025.
+\newblock \doi{10.48550/arXiv.2511.13884}.
+
+\bibitem[Rei et~al.(2022)Rei, Treviso, Guerreiro, Zerva, Farinha, Maroti,
+  de~Souza, Glushkova, Alves, Lavie, Coheur, and Martins]{Rei2022}
+Ricardo Rei, Marcos~Vinícius Treviso, Nuno~M. Guerreiro, Chrysoula Zerva,
+  Ana~C. Farinha, Christine Maroti, José G.~C. de~Souza, T.~Glushkova,
+  Duarte~M. Alves, A.~Lavie, Luísa Coheur, and André F.~T. Martins.
+\newblock Cometkiwi: Ist-unbabel 2022 submission for the quality estimation
+  shared task.
+\newblock In \emph{Conference on Machine Translation}, volume abs/2209.06243,
+  2022.
+\newblock \doi{10.48550/arXiv.2209.06243}.
+
+\bibitem[Sharma(2025)]{Sharma2025}
+Prashant Sharma.
+\newblock Quality-informed segment-level error correction using natural
+  language explanations from xtower and large language models.
+\newblock In \emph{Conference on Machine Translation}, pages 999--1003, 2025.
+\newblock \doi{10.18653/v1/2025.wmt-1.75}.
+
+\bibitem[Son et~al.(2024)Son, Eom, Song, and yoon Lee]{Son2024}
+H.~Son, Saehee Eom, Mooho Song, and Jay yoon Lee.
+\newblock Laser-edit: Localized span-level error editing with energy-based
+  localization.
+\newblock 2024.
+
+\bibitem[van Tellingen et~al.(2026)van Tellingen, Ranka, Zugcic, van~der Wal,
+  Camasta, Guerra, and Karakanta]{vanTellingen2026}
+Fleur~V.J. van Tellingen, Gautam Ranka, Dora Zugcic, Joyce van~der Wal, Andrea
+  Camasta, Livio Guerra, and Alina Karakanta.
+\newblock Smarter edits? post-editing with error highlights and translation
+  suggestions.
+\newblock \emph{ArXiv}, abs/2605.21135, 2026.
+\newblock \doi{10.48550/arXiv.2605.21135}.
+
+\end{thebibliography}
