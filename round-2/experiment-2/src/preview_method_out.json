@@ -1,0 +1,323 @@
+{
+  "metadata": {
+    "condition": "B_substitute_model_fidelity_check",
+    "repair_model_requested": "google/gemma-3-12b-it",
+    "repair_model_fallback_chain": [
+      "qwen/qwen-2.5-7b-instruct",
+      "mistralai/mistral-nemo",
+      "meta-llama/llama-3.1-8b-instruct"
+    ],
+    "repair_models_actually_used": {
+      "google/gemma-3-12b-it": 1560
+    },
+    "comet_model_requested": "Unbabel/wmt22-cometkiwi-da",
+    "comet_model_used": "llm_judge_quality_proxy_v1",
+    "comet_is_real_comet": false,
+    "comet_substitution": {
+      "reason": "persistent account-wide HF Hub 429 throttling, both COMET checkpoints unobtainable",
+      "substitute_scorer": "llm_judge_quality_proxy_v1 (openai/gpt-4o-mini, 0-1 adequacy score via OpenRouter)",
+      "warning": "NOT comparable in scale/calibration to Padmanabhan's ΔCOMET -- see limitations_if_fail"
+    },
+    "masking_prompt_provenance": "Algorithm 1 severity rule is verbatim from the resource-dossier dependency (Block A, cited to arxiv.org/html/2511.13884). The literal masking PROMPT TEXT was not retrievable in machine-readable form f...",
+    "mask_token": "__BLANK__",
+    "lang_pairs": [
+      "en-zh_CN",
+      "en-cs_CZ"
+    ],
+    "n_rows_per_pair": {
+      "en-zh_CN": 779,
+      "en-cs_CZ": 781
+    },
+    "n_llm_calls": 1560,
+    "total_cost_usd": 0.076003,
+    "soft_cost_cap_usd": 6.0,
+    "hard_cost_cap_usd": 6.5,
+    "pooled_mean_delta_comet": -0.05608974358974359,
+    "pooled_leakage_rate": 0.09230769230769231,
+    "per_pair_results": {
+      "en-zh_CN": {
+        "n_rows": 779,
+        "n_rows_with_spans_flagged": 779,
+        "n_rows_masked_by_condition_b": 779,
+        "n_llm_calls": 779,
+        "mean_delta_comet": -0.04236200256739409,
+        "n_scored": 779,
+        "leakage_rate": 0.06546854942233633,
+        "n_leaked": 51,
+        "example_leaked_outputs": [
+          {
+            "row_id": "en-zh_CN_#_speech_#_vid_7Aw4Q46omiM::278::Qwen3-235B",
+            "masked_text": "__BLANK__，这跟__BLANK__。但__BLANK__，如果你想要为自己__BLANK__出__BLANK__，这就是你必须去做的，对吧。 好的，那么问题是，你会给年轻__BLANK__自己什么建议？ 我想告诉自己，我随时都可以为自己留点时间。有时候我会陷入日常生活的各种事务中，比如学业、__BLANK__等等。所以，我需要提醒自己，我总可以抽出时间来照顾自己，为自己留点时间，和朋友相处...",
+            "repaired_text": "有点做他们自己的事情，你知道吗，这跟其他人做的事情很__BLANK__。但__BLANK__，如果你想要为自己__BLANK__出__BLANK__，这就是你必须去做的，对吧。 好的，那么问题是，你会给年轻__BLANK__自己什么建议？ 我想告诉自己，我随时都可以为自己留点时间。有时候我会陷入日常生活的各种事务中，比如学业、__BLANK__等等。所以，我需要提醒自己，我总可以抽出时间来照顾自己..."
+          },
+          {
+            "row_id": "en-zh_CN_#_speech_#_vid_fWRlPSl5itQ::314::UvA-MT",
+            "masked_text": "为了学习这些知识，你必须经历痛苦和折磨。但这一切都是值得的，因为当你__BLANK__顿悟时，你会意识到这就是世界的运作方式。这就是光是什么。你知道，这就是原子是如何运作的。这就是我们的身体是如何运作的。而这一切都得益于物理学。我认为这是你能体验到的最美妙的事情之一。所以我会说这是非常值得的，但不要被它的机械性吓到。",
+            "repaired_text": "为了学习这些知识，你必须经历痛苦和折磨。但这一切都是值得的，因为当你豁然__BLANK__顿悟时，你会意识到这就是世界的运作方式。这就是光是什么。你知道，这就是原子是如何运作的。这就是我们的身体是如何运作的。而这一切都得益于物理学。我认为这是你能体验到的最美妙的事情之一。所以我会说这是非常值得的，但不要被它的机械性吓到。"
+          },
+          {
+            "row_id": "en-zh_CN_#_speech_#_vid_rU8nY03Lo5s::325::Wenyiil",
+            "masked_text": "__BLANK__，而且很多人其实并没有足够的__BLANK__在网上__BLANK__露脆弱的一面，所以他们会联系你，说“非常感谢你分享这个，因为我一直有这种感觉，但我不确定是否也有别人和我一样__BLANK__，__BLANK__我想是不言自明的。在社交媒体上，我们很容易感到被排斥，也很容易__BLANK__排斥别人。我觉得这是我们大家都在__BLANK__的事情，__BLANK__的。",
+            "repaired_text": "当然，而且很多人其实并没有足够的勇气在网上坦诚露脆弱的一面，所以他们会联系你，说“非常感谢你分享这个，因为我一直有这种感觉，但我不确定是否也有别人和我一样经历过类似的事情，这__BLANK__我想是不言自明的。在社交媒体上，我们很容易感到被排斥，也很容易排斥别人。我觉得这是我们大家都在挣扎的事情，是的。"
+          }
+        ],
+        "example_largest_negative_delta": [
+          {
+            "row_id": "en-zh_CN_#_social_#_114300646822630777::245::Laniqo",
+            "lang_pair": "en-zh_CN",
+            "qe_score": 0.8423343896865845,
+            "n_spans_flagged": 1,
+            "n_spans_masked": 1,
+            "source": "不，不会的。",
+            "source_en": "Nah.",
+            "masked_text": "不，__BLANK__的。",
+            "repaired_text": "不，就这样了的。",
+            "model_used": "google/gemma-3-12b-it",
+            "n_llm_calls": 1,
+            "call_error": null,
+            "leaked": false,
+            "comet_before": 1.0,
+            "comet_after": 0.2,
+            "delta_comet": -0.8
+          },
+          {
+            "row_id": "en-zh_CN_#_speech_#_vid_Gw2yc9oanpU::287::Gemma-3-12B",
+            "lang_pair": "en-zh_CN",
+            "qe_score": 0.715961217880249,
+            "n_spans_flagged": 22,
+            "n_spans_masked": 22,
+            "source": "四十年做NBA季后赛。\\n我真的相信，NBA季后赛，年复一年，是体育界最稳定的赚钱机器。而且棒球去年太棒了，我们光棒球就赢了超过100个单位。而且再次强调，到八月底，我们在所有体育项目上已经翻倍了资金。\\n快来看看，使用优惠码sm365。我的页面上有详细信息，还有每日免费投注。最后一次，差点没能进入最佳投注卡，它会每天在我的页面上作为免费投注提供给大家。\\n史蒂夫·梅里尔，wagertalk.co...",
+            "source_en": "Four decades of doing the nba playoffs. And i honestly believe the nba playoffs, year after year, are the most consistent moneymaker in all of sports. And baseball last year was incredible. We won ove...",
+            "masked_text": "__BLANK__年__BLANK__。\\__BLANK__我真的相信，NBA季后赛，年复一年，是体育界最稳定的__BLANK__。而且棒球去年太棒了，我们光__BLANK__就__BLANK__了超过100__BLANK__。而且再次强调，到八月底，我们在所有体育项目上已经翻倍了__BLANK__。\\__BLANK__快来看看，使用优惠码__BLANK__m__BLANK__。我的页面上有详细信...",
+            "repaired_text": "四十年__BLANK__NBA季后赛。\\__BLANK__我真的相信，NBA季后赛，年复一年，是体育界最稳定的__BLANK__。而且棒球去年太棒了，我们光__BLANK__就__BLANK__了超过100__BLANK__。而且再次强调，到八月底，我们在所有体育项目上已经翻倍了__BLANK__。\\__BLANK__快来看看，使用优惠码__BLANK__m__BLANK__。我的页面上有详细信息...",
+            "model_used": "google/gemma-3-12b-it",
+            "n_llm_calls": 1,
+            "call_error": null,
+            "leaked": true,
+            "comet_before": 1.0,
+            "comet_after": 0.3,
+            "delta_comet": -0.7
+          },
+          {
+            "row_id": "en-zh_CN_#_news_#_nytimes.153341::171::Gemma-3-12B",
+            "lang_pair": "en-zh_CN",
+            "qe_score": 0.7606183290481567,
+            "n_spans_flagged": 18,
+            "n_spans_masked": 18,
+            "source": "对于那些涉足如此深水的人来说，有些人试图“彻底改变”的解决方案。 例如，1962年的《卡利加里博士的Cabinet》的翻拍，不仅消除了梦游者切萨尔这一核心人物，还让卡利加里博士不再练习恶魔般的催眠术，而是把时间花在向女主角展示令人反感的照片上。 其他电影人则选择了更加令人费解的路线，几乎一模一样地重拍了古斯·范·桑特的1998年版《精神病人》。 从1922年重拍一部杰作，你冒着让失望的影迷数量较小...",
+            "source_en": "When it comes to those who have waded into that kind of deep water, some have tried the Let's-really-shake-things-up solution. There's the lamentable 1962 remake of \"The Cabinet of Dr. Caligari,\" for ...",
+            "masked_text": "对于那些__BLANK__来说，__BLANK__。 例如，__BLANK__，不仅__BLANK__了__BLANK__这一__BLANK__人物，还让卡利__BLANK__博士__BLANK__练习恶魔般的催眠术，而是把时间花在向__BLANK__令人反感__BLANK__上。 其他__BLANK__则选择了更加令人__BLANK__的路线，几乎__BLANK__但即使如此，导演罗伯特__BL...",
+            "repaired_text": "对于那些__BLANK__涉足过那种深水的人来说，__BLANK__尝试过“彻底改变一切”的解决方案__BLANK__。 例如，__BLANK__1962年令人遗憾的《__BLANK__医生内阁》的翻拍__BLANK__，不仅__BLANK__了__BLANK__的中心人物，还让卡利__BLANK__博士__BLANK__练习恶魔般的催眠术，而是把时间花在向__BLANK__展示令人反感__BLA...",
+            "model_used": "google/gemma-3-12b-it",
+            "n_llm_calls": 1,
+            "call_error": null,
+            "leaked": true,
+            "comet_before": 0.8,
+            "comet_after": 0.2,
+            "delta_comet": -0.6000000000000001
+          }
+        ]
+      },
+      "en-cs_CZ": {
+        "n_rows": 781,
+        "n_rows_with_spans_flagged": 781,
+        "n_rows_masked_by_condition_b": 781,
+        "n_llm_calls": 781,
+        "mean_delta_comet": -0.06978233034571063,
+        "n_scored": 781,
+        "leakage_rate": 0.11907810499359796,
+        "n_leaked": 93,
+        "example_leaked_outputs": [
+          {
+            "row_id": "en-cs_CZ_#_news_#_guardian.231314::154::CommandA",
+            "masked_text": "__BLANK__ je to teprve měsíc, co__BLANK__,__BLANK__mník ledniček,__BLANK__átor brexit__BLANK__, výrobce modelových autobusů,__BLANK__ pohovek,__BLANK__č__BLANK__, současný__BLANK__loupkař Daily Mail a...",
+            "repaired_text": "Bylo to teprve měsíc, co patron tancerek,__BLANK__ objevitel mnžek,__BLANK__ organizátor brexit__BLANK__, výrobce modelových autobusů,__BLANK__ zneužívatel pohovek,__BLANK__ špinovač zdí,__BLANK__ slo..."
+          },
+          {
+            "row_id": "en-cs_CZ_#_news_#_en.ndtv.com.357237::96::SalamandraTA",
+            "masked_text": "Hned po měsíci stráveném v sezóně SA__BLANK__, se Breetzke plynule přesunul do formátu ODI, kde s Jasonem Smithem (41) utvořil__BLANK__ůležitou__BLANK__,__BLANK__áhl__BLANK__. Dosáhl svého__BLANK__ 68...",
+            "repaired_text": "Hned po měsíci stráveném v sezóně SA20, se Breetzke plynule přesunul do formátu ODI, kde s Jasonem Smithem (41) utvořil důležitou druhou__BLANK__áhl padesátku. Dosáhl svého půlstoletí 68 míčů a pokrač..."
+          },
+          {
+            "row_id": "en-cs_CZ_#_social_#_114417630342798842::264::CommandA",
+            "masked_text": "🧵__BLANK__ jsem byla__BLANK__štvaná__BLANK__ že__BLANK__ svůj Soda__BLANK__, protože__BLANK__livé vody a__BLANK__ch__BLANK__ch__BLANK__.\\__BLANK__ že__BLANK__!__BLANK__😅\\nMně se to líbí, protože když ...",
+            "repaired_text": "🧵 Tak jsem byla trochu naštvaná, že jsem se musela zbavit svého SodaStreamu a velkého canisteru na něj, protože jsem se hodně zabývala perlivou vodou a výrobou domácích zdravých limonád. UKÁZALO SE, ž..."
+          }
+        ],
+        "example_largest_negative_delta": [
+          {
+            "row_id": "en-cs_CZ_#_social_#_114220065940975488::204::Wenyiil",
+            "lang_pair": "en-cs_CZ",
+            "qe_score": 0.8333227038383484,
+            "n_spans_flagged": 7,
+            "n_spans_masked": 1,
+            "source": "Devátý díl #UniversityChallenge byl neskutečný zápas. Oriel, Oxford (530 studentů) proti Durhamu (20 000) a Oriel vyhrál, což mě po několika chybách, které udělali, překvapilo. Kapitán neznal Wittgens...",
+            "source_en": "Game 9 of #UniversityChallenge was a hell of a match. Oriel Oxford (530 students) vs Durham (20,000), and Oriel won, which surprised me after some mistakes they made. The captain didn't know Wittengst...",
+            "masked_text": "Devátý díl #UniversityChallenge byl neskutečný zápas.__BLANK__ (530 studentů) proti Durhamu (20 000) a Oriel vyhrál, což mě po několika chybách, které udělali, překvapilo. Kapitán neznal Wittgensteino...",
+            "repaired_text": "Oriel Oxford",
+            "model_used": "google/gemma-3-12b-it",
+            "n_llm_calls": 1,
+            "call_error": null,
+            "leaked": false,
+            "comet_before": 1.0,
+            "comet_after": 0.0,
+            "delta_comet": -1.0
+          },
+          {
+            "row_id": "en-cs_CZ_#_news_#_guardian.229703::121::Wenyiil",
+            "lang_pair": "en-cs_CZ",
+            "qe_score": 0.8286808729171753,
+            "n_spans_flagged": 2,
+            "n_spans_masked": 1,
+            "source": "Tento počin by byl o poznání působivější, kdyby jejich online poznámky a životopisy nesignalizovaly něco, co by se dalo diplomaticky nazvat velkými mezerami v jejich dovednostech. Musk, muž s emoční z...",
+            "source_en": "This feat would be more impressive if their online remarks and bios didn't flag what might diplomatically be called large gaps in their skill-sets. Musk, a man with the emotional maturity of a cartoon...",
+            "masked_text": "Tento počin by byl o poznání působivější, kdyby jejich online poznámky a životopisy nesignalizovaly něco, co by se dalo diplomaticky nazvat velkými mezerami v jejich dovednostech. Musk, muž s emoční z...",
+            "repaired_text": "\"bobry\"",
+            "model_used": "google/gemma-3-12b-it",
+            "n_llm_calls": 1,
+            "call_error": null,
+            "leaked": false,
+            "comet_before": 1.0,
+            "comet_after": 0.0,
+            "delta_comet": -1.0
+          },
+          {
+            "row_id": "en-cs_CZ_#_social_#_114300646822630777::237::DeepSeek-V3",
+            "lang_pair": "en-cs_CZ",
+            "qe_score": 0.8559476137161255,
+            "n_spans_flagged": 3,
+            "n_spans_masked": 3,
+            "source": "Právě jsem se propadl do králičí nory Doritos",
+            "source_en": "Just fell down a Doritos rabbit hole",
+            "masked_text": "__BLANK__ do__BLANK__i__BLANK__",
+            "repaired_text": "Just did I fall",
+            "model_used": "google/gemma-3-12b-it",
+            "n_llm_calls": 1,
+            "call_error": null,
+            "leaked": false,
+            "comet_before": 0.9,
+            "comet_after": 0.1,
+            "delta_comet": -0.8
+          }
+        ]
+      }
+    },
+    "published_comparison": {
+      "padmanabhan_pooled_delta_comet": -0.0108,
+      "padmanabhan_per_pair_range": [
+        -0.014,
+        -0.007
+      ],
+      "padmanabhan_per_pair_pinned": {
+        "en-cs_CZ": -0.00724,
+        "en-zh_CN": null
+      }
+    },
+    "gate_verdict": "PASS_UNRELIABLE_SUBSTITUTED_SCORER",
+    "gate_component_results": {
+      "direction": {
+        "pass": true,
+        "by_pair": {
+          "en-zh_CN": true,
+          "en-cs_CZ": true
+        }
+      },
+      "magnitude": {
+        "pass": false,
+        "by_pair": {
+          "en-zh_CN": {
+            "published_delta": -0.0108,
+            "published_source": "pooled_fallback",
+            "observed_delta": -0.04236200256739409,
+            "abs_diff": 0.031562002567394096,
+            "within_tolerance": false
+          },
+          "en-cs_CZ": {
+            "published_delta": -0.00724,
+            "published_source": "per_pair_pinned",
+            "observed_delta": -0.06978233034571063,
+            "abs_diff": 0.06254233034571063,
+            "within_tolerance": false
+          }
+        },
+        "note": "reported, not solely gating per plan"
+      },
+      "leakage": {
+        "pass": true,
+        "by_pair": {
+          "en-zh_CN": 0.06546854942233633,
+          "en-cs_CZ": 0.11907810499359796
+        }
+      }
+    },
+    "limitations_if_fail": [
+      "COMET (Unbabel/wmt22-cometkiwi-da and wmt22-comet-da) could not be downloaded within the 600s+180s retry budget due to a persistent, account-wide 429 from huggingface.co (observed on unrelated public ..."
+    ],
+    "leak_patterns_used": [
+      "__BLANK__",
+      "__\\w+__",
+      "(?i)corrected words?\\s*:"
+    ]
+  },
+  "datasets": [
+    {
+      "dataset": "condition_b_masked_fill_baseline",
+      "examples": [
+        {
+          "input": "难以判断是否应该重视唐纳德·特朗普那些__BLANK__又时__BLANK__味的宣言，这些宣言听起来就像是一只猴子把一堆__BLANK__的想法扔上了__BLANK__，然后按它们落在__BLANK__的顺序__BLANK__出来，并制定成政策。直到显而易见这些政策无法奏效时，这只猴子就__BLANK__。",
+          "output": "难以判断是否应该重视唐纳德·特朗普那些阴郁又时常乏味的宣言，这些宣言听起来就像是一只猴子把一堆冒犯性的想法扔上了天，然后按它们落在地上的顺序读出来，并制定成政策。直到显而易见这些政策无法奏效时，这只猴子就必须再次扔出新的想法。",
+          "predict_condition_b_repaired": "难以判断是否应该重视唐纳德·特朗普那些黯淡又时平庸味的宣言，这些宣言听起来就像是一只猴子把一堆冒犯性的想法扔上了空中，然后按它们落在地上的顺序念出来，并制定成政策。直到显而易见这些政策无法奏效时，这只猴子就再扔一次。",
+          "metadata_row_id": "en-zh_CN_#_news_#_guardian.230238::125::Yolu",
+          "metadata_lang_pair": "en-zh_CN",
+          "metadata_qe_score": 0.7894760370254517,
+          "metadata_n_spans_flagged": 7,
+          "metadata_n_spans_masked": 7,
+          "metadata_source_en": "It's difficult to know whether to set any store by Donald Trump's bleak and yet also often banal pronouncements, which read as if handfuls of offensive concepts have been tossed into the air by a monk...",
+          "metadata_model_used": "google/gemma-3-12b-it",
+          "metadata_n_llm_calls": 1,
+          "metadata_call_error": null,
+          "metadata_leaked": false,
+          "metadata_comet_before": 1.0,
+          "metadata_comet_after": 1.0,
+          "metadata_delta_comet": 0.0
+        },
+        {
+          "input": "Díky bohu za Blender! Nevím, jestli bych to všechno dokázal naplánovat a doufat, že to vyjde, kdybych to nemohl nejdřív udělat ve__BLANK__í 3D__BLANK__.\\n3 snímky ukazují 3 hlavní__BLANK__ace. Sezení,...",
+          "output": "Díky bohu za Blender! Nevím, jestli bych to všechno dokázal naplánovat a doufat, že to vyjde, kdybych to nemohl nejdřív udělat ve virtuální 3D podobě.\\n3 snímky ukazují 3 hlavní konfigurace. Sezení, p...",
+          "predict_condition_b_repaired": "Díky bohu za Blender! Nevím, jestli bych to všechno dokázal naplánovat a doufat, že to vyjde, kdybych to nemohl nejdřív udělat ve virtuální 3D simulaci. 3 snímky ukazují 3 hlavní konfigurace. Sezení, ...",
+          "metadata_row_id": "en-cs_CZ_#_social_#_114174389242714730::203::DeepSeek-V3",
+          "metadata_lang_pair": "en-cs_CZ",
+          "metadata_qe_score": 0.8417423963546753,
+          "metadata_n_spans_flagged": 4,
+          "metadata_n_spans_masked": 4,
+          "metadata_source_en": "Thank goodness for Blender! Not sure I could have planned all that and had any hope of it all working out if I couldn't do it in virtual 3d first.\\n3 frames to show the 3 main configurations. Sit, Des...",
+          "metadata_model_used": "google/gemma-3-12b-it",
+          "metadata_n_llm_calls": 1,
+          "metadata_call_error": null,
+          "metadata_leaked": false,
+          "metadata_comet_before": 1.0,
+          "metadata_comet_after": 1.0,
+          "metadata_delta_comet": 0.0
+        },
+        {
+          "input": "大学挑战赛第15场比赛是淘汰赛首战，四支得分最低的__BLANK__队伍将争夺__BLANK__位。本周__BLANK__与圣安德鲁斯__BLANK__的比赛，赛场上__BLANK__愉快。__BLANK__队伍表现抢眼，特别是在__BLANK__下，发挥得非常出色。比赛中的问题__BLANK__也__BLANK__，有些问题相当难答，例如__BLANK__知道“__BLANK__”这个词的含义或...",
+          "output": "大学挑战赛第15场比赛是淘汰赛首战，四支得分最低的失利队伍将争夺晋级席位。本周进行了UCL与圣安德鲁斯大学的比赛，赛场上氛围轻松愉快。来自UCL的参赛队伍表现抢眼，特别是在Mandel教授的带领下，发挥得非常出色。比赛中的问题设计也出色，有些问题相当难答，例如具体需要知道“豹子”这个词的含义或者是了解俄语中的“日”字。",
+          "predict_condition_b_repaired": "大学挑战赛第15场比赛是淘汰赛首战，四支得分最低的落败队伍将争夺晋级位。本周是UCL与圣安德鲁斯的比赛，赛场上气氛愉快。UCL队伍表现抢眼，特别是在Mandel的带领下，发挥得非常出色。比赛中的问题质量也很好，有些问题相当难答，例如需要具体知道“panthera”这个词的含义或者是了解俄语中的“day”。",
+          "metadata_row_id": "en-zh_CN_#_social_#_114220065940975488::210::Laniqo",
+          "metadata_lang_pair": "en-zh_CN",
+          "metadata_qe_score": 0.7379081845283508,
+          "metadata_n_spans_flagged": 12,
+          "metadata_n_spans_masked": 12,
+          "metadata_source_en": "Game 15 of #UniversityChallenge is the first of two in the repechage, where the four highest-scoring losing teams try to make it through. This week was UCL and St. Andrews, in a good-natured cheery ma...",
+          "metadata_model_used": "google/gemma-3-12b-it",
+          "metadata_n_llm_calls": 1,
+          "metadata_call_error": null,
+          "metadata_leaked": false,
+          "metadata_comet_before": 0.9,
+          "metadata_comet_after": 0.9,
+          "metadata_delta_comet": 0.0
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,469 @@
+{
+  "metadata": {
+    "condition": "B_substitute_model_fidelity_check",
+    "repair_model_requested": "google/gemma-3-12b-it",
+    "repair_model_fallback_chain": [
+      "qwen/qwen-2.5-7b-instruct",
+      "mistralai/mistral-nemo",
+      "meta-llama/llama-3.1-8b-instruct",
+      "mistralai/ministral-8b-2512"
+    ],
+    "repair_models_actually_used": {
+      "google/gemma-3-12b-it": 1560
+    },
+    "comet_model_requested": "Unbabel/wmt22-cometkiwi-da",
+    "comet_model_used": "llm_judge_quality_proxy_v1",
+    "comet_is_real_comet": false,
+    "comet_substitution": {
+      "reason": "persistent account-wide HF Hub 429 throttling, both COMET checkpoints unobtainable",
+      "substitute_scorer": "llm_judge_quality_proxy_v1 (openai/gpt-4o-mini, 0-1 adequacy score via OpenRouter)",
+      "warning": "NOT comparable in scale/calibration to Padmanabhan's ΔCOMET -- see limitations_if_fail"
+    },
+    "masking_prompt_provenance": "Algorithm 1 severity rule is verbatim from the resource-dossier dependency (Block A, cited to arxiv.org/html/2511.13884). The literal masking PROMPT TEXT was not retrievable in machine-readable form from that dependency's research_out.json at execution time (only its documented shape: single blank token per sentence, one call per sentence). This script's MASKING_PROMPT_TEMPLATE is a faithful reconstruction of that documented shape, not a verbatim quote -- flagged per the artifact plan's fallback item (5).",
+    "mask_token": "__BLANK__",
+    "lang_pairs": [
+      "en-zh_CN",
+      "en-cs_CZ"
+    ],
+    "n_rows_per_pair": {
+      "en-zh_CN": 779,
+      "en-cs_CZ": 781
+    },
+    "n_llm_calls": 1560,
+    "total_cost_usd": 0.076003,
+    "soft_cost_cap_usd": 6.0,
+    "hard_cost_cap_usd": 6.5,
+    "pooled_mean_delta_comet": -0.05608974358974359,
+    "pooled_leakage_rate": 0.09230769230769231,
+    "per_pair_results": {
+      "en-zh_CN": {
+        "n_rows": 779,
+        "n_rows_with_spans_flagged": 779,
+        "n_rows_masked_by_condition_b": 779,
+        "n_llm_calls": 779,
+        "mean_delta_comet": -0.04236200256739409,
+        "n_scored": 779,
+        "leakage_rate": 0.06546854942233633,
+        "n_leaked": 51,
+        "example_leaked_outputs": [
+          {
+            "row_id": "en-zh_CN_#_speech_#_vid_7Aw4Q46omiM::278::Qwen3-235B",
+            "masked_text": "__BLANK__，这跟__BLANK__。但__BLANK__，如果你想要为自己__BLANK__出__BLANK__，这就是你必须去做的，对吧。 好的，那么问题是，你会给年轻__BLANK__自己什么建议？ 我想告诉自己，我随时都可以为自己留点时间。有时候我会陷入日常生活的各种事务中，比如学业、__BLANK__等等。所以，我需要提醒自己，我总可以抽出时间来照顾自己，为自己留点时间，和朋友相处。你觉得年轻的自己会听这个建议吗？",
+            "repaired_text": "有点做他们自己的事情，你知道吗，这跟其他人做的事情很__BLANK__。但__BLANK__，如果你想要为自己__BLANK__出__BLANK__，这就是你必须去做的，对吧。 好的，那么问题是，你会给年轻__BLANK__自己什么建议？ 我想告诉自己，我随时都可以为自己留点时间。有时候我会陷入日常生活的各种事务中，比如学业、__BLANK__等等。所以，我需要提醒自己，我总可以抽出时间来照顾自己，为自己留点时间，和朋友相处。你觉得年轻的自己会听这个建议吗？"
+          },
+          {
+            "row_id": "en-zh_CN_#_speech_#_vid_fWRlPSl5itQ::314::UvA-MT",
+            "masked_text": "为了学习这些知识，你必须经历痛苦和折磨。但这一切都是值得的，因为当你__BLANK__顿悟时，你会意识到这就是世界的运作方式。这就是光是什么。你知道，这就是原子是如何运作的。这就是我们的身体是如何运作的。而这一切都得益于物理学。我认为这是你能体验到的最美妙的事情之一。所以我会说这是非常值得的，但不要被它的机械性吓到。",
+            "repaired_text": "为了学习这些知识，你必须经历痛苦和折磨。但这一切都是值得的，因为当你豁然__BLANK__顿悟时，你会意识到这就是世界的运作方式。这就是光是什么。你知道，这就是原子是如何运作的。这就是我们的身体是如何运作的。而这一切都得益于物理学。我认为这是你能体验到的最美妙的事情之一。所以我会说这是非常值得的，但不要被它的机械性吓到。"
+          },
+          {
+            "row_id": "en-zh_CN_#_speech_#_vid_rU8nY03Lo5s::325::Wenyiil",
+            "masked_text": "__BLANK__，而且很多人其实并没有足够的__BLANK__在网上__BLANK__露脆弱的一面，所以他们会联系你，说“非常感谢你分享这个，因为我一直有这种感觉，但我不确定是否也有别人和我一样__BLANK__，__BLANK__我想是不言自明的。在社交媒体上，我们很容易感到被排斥，也很容易__BLANK__排斥别人。我觉得这是我们大家都在__BLANK__的事情，__BLANK__的。",
+            "repaired_text": "当然，而且很多人其实并没有足够的勇气在网上坦诚露脆弱的一面，所以他们会联系你，说“非常感谢你分享这个，因为我一直有这种感觉，但我不确定是否也有别人和我一样经历过类似的事情，这__BLANK__我想是不言自明的。在社交媒体上，我们很容易感到被排斥，也很容易排斥别人。我觉得这是我们大家都在挣扎的事情，是的。"
+          },
+          {
+            "row_id": "en-zh_CN_#_speech_#_vid_YNQ_7eV3WcE::309::DeepSeek-V3",
+            "masked_text": "这个，就在这儿，紧挨着我__BLANK__边。有时候__BLANK__，因为锥形蜡烛本身尺寸不一，但如果你特别想__BLANK__，有个简单的解决办法。\\n只需用打火机或火柴稍微融化蜡烛底部，让蜡油滴入烛台。趁蜡还热的时候，把蜡烛按进烛台里——融化的蜡会让蜡烛牢牢固定在理想位置。就算插歪了也别担心，拔出来重新加热调整就行，多试几次总能调直，最终蜡烛会稳稳卡在烛台里。\\n下个小妙招是清除__BLANK__上的贴纸残胶。虽然大家都知道用吹风机加热后撕贴纸的方法，但__BLANK__总会残留一层薄薄的胶膜。",
+            "repaired_text": "这个，就在这儿，紧挨着我这一__BLANK__边。有时候锥形烛台__BLANK__，因为锥形蜡烛本身尺寸不一，但如果你特别想使用它__BLANK__，有个简单的解决办法。\\n只需用打火机或火柴稍微融化蜡烛底部，让蜡油滴入烛台。趁蜡还热的时候，把蜡烛按进烛台里——融化的蜡会让蜡烛牢牢固定在理想位置。就算插歪了也别担心，拔出来重新加热调整就行，多试几次总能调直，最终蜡烛会稳稳卡在烛台里。\\n下个小妙招是清除装饰品__BLANK__上的贴纸残胶。虽然大家都知道用吹风机加热后撕贴纸的方法，但__BLANK__总会残留一层薄薄的胶膜。"
+          },
+          {
+            "row_id": "en-zh_CN_#_speech_#_vid_8I8msBYGNR4::280::DeepSeek-V3",
+            "masked_text": "浴室很干净，看起来和感觉上都舒服多了。我最后把床单放在那儿只是因为不知道还能放哪儿，老实说放在那儿__BLANK__，至少叠好备用就行。那两个盒子里装了些__BLANK__的__BLANK__，就当是个小储物角吧，反正这浴室也不常用。__BLANK__我刚从浴室拿了这些毛巾，还有些厨房毛巾也拿上来了，现在准备一起洗掉——厨房毛巾尤其需要清洗，索性把所有东西同时洗了。用干净的毛巾感觉真的特别好，我尽量每周洗一次，其实这些已经该洗了，甚至有点超期了。那就把它们放进洗衣机，再来一缸吧。",
+            "repaired_text": "浴室很干净，看起来和感觉上都舒服多了。我最后把床单放在那儿只是因为不知道还能放哪儿，老实说放在那儿__BLANK__，至少叠好备用就行。那两个盒子里装了些__BLANK__的__BLANK__，就当是个小储物角吧，反正这浴室也不常用。__BLANK__我刚从浴室拿了这些毛巾，还有些厨房毛巾也拿上来了，现在准备一起洗掉——厨房毛巾尤其需要清洗，索性把所有东西同时洗了。用干净的毛巾感觉真的特别好，我尽量每周洗一次，其实这些已经该洗了，甚至有点超期了。那就把它们放进洗衣机，再来一缸吧。"
+          },
+          {
+            "row_id": "en-zh_CN_#_literary_#_rink_rats_chapter1::13::RuZh",
+            "masked_text": "凯尔注意到卢克手中那份文件，边缘因为使用而磨损。“这是什么？你__BLANK__察报告吗？”他好奇地问道，向前稍微倾身，渴望听到卢克要分享的内容。\\n“这是，”卢克哼了一声，用空闲手轻敲文件，“__BLANK__无__BLANK__的__BLANK__。我会告诉你细节。来，我们坐下来。”\\n凯尔看起来一时困惑，但还是坐在他旁边__BLANK__冰冷金属__BLANK__台上。\\n“所以，我们有一个最后一刻的__BLANK__，通常__BLANK__，对吧？__BLANK__，通常就是这样，”卢克开始说道。“但这个孩子很特别。我告诉你，伙计，他有疯狂__BLANK__潜力。”",
+            "repaired_text": "凯尔注意到卢克手中那份文件，边缘因为使用而磨损。“这是什么？你__BLANK__察报告吗？”他好奇地问道，向前稍微倾身，渴望听到卢克要分享的内容。\\n“这是，”卢克哼了一声，用空闲手轻敲文件，“是__BLANK__无__BLANK__的__BLANK__。我会告诉你细节。来，我们坐下来。”\\n凯尔看起来一时困惑，但还是坐在他旁边__BLANK__冰冷金属__BLANK__台上。\\n“所以，我们有一个最后一刻的__BLANK__，通常__BLANK__，对吧？一旦__BLANK__，通常就是这样，”卢克开始说道。“但这个孩子很特别。我告诉你，伙计，他有疯狂__BLANK__潜力。”"
+          },
+          {
+            "row_id": "en-zh_CN_#_news_#_guardian.230238::128::Qwen2.5-7B",
+            "masked_text": "或许特朗普__BLANK__的__BLANK__只是前信徒史蒂夫·班__BLANK__的“用__BLANK__没__BLANK__特朗普真的如此厌恶所有海洋生物，以至于要__BLANK__乔__BLANK__拜登成功__BLANK__地__BLANK__的塑料__BLANK__？或许他曾被__BLANK__鱼__BLANK__“这些不起作用”，“我试过很多次，偶尔会__BLANK__断，会爆炸。”数百万海洋生物、海龟、海牛和海豚真的要因为特朗普__BLANK__中的纸吸管会爆炸而死亡吗？还是为了取悦埃隆·马斯克、彼得·__BLANK__和杰__BLANK__，让他在下次前总统聚会时能对着拜登__BLANK__",
+            "repaired_text": "或许特朗普糟糕的口__BLANK__只是前信徒史蒂夫·班农的“用垃圾淹没区域”的进一步证据？特朗普真的如此厌恶所有海洋生物，以至于要推翻乔·拜登成功且可取地禁止的塑料吸管？或许他曾被一条美人鱼告诫要保持双手不动。“这些不起作用”，“我试过很多次，偶尔会断，会爆炸。”数百万海洋生物、海龟、海牛和海豚真的要因为特朗普认为纸吸管会爆炸而死亡吗？还是为了取悦埃隆·马斯克、彼得·海吉赛斯和杰·万斯，让他在下次前总统聚会时能对着拜登放出一个臭气熏天的YMCA合唱？"
+          },
+          {
+            "row_id": "en-zh_CN_#_speech_#_vid_rU8nY03Lo5s::325::Algharb",
+            "masked_text": "__BLANK__，而且很多人其实并没有足够的__BLANK__在网上__BLANK__露脆弱的一面，所以他们会联系你，说“非常感谢你分享这个，因为我一直有这种感觉，但我不确定是否也有别人和我一样__BLANK__，__BLANK__我想是不言自明的。在社交媒体上，我们很容易感到被排斥，也很容易__BLANK__排斥别人。我觉得这是我们大家都在__BLANK__的事情，__BLANK__的。",
+            "repaired_text": "当然，而且很多人其实并没有足够的勇气在网上坦诚露脆弱的一面，所以他们会联系你，说“非常感谢你分享这个，因为我一直有这种感觉，但我不确定是否也有别人和我一样经历过类似的事情，这__BLANK__我想是不言自明的。在社交媒体上，我们很容易感到被排斥，也很容易排斥别人。我觉得这是我们大家都在挣扎的事情，是的。"
+          },
+          {
+            "row_id": "en-zh_CN_#_speech_#_vid__S0GOwEJXUA::311::TowerPlus-9B",
+            "masked_text": "他说你做得很好，而我__BLANK__，我__BLANK__不知道__BLANK__。我当时想，哦，__BLANK__，我一点也__BLANK__。他说这与你无关，他说你看到所有的评论了吗？__BLANK__，人们正在对此制作__BLANK__视频，他说这是__BLANK__，当他说出这句话时，我终于得到__BLANK__，我说你说得对，我不在乎别人怎么想，如果我在帮助人们，即使看起来很__BLANK__，但我在帮助人们，这与我无关，好吧，这让我感觉好一点，因为我不能忍受每次看到自己，__BLANK__想__BLANK__本来可以做得__BLANK__全十__BLANK__，但必须保持谦逊，这关乎__BLANK__在__BLANK__，无论__BLANK__什么，这确实是一个很好的提醒。",
+            "repaired_text": "他说你做得很好，而我__BLANK__，我__BLANK__不知道__BLANK__。我当时想，哦，__BLANK__，我一点也__BLANK__。他说这与你无关，他说你看到所有的评论了吗？__BLANK__，人们正在对此制作__BLANK__视频，他说这是__BLANK__，当他说出这句话时，我终于得到__BLANK__，我说你说得对，我不在乎别人怎么想，如果我在帮助人们，即使看起来很__BLANK__，但我在帮助人们，这与我无关，好吧，这让我感觉好一点，因为我不能忍受每次看到自己，__BLANK__想__BLANK__本来可以做得__BLANK__更好__BLANK__，但必须保持谦逊，这关乎__BLANK__在__BLANK__，无论__BLANK__尝试__BLANK__什么，这确实是一个很好的提醒。"
+          },
+          {
+            "row_id": "en-zh_CN_#_speech_#_vid__r0K17ipoac::312::IRB-MT",
+            "masked_text": "焦虑__BLANK__赢了。__BLANK__？哦，__BLANK__是第九名，但是一万七千票__BLANK__，这__BLANK__挺__BLANK__的。__BLANK__焦虑一代，对21世纪青少年心理健康的__BLANK__严谨研究。哦，我得说我猜对了。__BLANK__一来，基本上就改变了__BLANK__。我觉得这可能会很有意思，因为我需要放下手机，也许这本书能让我这么做。这是__BLANK__。我预测__BLANK__会赢，因为他的脸和名字__BLANK__，人们就会觉得__BLANK__我喜欢__BLANK__，我喜欢__BLANK__，我就__BLANK__他。这就是我的阴谋论。我也希望《吉尔莫__BLANK__》__BLANK__，因为我对它完全没兴趣。我从来没看过《吉__BLANK__莫女孩》，一点也不__BLANK__，但它有可能赢。",
+            "repaired_text": "焦虑一代赢了。迪士尼高中__BLANK__？哦，迪士尼高中是第九名，但是一万七千票__BLANK__一千一百个评分，这__BLANK__挺__BLANK__的。焦虑一代，对21世纪青少年心理健康的__BLANK__严谨研究。哦，我得说我猜对了。电话__BLANK__一来，基本上就改变了__BLANK__。我觉得这可能会很有意思，因为我需要放下手机，也许这本书能让我这么做。这是__BLANK__。我预测rupaul会赢，因为他的脸和名字__BLANK__，人们就会觉得__BLANK__我喜欢__BLANK__，我喜欢__BLANK__，我就__BLANK__他。这就是我的阴谋论。我也希望《吉尔莫__BLANK__》__BLANK__，因为我对它完全没兴趣。我从来没看过《吉__BLANK__莫女孩》，一点也不__BLANK__，但它有可能赢。"
+          }
+        ],
+        "example_largest_negative_delta": [
+          {
+            "row_id": "en-zh_CN_#_social_#_114300646822630777::245::Laniqo",
+            "lang_pair": "en-zh_CN",
+            "qe_score": 0.8423343896865845,
+            "n_spans_flagged": 1,
+            "n_spans_masked": 1,
+            "source": "不，不会的。",
+            "source_en": "Nah.",
+            "masked_text": "不，__BLANK__的。",
+            "repaired_text": "不，就这样了的。",
+            "model_used": "google/gemma-3-12b-it",
+            "n_llm_calls": 1,
+            "call_error": null,
+            "leaked": false,
+            "comet_before": 1.0,
+            "comet_after": 0.2,
+            "delta_comet": -0.8
+          },
+          {
+            "row_id": "en-zh_CN_#_speech_#_vid_Gw2yc9oanpU::287::Gemma-3-12B",
+            "lang_pair": "en-zh_CN",
+            "qe_score": 0.715961217880249,
+            "n_spans_flagged": 22,
+            "n_spans_masked": 22,
+            "source": "四十年做NBA季后赛。\\n我真的相信，NBA季后赛，年复一年，是体育界最稳定的赚钱机器。而且棒球去年太棒了，我们光棒球就赢了超过100个单位。而且再次强调，到八月底，我们在所有体育项目上已经翻倍了资金。\\n快来看看，使用优惠码sm365。我的页面上有详细信息，还有每日免费投注。最后一次，差点没能进入最佳投注卡，它会每天在我的页面上作为免费投注提供给大家。\\n史蒂夫·梅里尔，wagertalk.com。\\n是的，通过快捷方式wt.buzz/sm更快地访问。\\n在X和Instagram上关注我，账号是steve merrill。\\n你们知道怎么回事。两个R，一个L，m-e-r-r-i-l，在X和Instagram上关注steve merrill。\\n敬请关注Wagertalk TV，因为你们也知道，接下来会有更多免费投注视频。",
+            "source_en": "Four decades of doing the nba playoffs. And i honestly believe the nba playoffs, year after year, are the most consistent moneymaker in all of sports. And baseball last year was incredible. We won over 100 units alone in baseball. And once again, we'd already doubled our bankroll in all sports by the end of august. Check it out. Promo code sm365. Full details on my page, along with a daily free play. Last cut, just a bit outside from making the best bet card. It goes up as a free play for everybody on my page each and every day. Steve merrill, wagertalk .com. And yeah, get there quicker with shortcut wt .buzz slash sm. Follow me on social media on x and instagram at steve merrill. You know the deal. Two r's, one l, m -e -r -r -i -l, at steve merrill on x and instagram. And stay tuned here to wagertalk tv, because you also know there's more free play videos coming up next.",
+            "masked_text": "__BLANK__年__BLANK__。\\__BLANK__我真的相信，NBA季后赛，年复一年，是体育界最稳定的__BLANK__。而且棒球去年太棒了，我们光__BLANK__就__BLANK__了超过100__BLANK__。而且再次强调，到八月底，我们在所有体育项目上已经翻倍了__BLANK__。\\__BLANK__快来看看，使用优惠码__BLANK__m__BLANK__。我的页面上有详细信息，还有每日免费投注。最后一次__BLANK__，它会每天在我的页面上作为免费投注提供给大家。\\__BLANK__史蒂夫·梅里尔，wagertalk.com。\\__BLANK__是的，通过__BLANK__地__BLANK__。\\n在X和Instagram上关注我，账号是steve merrill。\\__BLANK__你们知道怎么__BLANK__。__BLANK__，在X和Instagram上关注steve merrill。\\n敬请关注__BLANK__ger__BLANK__，因为你们也知道，接下来会有更多免费__BLANK__视频。",
+            "repaired_text": "四十年__BLANK__NBA季后赛。\\__BLANK__我真的相信，NBA季后赛，年复一年，是体育界最稳定的__BLANK__。而且棒球去年太棒了，我们光__BLANK__就__BLANK__了超过100__BLANK__。而且再次强调，到八月底，我们在所有体育项目上已经翻倍了__BLANK__。\\__BLANK__快来看看，使用优惠码__BLANK__m__BLANK__。我的页面上有详细信息，还有每日免费投注。最后一次__BLANK__，它会每天在我的页面上作为免费投注提供给大家。\\__BLANK__史蒂夫·梅里尔，wagertalk.com。\\__BLANK__是的，通过__BLANK__地__BLANK__。\\n在X和Instagram上关注我，账号是steve merrill。\\__BLANK__你们知道怎么__BLANK__。__BLANK__，在X和Instagram上关注steve merrill。\\n敬请关注__BLANK__ger__BLANK__，因为你们也知道，接下来会有更多免费__BLANK__视频。",
+            "model_used": "google/gemma-3-12b-it",
+            "n_llm_calls": 1,
+            "call_error": null,
+            "leaked": true,
+            "comet_before": 1.0,
+            "comet_after": 0.3,
+            "delta_comet": -0.7
+          },
+          {
+            "row_id": "en-zh_CN_#_news_#_nytimes.153341::171::Gemma-3-12B",
+            "lang_pair": "en-zh_CN",
+            "qe_score": 0.7606183290481567,
+            "n_spans_flagged": 18,
+            "n_spans_masked": 18,
+            "source": "对于那些涉足如此深水的人来说，有些人试图“彻底改变”的解决方案。 例如，1962年的《卡利加里博士的Cabinet》的翻拍，不仅消除了梦游者切萨尔这一核心人物，还让卡利加里博士不再练习恶魔般的催眠术，而是把时间花在向女主角展示令人反感的照片上。 其他电影人则选择了更加令人费解的路线，几乎一模一样地重拍了古斯·范·桑特的1998年版《精神病人》。 从1922年重拍一部杰作，你冒着让失望的影迷数量较小，这显而易见，但即使如此，导演罗伯特·埃格斯在许多采访中也明确表示，他对他的新版《诺斯费拉图》重新诠释了有史以来最伟大的无声电影之一。（2016年，在他最初尝试重拍这部电影时，他告诉一位采访者，在职业生涯的早期承担这个项目让他感到“丑陋、亵渎、自恋和令人厌恶”。）",
+            "source_en": "When it comes to those who have waded into that kind of deep water, some have tried the Let's-really-shake-things-up solution. There's the lamentable 1962 remake of \"The Cabinet of Dr. Caligari,\" for instance, which not only eliminated the central figure of Cesare the somnambulist but also featured a Caligari who instead of practicing diabolic hypnotism spent his time showing the heroine offensive pictures. Other filmmakers have chosen the even more baffling route of changing almost nothing, such as Gus Van Sant's nearly shot-for-shot 1998 remake of \"Psycho.\" The number of disappointed moviegoers you risk in remaking a masterpiece from 1922 is smaller, for obvious reasons, but even so, the director Robert Eggers has made clear in any number of interviews his understanding that his new \"Nosferatu\" is re-engaging one of the greatest of the silent movies. (In 2016, when he was first attempting to remake the film, he told an interviewer that it felt \"ugly and blasphemous and egomaniacal and disgusting\" to take up that project so early into his career.)",
+            "masked_text": "对于那些__BLANK__来说，__BLANK__。 例如，__BLANK__，不仅__BLANK__了__BLANK__这一__BLANK__人物，还让卡利__BLANK__博士__BLANK__练习恶魔般的催眠术，而是把时间花在向__BLANK__令人反感__BLANK__上。 其他__BLANK__则选择了更加令人__BLANK__的路线，几乎__BLANK__但即使如此，导演罗伯特__BLANK__格斯在许多采访中也明确表示，他__BLANK__版《__BLANK__了__BLANK__史以来最伟大的__BLANK__电影之一。（2016年，在他最初尝试重拍这部电影时，他告诉一位采访者，在职业生涯的早期承担这个项目让他感到“丑陋、亵渎、自恋和令人厌恶”。）",
+            "repaired_text": "对于那些__BLANK__涉足过那种深水的人来说，__BLANK__尝试过“彻底改变一切”的解决方案__BLANK__。 例如，__BLANK__1962年令人遗憾的《__BLANK__医生内阁》的翻拍__BLANK__，不仅__BLANK__了__BLANK__的中心人物，还让卡利__BLANK__博士__BLANK__练习恶魔般的催眠术，而是把时间花在向__BLANK__展示令人反感__BLANK__上。 其他__BLANK__则选择了更加令人__BLANK__的路线，几乎__BLANK__但即使如此，导演罗伯特__BLANK__格斯在许多采访中也明确表示，他__BLANK__版《__BLANK__》正在重新展现__BLANK__史以来最伟大的__BLANK__电影之一。（2016年，在他最初尝试重拍这部电影时，他告诉一位采访者，在职业生涯的早期承担这个项目让他感到“丑陋、亵渎、自恋和令人厌恶”。）",
+            "model_used": "google/gemma-3-12b-it",
+            "n_llm_calls": 1,
+            "call_error": null,
+            "leaked": true,
+            "comet_before": 0.8,
+            "comet_after": 0.2,
+            "delta_comet": -0.6000000000000001
+          },
+          {
+            "row_id": "en-zh_CN_#_literary_#_rink_rats_chapter1::8::TowerPlus-9B",
+            "lang_pair": "en-zh_CN",
+            "qe_score": 0.8274771571159363,
+            "n_spans_flagged": 2,
+            "n_spans_masked": 2,
+            "source": "车内的气氛充满了期待和焦虑的混合情绪。凯尔能感受到瑞安在他身边散发出的紧张情绪，不禁回忆起自己第一次被父亲带到这所学校的第一天。他比任何人都更能理解儿子此刻内心既兴奋又害怕的复杂心情。\\n当他们驶入学校停车场时，凯尔松了一口气，欣赏着那些令人惊叹的城堡式建筑。他记得自己多么喜欢这个校园，尤其是在秋天，树叶最茂盛的时候。\\n“准备好了，兄弟？”凯尔问道，瞥了一眼瑞安在副驾驶座位上整理着他的背包。",
+            "source_en": "The atmosphere in the car was charged with a blend of anticipation and anxiety. Kyle could sense Ryan’s nervous energy radiating beside him, and he couldn’t help but remember his own first day, driven by his dad to this very school. He understood, probably more than anyone, the mix of excitement and fear his son was feeling.\\nAs they pulled into the school parking lot, Kyle exhaled, taking in the stunning, castle-like buildings. He remembered just how much he loved this campus, especially in the fall when the foliage was at its peak.\\n“Ready, buddy?” Kyle asked, glancing over as Ryan fiddled with his backpack in the passenger seat.",
+            "masked_text": "车内的气氛充满了期待和焦虑的混合情绪。凯尔能感受到瑞安在他身边散发出的紧张情绪，不禁回忆起自己第一次被父亲带到这所学校的第一天。他比任何人都更能理解儿子此刻内心既兴奋又害怕的复杂心情。\\n当他们驶入学校停车场时，凯尔松了一口气，欣赏着那些令人惊叹的城堡式建筑。他记得自己多么喜欢这个校园，尤其是在秋天，树叶最茂盛的时候。\\n“准备好了，兄弟？”凯尔问道，瞥了一眼瑞安在副驾驶座位上__BLANK__着他的__BLANK__。",
+            "repaired_text": "“准备好了，兄弟？”凯尔问道，瞥了一眼瑞安在副驾驶座位上摆弄着他的背包。",
+            "model_used": "google/gemma-3-12b-it",
+            "n_llm_calls": 1,
+            "call_error": null,
+            "leaked": false,
+            "comet_before": 1.0,
+            "comet_after": 0.4,
+            "delta_comet": -0.6
+          },
+          {
+            "row_id": "en-zh_CN_#_social_#_114157282362077575::194::UvA-MT",
+            "lang_pair": "en-zh_CN",
+            "qe_score": 0.6925373077392578,
+            "n_spans_flagged": 7,
+            "n_spans_masked": 7,
+            "source": "我能绝对肯定地告诉你的一件事是，任何仍然挥舞着“我仍然相信美国人民的根本善良”这匹死马的专业民主党人，要么是愚蠢至极，要么是痛苦地自欺欺人，你需要做任何事情来避免听从他们的建议。这个理论在去年秋天经历了最全面的考验，结果它只是一个空洞的陈词滥调，最终吐血而死。",
+            "source_en": "One thing I will tell you with absolute certainty is that any professional Democrat who still drags out the dead horse \"I still believe in the fundamental goodness of the American people\" is either criminally stupid or painfully deluded and you need to do ANYthing OTHER than shit that person prescribes. That theory underwent its most comprehensive test last fall and turns out it was just a glib fucking bromide that vomited blood and died.",
+            "masked_text": "我能绝对肯定地告诉你的一件事是，任何仍然__BLANK__着“我仍然相信美国__BLANK__人，要么是愚蠢至极，要么__BLANK__你__BLANK__从__BLANK__建议。这个理论在去年秋天经历了最全面的考验，结果它只是__BLANK__词滥调__BLANK__。",
+            "repaired_text": "我能绝对肯定地告诉你的一件事是，任何仍然拖着“我仍然相信美国人民，要么是愚蠢至极，要么痛苦地欺骗你不要听从那个人建议。这个理论在去年秋天经历了最全面的考验，结果它只是一个轻浮的词滥调，吐血而死。",
+            "model_used": "google/gemma-3-12b-it",
+            "n_llm_calls": 1,
+            "call_error": null,
+            "leaked": false,
+            "comet_before": 1.0,
+            "comet_after": 0.4,
+            "delta_comet": -0.6
+          }
+        ]
+      },
+      "en-cs_CZ": {
+        "n_rows": 781,
+        "n_rows_with_spans_flagged": 781,
+        "n_rows_masked_by_condition_b": 781,
+        "n_llm_calls": 781,
+        "mean_delta_comet": -0.06978233034571063,
+        "n_scored": 781,
+        "leakage_rate": 0.11907810499359796,
+        "n_leaked": 93,
+        "example_leaked_outputs": [
+          {
+            "row_id": "en-cs_CZ_#_news_#_guardian.231314::154::CommandA",
+            "masked_text": "__BLANK__ je to teprve měsíc, co__BLANK__,__BLANK__mník ledniček,__BLANK__átor brexit__BLANK__, výrobce modelových autobusů,__BLANK__ pohovek,__BLANK__č__BLANK__, současný__BLANK__loupkař Daily Mail a bývalý britský premiér Boris Johnson ve__BLANK__u oslavoval inauguraci Donalda Trumpa a popisoval, jak „neviditelný__BLANK__ moci__BLANK__kl“ z__BLANK__né__BLANK__ble do Trumpovy ruky: „Viděl jsem ten okamžik, který se světoví__BLANK__ tak snažili zabránit.“",
+            "repaired_text": "Bylo to teprve měsíc, co patron tancerek,__BLANK__ objevitel mnžek,__BLANK__ organizátor brexit__BLANK__, výrobce modelových autobusů,__BLANK__ zneužívatel pohovek,__BLANK__ špinovač zdí,__BLANK__ sloupkař Daily Mail a bývalý britský premiér Boris Johnson ve__BLANK__u oslavoval inauguraci Donalda Trumpa a popisoval, jak „neviditelný__BLANK__ moci__BLANK__tekla“ z__BLANK__opotřebované__BLANK__bible do Trumpovy ruky: „Viděl jsem ten okamžik, který se světoví__BLANK__ tak snažili zabránit.“"
+          },
+          {
+            "row_id": "en-cs_CZ_#_news_#_en.ndtv.com.357237::96::SalamandraTA",
+            "masked_text": "Hned po měsíci stráveném v sezóně SA__BLANK__, se Breetzke plynule přesunul do formátu ODI, kde s Jasonem Smithem (41) utvořil__BLANK__ůležitou__BLANK__,__BLANK__áhl__BLANK__. Dosáhl svého__BLANK__ 68__BLANK__ů a pokračoval ve svém__BLANK__ním__BLANK__ nakonec dosáhl svého__BLANK__ho__BLANK__ů s pomocí šesti__BLANK__ a dvou šestek. Tím se stal teprve čtvrtým Jihoafričanem, který na svém debutu dosáhl stovky v zápase ODI. Připojil se tak k elitnímu klubu, který tvoří Ingram, jeho současný kapitán Temba Bavuma a Reeza Hendricks.",
+            "repaired_text": "Hned po měsíci stráveném v sezóně SA20, se Breetzke plynule přesunul do formátu ODI, kde s Jasonem Smithem (41) utvořil důležitou druhou__BLANK__áhl padesátku. Dosáhl svého půlstoletí 68 míčů a pokračoval ve svém solidním startu, nakonec dosáhl svého prvního století v 128 míčů s pomocí šesti hranic a dvou šestek. Tím se stal teprve čtvrtým Jihoafričanem, který na svém debutu dosáhl stovky v zápase ODI. Připojil se tak k elitnímu klubu, který tvoří Ingram, jeho současný kapitán Temba Bavuma a Reeza Hendricks."
+          },
+          {
+            "row_id": "en-cs_CZ_#_social_#_114417630342798842::264::CommandA",
+            "masked_text": "🧵__BLANK__ jsem byla__BLANK__štvaná__BLANK__ že__BLANK__ svůj Soda__BLANK__, protože__BLANK__livé vody a__BLANK__ch__BLANK__ch__BLANK__.\\__BLANK__ že__BLANK__!__BLANK__😅\\nMně se to líbí, protože když je__BLANK__ a vypijete to a je to tak__BLANK__ní, že to bolí... cít__BLANK__ se osvě__BLANK__!\\n🫧🫧🫧🫧🫧🫧🫧🫧🫧🫧🫧🫧🫧🫧🫧🫧🫧🫧🫧🫧🫧🫧🫧🫧🫧🫧🫧🫧🫧🫧🫧🫧🫧🫧🫧🫧🫧🫧🫧🫧🫧🫧🫧🫧🫧🫧🫧🫧🫧🫧🫧🫧",
+            "repaired_text": "🧵 Tak jsem byla trochu naštvaná, že jsem se musela zbavit svého SodaStreamu a velkého canisteru na něj, protože jsem se hodně zabývala perlivou vodou a výrobou domácích zdravých limonád. UKÁZALO SE, že Německo MILUJE PERLIVOU VODU! Musíte někdy dokonce specifikovat plochou! 😅 Mně se to líbí, protože když je nadměrně nasycená a vypijete to a je to tak intenzivní, že to bolí... cítíte se osvěží__BLANK__!\\n🫧🫧🫧🫧🫧🫧🫧🫧🫧🫧🫧🫧🫧🫧🫧🫧🫧🫧🫧🫧🫧🫧🫧🫧🫧🫧🫧🫧🫧🫧🫧🫧🫧🫧🫧🫧🫧🫧🫧🫧🫧🫧🫧🫧🫧🫧🫧🫧🫧🫧🫧🫧"
+          },
+          {
+            "row_id": "en-cs_CZ_#_literary_#_rink_rats_chapter2::58::CUNI-MH-v2",
+            "masked_text": "Declanův__BLANK__ se__BLANK__ každou obavou, kterou měl od chvíle, kdy vystoupil z autobusu.__BLANK__ něm Kyle tak snadno__BLANK__ Zdálo se, že__BLANK__lupuje vrstvy, aniž by se snažil. Opět se v něm objevila ta nízká, povědomá jiskra nejistoty a Kyle ji nějakým způsobem zachytil bez jediného slova.\\n„Vím, že to není snadné, kluku,“ povzdechl si Kyle, jeho hlas byl teď nižší, jemný, ale pevný. „Ale věc je taková. Když zůstaneš s námi, nebudeš jen přespávat v__BLANK__ně. Nabízím ti prostor, kde můžeš__BLANK__t. Místo, kde můžeš přistát, když se všechno ostatní zdá být v pohybu.“",
+            "repaired_text": "Declanův rozum__probleskl__ každou obavou, kterou měl od chvíle, kdy vystoupil z autobusu.__Četl__ něm Kyle tak snadno__prohlédl__ Zdálo se, že__snadno__lupuje vrstvy, aniž by se snažil. Opět se v něm objevila ta nízká, povědomá jiskra nejistoty a Kyle ji nějakým způsobem zachytil bez jediného slova.\\n„Vím, že to není snadné, kluku,“ povzdechl si Kyle, jeho hlas byl teď nižší, jemný, ale pevný. „Ale věc je taková. Když zůstaneš s námi, nebudeš jen přespávat v__penzion__ně. Nabízím ti prostor, kde můžeš__dýchat__t. Místo, kde můžeš přistát, když se všechno ostatní zdá být v pohybu.“"
+          },
+          {
+            "row_id": "en-cs_CZ_#_news_#_guardian.228996::101::SalamandraTA",
+            "masked_text": "Zvýšená viditelnost je ve většině případů samozřejmě pro__BLANK__“ (nebo přinejmenším pro__BLANK__omé „__BLANK__led__BLANK__ trendů, jak to zde chápu)__BLANK__. Platí to zejména v době__BLANK__ současné kultury jídla a pití, která, jak ji definují sociální média, je vždy o tom, kdo jako první najde neob__BLANK__ nebo nejnovější věc – „skrytý klenot“, pekárnu a „__BLANK__“ v londýnské zóně 6 nebo něco podobného („Pojď se mnou do hospody v Richmondu, která se pravidelně zaplavuje“). A zatímco současný nárůst popularity Guinnessu začal tím, že byl kdysi mezi mladšími__BLANK__i považován za volbu__BLANK__ – za__BLANK__ typu „když víš, tak víš“, dnes už to není o nic méně__BLANK__né.",
+            "repaired_text": "Zvýšená viditelnost je ve většině případů samozřejmě pro smrtící zvon__BLANK__“ (nebo přinejmenším pro__BLANK__omé „slepojící sledování trendů, jak to zde chápu)__BLANK__. Platí to zejména v době__BLANK__ současné kultury jídla a pití, která, jak ji definují sociální média, je vždy o tom, kdo jako první najde neob__BLANK__ nebo nejnovější věc – „skrytý klenot“, pekárnu a „prostor pro těstoviny“ v londýnské zóně 6 nebo něco podobného („Pojď se mnou do hospody v Richmondu, která se pravidelně zaplavuje“). A zatímco současný nárůst popularity Guinnessu začal tím, že byl kdysi mezi mladšími__BLANK__i považován za volbu__BLANK__ – za__BLANK__ typu „když víš, tak víš“, dnes už to není o nic méně tajné."
+          },
+          {
+            "row_id": "en-cs_CZ_#_literary_#_rink_rats_chapter2::62::Algharb",
+            "masked_text": "Declan vstal a__BLANK__ o něco__BLANK__evněji.\\nLuc mu přikývl. „Trénink začíná za dvacet minut. Trenér Reynolds tě čeká na ledě.“\\nKyle taky vstal a pořád z něj vyzařovala ta samá klidná energie. „Uvidíme se__BLANK__. Nicole dneska večer dělá__BLANK__ře__BLANK__. Doufám, že máš hlad.“\\nDeclan se ne__BLANK__omky polo__BLANK__čně usměšil. „Jo. To zní dobře.“\\nA s tím se otočil a zamířil k chodbě, snažil se moc nepřemýšlet o milionu věcí, které mu projely hlavou.\\nTrén__BLANK__ mu__BLANK__kl v záři ostrých přihrávek, prudkých obrátek a toho nezaměnitelného adrenalinu, který se dostavoval, jen když se jeho__BLANK__le dotkly čerstvého ledu. Declan na to nepotřeboval žádnou adaptaci, instinkty mu vy__BLANK__ly hned od první__BLANK__. Nebylo to dlouho__BLANK__ začal__BLANK__ šířit__BLANK__ché,__BLANK__ující__BLANK__",
+            "repaired_text": "Declan vstal a__BLANK__ o něco__BLANK__evněji.\\nLuc mu přikývl. „Trénink začíná za dvacet minut. Trenér Reynolds tě čeká na ledě.“\\nKyle taky vstal a pořád z něj vyzařovala ta samá klidná energie. „Uvidíme se__BLANK__. Nicole dneska večer dělá__BLANK__ře__BLANK__. Doufám, že máš hlad.“\\nDeclan se ne__BLANK__omky polo__BLANK__čně usměšil. „Jo. To zní dobře.“\\nA s tím se otočil a zamířil k chodbě, snažil se moc nepřemýšlet o milionu věcí, které mu projely hlavou.\\nTrén__BLANK__ mu__BLANK__kl v záři ostrých přihrávek, prudkých obrátek a toho nezaměnitelného adrenalinu, který se dostavoval, jen když se jeho__BLANK__le dotkly čerstvého ledu. Declan na to nepotřeboval žádnou adaptaci, instinkty mu vy__BLANK__ly hned od první__BLANK__. Nebylo to dlouho__BLANK__ začal__BLANK__ šířit__BLANK__ché,__BLANK__ující__BLANK__"
+          },
+          {
+            "row_id": "en-cs_CZ_#_speech_#_vid_2cLeDVfEqG4::272::TowerPlus-9B",
+            "masked_text": "__BLANK__ nahor__BLANK__, dolů__BLANK__levo a__BLANK__ nakreslím jeden, dva, tři, čtyři malé tečky a na pravé straně to udělám znovu. Nakreslím zakřivenou čáru nahoru, přes__BLANK__ zakřivenou čáru do__BLANK__, spojím a nakreslím jeden, dva, tři, čtyři malé tečky. Dostanu se až nahoru a nakreslím__BLANK__, až na konec, abych ten prostor rozdělil, a pak se vrátím dolů a nakreslím přímku,__BLANK__mku__BLANK__m__BLANK__, až na konec.",
+            "repaired_text": "Nakreslím nahor__BLANK__, dolů__BLANK__levo a__BLANK__ nakreslím jeden, dva, tři, čtyři malé tečky a na pravé straně to udělám znovu. Nakreslím zakřivenou čáru nahoru, přes__BLANK__ zakřivenou čáru do__BLANK__, spojím a nakreslím jeden, dva, tři, čtyři malé tečky. Dostanu se až nahoru a nakreslím__BLANK__, až na konec, abych ten prostor rozdělil, a pak se vrátím dolů a nakreslím přímku,__BLANK__ přímku__BLANK__ přímku__BLANK__, až na konec."
+          },
+          {
+            "row_id": "en-cs_CZ_#_social_#_114417630342798842::251::Shy",
+            "masked_text": "Dobře, první německá slovíčka, která se budu muset naučit, budou souviset s vlaky a veřejnou dopravou.__BLANK__,__BLANK__ si to!\\nSeattle a San Francisco mají podle mě nejlepší veřejnou dopravu v Americe [je třeba doložit zdroj] a jakmile to pochopíte, opravdu je to jednoduché – jen nastoupit, vystoupit a už jste tam! Chci se k tomu taky dostat, ale i při životě v Seattlu mi to trvalo několik měsíců.",
+            "repaired_text": "Dobře, první německá slovíčka, která se budu muset naučit, budou souviset s vlaky a veřejnou dopravou. Budoucí Indi, __BLANK__ si to!\\nSeattle a San Francisco mají podle mě nejlepší veřejnou dopravu v Americe [je třeba doložit zdroj] a jakmile to pochopíte, opravdu je to jednoduché – jen nastoupit, vystoupit a už jste tam! Chci se k tomu taky dostat, ale i při životě v Seattlu mi to trvalo několik měsíců."
+          },
+          {
+            "row_id": "en-cs_CZ_#_speech_#_vid_Lb7Dhf7oo4Y::294::CommandA",
+            "masked_text": "Je to__BLANK__ mě__BLANK__, byl jsem tak rychlý__BLANK__ jsem tak šťastný, jsem tak šťastný, pojďme sehnat nějaké dřevo na__BLANK__h__BLANK__ a pak můžeme vyrobit sedm__BLANK__, jen se pokusím naložit všechno, co máme, ale budeme potřebovat__BLANK__. Promiň, de__BLANK__ to na naše__BLANK__, tohle budou__BLANK__, protože jsou na m__BLANK__ou a myslím, že je to na nějakou__BLANK__bohem__BLANK__ tohoto místa, možná__BLANK__ můžeš__BLANK__. Tak jdeme. A ještě jedna věc. Teď, když máme naše__BLANK__. Vypadá to, že to jde, jde to nahoru__BLANK__.",
+            "repaired_text": "Je to opačně, tam__BLANK__ jdeme, nemáš na mě nic, kluku, byl jsem tak rychlý__BLANK__ jsem tak šťastný, jsem tak šťastný, pojďme sehnat nějaké dřevo na__BLANK__truny__BLANK__ a pak můžeme vyrobit sedm__BLANK__šulkerových beden__, jen se pokusím naložit všechno, co máme, ale budeme potřebovat__BLANK__knihu mendingu__. Promiň, dej__BLANK__ to na naše__BLANK__elytry, tohle budou__BLANK__ramena__BLANK__, protože jsou na m__BLANK__ých ramenech__BLANK__ a myslím, že je to na nějakou__BLANK__chvíli__BLANK__ tohoto místa, možná__BLANK__ můžeš__BLANK__ si lehnout__. Tak jdeme. A ještě jedna věc. Teď, když máme naše__BLANK__elytry__. Vypadá to, že to jde, jde to nahoru__BLANK__."
+          },
+          {
+            "row_id": "en-cs_CZ_#_literary_#_rink_rats_chapter2::55::GPT-4.1",
+            "masked_text": "Znovu se__BLANK__l, ne kvůli__BLANK__, ale protože na tom záleželo.\\n„Není v trenérském štábu, aspoň ne oficiálně. Ale je součástí něčeho nového, co tu budujeme. Jiný druh podpory – rozvoj hráčů, mentorství, vedení mimo led stejně jako na něm. A chceme, abys byl toho součástí.“\\nLuc se usmál, trochu nakřivo. „Takže, tady je nabídka: Kyle a jeho rodina ti nabídli domov. Pokud budeš chtít, myslíme, že je to skvělá volba. Ale žádný nátlak. Chtěli jsme to nejdřív probrat s tebou.“\\nDeclan zamrkal, zaskočený. Tohle nečekal. Vůbec.",
+            "repaired_text": "Znovu se__odmlčel__, ne kvůli__dramatickému efektu__, ale protože na tom záleželo.\\n„Není v trenérském štábu, aspoň ne oficiálně. Ale je součástí něčeho nového, co tu budujeme. Jiný druh podpory – rozvoj hráčů, mentorství, vedení mimo led stejně jako na něm. A chceme, abys byl toho součástí.“\\nLuc se usmál, trochu nakřivo. „Takže, tady je nabídka: Kyle a jeho rodina ti nabídli domov. Pokud budeš chtít, myslíme, že je to skvělá volba. Ale žádný nátlak. Chtěli jsme to nejdřív probrat s tebou.“\\nDeclan zamrkal, zaskočený. Tohle nečekal. Vůbec."
+          }
+        ],
+        "example_largest_negative_delta": [
+          {
+            "row_id": "en-cs_CZ_#_social_#_114220065940975488::204::Wenyiil",
+            "lang_pair": "en-cs_CZ",
+            "qe_score": 0.8333227038383484,
+            "n_spans_flagged": 7,
+            "n_spans_masked": 1,
+            "source": "Devátý díl #UniversityChallenge byl neskutečný zápas. Oriel, Oxford (530 studentů) proti Durhamu (20 000) a Oriel vyhrál, což mě po několika chybách, které udělali, překvapilo. Kapitán neznal Wittgensteinovo jméno!? Možná jen nervy. Durham vedl, pak to bylo nerozhodně 170:170, načež klesli na 165. Škoda. Fandil jsem jim. Skvělý tým, kde byli všichni čtyři silní, takže doufám, že se dostanou do dalšího kola.",
+            "source_en": "Game 9 of #UniversityChallenge was a hell of a match. Oriel Oxford (530 students) vs Durham (20,000), and Oriel won, which surprised me after some mistakes they made. The captain didn't know Wittengstein's name!? Possibly just nerves. Durham was ahead, then it was tied at 170, then they dropped to 165. A pity. I was rooting for them. Great team, with all four strong, so I hope they make the cut.",
+            "masked_text": "Devátý díl #UniversityChallenge byl neskutečný zápas.__BLANK__ (530 studentů) proti Durhamu (20 000) a Oriel vyhrál, což mě po několika chybách, které udělali, překvapilo. Kapitán neznal Wittgensteinovo jméno!? Možná jen nervy. Durham vedl, pak to bylo nerozhodně 170:170, načež klesli na 165. Škoda. Fandil jsem jim. Skvělý tým, kde byli všichni čtyři silní, takže doufám, že se dostanou do dalšího kola.",
+            "repaired_text": "Oriel Oxford",
+            "model_used": "google/gemma-3-12b-it",
+            "n_llm_calls": 1,
+            "call_error": null,
+            "leaked": false,
+            "comet_before": 1.0,
+            "comet_after": 0.0,
+            "delta_comet": -1.0
+          },
+          {
+            "row_id": "en-cs_CZ_#_news_#_guardian.229703::121::Wenyiil",
+            "lang_pair": "en-cs_CZ",
+            "qe_score": 0.8286808729171753,
+            "n_spans_flagged": 2,
+            "n_spans_masked": 1,
+            "source": "Tento počin by byl o poznání působivější, kdyby jejich online poznámky a životopisy nesignalizovaly něco, co by se dalo diplomaticky nazvat velkými mezerami v jejich dovednostech. Musk, muž s emoční zralostí kresleného bankovního lupiče, vede skupinu mužů, z nichž většina nemá žádné zkušenosti s vládní správou ani s řízením, natožpak odborné znalosti v oborech, které spadají pod agentury, jejichž reformou byli pověřeni. Celá scéna připomíná boom manažerského poradenství v 90. letech, kdy čerství absolventi s neskrývaným údivem zírali na každého, kdo byl starší pětatřiceti let a ještě dýchal. A skutečně, jak informoval deník New York Times, bylo zaznamenáno, že mladí inženýři označují federální zaměstnance za „dinosauři“, zatímco ti nazývají chlapy v baseballových čepicích „muskovci“.",
+            "source_en": "This feat would be more impressive if their online remarks and bios didn't flag what might diplomatically be called large gaps in their skill-sets. Musk, a man with the emotional maturity of a cartoon bank robber, is leading a group of men most of whom have no government or management experience whatsoever, let alone expertise in fields governed by the agencies they have been tasked to reform. The whole scene is reminiscent of the 90s boom in management consultancy, during which new graduates stared with frank disbelief at anyone who was over 35 and still breathing. And sure enough, as reported in the New York Times, young engineers have been overheard referring to federal employees as \"dinosaurs,\" who have in turn called the guys in baseball caps \"Muskrats.\"",
+            "masked_text": "Tento počin by byl o poznání působivější, kdyby jejich online poznámky a životopisy nesignalizovaly něco, co by se dalo diplomaticky nazvat velkými mezerami v jejich dovednostech. Musk, muž s emoční zralostí kresleného bankovního lupiče, vede skupinu mužů, z nichž většina nemá žádné zkušenosti s vládní správou ani s řízením, natožpak odborné znalosti v oborech, které spadají pod agentury, jejichž reformou byli pověřeni. Celá scéna připomíná boom manažerského poradenství v 90. letech, kdy čerství absolventi s neskrývaným údivem zírali na každého, kdo byl starší pětatřiceti let a ještě dýchal. A skutečně, jak informoval deník New York Times, bylo zaznamenáno, že mladí inženýři označují federální zaměstnance za „dinosauři“, zatímco ti nazývají chlapy v baseballových čepicích „__BLANK__“.",
+            "repaired_text": "\"bobry\"",
+            "model_used": "google/gemma-3-12b-it",
+            "n_llm_calls": 1,
+            "call_error": null,
+            "leaked": false,
+            "comet_before": 1.0,
+            "comet_after": 0.0,
+            "delta_comet": -1.0
+          },
+          {
+            "row_id": "en-cs_CZ_#_social_#_114300646822630777::237::DeepSeek-V3",
+            "lang_pair": "en-cs_CZ",
+            "qe_score": 0.8559476137161255,
+            "n_spans_flagged": 3,
+            "n_spans_masked": 3,
+            "source": "Právě jsem se propadl do králičí nory Doritos",
+            "source_en": "Just fell down a Doritos rabbit hole",
+            "masked_text": "__BLANK__ do__BLANK__i__BLANK__",
+            "repaired_text": "Just did I fall",
+            "model_used": "google/gemma-3-12b-it",
+            "n_llm_calls": 1,
+            "call_error": null,
+            "leaked": false,
+            "comet_before": 0.9,
+            "comet_after": 0.1,
+            "delta_comet": -0.8
+          },
+          {
+            "row_id": "en-cs_CZ_#_social_#_114300646822630777::246::Gemma-3-27B",
+            "lang_pair": "en-cs_CZ",
+            "qe_score": 0.7457160949707031,
+            "n_spans_flagged": 17,
+            "n_spans_masked": 17,
+            "source": "Víte, ten obrázek chlápka s tričkem, na kterém je napsáno 0 strachů a pak je zakázaná pornografie Barta Simpsona, takže je tam 1 strach? Je to podobné tomu, jen teď se bojím jíst domácí vaření kohokoliv, koho neznám důvěrně, protože existuje malá, ale existující šance, že si sednu k lahodné domácí normální večeři a budu s nimi jíst v jejich domě a podobně jako Jidáš u slavné večeře mi políbí tvář a pak mi naservíruje \"COOL RANCH BISCUITS WITH HONEY BUTTER\".",
+            "source_en": "you know that picture of the guy with the shirt that says 0 fears and then bart swimpson porn is banned so it says 1 fear? It's similar to that except now i am afraid to eat the home cooking of anybody i do not know intimately because there is a slim yet extant chance that i might sit down to a delicious home cooked normals dinner to eat with them in their house and similar to judas at the famous dinner they might kiss my cheek good-like then serve me up \"COOL RANCH BISCUITS WITH HONEY BUTTER\"",
+            "masked_text": "__BLANK__ obráz__BLANK__lá__BLANK__ s tričkem, na kterém je napsáno 0__BLANK__ů a pak__BLANK__za__BLANK__,__BLANK__? Je to podobné tomu, jen teď se bojím jíst domácí__BLANK__ kohokoliv, koho neznám__BLANK__vě__BLANK__, protože existuje malá, ale existující šance, že si sednu k lahodné__BLANK__eři a budu s nimi jíst v jejich domě a podobně jako__BLANK__d__BLANK__né__BLANK__ mi políbí tvář a pak mi naservír__BLANK__ \"C__BLANK__ __BLANK__ITS WITH HONEY BUTTER\".",
+            "repaired_text": "Víš ten obráz__BLANK__lá__BLANK__ s tričkem, na kterém je napsáno 0__BLANK__ů a pak__BLANK__za__BLANK__,__BLANK__? Je to podobné tomu, jen teď se bojím jíst domácí__BLANK__ kohokoliv, koho neznám__BLANK__vě__BLANK__, protože existuje malá, ale existující šance, že si sednu k lahodné__BLANK__eři a budu s nimi jíst v jejich domě a podobně jako__BLANK__d__BLANK__né__BLANK__ mi políbí tvář a pak mi naservír__BLANK__ \"COOL RANCH BISCUITS WITH HONEY BUTTER\".",
+            "model_used": "google/gemma-3-12b-it",
+            "n_llm_calls": 1,
+            "call_error": null,
+            "leaked": true,
+            "comet_before": 1.0,
+            "comet_after": 0.2,
+            "delta_comet": -0.8
+          },
+          {
+            "row_id": "en-cs_CZ_#_literary_#_rink_rats_chapter2::62::Algharb",
+            "lang_pair": "en-cs_CZ",
+            "qe_score": 0.8162403106689453,
+            "n_spans_flagged": 17,
+            "n_spans_masked": 17,
+            "source": "Declan vstal a svíral sportovní taštu o něco pevněji.\\nLuc mu přikývl. „Trénink začíná za dvacet minut. Trenér Reynolds tě čeká na ledě.“\\nKyle taky vstal a pořád z něj vyzařovala ta samá klidná energie. „Uvidíme se potom. Nicole dneska večer dělá kuřecí parmezan. Doufám, že máš hlad.“\\nDeclan se nevědomky polovičně usměšil. „Jo. To zní dobře.“\\nA s tím se otočil a zamířil k chodbě, snažil se moc nepřemýšlet o milionu věcí, které mu projely hlavou.\\nTrénink mu utekl v záři ostrých přihrávek, prudkých obrátek a toho nezaměnitelného adrenalinu, který se dostavoval, jen když se jeho brusle dotkly čerstvého ledu. Declan na to nepotřeboval žádnou adaptaci, instinkty mu vypukly hned od prvního cviku. Nebylo to dlouho, co se začaly otáčet hlavy a mezi trenéry se začaly šířit tiché, schvalující poky.",
+            "source_en": "Declan rose to his feet, clutching the duffel a little tighter.\\nLuc gave him a nod. “Practice starts in twenty. Coach Reynolds will meet you on the ice.”\\nKyle stood too, that same calm energy still radiating off him. “I’ll see you after. Nicole’s making chicken parm tonight. Hope you’re hungry.”\\nDeclan gave a half-smile without meaning to. “Yeah. Sounds good.”\\nAnd with that, he turned and headed for the hallway, trying not to overthink the million things racing through his head.\\nPractice flew by in a blur of crisp passes, sharp turns, and the unmistakable rush that only came when his skates hit fresh ice. Declan didn’t need time to adjust to that, his instincts kicked in from the first drill. It wasn’t long before heads were turning and quiet nods of approval passed between coaches.",
+            "masked_text": "Declan vstal a__BLANK__ o něco__BLANK__evněji.\\nLuc mu přikývl. „Trénink začíná za dvacet minut. Trenér Reynolds tě čeká na ledě.“\\nKyle taky vstal a pořád z něj vyzařovala ta samá klidná energie. „Uvidíme se__BLANK__. Nicole dneska večer dělá__BLANK__ře__BLANK__. Doufám, že máš hlad.“\\nDeclan se ne__BLANK__omky polo__BLANK__čně usměšil. „Jo. To zní dobře.“\\nA s tím se otočil a zamířil k chodbě, snažil se moc nepřemýšlet o milionu věcí, které mu projely hlavou.\\nTrén__BLANK__ mu__BLANK__kl v záři ostrých přihrávek, prudkých obrátek a toho nezaměnitelného adrenalinu, který se dostavoval, jen když se jeho__BLANK__le dotkly čerstvého ledu. Declan na to nepotřeboval žádnou adaptaci, instinkty mu vy__BLANK__ly hned od první__BLANK__. Nebylo to dlouho__BLANK__ začal__BLANK__ šířit__BLANK__ché,__BLANK__ující__BLANK__",
+            "repaired_text": "Declan vstal a__BLANK__ o něco__BLANK__evněji.\\nLuc mu přikývl. „Trénink začíná za dvacet minut. Trenér Reynolds tě čeká na ledě.“\\nKyle taky vstal a pořád z něj vyzařovala ta samá klidná energie. „Uvidíme se__BLANK__. Nicole dneska večer dělá__BLANK__ře__BLANK__. Doufám, že máš hlad.“\\nDeclan se ne__BLANK__omky polo__BLANK__čně usměšil. „Jo. To zní dobře.“\\nA s tím se otočil a zamířil k chodbě, snažil se moc nepřemýšlet o milionu věcí, které mu projely hlavou.\\nTrén__BLANK__ mu__BLANK__kl v záři ostrých přihrávek, prudkých obrátek a toho nezaměnitelného adrenalinu, který se dostavoval, jen když se jeho__BLANK__le dotkly čerstvého ledu. Declan na to nepotřeboval žádnou adaptaci, instinkty mu vy__BLANK__ly hned od první__BLANK__. Nebylo to dlouho__BLANK__ začal__BLANK__ šířit__BLANK__ché,__BLANK__ující__BLANK__",
+            "model_used": "google/gemma-3-12b-it",
+            "n_llm_calls": 1,
+            "call_error": null,
+            "leaked": true,
+            "comet_before": 1.0,
+            "comet_after": 0.3,
+            "delta_comet": -0.7
+          }
+        ]
+      }
+    },
+    "published_comparison": {
+      "padmanabhan_pooled_delta_comet": -0.0108,
+      "padmanabhan_per_pair_range": [
+        -0.014,
+        -0.007
+      ],
+      "padmanabhan_per_pair_pinned": {
+        "en-cs_CZ": -0.00724,
+        "en-zh_CN": null
+      }
+    },
+    "gate_verdict": "PASS_UNRELIABLE_SUBSTITUTED_SCORER",
+    "gate_component_results": {
+      "direction": {
+        "pass": true,
+        "by_pair": {
+          "en-zh_CN": true,
+          "en-cs_CZ": true
+        }
+      },
+      "magnitude": {
+        "pass": false,
+        "by_pair": {
+          "en-zh_CN": {
+            "published_delta": -0.0108,
+            "published_source": "pooled_fallback",
+            "observed_delta": -0.04236200256739409,
+            "abs_diff": 0.031562002567394096,
+            "within_tolerance": false
+          },
+          "en-cs_CZ": {
+            "published_delta": -0.00724,
+            "published_source": "per_pair_pinned",
+            "observed_delta": -0.06978233034571063,
+            "abs_diff": 0.06254233034571063,
+            "within_tolerance": false
+          }
+        },
+        "note": "reported, not solely gating per plan"
+      },
+      "leakage": {
+        "pass": true,
+        "by_pair": {
+          "en-zh_CN": 0.06546854942233633,
+          "en-cs_CZ": 0.11907810499359796
+        }
+      }
+    },
+    "limitations_if_fail": [
+      "COMET (Unbabel/wmt22-cometkiwi-da and wmt22-comet-da) could not be downloaded within the 600s+180s retry budget due to a persistent, account-wide 429 from huggingface.co (observed on unrelated public repos too, e.g. bert-base-uncased) -- almost certainly concurrent sibling AI-Inventor runs on this host saturating the shared HF token/IP. The reported deltas use an LLM-judge (openai/gpt-4o-mini) 0-1 adequacy-score proxy instead of COMET; they are NOT comparable in scale or calibration to Padmanabhan's ΔCOMET figures, and the gate verdict is marked *_UNRELIABLE_SUBSTITUTED_SCORER accordingly. Downstream conditions (D/C1/C2/C) that depend on a faithful ΔCOMET reproduction should re-run this artifact once COMET can be downloaded, rather than trusting this pass's magnitude numbers."
+    ],
+    "leak_patterns_used": [
+      "__BLANK__",
+      "__\\w+__",
+      "(?i)corrected words?\\s*:",
+      "(?i)here is the (corrected|fixed|revised)",
+      "(?i)^(sure|okay|here's|here is)\\b",
+      "\\[MASK\\]|\\[BLANK\\]|<blank>|<mask>"
+    ]
+  },
+  "datasets": [
+    {
+      "dataset": "condition_b_masked_fill_baseline",
+      "examples": [
+        {
+          "input": "难以判断是否应该重视唐纳德·特朗普那些__BLANK__又时__BLANK__味的宣言，这些宣言听起来就像是一只猴子把一堆__BLANK__的想法扔上了__BLANK__，然后按它们落在__BLANK__的顺序__BLANK__出来，并制定成政策。直到显而易见这些政策无法奏效时，这只猴子就__BLANK__。",
+          "output": "难以判断是否应该重视唐纳德·特朗普那些阴郁又时常乏味的宣言，这些宣言听起来就像是一只猴子把一堆冒犯性的想法扔上了天，然后按它们落在地上的顺序读出来，并制定成政策。直到显而易见这些政策无法奏效时，这只猴子就必须再次扔出新的想法。",
+          "predict_condition_b_repaired": "难以判断是否应该重视唐纳德·特朗普那些黯淡又时平庸味的宣言，这些宣言听起来就像是一只猴子把一堆冒犯性的想法扔上了空中，然后按它们落在地上的顺序念出来，并制定成政策。直到显而易见这些政策无法奏效时，这只猴子就再扔一次。",
+          "metadata_row_id": "en-zh_CN_#_news_#_guardian.230238::125::Yolu",
+          "metadata_lang_pair": "en-zh_CN",
+          "metadata_qe_score": 0.7894760370254517,
+          "metadata_n_spans_flagged": 7,
+          "metadata_n_spans_masked": 7,
+          "metadata_source_en": "It's difficult to know whether to set any store by Donald Trump's bleak and yet also often banal pronouncements, which read as if handfuls of offensive concepts have been tossed into the air by a monkey, read out in whatever order they landed and then made policy. Until it's clear they can't work. At which point, the monkey must toss again.",
+          "metadata_model_used": "google/gemma-3-12b-it",
+          "metadata_n_llm_calls": 1,
+          "metadata_call_error": null,
+          "metadata_leaked": false,
+          "metadata_comet_before": 1.0,
+          "metadata_comet_after": 1.0,
+          "metadata_delta_comet": 0.0
+        },
+        {
+          "input": "Díky bohu za Blender! Nevím, jestli bych to všechno dokázal naplánovat a doufat, že to vyjde, kdybych to nemohl nejdřív udělat ve__BLANK__í 3D__BLANK__.\\n3 snímky ukazují 3 hlavní__BLANK__ace. Sezení, pracovní stůl a__BLANK__.",
+          "output": "Díky bohu za Blender! Nevím, jestli bych to všechno dokázal naplánovat a doufat, že to vyjde, kdybych to nemohl nejdřív udělat ve virtuální 3D podobě.\\n3 snímky ukazují 3 hlavní konfigurace. Sezení, pracovní stůl a spaní.",
+          "predict_condition_b_repaired": "Díky bohu za Blender! Nevím, jestli bych to všechno dokázal naplánovat a doufat, že to vyjde, kdybych to nemohl nejdřív udělat ve virtuální 3D simulaci. 3 snímky ukazují 3 hlavní konfigurace. Sezení, pracovní stůl a spánek.",
+          "metadata_row_id": "en-cs_CZ_#_social_#_114174389242714730::203::DeepSeek-V3",
+          "metadata_lang_pair": "en-cs_CZ",
+          "metadata_qe_score": 0.8417423963546753,
+          "metadata_n_spans_flagged": 4,
+          "metadata_n_spans_masked": 4,
+          "metadata_source_en": "Thank goodness for Blender! Not sure I could have planned all that and had any hope of it all working out if I couldn't do it in virtual 3d first.\\n3 frames to show the 3 main configurations. Sit, Desk, and Sleep.",
+          "metadata_model_used": "google/gemma-3-12b-it",
+          "metadata_n_llm_calls": 1,
+          "metadata_call_error": null,
+          "metadata_leaked": false,
+          "metadata_comet_before": 1.0,
+          "metadata_comet_after": 1.0,
+          "metadata_delta_comet": 0.0
+        },
+        {
+          "input": "大学挑战赛第15场比赛是淘汰赛首战，四支得分最低的__BLANK__队伍将争夺__BLANK__位。本周__BLANK__与圣安德鲁斯__BLANK__的比赛，赛场上__BLANK__愉快。__BLANK__队伍表现抢眼，特别是在__BLANK__下，发挥得非常出色。比赛中的问题__BLANK__也__BLANK__，有些问题相当难答，例如__BLANK__知道“__BLANK__”这个词的含义或者是了解俄语中的“__BLANK__。",
+          "output": "大学挑战赛第15场比赛是淘汰赛首战，四支得分最低的失利队伍将争夺晋级席位。本周进行了UCL与圣安德鲁斯大学的比赛，赛场上氛围轻松愉快。来自UCL的参赛队伍表现抢眼，特别是在Mandel教授的带领下，发挥得非常出色。比赛中的问题设计也出色，有些问题相当难答，例如具体需要知道“豹子”这个词的含义或者是了解俄语中的“日”字。",
+          "predict_condition_b_repaired": "大学挑战赛第15场比赛是淘汰赛首战，四支得分最低的落败队伍将争夺晋级位。本周是UCL与圣安德鲁斯的比赛，赛场上气氛愉快。UCL队伍表现抢眼，特别是在Mandel的带领下，发挥得非常出色。比赛中的问题质量也很好，有些问题相当难答，例如需要具体知道“panthera”这个词的含义或者是了解俄语中的“day”。",
+          "metadata_row_id": "en-zh_CN_#_social_#_114220065940975488::210::Laniqo",
+          "metadata_lang_pair": "en-zh_CN",
+          "metadata_qe_score": 0.7379081845283508,
+          "metadata_n_spans_flagged": 12,
+          "metadata_n_spans_masked": 12,
+          "metadata_source_en": "Game 15 of #UniversityChallenge is the first of two in the repechage, where the four highest-scoring losing teams try to make it through. This week was UCL and St. Andrews, in a good-natured cheery match. Very strong play from UCL, who have a solid team, and UCL Mandel was in top form. Good questions, some tough, such as requiring \"panthera\" specifically or knowing \"day\" in Russian.",
+          "metadata_model_used": "google/gemma-3-12b-it",
+          "metadata_n_llm_calls": 1,
+          "metadata_call_error": null,
+          "metadata_leaked": false,
+          "metadata_comet_before": 0.9,
+          "metadata_comet_after": 0.9,
+          "metadata_delta_comet": 0.0
+        }
+      ]
+    }
+  ]
+}
