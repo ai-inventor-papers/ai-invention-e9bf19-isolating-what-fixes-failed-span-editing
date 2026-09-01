@@ -1,0 +1,205 @@
+{
+  "metadata": {
+    "title": "WMT25 Translation Error-Correction Data",
+    "natural_source": "wmt-conference/wmt25-mteval GitHub repo, data/testset/wmt25_task3_combined_test_set.tsv, WMT25 Task 3 official test set (6 en->X language pairs x 1000 segments = 6000 rows), released 2025-07-24, https...",
+    "injected_source": "google/wmt24pp (HuggingFace), WMT24++: Expanding the Language Coverage of WMT24 to 55 Languages & Dialects (arXiv:2502.12404); human post-edited target text used as the clean base for programmatic cor...",
+    "language_pairs": [
+      "en-cs_CZ",
+      "en-is_IS",
+      "en-ja_JP"
+    ],
+    "invariant_categories": [
+      "named_entity_swap",
+      "number_unit_date_alteration",
+      "negation_polarity_flip"
+    ],
+    "metadata_fold_values": [
+      "experimental_pool",
+      "checker_validation_heldout"
+    ],
+    "known_gap": "No public post-hoc human MQM severity/type gold layer for WMT25 Task 3 was found (post_edit column of the official release is empty for all 6000 rows); qe_flagged_spans (CometKiwi-derived) is used as ..."
+  },
+  "datasets": [
+    {
+      "dataset": "wmt25_task3_natural",
+      "examples": [
+        {
+          "input": "But not Dave Portnoy. The founder and owner of Barstool Sports - the Utne Reader for the light-domestic-swilling, backslapping, Zyn-packing, parlay-chasing American male - Portnoy has long been treate...",
+          "output": "但戴夫·波特诺伊不是这样的。作为Barstool Sports——一本专为热爱啤酒、爱拍马屁、惯于用ZYN解压、喜欢押注的美国男性而设的杂志——的创始者兼所有者，波特诺伊一直被视为精英媒体所不具备的一切的化身。Barstool可以被视为所谓“男权文化圈”的最外层，这是一片以男性为导向的另类媒体的广阔领域，这些媒体被认为促成了年轻男性选票向右倾的趋势。波特诺伊——一位有长期发表女性歧视言论和欺凌行为...",
+          "metadata_language_pair": "en-zh_CN",
+          "metadata_domain": "news",
+          "metadata_qe_flagged_spans": [
+            {
+              "start_i": 3,
+              "end_i": 4,
+              "severity": "critical"
+            },
+            {
+              "start_i": 5,
+              "end_i": 13,
+              "severity": "critical"
+            },
+            {
+              "start_i": 16,
+              "end_i": 31,
+              "severity": "critical"
+            }
+          ],
+          "metadata_human_error_annotations": null,
+          "metadata_provenance": "natural",
+          "metadata_invariant_category": null,
+          "metadata_source_dataset": "wmt-conference/wmt25-mteval:wmt25_task3_combined_test_set",
+          "metadata_doc_id": "en-zh_CN_#_news_#_nytimes.154208",
+          "metadata_segment_id": "176",
+          "metadata_system_id": "MMMT",
+          "metadata_overall_qe_score": 0.7515233159065247,
+          "metadata_notes": "QE error spans are the CometKiwi-derived spans released pre-scoring (character offsets into output/hypothesis_segment, severity in {minor,major,critical}). No post-hoc human MQM severity/type gold lay...",
+          "metadata_fold": "experimental_pool"
+        },
+        {
+          "input": "But not Dave Portnoy. The founder and owner of Barstool Sports - the Utne Reader for the light-domestic-swilling, backslapping, Zyn-packing, parlay-chasing American male - Portnoy has long been treate...",
+          "output": "但戴夫·波特诺伊不是这样的。作为Barstool Sports——一本专为热爱啤酒、爱拍马屁、惯于用ZYN解压、喜欢押注的美国男性而设的杂志——的创始者兼所有者，波特诺伊一直被视为精英媒体所不具备的一切的化身。Barstool可以被视为所谓“男权文化圈”的最外层，这是一片以男性为导向的另类媒体的广阔领域，这些媒体被认为促成了年轻男性选票向右倾的趋势。波特诺伊——一位有长期发表女性歧视言论和欺凌行为...",
+          "metadata_language_pair": "en-zh_CN",
+          "metadata_domain": "news",
+          "metadata_qe_flagged_spans": [
+            {
+              "start_i": 3,
+              "end_i": 4,
+              "severity": "critical"
+            },
+            {
+              "start_i": 5,
+              "end_i": 13,
+              "severity": "critical"
+            },
+            {
+              "start_i": 16,
+              "end_i": 31,
+              "severity": "critical"
+            }
+          ],
+          "metadata_human_error_annotations": null,
+          "metadata_provenance": "natural",
+          "metadata_invariant_category": null,
+          "metadata_source_dataset": "wmt-conference/wmt25-mteval:wmt25_task3_combined_test_set",
+          "metadata_doc_id": "en-zh_CN_#_news_#_nytimes.154208",
+          "metadata_segment_id": "176",
+          "metadata_system_id": "Yolu",
+          "metadata_overall_qe_score": 0.7515233159065247,
+          "metadata_notes": "QE error spans are the CometKiwi-derived spans released pre-scoring (character offsets into output/hypothesis_segment, severity in {minor,major,critical}). No post-hoc human MQM severity/type gold lay...",
+          "metadata_fold": "experimental_pool"
+        },
+        {
+          "input": "It's ridiculous, of course, as is the hello-little-people tone adopted by the former royal highness, in keeping with the general attitude of the famous towards the unfamous - namely, one of stating th...",
+          "output": "这当然是可笑的，正如前皇室成员所采用的“对小人物的亲和”式语气一样，符合名人对非名人的普遍态度——即把显而易见的东西说得仿佛是分享了生存的秘诀。然而，我仍对梅根产生同情，她在自己的Instagram帖子及配套视频中面对的是一个严峻的挑战——她必须填补内容上的空缺。她对着镜头说：“这就是我所做的，过去几年我一直无法和你们分享，但现在可以了。”这里的“这”到底是什么，是什么阻碍了她与大家分享呢（可能和...",
+          "metadata_language_pair": "en-zh_CN",
+          "metadata_domain": "news",
+          "metadata_qe_flagged_spans": [
+            {
+              "start_i": 18,
+              "end_i": 19,
+              "severity": "critical"
+            },
+            {
+              "start_i": 20,
+              "end_i": 27,
+              "severity": "critical"
+            },
+            {
+              "start_i": 39,
+              "end_i": 40,
+              "severity": "major"
+            }
+          ],
+          "metadata_human_error_annotations": null,
+          "metadata_provenance": "natural",
+          "metadata_invariant_category": null,
+          "metadata_source_dataset": "wmt-conference/wmt25-mteval:wmt25_task3_combined_test_set",
+          "metadata_doc_id": "en-zh_CN_#_news_#_guardian.230737",
+          "metadata_segment_id": "139",
+          "metadata_system_id": "MMMT",
+          "metadata_overall_qe_score": 0.7872632741928101,
+          "metadata_notes": "QE error spans are the CometKiwi-derived spans released pre-scoring (character offsets into output/hypothesis_segment, severity in {minor,major,critical}). No post-hoc human MQM severity/type gold lay...",
+          "metadata_fold": "checker_validation_heldout"
+        }
+      ]
+    },
+    {
+      "dataset": "injected_error_augmentation",
+      "examples": [
+        {
+          "input": "Moscow maintains that such laws violate the rights of Russian-speaking people, who make up around half of Ukraine's population. Russian Foreign Ministry spokeswoman Maria Zakharova said in February th...",
+          "output": "Moskva tvrdí, že tyto zákony porušují práva rusky mluvících obyvatel, kteří tvoří okolo poloviny ukrajinského obyvatelstva. Ve studii Kyjevského mezinárodního sociologického institutu z minulého září ...",
+          "metadata_language_pair": "en-cs_CZ",
+          "metadata_domain": "news",
+          "metadata_qe_flagged_spans": null,
+          "metadata_human_error_annotations": null,
+          "metadata_provenance": "injected",
+          "metadata_invariant_category": "named_entity_swap",
+          "metadata_source_dataset": "google/wmt24pp",
+          "metadata_doc_id": "test-en-news_rt.com.54499",
+          "metadata_segment_id": 77,
+          "metadata_system_id": null,
+          "metadata_overall_qe_score": null,
+          "metadata_clean_target_text": "Moskva tvrdí, že tyto zákony porušují práva rusky mluvících obyvatel, kteří tvoří okolo poloviny ukrajinského obyvatelstva. Ve studii Kyjevského mezinárodního sociologického institutu z minulého září ...",
+          "metadata_original_span": "Ukrajině",
+          "metadata_corrupted_span": "Cohenovi",
+          "metadata_span_offsets": {
+            "start": 279,
+            "end": 287
+          },
+          "metadata_notes": "Programmatically corrupted from a held-out wmt24pp (google/wmt24pp, WMT24++ human post-edited target, a corpus wholly disjoint from the WMT25 Task 3 test set used for the natural component) clean refe...",
+          "metadata_fold": "experimental_pool"
+        },
+        {
+          "input": "Moscow maintains that such laws violate the rights of Russian-speaking people, who make up around half of Ukraine's population. Russian Foreign Ministry spokeswoman Maria Zakharova said in February th...",
+          "output": "Moskva tvrdí, že tyto zákony porušují práva rusky mluvících obyvatel, kteří tvoří okolo poloviny ukrajinského obyvatelstva. Ve studii Kyjevského mezinárodního sociologického institutu z minulého září ...",
+          "metadata_language_pair": "en-cs_CZ",
+          "metadata_domain": "news",
+          "metadata_qe_flagged_spans": null,
+          "metadata_human_error_annotations": null,
+          "metadata_provenance": "injected",
+          "metadata_invariant_category": "number_unit_date_alteration",
+          "metadata_source_dataset": "google/wmt24pp",
+          "metadata_doc_id": "test-en-news_rt.com.54499",
+          "metadata_segment_id": 77,
+          "metadata_system_id": null,
+          "metadata_overall_qe_score": null,
+          "metadata_clean_target_text": "Moskva tvrdí, že tyto zákony porušují práva rusky mluvících obyvatel, kteří tvoří okolo poloviny ukrajinského obyvatelstva. Ve studii Kyjevského mezinárodního sociologického institutu z minulého září ...",
+          "metadata_original_span": "45",
+          "metadata_corrupted_span": "55",
+          "metadata_span_offsets": {
+            "start": 291,
+            "end": 293
+          },
+          "metadata_notes": "Programmatically corrupted from a held-out wmt24pp (google/wmt24pp, WMT24++ human post-edited target, a corpus wholly disjoint from the WMT25 Task 3 test set used for the natural component) clean refe...",
+          "metadata_fold": "experimental_pool"
+        },
+        {
+          "input": "The protests were ostensibly set off by the government's decision to end subsidies for diesel fuel used in agriculture and to cut an exemption from car tax for farm vehicles. These measures pushed far...",
+          "output": "Protesty spustilo rozhodnutí vlády zrušit dotace na naftu používanou v zemědělství a zrušit výjimku na osvobození od daně na vozidla používaná na zemědělství. Tato opatření byla pro zemědělce tahem př...",
+          "metadata_language_pair": "en-cs_CZ",
+          "metadata_domain": "news",
+          "metadata_qe_flagged_spans": null,
+          "metadata_human_error_annotations": null,
+          "metadata_provenance": "injected",
+          "metadata_invariant_category": "named_entity_swap",
+          "metadata_source_dataset": "google/wmt24pp",
+          "metadata_doc_id": "test-en-news_economist.14223",
+          "metadata_segment_id": 22,
+          "metadata_system_id": null,
+          "metadata_overall_qe_score": null,
+          "metadata_clean_target_text": "Protesty spustilo rozhodnutí vlády zrušit dotace na naftu používanou v zemědělství a zrušit výjimku na osvobození od daně na vozidla používaná na zemědělství. Tato opatření byla pro zemědělce tahem př...",
+          "metadata_original_span": "Deutsche Bahn",
+          "metadata_corrupted_span": "Made",
+          "metadata_span_offsets": {
+            "start": 429,
+            "end": 442
+          },
+          "metadata_notes": "Programmatically corrupted from a held-out wmt24pp (google/wmt24pp, WMT24++ human post-edited target, a corpus wholly disjoint from the WMT25 Task 3 test set used for the natural component) clean refe...",
+          "metadata_fold": "experimental_pool"
+        }
+      ]
+    }
+  ]
+}

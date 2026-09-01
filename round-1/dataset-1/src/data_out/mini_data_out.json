@@ -1,0 +1,644 @@
+{
+  "metadata": {
+    "title": "WMT25 Translation Error-Correction Data",
+    "natural_source": "wmt-conference/wmt25-mteval GitHub repo, data/testset/wmt25_task3_combined_test_set.tsv, WMT25 Task 3 official test set (6 en->X language pairs x 1000 segments = 6000 rows), released 2025-07-24, https://www2.statmt.org/wmt25/mteval-subtask.html",
+    "injected_source": "google/wmt24pp (HuggingFace), WMT24++: Expanding the Language Coverage of WMT24 to 55 Languages & Dialects (arXiv:2502.12404); human post-edited target text used as the clean base for programmatic corruption, wholly disjoint corpus/year from the WMT25 Task3 natural component",
+    "language_pairs": [
+      "en-cs_CZ",
+      "en-is_IS",
+      "en-ja_JP",
+      "en-ru_RU",
+      "en-uk_UA",
+      "en-zh_CN"
+    ],
+    "invariant_categories": [
+      "named_entity_swap",
+      "number_unit_date_alteration",
+      "negation_polarity_flip",
+      "quantifier_substitution"
+    ],
+    "metadata_fold_values": [
+      "experimental_pool",
+      "checker_validation_heldout"
+    ],
+    "known_gap": "No public post-hoc human MQM severity/type gold layer for WMT25 Task 3 was found (post_edit column of the official release is empty for all 6000 rows); qe_flagged_spans (CometKiwi-derived) is used as the operational localization signal instead, per the plan's documented fallback. named_entity_swap recall is lower for zh_CN/ja_JP because those scripts carry no capitalization signal -- entities are only detected via embedded Latin-script substrings, a documented NER-tooling coverage gap rather than a full multilingual-NER pass. named_entity_swap for cs_CZ/is_IS/ru_RU/uk_UA uses a capitalization heuristic (no spaCy/HF NER model available offline), filtered by a per-language function-word stoplist, a sentence-boundary-capitalization exclusion, and a corpus-frequency cap (a real proper noun recurs rarely across ~960 rows; a capitalized function word recurs often) -- this removes the large majority of false positives but is not equivalent to true NER, so a small residual fraction of named_entity_swap rows may swap a capitalized common word rather than a genuine entity; downstream consumers relying on exact entity-type precision should treat this category's rows as heuristic-screened, not gold-verified."
+  },
+  "datasets": [
+    {
+      "dataset": "wmt25_task3_natural",
+      "examples": [
+        {
+          "input": "But not Dave Portnoy. The founder and owner of Barstool Sports - the Utne Reader for the light-domestic-swilling, backslapping, Zyn-packing, parlay-chasing American male - Portnoy has long been treated as an avatar for everything that elite media is not. Barstool might be considered the outermost ring of the so-called manosphere, the vast realm of male-oriented alternative media that has been credited with the rightward drift of the young male vote. Portnoy - a Trump supporter with a long history of misogynistic comments and bullying, who has been accused of nonconsensually filming women during uncomfortably rough sex - doesn't exactly run away from that label. (He has denied the claims about sexual misconduct and filed a suit against the outlet that published them; it was dismissed.) And what he noticed about the photos of Belichick and Hudson was the clutch Hudson wore, which was shaped like a little football: \"Very cool purse from BB's girlfriend,\" he posted on X. \"Football girlfriend purse.\"",
+          "output": "但戴夫·波特诺伊不是这样的。作为Barstool Sports——一本专为热爱啤酒、爱拍马屁、惯于用ZYN解压、喜欢押注的美国男性而设的杂志——的创始者兼所有者，波特诺伊一直被视为精英媒体所不具备的一切的化身。Barstool可以被视为所谓“男权文化圈”的最外层，这是一片以男性为导向的另类媒体的广阔领域，这些媒体被认为促成了年轻男性选票向右倾的趋势。波特诺伊——一位有长期发表女性歧视言论和欺凌行为的特朗普支持者——曾被指控在激烈性交过程中未经同意拍摄女性的视频——他对这个标签并不避讳。（他否认了关于性行为不端的指控，并对发布这些指控的媒体提起诉讼；该诉讼被驳回了。）而他对贝利奇克和哈德森照片的留意点是哈德森戴的手链，形状像一个小橄榄球：“BB女友的手袋真酷。”他在X上发帖说，“橄榄球女女友手袋。”",
+          "metadata_language_pair": "en-zh_CN",
+          "metadata_domain": "news",
+          "metadata_qe_flagged_spans": [
+            {
+              "start_i": 3,
+              "end_i": 4,
+              "severity": "critical"
+            },
+            {
+              "start_i": 5,
+              "end_i": 13,
+              "severity": "critical"
+            },
+            {
+              "start_i": 16,
+              "end_i": 31,
+              "severity": "critical"
+            },
+            {
+              "start_i": 37,
+              "end_i": 60,
+              "severity": "critical"
+            },
+            {
+              "start_i": 82,
+              "end_i": 83,
+              "severity": "critical"
+            },
+            {
+              "start_i": 90,
+              "end_i": 92,
+              "severity": "critical"
+            },
+            {
+              "start_i": 94,
+              "end_i": 101,
+              "severity": "critical"
+            },
+            {
+              "start_i": 105,
+              "end_i": 113,
+              "severity": "critical"
+            },
+            {
+              "start_i": 121,
+              "end_i": 125,
+              "severity": "critical"
+            },
+            {
+              "start_i": 129,
+              "end_i": 131,
+              "severity": "critical"
+            },
+            {
+              "start_i": 139,
+              "end_i": 143,
+              "severity": "critical"
+            },
+            {
+              "start_i": 147,
+              "end_i": 148,
+              "severity": "critical"
+            },
+            {
+              "start_i": 160,
+              "end_i": 162,
+              "severity": "critical"
+            },
+            {
+              "start_i": 167,
+              "end_i": 169,
+              "severity": "critical"
+            },
+            {
+              "start_i": 171,
+              "end_i": 172,
+              "severity": "critical"
+            },
+            {
+              "start_i": 177,
+              "end_i": 178,
+              "severity": "critical"
+            },
+            {
+              "start_i": 184,
+              "end_i": 185,
+              "severity": "critical"
+            },
+            {
+              "start_i": 187,
+              "end_i": 193,
+              "severity": "critical"
+            },
+            {
+              "start_i": 196,
+              "end_i": 200,
+              "severity": "critical"
+            },
+            {
+              "start_i": 207,
+              "end_i": 209,
+              "severity": "critical"
+            },
+            {
+              "start_i": 214,
+              "end_i": 234,
+              "severity": "critical"
+            },
+            {
+              "start_i": 235,
+              "end_i": 244,
+              "severity": "critical"
+            },
+            {
+              "start_i": 253,
+              "end_i": 258,
+              "severity": "critical"
+            },
+            {
+              "start_i": 290,
+              "end_i": 293,
+              "severity": "critical"
+            },
+            {
+              "start_i": 295,
+              "end_i": 297,
+              "severity": "critical"
+            },
+            {
+              "start_i": 300,
+              "end_i": 303,
+              "severity": "critical"
+            },
+            {
+              "start_i": 305,
+              "end_i": 306,
+              "severity": "critical"
+            },
+            {
+              "start_i": 307,
+              "end_i": 311,
+              "severity": "critical"
+            },
+            {
+              "start_i": 317,
+              "end_i": 321,
+              "severity": "critical"
+            },
+            {
+              "start_i": 323,
+              "end_i": 331,
+              "severity": "critical"
+            },
+            {
+              "start_i": 336,
+              "end_i": 338,
+              "severity": "critical"
+            },
+            {
+              "start_i": 339,
+              "end_i": 340,
+              "severity": "critical"
+            },
+            {
+              "start_i": 343,
+              "end_i": 351,
+              "severity": "critical"
+            }
+          ],
+          "metadata_human_error_annotations": null,
+          "metadata_provenance": "natural",
+          "metadata_invariant_category": null,
+          "metadata_source_dataset": "wmt-conference/wmt25-mteval:wmt25_task3_combined_test_set",
+          "metadata_doc_id": "en-zh_CN_#_news_#_nytimes.154208",
+          "metadata_segment_id": "176",
+          "metadata_system_id": "MMMT",
+          "metadata_overall_qe_score": 0.7515233159065247,
+          "metadata_notes": "QE error spans are the CometKiwi-derived spans released pre-scoring (character offsets into output/hypothesis_segment, severity in {minor,major,critical}). No post-hoc human MQM severity/type gold layer matching the findings-paper Table 15 is publicly released as of this build (post_edit column empty for all 6000 rows) -- treat qe_flagged_spans as the operational localization signal, per the dataset_search_plan's documented fallback.",
+          "metadata_fold": "experimental_pool"
+        },
+        {
+          "input": "But not Dave Portnoy. The founder and owner of Barstool Sports - the Utne Reader for the light-domestic-swilling, backslapping, Zyn-packing, parlay-chasing American male - Portnoy has long been treated as an avatar for everything that elite media is not. Barstool might be considered the outermost ring of the so-called manosphere, the vast realm of male-oriented alternative media that has been credited with the rightward drift of the young male vote. Portnoy - a Trump supporter with a long history of misogynistic comments and bullying, who has been accused of nonconsensually filming women during uncomfortably rough sex - doesn't exactly run away from that label. (He has denied the claims about sexual misconduct and filed a suit against the outlet that published them; it was dismissed.) And what he noticed about the photos of Belichick and Hudson was the clutch Hudson wore, which was shaped like a little football: \"Very cool purse from BB's girlfriend,\" he posted on X. \"Football girlfriend purse.\"",
+          "output": "但戴夫·波特诺伊不是这样的。作为Barstool Sports——一本专为热爱啤酒、爱拍马屁、惯于用ZYN解压、喜欢押注的美国男性而设的杂志——的创始者兼所有者，波特诺伊一直被视为精英媒体所不具备的一切的化身。Barstool可以被视为所谓“男权文化圈”的最外层，这是一片以男性为导向的另类媒体的广阔领域，这些媒体被认为促成了年轻男性选票向右倾的趋势。波特诺伊——一位有长期发表女性歧视言论和欺凌行为的特朗普支持者——曾被指控在激烈性交过程中未经同意拍摄女性的视频——他对这个标签并不避讳。（他否认了关于性行为不端的指控，并对发布这些指控的媒体提起诉讼；该诉讼被驳回了。）而他对贝利奇克和哈德森照片的留意点是哈德森戴的手链，形状像一个小橄榄球：“BB女友的手袋真酷。”他在X上发帖说，“橄榄球女女友手袋。”",
+          "metadata_language_pair": "en-zh_CN",
+          "metadata_domain": "news",
+          "metadata_qe_flagged_spans": [
+            {
+              "start_i": 3,
+              "end_i": 4,
+              "severity": "critical"
+            },
+            {
+              "start_i": 5,
+              "end_i": 13,
+              "severity": "critical"
+            },
+            {
+              "start_i": 16,
+              "end_i": 31,
+              "severity": "critical"
+            },
+            {
+              "start_i": 37,
+              "end_i": 60,
+              "severity": "critical"
+            },
+            {
+              "start_i": 82,
+              "end_i": 83,
+              "severity": "critical"
+            },
+            {
+              "start_i": 90,
+              "end_i": 92,
+              "severity": "critical"
+            },
+            {
+              "start_i": 94,
+              "end_i": 101,
+              "severity": "critical"
+            },
+            {
+              "start_i": 105,
+              "end_i": 113,
+              "severity": "critical"
+            },
+            {
+              "start_i": 121,
+              "end_i": 125,
+              "severity": "critical"
+            },
+            {
+              "start_i": 129,
+              "end_i": 131,
+              "severity": "critical"
+            },
+            {
+              "start_i": 139,
+              "end_i": 143,
+              "severity": "critical"
+            },
+            {
+              "start_i": 147,
+              "end_i": 148,
+              "severity": "critical"
+            },
+            {
+              "start_i": 160,
+              "end_i": 162,
+              "severity": "critical"
+            },
+            {
+              "start_i": 167,
+              "end_i": 169,
+              "severity": "critical"
+            },
+            {
+              "start_i": 171,
+              "end_i": 172,
+              "severity": "critical"
+            },
+            {
+              "start_i": 177,
+              "end_i": 178,
+              "severity": "critical"
+            },
+            {
+              "start_i": 184,
+              "end_i": 185,
+              "severity": "critical"
+            },
+            {
+              "start_i": 187,
+              "end_i": 193,
+              "severity": "critical"
+            },
+            {
+              "start_i": 196,
+              "end_i": 200,
+              "severity": "critical"
+            },
+            {
+              "start_i": 207,
+              "end_i": 209,
+              "severity": "critical"
+            },
+            {
+              "start_i": 214,
+              "end_i": 234,
+              "severity": "critical"
+            },
+            {
+              "start_i": 235,
+              "end_i": 244,
+              "severity": "critical"
+            },
+            {
+              "start_i": 253,
+              "end_i": 258,
+              "severity": "critical"
+            },
+            {
+              "start_i": 290,
+              "end_i": 293,
+              "severity": "critical"
+            },
+            {
+              "start_i": 295,
+              "end_i": 297,
+              "severity": "critical"
+            },
+            {
+              "start_i": 300,
+              "end_i": 303,
+              "severity": "critical"
+            },
+            {
+              "start_i": 305,
+              "end_i": 306,
+              "severity": "critical"
+            },
+            {
+              "start_i": 307,
+              "end_i": 311,
+              "severity": "critical"
+            },
+            {
+              "start_i": 317,
+              "end_i": 321,
+              "severity": "critical"
+            },
+            {
+              "start_i": 323,
+              "end_i": 331,
+              "severity": "critical"
+            },
+            {
+              "start_i": 336,
+              "end_i": 338,
+              "severity": "critical"
+            },
+            {
+              "start_i": 339,
+              "end_i": 340,
+              "severity": "critical"
+            },
+            {
+              "start_i": 343,
+              "end_i": 351,
+              "severity": "critical"
+            }
+          ],
+          "metadata_human_error_annotations": null,
+          "metadata_provenance": "natural",
+          "metadata_invariant_category": null,
+          "metadata_source_dataset": "wmt-conference/wmt25-mteval:wmt25_task3_combined_test_set",
+          "metadata_doc_id": "en-zh_CN_#_news_#_nytimes.154208",
+          "metadata_segment_id": "176",
+          "metadata_system_id": "Yolu",
+          "metadata_overall_qe_score": 0.7515233159065247,
+          "metadata_notes": "QE error spans are the CometKiwi-derived spans released pre-scoring (character offsets into output/hypothesis_segment, severity in {minor,major,critical}). No post-hoc human MQM severity/type gold layer matching the findings-paper Table 15 is publicly released as of this build (post_edit column empty for all 6000 rows) -- treat qe_flagged_spans as the operational localization signal, per the dataset_search_plan's documented fallback.",
+          "metadata_fold": "experimental_pool"
+        },
+        {
+          "input": "It's ridiculous, of course, as is the hello-little-people tone adopted by the former royal highness, in keeping with the general attitude of the famous towards the unfamous - namely, one of stating the bleeding obvious as though sharing the key to existence. Still, I find myself sympathising with Meghan, who in her Instagram post and its accompanying video faces the stark challenge of having to pad out thin material. \"This is what I do,\" she says to camera, \"and I haven't been able to share it with you for the past few years, but now I can.\" What is the \"it\" here, and what has stopped her from sharing it? (It may involve jam, as did her previous brand, which she launched by sending \"limited edition\" jars of preserve to, among others, Kris Jenner, Mindy Kaling and Tracee Ellis Ross, who apparently also got a fresh bag of lemons.) Anyway, whatever the content, she hints darkly at some \"whispers\" abroad that forced her to jump the gun and share news of As Ever before she was ready - because \"I wanted you to hear it from me first.\"",
+          "output": "这当然是可笑的，正如前皇室成员所采用的“对小人物的亲和”式语气一样，符合名人对非名人的普遍态度——即把显而易见的东西说得仿佛是分享了生存的秘诀。然而，我仍对梅根产生同情，她在自己的Instagram帖子及配套视频中面对的是一个严峻的挑战——她必须填补内容上的空缺。她对着镜头说：“这就是我所做的，过去几年我一直无法和你们分享，但现在可以了。”这里的“这”到底是什么，是什么阻碍了她与大家分享呢（可能和果酱有关，就像她之前的品牌一样，她通过寄送“限量版”罐装果酱给包括克里斯·詹纳、明迪·卡林和特蕾西·艾莉丝·罗斯在内的人来宣传这个品牌，据说她们还收到了一袋新的柠檬）。不管内容是什么，她暗示国外有一些“谣言”迫使她抢先公布As Ever的消息，因为在“我还没准备好之前，我想让你们先从我这里听到这个消息。”",
+          "metadata_language_pair": "en-zh_CN",
+          "metadata_domain": "news",
+          "metadata_qe_flagged_spans": [
+            {
+              "start_i": 18,
+              "end_i": 19,
+              "severity": "critical"
+            },
+            {
+              "start_i": 20,
+              "end_i": 27,
+              "severity": "critical"
+            },
+            {
+              "start_i": 39,
+              "end_i": 40,
+              "severity": "major"
+            },
+            {
+              "start_i": 52,
+              "end_i": 53,
+              "severity": "critical"
+            },
+            {
+              "start_i": 62,
+              "end_i": 68,
+              "severity": "critical"
+            },
+            {
+              "start_i": 90,
+              "end_i": 99,
+              "severity": "critical"
+            },
+            {
+              "start_i": 123,
+              "end_i": 124,
+              "severity": "critical"
+            },
+            {
+              "start_i": 125,
+              "end_i": 127,
+              "severity": "critical"
+            },
+            {
+              "start_i": 143,
+              "end_i": 147,
+              "severity": "critical"
+            },
+            {
+              "start_i": 152,
+              "end_i": 157,
+              "severity": "critical"
+            },
+            {
+              "start_i": 160,
+              "end_i": 162,
+              "severity": "critical"
+            },
+            {
+              "start_i": 166,
+              "end_i": 168,
+              "severity": "critical"
+            },
+            {
+              "start_i": 175,
+              "end_i": 176,
+              "severity": "critical"
+            },
+            {
+              "start_i": 186,
+              "end_i": 188,
+              "severity": "critical"
+            },
+            {
+              "start_i": 190,
+              "end_i": 196,
+              "severity": "critical"
+            },
+            {
+              "start_i": 199,
+              "end_i": 202,
+              "severity": "critical"
+            },
+            {
+              "start_i": 208,
+              "end_i": 213,
+              "severity": "critical"
+            },
+            {
+              "start_i": 222,
+              "end_i": 224,
+              "severity": "critical"
+            },
+            {
+              "start_i": 225,
+              "end_i": 230,
+              "severity": "critical"
+            },
+            {
+              "start_i": 233,
+              "end_i": 239,
+              "severity": "critical"
+            },
+            {
+              "start_i": 240,
+              "end_i": 245,
+              "severity": "critical"
+            },
+            {
+              "start_i": 246,
+              "end_i": 247,
+              "severity": "critical"
+            },
+            {
+              "start_i": 249,
+              "end_i": 254,
+              "severity": "critical"
+            },
+            {
+              "start_i": 278,
+              "end_i": 281,
+              "severity": "critical"
+            },
+            {
+              "start_i": 295,
+              "end_i": 297,
+              "severity": "critical"
+            },
+            {
+              "start_i": 301,
+              "end_i": 303,
+              "severity": "critical"
+            },
+            {
+              "start_i": 307,
+              "end_i": 308,
+              "severity": "critical"
+            },
+            {
+              "start_i": 309,
+              "end_i": 321,
+              "severity": "critical"
+            },
+            {
+              "start_i": 326,
+              "end_i": 327,
+              "severity": "critical"
+            },
+            {
+              "start_i": 334,
+              "end_i": 335,
+              "severity": "critical"
+            }
+          ],
+          "metadata_human_error_annotations": null,
+          "metadata_provenance": "natural",
+          "metadata_invariant_category": null,
+          "metadata_source_dataset": "wmt-conference/wmt25-mteval:wmt25_task3_combined_test_set",
+          "metadata_doc_id": "en-zh_CN_#_news_#_guardian.230737",
+          "metadata_segment_id": "139",
+          "metadata_system_id": "MMMT",
+          "metadata_overall_qe_score": 0.7872632741928101,
+          "metadata_notes": "QE error spans are the CometKiwi-derived spans released pre-scoring (character offsets into output/hypothesis_segment, severity in {minor,major,critical}). No post-hoc human MQM severity/type gold layer matching the findings-paper Table 15 is publicly released as of this build (post_edit column empty for all 6000 rows) -- treat qe_flagged_spans as the operational localization signal, per the dataset_search_plan's documented fallback.",
+          "metadata_fold": "checker_validation_heldout"
+        }
+      ]
+    },
+    {
+      "dataset": "injected_error_augmentation",
+      "examples": [
+        {
+          "input": "Moscow maintains that such laws violate the rights of Russian-speaking people, who make up around half of Ukraine's population. Russian Foreign Ministry spokeswoman Maria Zakharova said in February that Kiev's \"discriminatory campaign\" against the language was growing more and more \"indignant.\" In a survey conducted last September by the Kiev International Institute of Sociology, respondents cited language discrimination as the most common type of prejudice in Ukraine, with 45% saying it was a problem.",
+          "output": "Moskva tvrdí, že tyto zákony porušují práva rusky mluvících obyvatel, kteří tvoří okolo poloviny ukrajinského obyvatelstva. Ve studii Kyjevského mezinárodního sociologického institutu z minulého září respondenti uvádí, že jazyková diskriminace je nejběžnějším typem předsudků na Cohenovi, a 45 % tvrdí, že to je problém.",
+          "metadata_language_pair": "en-cs_CZ",
+          "metadata_domain": "news",
+          "metadata_qe_flagged_spans": null,
+          "metadata_human_error_annotations": null,
+          "metadata_provenance": "injected",
+          "metadata_invariant_category": "named_entity_swap",
+          "metadata_source_dataset": "google/wmt24pp",
+          "metadata_doc_id": "test-en-news_rt.com.54499",
+          "metadata_segment_id": 77,
+          "metadata_system_id": null,
+          "metadata_overall_qe_score": null,
+          "metadata_clean_target_text": "Moskva tvrdí, že tyto zákony porušují práva rusky mluvících obyvatel, kteří tvoří okolo poloviny ukrajinského obyvatelstva. Ve studii Kyjevského mezinárodního sociologického institutu z minulého září respondenti uvádí, že jazyková diskriminace je nejběžnějším typem předsudků na Ukrajině, a 45 % tvrdí, že to je problém.",
+          "metadata_original_span": "Ukrajině",
+          "metadata_corrupted_span": "Cohenovi",
+          "metadata_span_offsets": {
+            "start": 279,
+            "end": 287
+          },
+          "metadata_notes": "Programmatically corrupted from a held-out wmt24pp (google/wmt24pp, WMT24++ human post-edited target, a corpus wholly disjoint from the WMT25 Task 3 test set used for the natural component) clean reference. Category=named_entity_swap. Ground truth = metadata_clean_target_text.",
+          "metadata_fold": "experimental_pool"
+        },
+        {
+          "input": "Moscow maintains that such laws violate the rights of Russian-speaking people, who make up around half of Ukraine's population. Russian Foreign Ministry spokeswoman Maria Zakharova said in February that Kiev's \"discriminatory campaign\" against the language was growing more and more \"indignant.\" In a survey conducted last September by the Kiev International Institute of Sociology, respondents cited language discrimination as the most common type of prejudice in Ukraine, with 45% saying it was a problem.",
+          "output": "Moskva tvrdí, že tyto zákony porušují práva rusky mluvících obyvatel, kteří tvoří okolo poloviny ukrajinského obyvatelstva. Ve studii Kyjevského mezinárodního sociologického institutu z minulého září respondenti uvádí, že jazyková diskriminace je nejběžnějším typem předsudků na Ukrajině, a 55 % tvrdí, že to je problém.",
+          "metadata_language_pair": "en-cs_CZ",
+          "metadata_domain": "news",
+          "metadata_qe_flagged_spans": null,
+          "metadata_human_error_annotations": null,
+          "metadata_provenance": "injected",
+          "metadata_invariant_category": "number_unit_date_alteration",
+          "metadata_source_dataset": "google/wmt24pp",
+          "metadata_doc_id": "test-en-news_rt.com.54499",
+          "metadata_segment_id": 77,
+          "metadata_system_id": null,
+          "metadata_overall_qe_score": null,
+          "metadata_clean_target_text": "Moskva tvrdí, že tyto zákony porušují práva rusky mluvících obyvatel, kteří tvoří okolo poloviny ukrajinského obyvatelstva. Ve studii Kyjevského mezinárodního sociologického institutu z minulého září respondenti uvádí, že jazyková diskriminace je nejběžnějším typem předsudků na Ukrajině, a 45 % tvrdí, že to je problém.",
+          "metadata_original_span": "45",
+          "metadata_corrupted_span": "55",
+          "metadata_span_offsets": {
+            "start": 291,
+            "end": 293
+          },
+          "metadata_notes": "Programmatically corrupted from a held-out wmt24pp (google/wmt24pp, WMT24++ human post-edited target, a corpus wholly disjoint from the WMT25 Task 3 test set used for the natural component) clean reference. Category=number_unit_date_alteration. Ground truth = metadata_clean_target_text.",
+          "metadata_fold": "experimental_pool"
+        },
+        {
+          "input": "The protests were ostensibly set off by the government's decision to end subsidies for diesel fuel used in agriculture and to cut an exemption from car tax for farm vehicles. These measures pushed farmers over the edge. It also mobilised other angry workers, already straining under the pressure of inflation, recession and the government's self-imposed austerity. On January 9th drivers of freight and passenger trains at Deutsche Bahn, the national railway, began a strike over working hours and pay.",
+          "output": "Protesty spustilo rozhodnutí vlády zrušit dotace na naftu používanou v zemědělství a zrušit výjimku na osvobození od daně na vozidla používaná na zemědělství. Tato opatření byla pro zemědělce tahem přes čáru. A také mobilizovala ostatní naštvané pracovníky, kteří už tak jsou pod tlakem z inflace, ekonomického propadu a vládou vynucených úsporných opatření. Devátého ledna strojvedoucí nákladních i osobních vlaků u společnosti Made začali stávkovat kvůli pracovní době a platu.",
+          "metadata_language_pair": "en-cs_CZ",
+          "metadata_domain": "news",
+          "metadata_qe_flagged_spans": null,
+          "metadata_human_error_annotations": null,
+          "metadata_provenance": "injected",
+          "metadata_invariant_category": "named_entity_swap",
+          "metadata_source_dataset": "google/wmt24pp",
+          "metadata_doc_id": "test-en-news_economist.14223",
+          "metadata_segment_id": 22,
+          "metadata_system_id": null,
+          "metadata_overall_qe_score": null,
+          "metadata_clean_target_text": "Protesty spustilo rozhodnutí vlády zrušit dotace na naftu používanou v zemědělství a zrušit výjimku na osvobození od daně na vozidla používaná na zemědělství. Tato opatření byla pro zemědělce tahem přes čáru. A také mobilizovala ostatní naštvané pracovníky, kteří už tak jsou pod tlakem z inflace, ekonomického propadu a vládou vynucených úsporných opatření. Devátého ledna strojvedoucí nákladních i osobních vlaků u společnosti Deutsche Bahn začali stávkovat kvůli pracovní době a platu.",
+          "metadata_original_span": "Deutsche Bahn",
+          "metadata_corrupted_span": "Made",
+          "metadata_span_offsets": {
+            "start": 429,
+            "end": 442
+          },
+          "metadata_notes": "Programmatically corrupted from a held-out wmt24pp (google/wmt24pp, WMT24++ human post-edited target, a corpus wholly disjoint from the WMT25 Task 3 test set used for the natural component) clean reference. Category=named_entity_swap. Ground truth = metadata_clean_target_text.",
+          "metadata_fold": "experimental_pool"
+        }
+      ]
+    }
+  ]
+}
