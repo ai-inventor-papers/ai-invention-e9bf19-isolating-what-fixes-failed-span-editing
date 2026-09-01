@@ -1,0 +1,36 @@
+# B/D/C1/C2/C Scorecard and Verdict
+
+`demo/` — Self-contained demo (Colab-ready notebook or markdown). Run without setup.  
+`src/` — Full source code, data, and outputs from the experiment execution.
+
+**Type:** evaluation  
+**ID:** `art_AHSm43w1MzxX`
+
+## Layman Summary
+
+Combines five translation-repair strategies into one scorecard with proper statistical tests, and checks whether the newest strategy actually beats the others.
+
+## Full Summary
+
+Consolidates the five-condition (B/D/C1/C2/C) span-editing comparison into one statistically-audited scorecard via eval.py, loading full_method_out.json from art_7Uc5PlFctjXi (B/D/C1), art_K8koUmGFDlLN (C2), art_QLpPxaqf1VzK (checker validation), and art_mhfmDpGp4z1J (dataset), plus scanning this iteration's gen_art siblings at run time for a Condition C artifact. Step 1 performs a falsifiable per-row-COMET-availability gate: it enumerates the actual top-level and per-row keys of every upstream JSON and finds NO per-row COMET array anywhere (only pooled/per-language-pair delta_comet_mean + delta_comet_ci95 are stored), recording per_row_comet_{b,d,c1,c2,c}_available=false with the exact keys inspected. Step 2 therefore runs a TRUE paired bootstrap (2000 resamples, seed=42, matching B/D/C1's own recorded seed) on fix_rate and true_regression_rate, which DO exist per-row (metadata_{cond}_fixed / metadata_{cond}_true_regression on the 240 matched injected-pool rows), for the pairs C1-vs-C2/C, C2-vs-C, C-vs-B, C-vs-D, both including and excluding the 60 structural-non-attempt negation rows; DeltaCOMET pairwise comparisons instead use a documented normal-approximation fallback (se_diff formula spelled out, independence-assumption caveat stated explicitly) since no per-row COMET exists to pair. Step 3 computes the disjoint-population check as a literal set intersection: comet_population_n=320, fix_rate_population_n=240, overlap_count=0, verified=true. Step 4 recomputes the reviewer-flagged fix-rate-advantage discrepancy directly from raw per-row C1/C2 data and reconciles it exactly: fix_rate_advantage_240_including_negation=+0.2875 (95% CI [0.233, 0.346]) vs fix_rate_advantage_180_excluding_negation=+0.3833 (95% CI [0.311, 0.456]), numerically verifying the including-negation number is smaller in magnitude as the mechanism explanation predicts. Step 5 evaluates the hypothesis's three pre-registered success sub-criteria: (a) D closes only part of B's gap -- PASS (CI on B-D includes 0, |D|<|B|); (b) C2 shows materially larger regression-rate reduction than C1 (CI excludes 0, correct sign) but NOT materially larger DeltaCOMET improvement (C2's DeltaCOMET is actually worse than C1's) -- criterion b FAILS; (c) Condition C's own three-part success test could not be evaluated because NO Condition C sibling artifact was found in this iteration's gen_art directory by evaluation run time (the concurrent Condition C run had not produced method_out.json/full_method_out.json when this evaluation executed) -- condition_c_status='not_found'. The combined condition_c_verdict is therefore UNDETERMINED_NO_ARTIFACT, with the rationale field citing the scan log and confirming steps (1)-(4) plus the B/D/C1/C2-only five-row scorecard (step 6, minus the C row) are a complete, standalone deliverable regardless of Condition C's availability. Step 6 renders the full scorecard: pooled DeltaCOMET (point+CI), fix_rate and true_regression_rate both including/excluding negation, mean edit volume, mean LLM calls/sentence, total OpenRouter cost, and a per-language-pair (en-ru_RU/en-uk_UA) breakdown of fix_rate/regression for every condition -- B=(-0.01644, fix 0.7375/0.9833, reg 0.05/0.0667), D=(-0.01569, fix identical to B), C1=(-0.00355, fix 0.4542/0.6056, reg 0.125/0.1389), C2=(-0.01664, fix 0.7417/0.9889, reg 0.0542/0.0722), C=not_found. Output full_eval_out.json (1.09MB, 560 examples across 2 datasets: injected_pool_fix_rate_and_regression_paired with per-row eval_* diff fields, and natural_rows_edit_volume_and_calls) validated against exp_eval_sol_out schema (PASSED). Downstream GEN_PAPER_TEXT should cite the reconciled 0.2875/0.3833 fix-rate figures side by side rather than either alone, treat the C1-vs-C2 pattern as 'iteration helps correctness/regression but not whole-sentence quality, checker-broadened localization is the reverse' (materially confirmed via true paired tests), and note Condition C's verdict is UNDETERMINED pending that artifact's completion -- if it becomes available later, re-running eval.py (which dynamically re-scans for it) will upgrade the verdict without any other code changes.
+
+## Dependencies
+
+- `art_7Uc5PlFctjXi` — B/D/C1 results
+- `art_K8koUmGFDlLN` — C2 results
+- `art_QLpPxaqf1VzK` — checker validation
+- `art_mhfmDpGp4z1J` — dataset
+
+## Output Files
+
+- `eval.py`
+- `full_eval_out.json`
+- `mini_eval_out.json`
+- `preview_eval_out.json`
+
+## Demo Files
+
+- **eval.py** — Evaluation script with metrics computation
+
+---
+*Generated by AI Inventor Pipeline*
