@@ -1,0 +1,1699 @@
+{
+  "datasets": [
+    {
+      "dataset": "wmt25_task3_natural",
+      "examples": [
+        {
+          "input": "3/3\\nOk so I did make that #Daiquiri 2 oz #rum\\n1 oz fresh squeezed lime juice [wish I had shikuwasa]\\n¾ oz rich simple syrup\\nOh dear f$expletive deleted me - in a well chilled coupe, took a sip and this is exquisite. Close my eyes and aware of the back of my neck calming. Didn't expect that. 180⁰ from a more upfront sugary rum.",
+          "output": "3/3\\n好吧，我做了 #Daiquiri\\n2 盎司 #朗姆酒\\n1 盎司新鲜榨汁的柠檬汁（希望我有 shikuwasa）\\n¾ 盎司丰富的简单糖浆\\n哎呀，我说的什么脏话 - 在一个冷藏的杯子里，一口尝了尝，这太精致了。闭上眼睛，感觉脖子后面的肌肉放松。\\n我没想到。与更甜的朗姆酒相比，这完全是 180 度不同的感觉。",
+          "metadata_language_pair": "en-zh_CN",
+          "metadata_domain": "social",
+          "metadata_qe_flagged_spans": [
+            {
+              "start_i": 13,
+              "end_i": 16,
+              "severity": "major"
+            },
+            {
+              "start_i": 49,
+              "end_i": 55,
+              "severity": "critical"
+            },
+            {
+              "start_i": 59,
+              "end_i": 61,
+              "severity": "major"
+            },
+            {
+              "start_i": 68,
+              "end_i": 73,
+              "severity": "major"
+            },
+            {
+              "start_i": 85,
+              "end_i": 86,
+              "severity": "major"
+            }
+          ],
+          "metadata_human_error_annotations": null,
+          "metadata_provenance": "natural",
+          "metadata_invariant_category": null,
+          "metadata_source_dataset": "wmt-conference/wmt25-mteval:wmt25_task3_combined_test_set",
+          "metadata_doc_id": "en-zh_CN_#_social_#_112502991207286008",
+          "metadata_segment_id": "183",
+          "metadata_system_id": "SRPOL",
+          "metadata_overall_qe_score": 0.6368953585624695,
+          "metadata_notes": "QE error spans are the CometKiwi-derived spans released pre-scoring (character offsets into output/hypothesis_segment, severity in {minor,major,critical}). No post-hoc human MQM severity/type gold layer matching the findings-paper Table 15 is publicly released as of this build (post_edit column empty for all 6000 rows) -- treat qe_flagged_spans as the operational localization signal, per the dataset_search_plan's documented fallback.",
+          "metadata_fold": "experimental_pool"
+        },
+        {
+          "input": "Back to T9. SMS was a cool new invention in the GSM standard, because providers needed text transmissions anyway why not open it for a quick chat at 15 cents per 160 characters (ascii that is my friends)",
+          "output": "又回到了T9时代。短信作为GSM标准中的一项创新，很方便，因为运营商本来就需要文本传输，不如开放它，让大家以每160个字符15美分的价钱快速聊天（使用ASCII码）。",
+          "metadata_language_pair": "en-zh_CN",
+          "metadata_domain": "social",
+          "metadata_qe_flagged_spans": [
+            {
+              "start_i": 0,
+              "end_i": 1,
+              "severity": "major"
+            },
+            {
+              "start_i": 3,
+              "end_i": 8,
+              "severity": "major"
+            },
+            {
+              "start_i": 24,
+              "end_i": 28,
+              "severity": "major"
+            },
+            {
+              "start_i": 44,
+              "end_i": 46,
+              "severity": "major"
+            },
+            {
+              "start_i": 65,
+              "end_i": 70,
+              "severity": "major"
+            },
+            {
+              "start_i": 72,
+              "end_i": 81,
+              "severity": "major"
+            }
+          ],
+          "metadata_human_error_annotations": null,
+          "metadata_provenance": "natural",
+          "metadata_invariant_category": null,
+          "metadata_source_dataset": "wmt-conference/wmt25-mteval:wmt25_task3_combined_test_set",
+          "metadata_doc_id": "en-zh_CN_#_social_#_114151944720213193",
+          "metadata_segment_id": "190",
+          "metadata_system_id": "IRB-MT",
+          "metadata_overall_qe_score": 0.771521270275116,
+          "metadata_notes": "QE error spans are the CometKiwi-derived spans released pre-scoring (character offsets into output/hypothesis_segment, severity in {minor,major,critical}). No post-hoc human MQM severity/type gold layer matching the findings-paper Table 15 is publicly released as of this build (post_edit column empty for all 6000 rows) -- treat qe_flagged_spans as the operational localization signal, per the dataset_search_plan's documented fallback.",
+          "metadata_fold": "experimental_pool"
+        },
+        {
+          "input": "Game 19 of #UniversityChallenge was Exeter vs Bristol. Bristol got going at the start and never looked back, rolling with momentum, finishing with an incredible score. Exeter only clawed their way back to 0 after 17 minutes. I liked the question on common terms in Chinese place names, such as 北 (běi) in Beijing etc. Good geographic knowledge shown.",
+          "output": "#UniversityChallenge 的第 19 轮比赛是埃克塞特大学对阵布里斯托尔大学。布里斯托尔大学一开始就占据了上风，并一直保持领先，最终以一个令人难以置信的比分获胜。埃克塞特大学在 17 分钟后才艰难地追回了 0 分。\\n我喜欢关于中国地名中常见用词的问题，例如北京的“北”（běi）等。这显示出良好的地理知识。",
+          "metadata_language_pair": "en-zh_CN",
+          "metadata_domain": "social",
+          "metadata_qe_flagged_spans": [
+            {
+              "start_i": 1,
+              "end_i": 20,
+              "severity": "minor"
+            },
+            {
+              "start_i": 23,
+              "end_i": 26,
+              "severity": "minor"
+            },
+            {
+              "start_i": 110,
+              "end_i": 112,
+              "severity": "minor"
+            },
+            {
+              "start_i": 116,
+              "end_i": 117,
+              "severity": "minor"
+            },
+            {
+              "start_i": 131,
+              "end_i": 134,
+              "severity": "major"
+            },
+            {
+              "start_i": 141,
+              "end_i": 147,
+              "severity": "minor"
+            }
+          ],
+          "metadata_human_error_annotations": null,
+          "metadata_provenance": "natural",
+          "metadata_invariant_category": null,
+          "metadata_source_dataset": "wmt-conference/wmt25-mteval:wmt25_task3_combined_test_set",
+          "metadata_doc_id": "en-zh_CN_#_social_#_114220065940975488",
+          "metadata_segment_id": "214",
+          "metadata_system_id": "RuZh",
+          "metadata_overall_qe_score": 0.8183197379112244,
+          "metadata_notes": "QE error spans are the CometKiwi-derived spans released pre-scoring (character offsets into output/hypothesis_segment, severity in {minor,major,critical}). No post-hoc human MQM severity/type gold layer matching the findings-paper Table 15 is publicly released as of this build (post_edit column empty for all 6000 rows) -- treat qe_flagged_spans as the operational localization signal, per the dataset_search_plan's documented fallback.",
+          "metadata_fold": "experimental_pool"
+        },
+        {
+          "input": "🧵 My first homecooked breakfast in my new home\\nI made thebstrawberry compote from scratch using fresh strawberries. I had no spatula, coffee water from stove boiling. Everything is slightly harder without my wares :p",
+          "output": "🧵 在新家的第一顿自制早餐\\n草莓果酱是我用新鲜草莓从零开始做的。我没有锅铲，煮咖啡的水也是用炉子烧的。没有我的那些家当，所有事情都变得更难了一点:p",
+          "metadata_language_pair": "en-zh_CN",
+          "metadata_domain": "social",
+          "metadata_qe_flagged_spans": [
+            {
+              "start_i": 13,
+              "end_i": 19,
+              "severity": "minor"
+            },
+            {
+              "start_i": 27,
+              "end_i": 30,
+              "severity": "major"
+            },
+            {
+              "start_i": 36,
+              "end_i": 37,
+              "severity": "major"
+            },
+            {
+              "start_i": 54,
+              "end_i": 60,
+              "severity": "major"
+            },
+            {
+              "start_i": 61,
+              "end_i": 66,
+              "severity": "major"
+            },
+            {
+              "start_i": 71,
+              "end_i": 75,
+              "severity": "major"
+            }
+          ],
+          "metadata_human_error_annotations": null,
+          "metadata_provenance": "natural",
+          "metadata_invariant_category": null,
+          "metadata_source_dataset": "wmt-conference/wmt25-mteval:wmt25_task3_combined_test_set",
+          "metadata_doc_id": "en-zh_CN_#_social_#_114417630342798842",
+          "metadata_segment_id": "259",
+          "metadata_system_id": "Wenyiil",
+          "metadata_overall_qe_score": 0.7987281084060669,
+          "metadata_notes": "QE error spans are the CometKiwi-derived spans released pre-scoring (character offsets into output/hypothesis_segment, severity in {minor,major,critical}). No post-hoc human MQM severity/type gold layer matching the findings-paper Table 15 is publicly released as of this build (post_edit column empty for all 6000 rows) -- treat qe_flagged_spans as the operational localization signal, per the dataset_search_plan's documented fallback.",
+          "metadata_fold": "experimental_pool"
+        },
+        {
+          "input": "Okay, the first German words to learn will have to be train & transit related. Future Indi, make a note!\\nSeattle & San Francisco are the best public transits in America [citation needed] and once you figure it out, it really is zip zap zoom on and off and you're there! I want to get to that, but even living in Seattle it took me a few months.",
+          "output": "好的，最先要学的德语词汇肯定是交通相关。未来的靛蓝，记笔记！\\n西雅图和旧金山拥有全美最佳公交系统[需要引用]，一旦掌握诀窍就能嗖嗖直达目的地！虽然在西雅图住了几个月才适应，但我迟早也能在德国做到。",
+          "metadata_language_pair": "en-zh_CN",
+          "metadata_domain": "social",
+          "metadata_qe_flagged_spans": [
+            {
+              "start_i": 0,
+              "end_i": 2,
+              "severity": "major"
+            },
+            {
+              "start_i": 12,
+              "end_i": 17,
+              "severity": "major"
+            },
+            {
+              "start_i": 20,
+              "end_i": 29,
+              "severity": "major"
+            },
+            {
+              "start_i": 31,
+              "end_i": 32,
+              "severity": "major"
+            },
+            {
+              "start_i": 50,
+              "end_i": 55,
+              "severity": "major"
+            },
+            {
+              "start_i": 60,
+              "end_i": 67,
+              "severity": "major"
+            },
+            {
+              "start_i": 72,
+              "end_i": 76,
+              "severity": "major"
+            },
+            {
+              "start_i": 77,
+              "end_i": 86,
+              "severity": "major"
+            },
+            {
+              "start_i": 87,
+              "end_i": 98,
+              "severity": "major"
+            }
+          ],
+          "metadata_human_error_annotations": null,
+          "metadata_provenance": "natural",
+          "metadata_invariant_category": null,
+          "metadata_source_dataset": "wmt-conference/wmt25-mteval:wmt25_task3_combined_test_set",
+          "metadata_doc_id": "en-zh_CN_#_social_#_114417630342798842",
+          "metadata_segment_id": "251",
+          "metadata_system_id": "DeepSeek-V3",
+          "metadata_overall_qe_score": 0.6367624998092651,
+          "metadata_notes": "QE error spans are the CometKiwi-derived spans released pre-scoring (character offsets into output/hypothesis_segment, severity in {minor,major,critical}). No post-hoc human MQM severity/type gold layer matching the findings-paper Table 15 is publicly released as of this build (post_edit column empty for all 6000 rows) -- treat qe_flagged_spans as the operational localization signal, per the dataset_search_plan's documented fallback.",
+          "metadata_fold": "experimental_pool"
+        },
+        {
+          "input": "It's quite a change to go from the Christmas series of #UniversityChallenge, where four people didn't know the name of the narrator of Moby-Dick even when told his name is in the first sentence of the book, to the regular round, where they're racing to buzz on questions like \"Fifty-three British thermal units is to grouse hunting as Sydney, Australia, is to what famous star of the London stage?\"",
+          "output": "从#大学挑战（#UniversityChallenge）的圣诞特辑，那里有四个人连莫比·迪克（Moby-Dick）的叙述者名字都不知道，即使告诉他们这个名字就在书的第一句话里，到常规环节，他们争先恐后地抢答诸如“53个英国热量单位与野鸡狩猎的关系，就像悉尼（澳大利亚）与伦敦舞台上的哪位著名明星有关？”这样的问题，这确实是一个很大的转变。",
+          "metadata_language_pair": "en-zh_CN",
+          "metadata_domain": "social",
+          "metadata_qe_flagged_spans": [
+            {
+              "start_i": 0,
+              "end_i": 7,
+              "severity": "major"
+            },
+            {
+              "start_i": 8,
+              "end_i": 27,
+              "severity": "major"
+            },
+            {
+              "start_i": 28,
+              "end_i": 29,
+              "severity": "major"
+            },
+            {
+              "start_i": 31,
+              "end_i": 33,
+              "severity": "major"
+            },
+            {
+              "start_i": 34,
+              "end_i": 36,
+              "severity": "major"
+            },
+            {
+              "start_i": 41,
+              "end_i": 46,
+              "severity": "major"
+            },
+            {
+              "start_i": 47,
+              "end_i": 51,
+              "severity": "major"
+            },
+            {
+              "start_i": 52,
+              "end_i": 56,
+              "severity": "major"
+            },
+            {
+              "start_i": 57,
+              "end_i": 60,
+              "severity": "major"
+            },
+            {
+              "start_i": 87,
+              "end_i": 93,
+              "severity": "major"
+            },
+            {
+              "start_i": 96,
+              "end_i": 100,
+              "severity": "major"
+            },
+            {
+              "start_i": 101,
+              "end_i": 103,
+              "severity": "major"
+            },
+            {
+              "start_i": 106,
+              "end_i": 128,
+              "severity": "major"
+            },
+            {
+              "start_i": 134,
+              "end_i": 135,
+              "severity": "major"
+            },
+            {
+              "start_i": 147,
+              "end_i": 151,
+              "severity": "major"
+            },
+            {
+              "start_i": 166,
+              "end_i": 168,
+              "severity": "major"
+            }
+          ],
+          "metadata_human_error_annotations": null,
+          "metadata_provenance": "natural",
+          "metadata_invariant_category": null,
+          "metadata_source_dataset": "wmt-conference/wmt25-mteval:wmt25_task3_combined_test_set",
+          "metadata_doc_id": "en-zh_CN_#_social_#_114220065940975488",
+          "metadata_segment_id": "216",
+          "metadata_system_id": "UvA-MT",
+          "metadata_overall_qe_score": 0.7564128637313843,
+          "metadata_notes": "QE error spans are the CometKiwi-derived spans released pre-scoring (character offsets into output/hypothesis_segment, severity in {minor,major,critical}). No post-hoc human MQM severity/type gold layer matching the findings-paper Table 15 is publicly released as of this build (post_edit column empty for all 6000 rows) -- treat qe_flagged_spans as the operational localization signal, per the dataset_search_plan's documented fallback.",
+          "metadata_fold": "experimental_pool"
+        },
+        {
+          "input": "2 sectors lead the market. Broadcom may have another custom chip partner",
+          "output": "两领域引领市场，博通可能将有新的定制芯片合作伙伴。",
+          "metadata_language_pair": "en-zh_CN",
+          "metadata_domain": "news",
+          "metadata_qe_flagged_spans": [
+            {
+              "start_i": 1,
+              "end_i": 3,
+              "severity": "minor"
+            },
+            {
+              "start_i": 16,
+              "end_i": 20,
+              "severity": "major"
+            }
+          ],
+          "metadata_human_error_annotations": null,
+          "metadata_provenance": "natural",
+          "metadata_invariant_category": null,
+          "metadata_source_dataset": "wmt-conference/wmt25-mteval:wmt25_task3_combined_test_set",
+          "metadata_doc_id": "en-zh_CN_#_news_#_cnbc.com.52094",
+          "metadata_segment_id": "91",
+          "metadata_system_id": "IRB-MT",
+          "metadata_overall_qe_score": 0.8524214029312134,
+          "metadata_notes": "QE error spans are the CometKiwi-derived spans released pre-scoring (character offsets into output/hypothesis_segment, severity in {minor,major,critical}). No post-hoc human MQM severity/type gold layer matching the findings-paper Table 15 is publicly released as of this build (post_edit column empty for all 6000 rows) -- treat qe_flagged_spans as the operational localization signal, per the dataset_search_plan's documented fallback.",
+          "metadata_fold": "experimental_pool"
+        },
+        {
+          "input": "Bedtime story time!\\nWhat’s up with T9 keyboards? Why do 7 and 9 have 4 letters, but others 3. Why those two? Why not assign 1 some letters?\\nIs 0 always been space?",
+          "output": "睡前故事时间到！\\nT9键盘到底是怎么回事？为什么数字7和9下面有4个字母，而其他的键都只有3个？为什么偏偏是这两个键？为什么不给数字1也分配一些字母呢？\\n数字0一直都是空格键吗？",
+          "metadata_language_pair": "en-zh_CN",
+          "metadata_domain": "social",
+          "metadata_qe_flagged_spans": [
+            {
+              "start_i": 2,
+              "end_i": 4,
+              "severity": "minor"
+            },
+            {
+              "start_i": 6,
+              "end_i": 7,
+              "severity": "minor"
+            },
+            {
+              "start_i": 25,
+              "end_i": 32,
+              "severity": "major"
+            },
+            {
+              "start_i": 67,
+              "end_i": 68,
+              "severity": "minor"
+            },
+            {
+              "start_i": 81,
+              "end_i": 82,
+              "severity": "minor"
+            }
+          ],
+          "metadata_human_error_annotations": null,
+          "metadata_provenance": "natural",
+          "metadata_invariant_category": null,
+          "metadata_source_dataset": "wmt-conference/wmt25-mteval:wmt25_task3_combined_test_set",
+          "metadata_doc_id": "en-zh_CN_#_social_#_114151944720213193",
+          "metadata_segment_id": "184",
+          "metadata_system_id": "Gemini-2.5-Pro",
+          "metadata_overall_qe_score": 0.7801492810249329,
+          "metadata_notes": "QE error spans are the CometKiwi-derived spans released pre-scoring (character offsets into output/hypothesis_segment, severity in {minor,major,critical}). No post-hoc human MQM severity/type gold layer matching the findings-paper Table 15 is publicly released as of this build (post_edit column empty for all 6000 rows) -- treat qe_flagged_spans as the operational localization signal, per the dataset_search_plan's documented fallback.",
+          "metadata_fold": "experimental_pool"
+        },
+        {
+          "input": "Language experts were hired to eliminate one more letter from the alphabet.\\nQ (sorry Q not personal) is a special letter, every French person knows Q cannot live without U. So either one had to go. Q in the English language has less to do than U, and Q was dropped from the Bell exchange name scheme!\\nAnd this kids is why you won’t find it on old telephones.",
+          "output": "语言专家被雇佣来从字母表中删除一个字母。\\nQ (抱歉,Q不是指个人)是一个特殊的字母，每个法国人都知道Q不能没有U。所以要么一个必须去掉。\\n在英语中，Q比U的用处少，所以Q被从贝尔交换名称方案中删除！\\n这就是为什么你在旧电话上找不到它。",
+          "metadata_language_pair": "en-zh_CN",
+          "metadata_domain": "social",
+          "metadata_qe_flagged_spans": [
+            {
+              "start_i": 28,
+              "end_i": 34,
+              "severity": "major"
+            },
+            {
+              "start_i": 52,
+              "end_i": 69,
+              "severity": "major"
+            },
+            {
+              "start_i": 71,
+              "end_i": 72,
+              "severity": "major"
+            },
+            {
+              "start_i": 79,
+              "end_i": 80,
+              "severity": "major"
+            },
+            {
+              "start_i": 81,
+              "end_i": 83,
+              "severity": "major"
+            },
+            {
+              "start_i": 90,
+              "end_i": 98,
+              "severity": "major"
+            },
+            {
+              "start_i": 103,
+              "end_i": 104,
+              "severity": "minor"
+            },
+            {
+              "start_i": 112,
+              "end_i": 113,
+              "severity": "major"
+            }
+          ],
+          "metadata_human_error_annotations": null,
+          "metadata_provenance": "natural",
+          "metadata_invariant_category": null,
+          "metadata_source_dataset": "wmt-conference/wmt25-mteval:wmt25_task3_combined_test_set",
+          "metadata_doc_id": "en-zh_CN_#_social_#_114151944720213193",
+          "metadata_segment_id": "189",
+          "metadata_system_id": "SRPOL",
+          "metadata_overall_qe_score": 0.7877696752548218,
+          "metadata_notes": "QE error spans are the CometKiwi-derived spans released pre-scoring (character offsets into output/hypothesis_segment, severity in {minor,major,critical}). No post-hoc human MQM severity/type gold layer matching the findings-paper Table 15 is publicly released as of this build (post_edit column empty for all 6000 rows) -- treat qe_flagged_spans as the operational localization signal, per the dataset_search_plan's documented fallback.",
+          "metadata_fold": "experimental_pool"
+        },
+        {
+          "input": "🧵 A simple breakfast, but god is it good.\\nI sure hope lactase enzymes are easily accessible in Deutschland, or else Im in trouble 😅. Nom nom nom 🥐",
+          "output": "🧵 一个简单的早餐，但味道真不错。\\n希望在德国能容易买到乳糖酶，不然我就要糟糕了 😅。 냠냠냠 🥐",
+          "metadata_language_pair": "en-zh_CN",
+          "metadata_domain": "social",
+          "metadata_qe_flagged_spans": [
+            {
+              "start_i": 11,
+              "end_i": 14,
+              "severity": "major"
+            },
+            {
+              "start_i": 18,
+              "end_i": 19,
+              "severity": "major"
+            },
+            {
+              "start_i": 25,
+              "end_i": 28,
+              "severity": "major"
+            },
+            {
+              "start_i": 30,
+              "end_i": 32,
+              "severity": "major"
+            },
+            {
+              "start_i": 35,
+              "end_i": 42,
+              "severity": "major"
+            },
+            {
+              "start_i": 43,
+              "end_i": 49,
+              "severity": "major"
+            }
+          ],
+          "metadata_human_error_annotations": null,
+          "metadata_provenance": "natural",
+          "metadata_invariant_category": null,
+          "metadata_source_dataset": "wmt-conference/wmt25-mteval:wmt25_task3_combined_test_set",
+          "metadata_doc_id": "en-zh_CN_#_social_#_114417630342798842",
+          "metadata_segment_id": "253",
+          "metadata_system_id": "IRB-MT",
+          "metadata_overall_qe_score": 0.7626971006393433,
+          "metadata_notes": "QE error spans are the CometKiwi-derived spans released pre-scoring (character offsets into output/hypothesis_segment, severity in {minor,major,critical}). No post-hoc human MQM severity/type gold layer matching the findings-paper Table 15 is publicly released as of this build (post_edit column empty for all 6000 rows) -- treat qe_flagged_spans as the operational localization signal, per the dataset_search_plan's documented fallback.",
+          "metadata_fold": "experimental_pool"
+        },
+        {
+          "input": "Game 22 of #UniversityChallenge was Christ's Cambridge vs St Edmund Hall Oxford, two small colleges, but that's how the rules are set up. Nice picture round with the Dunning-Kruger effect, Asch conformity experiments, and bouba-kiki effect. Another on mushrooms, which seemed tough to me; identifying them by eye is not easy. Solid game, good playing all around.",
+          "output": "#UniversityChallenge 的第二十二期比赛是剑桥大学克莱斯特学院对阵牛津大学圣埃德蒙大楼，这两个学院规模不大，但这就是比赛规则的设定。图片轮考验不错，涉及邓宁-克鲁格效应、阿施从众实验和布巴-基基效应。还有关于蘑菇的题目，我觉得挺难的；凭肉眼辨别它们并不容易。比赛很精彩，各方表现都很出色。",
+          "metadata_language_pair": "en-zh_CN",
+          "metadata_domain": "social",
+          "metadata_qe_flagged_spans": [
+            {
+              "start_i": 1,
+              "end_i": 29,
+              "severity": "major"
+            },
+            {
+              "start_i": 32,
+              "end_i": 40,
+              "severity": "major"
+            },
+            {
+              "start_i": 44,
+              "end_i": 47,
+              "severity": "major"
+            },
+            {
+              "start_i": 48,
+              "end_i": 52,
+              "severity": "major"
+            },
+            {
+              "start_i": 75,
+              "end_i": 82,
+              "severity": "major"
+            },
+            {
+              "start_i": 88,
+              "end_i": 89,
+              "severity": "major"
+            },
+            {
+              "start_i": 95,
+              "end_i": 98,
+              "severity": "major"
+            },
+            {
+              "start_i": 103,
+              "end_i": 106,
+              "severity": "major"
+            }
+          ],
+          "metadata_human_error_annotations": null,
+          "metadata_provenance": "natural",
+          "metadata_invariant_category": null,
+          "metadata_source_dataset": "wmt-conference/wmt25-mteval:wmt25_task3_combined_test_set",
+          "metadata_doc_id": "en-zh_CN_#_social_#_114220065940975488",
+          "metadata_segment_id": "218",
+          "metadata_system_id": "RuZh",
+          "metadata_overall_qe_score": 0.7713519334793091,
+          "metadata_notes": "QE error spans are the CometKiwi-derived spans released pre-scoring (character offsets into output/hypothesis_segment, severity in {minor,major,critical}). No post-hoc human MQM severity/type gold layer matching the findings-paper Table 15 is publicly released as of this build (post_edit column empty for all 6000 rows) -- treat qe_flagged_spans as the operational localization signal, per the dataset_search_plan's documented fallback.",
+          "metadata_fold": "experimental_pool"
+        },
+        {
+          "input": "🧵 My house was robbed.\\nAlso, I'm sick again?! A relapse?\\nI better get better before surgery in less than 23 days...",
+          "output": "🧵 我的房子被盗了。\\n而且，我又生病了？！是复发吗？\\n我必须在23天内的手术前好起来...",
+          "metadata_language_pair": "en-zh_CN",
+          "metadata_domain": "social",
+          "metadata_qe_flagged_spans": [
+            {
+              "start_i": 3,
+              "end_i": 6,
+              "severity": "minor"
+            },
+            {
+              "start_i": 25,
+              "end_i": 26,
+              "severity": "major"
+            },
+            {
+              "start_i": 33,
+              "end_i": 40,
+              "severity": "major"
+            },
+            {
+              "start_i": 42,
+              "end_i": 44,
+              "severity": "major"
+            }
+          ],
+          "metadata_human_error_annotations": null,
+          "metadata_provenance": "natural",
+          "metadata_invariant_category": null,
+          "metadata_source_dataset": "wmt-conference/wmt25-mteval:wmt25_task3_combined_test_set",
+          "metadata_doc_id": "en-zh_CN_#_social_#_114417630342798842",
+          "metadata_segment_id": "268",
+          "metadata_system_id": "UvA-MT",
+          "metadata_overall_qe_score": 0.8537823557853699,
+          "metadata_notes": "QE error spans are the CometKiwi-derived spans released pre-scoring (character offsets into output/hypothesis_segment, severity in {minor,major,critical}). No post-hoc human MQM severity/type gold layer matching the findings-paper Table 15 is publicly released as of this build (post_edit column empty for all 6000 rows) -- treat qe_flagged_spans as the operational localization signal, per the dataset_search_plan's documented fallback.",
+          "metadata_fold": "experimental_pool"
+        },
+        {
+          "input": "Game 15 of #UniversityChallenge is the first of two in the repechage, where the four highest-scoring losing teams try to make it through. This week was UCL and St. Andrews, in a good-natured cheery match. Very strong play from UCL, who have a solid team, and UCL Mandel was in top form. Good questions, some tough, such as requiring \"panthera\" specifically or knowing \"day\" in Russian.",
+          "output": "#大学挑战赛第十五场比赛是复活赛中的第一场比赛，四支得分最高的落败队伍试图晋级。本周是UCL和圣安德鲁斯大学，这是一场友好的比赛。UCL表现非常出色，他们有一支强大的队伍，UCL曼德尔状态很好。题目不错，有些很难，例如需要具体提到“panthera”或知道俄语中的“day”。",
+          "metadata_language_pair": "en-zh_CN",
+          "metadata_domain": "social",
+          "metadata_qe_flagged_spans": [
+            {
+              "start_i": 0,
+              "end_i": 1,
+              "severity": "major"
+            },
+            {
+              "start_i": 3,
+              "end_i": 5,
+              "severity": "major"
+            },
+            {
+              "start_i": 6,
+              "end_i": 12,
+              "severity": "major"
+            },
+            {
+              "start_i": 13,
+              "end_i": 16,
+              "severity": "major"
+            },
+            {
+              "start_i": 31,
+              "end_i": 33,
+              "severity": "major"
+            },
+            {
+              "start_i": 37,
+              "end_i": 39,
+              "severity": "major"
+            },
+            {
+              "start_i": 42,
+              "end_i": 54,
+              "severity": "major"
+            },
+            {
+              "start_i": 57,
+              "end_i": 64,
+              "severity": "major"
+            },
+            {
+              "start_i": 65,
+              "end_i": 68,
+              "severity": "major"
+            },
+            {
+              "start_i": 86,
+              "end_i": 92,
+              "severity": "major"
+            },
+            {
+              "start_i": 94,
+              "end_i": 96,
+              "severity": "major"
+            },
+            {
+              "start_i": 97,
+              "end_i": 101,
+              "severity": "major"
+            },
+            {
+              "start_i": 111,
+              "end_i": 129,
+              "severity": "major"
+            },
+            {
+              "start_i": 130,
+              "end_i": 138,
+              "severity": "major"
+            }
+          ],
+          "metadata_human_error_annotations": null,
+          "metadata_provenance": "natural",
+          "metadata_invariant_category": null,
+          "metadata_source_dataset": "wmt-conference/wmt25-mteval:wmt25_task3_combined_test_set",
+          "metadata_doc_id": "en-zh_CN_#_social_#_114220065940975488",
+          "metadata_segment_id": "210",
+          "metadata_system_id": "TowerPlus-9B",
+          "metadata_overall_qe_score": 0.770571231842041,
+          "metadata_notes": "QE error spans are the CometKiwi-derived spans released pre-scoring (character offsets into output/hypothesis_segment, severity in {minor,major,critical}). No post-hoc human MQM severity/type gold layer matching the findings-paper Table 15 is publicly released as of this build (post_edit column empty for all 6000 rows) -- treat qe_flagged_spans as the operational localization signal, per the dataset_search_plan's documented fallback.",
+          "metadata_fold": "experimental_pool"
+        },
+        {
+          "input": "Nah.",
+          "output": "不，不会的。",
+          "metadata_language_pair": "en-zh_CN",
+          "metadata_domain": "social",
+          "metadata_qe_flagged_spans": [
+            {
+              "start_i": 2,
+              "end_i": 4,
+              "severity": "minor"
+            }
+          ],
+          "metadata_human_error_annotations": null,
+          "metadata_provenance": "natural",
+          "metadata_invariant_category": null,
+          "metadata_source_dataset": "wmt-conference/wmt25-mteval:wmt25_task3_combined_test_set",
+          "metadata_doc_id": "en-zh_CN_#_social_#_114300646822630777",
+          "metadata_segment_id": "245",
+          "metadata_system_id": "Laniqo",
+          "metadata_overall_qe_score": 0.8423343896865845,
+          "metadata_notes": "QE error spans are the CometKiwi-derived spans released pre-scoring (character offsets into output/hypothesis_segment, severity in {minor,major,critical}). No post-hoc human MQM severity/type gold layer matching the findings-paper Table 15 is publicly released as of this build (post_edit column empty for all 6000 rows) -- treat qe_flagged_spans as the operational localization signal, per the dataset_search_plan's documented fallback.",
+          "metadata_fold": "experimental_pool"
+        },
+        {
+          "input": "Some folks really do deserve a badge of honour for their pedantry (C8). Veronica Coyne of Springfield claims that \"when bemoaning the loss of the express lane at Woolies \"12 items or less,\" a friend told me she'd never used it on principle as it should have been \"12 items or fewer.\"\"",
+          "output": "有些人确实因为自己的拘泥于细节而值得被授予一枚荣誉勋章（C8）。斯普林菲尔德的维罗妮卡·科因表示，“我在为伍利超市取消’12件或以下’快速通道而哀叹时，一位朋友告诉我，她从来不会使用这个通道，因为正确的应该是’不多于12件’。”",
+          "metadata_language_pair": "en-zh_CN",
+          "metadata_domain": "news",
+          "metadata_qe_flagged_spans": [
+            {
+              "start_i": 7,
+              "end_i": 16,
+              "severity": "major"
+            },
+            {
+              "start_i": 25,
+              "end_i": 26,
+              "severity": "major"
+            },
+            {
+              "start_i": 53,
+              "end_i": 71,
+              "severity": "major"
+            },
+            {
+              "start_i": 73,
+              "end_i": 74,
+              "severity": "major"
+            },
+            {
+              "start_i": 105,
+              "end_i": 107,
+              "severity": "major"
+            }
+          ],
+          "metadata_human_error_annotations": null,
+          "metadata_provenance": "natural",
+          "metadata_invariant_category": null,
+          "metadata_source_dataset": "wmt-conference/wmt25-mteval:wmt25_task3_combined_test_set",
+          "metadata_doc_id": "en-zh_CN_#_news_#_brisbanetimes.com.au.306576",
+          "metadata_segment_id": "86",
+          "metadata_system_id": "Yolu",
+          "metadata_overall_qe_score": 0.7870694994926453,
+          "metadata_notes": "QE error spans are the CometKiwi-derived spans released pre-scoring (character offsets into output/hypothesis_segment, severity in {minor,major,critical}). No post-hoc human MQM severity/type gold layer matching the findings-paper Table 15 is publicly released as of this build (post_edit column empty for all 6000 rows) -- treat qe_flagged_spans as the operational localization signal, per the dataset_search_plan's documented fallback.",
+          "metadata_fold": "experimental_pool"
+        },
+        {
+          "input": "\"Talk of badges reminds of the famous one from the 1960s-70s,\" says Merran Loewenthal of Birchgrove. \"\"It Begins When You Sink in His Arms and Ends with Your Arms in His Sink.\"\" Jonty Grinter of Katoomba has one that reads \"Chronically Advantaged\" and adds that \"it should be standard issue for all over seventy.\"",
+          "output": "„Zmínka o odznáčcích mi připomíná ten slavný z 60. a 70. let,“ říká Merran Loewenthal z Birchgrove. „„Začíná to, když se mu položíte do náruče, a končí to, když máte jeho ruce ve svém umyvadle.“ Jonty Grinter z Katoomba má odznáček s nápisem „Chronicky zvýhodněný“ a dodává, že „měl by být standardní výbavou pro všechny, kteří jsou starší než sedmdesát let.“",
+          "metadata_language_pair": "en-cs_CZ",
+          "metadata_domain": "news",
+          "metadata_qe_flagged_spans": [
+            {
+              "start_i": 9,
+              "end_i": 16,
+              "severity": "major"
+            },
+            {
+              "start_i": 99,
+              "end_i": 102,
+              "severity": "major"
+            },
+            {
+              "start_i": 117,
+              "end_i": 142,
+              "severity": "major"
+            },
+            {
+              "start_i": 160,
+              "end_i": 192,
+              "severity": "major"
+            },
+            {
+              "start_i": 225,
+              "end_i": 228,
+              "severity": "major"
+            }
+          ],
+          "metadata_human_error_annotations": null,
+          "metadata_provenance": "natural",
+          "metadata_invariant_category": null,
+          "metadata_source_dataset": "wmt-conference/wmt25-mteval:wmt25_task3_combined_test_set",
+          "metadata_doc_id": "en-cs_CZ_#_news_#_brisbanetimes.com.au.306576",
+          "metadata_segment_id": "87",
+          "metadata_system_id": "GemTrans",
+          "metadata_overall_qe_score": 0.787649929523468,
+          "metadata_notes": "QE error spans are the CometKiwi-derived spans released pre-scoring (character offsets into output/hypothesis_segment, severity in {minor,major,critical}). No post-hoc human MQM severity/type gold layer matching the findings-paper Table 15 is publicly released as of this build (post_edit column empty for all 6000 rows) -- treat qe_flagged_spans as the operational localization signal, per the dataset_search_plan's documented fallback.",
+          "metadata_fold": "experimental_pool"
+        },
+        {
+          "input": "Game 22 of #UniversityChallenge was Christ's Cambridge vs St Edmund Hall Oxford, two small colleges, but that's how the rules are set up. Nice picture round with the Dunning-Kruger effect, Asch conformity experiments, and bouba-kiki effect. Another on mushrooms, which seemed tough to me; identifying them by eye is not easy. Solid game, good playing all around.",
+          "output": "Hra 22 #UniversityChallenge byla Christ's Cambridge vs St Edmund Hall Oxford, dvě malé koleje, ale tak jsou pravidla nastavena. Pěkný obrázkový kolotoč s Dunning-Krugerovým efektem, Aschovými experimenty o konformitě a bouba-kiki efektem. Další o houbách, které se mi zdály těžké; identifikace pouhým okem není snadná. Solidní hra, všichni hráli dobře.",
+          "metadata_language_pair": "en-cs_CZ",
+          "metadata_domain": "social",
+          "metadata_qe_flagged_spans": [
+            {
+              "start_i": 3,
+              "end_i": 6,
+              "severity": "minor"
+            },
+            {
+              "start_i": 32,
+              "end_i": 40,
+              "severity": "minor"
+            },
+            {
+              "start_i": 81,
+              "end_i": 93,
+              "severity": "major"
+            },
+            {
+              "start_i": 139,
+              "end_i": 151,
+              "severity": "major"
+            },
+            {
+              "start_i": 161,
+              "end_i": 162,
+              "severity": "minor"
+            },
+            {
+              "start_i": 166,
+              "end_i": 168,
+              "severity": "minor"
+            },
+            {
+              "start_i": 183,
+              "end_i": 186,
+              "severity": "minor"
+            },
+            {
+              "start_i": 202,
+              "end_i": 216,
+              "severity": "minor"
+            },
+            {
+              "start_i": 218,
+              "end_i": 225,
+              "severity": "minor"
+            },
+            {
+              "start_i": 238,
+              "end_i": 244,
+              "severity": "minor"
+            }
+          ],
+          "metadata_human_error_annotations": null,
+          "metadata_provenance": "natural",
+          "metadata_invariant_category": null,
+          "metadata_source_dataset": "wmt-conference/wmt25-mteval:wmt25_task3_combined_test_set",
+          "metadata_doc_id": "en-cs_CZ_#_social_#_114220065940975488",
+          "metadata_segment_id": "218",
+          "metadata_system_id": "SRPOL",
+          "metadata_overall_qe_score": 0.7633445858955383,
+          "metadata_notes": "QE error spans are the CometKiwi-derived spans released pre-scoring (character offsets into output/hypothesis_segment, severity in {minor,major,critical}). No post-hoc human MQM severity/type gold layer matching the findings-paper Table 15 is publicly released as of this build (post_edit column empty for all 6000 rows) -- treat qe_flagged_spans as the operational localization signal, per the dataset_search_plan's documented fallback.",
+          "metadata_fold": "experimental_pool"
+        },
+        {
+          "input": "#UniversityChallenge game 23 was Cardiff against Queen's Belfast. Ended with a lower score than I felt it would get, maybe due to missed bonuses, but the starters were buzzed fast. Nice flag knowledge, and a good picture round identifying physical laws by diagrams of experiments. A bit too much bantz for my taste, but a solid game. One more before the quarter-finals.",
+          "output": "#UniversityChallenge hra 23 byla Cardiff proti Queen's Belfast. Skončila s nižším skóre, než jsem čekal, možná kvůli promarněným bonusům, ale startéry byly zvoněny rychle. Dobré znalosti vlajek a dobré obrázkové kolo identifikující fyzikální zákony diagramy experimentů. Trochu moc legrace pro můj vkus, ale solidní hra. Ještě jedna před čtvrtfinále.",
+          "metadata_language_pair": "en-cs_CZ",
+          "metadata_domain": "social",
+          "metadata_qe_flagged_spans": [
+            {
+              "start_i": 0,
+              "end_i": 8,
+              "severity": "major"
+            },
+            {
+              "start_i": 11,
+              "end_i": 12,
+              "severity": "major"
+            },
+            {
+              "start_i": 18,
+              "end_i": 54,
+              "severity": "major"
+            },
+            {
+              "start_i": 68,
+              "end_i": 72,
+              "severity": "major"
+            },
+            {
+              "start_i": 80,
+              "end_i": 87,
+              "severity": "major"
+            },
+            {
+              "start_i": 116,
+              "end_i": 136,
+              "severity": "major"
+            },
+            {
+              "start_i": 141,
+              "end_i": 170,
+              "severity": "major"
+            },
+            {
+              "start_i": 177,
+              "end_i": 193,
+              "severity": "major"
+            },
+            {
+              "start_i": 201,
+              "end_i": 231,
+              "severity": "major"
+            },
+            {
+              "start_i": 247,
+              "end_i": 269,
+              "severity": "major"
+            },
+            {
+              "start_i": 281,
+              "end_i": 289,
+              "severity": "major"
+            },
+            {
+              "start_i": 326,
+              "end_i": 337,
+              "severity": "major"
+            },
+            {
+              "start_i": 345,
+              "end_i": 349,
+              "severity": "major"
+            }
+          ],
+          "metadata_human_error_annotations": null,
+          "metadata_provenance": "natural",
+          "metadata_invariant_category": null,
+          "metadata_source_dataset": "wmt-conference/wmt25-mteval:wmt25_task3_combined_test_set",
+          "metadata_doc_id": "en-cs_CZ_#_social_#_114220065940975488",
+          "metadata_segment_id": "219",
+          "metadata_system_id": "Gemma-3-27B",
+          "metadata_overall_qe_score": 0.5819651484489441,
+          "metadata_notes": "QE error spans are the CometKiwi-derived spans released pre-scoring (character offsets into output/hypothesis_segment, severity in {minor,major,critical}). No post-hoc human MQM severity/type gold layer matching the findings-paper Table 15 is publicly released as of this build (post_edit column empty for all 6000 rows) -- treat qe_flagged_spans as the operational localization signal, per the dataset_search_plan's documented fallback.",
+          "metadata_fold": "experimental_pool"
+        },
+        {
+          "input": "#UniversityChallenge game 23 was Cardiff against Queen's Belfast. Ended with a lower score than I felt it would get, maybe due to missed bonuses, but the starters were buzzed fast. Nice flag knowledge, and a good picture round identifying physical laws by diagrams of experiments. A bit too much bantz for my taste, but a solid game. One more before the quarter-finals.",
+          "output": "Zápas #UniversityChallenge číslo 23 byl Cardiff proti Queen's Belfast. Skončil s nižším skóre, než jsem cítil, že by dostal, možná kvůli zmeškaným bonusům, ale startéry byly bzučeny rychle. Pěkné znalosti vlajek a dobré obrazové kolo identifikující fyzikální zákony podle diagramů experimentů. Trochu moc bantz pro můj vkus, ale solidní zápas. Ještě jeden před čtvrtfinále.",
+          "metadata_language_pair": "en-cs_CZ",
+          "metadata_domain": "social",
+          "metadata_qe_flagged_spans": [
+            {
+              "start_i": 0,
+              "end_i": 5,
+              "severity": "major"
+            },
+            {
+              "start_i": 7,
+              "end_i": 14,
+              "severity": "major"
+            },
+            {
+              "start_i": 24,
+              "end_i": 32,
+              "severity": "major"
+            },
+            {
+              "start_i": 35,
+              "end_i": 61,
+              "severity": "major"
+            },
+            {
+              "start_i": 86,
+              "end_i": 93,
+              "severity": "major"
+            },
+            {
+              "start_i": 98,
+              "end_i": 123,
+              "severity": "major"
+            },
+            {
+              "start_i": 136,
+              "end_i": 154,
+              "severity": "major"
+            },
+            {
+              "start_i": 159,
+              "end_i": 188,
+              "severity": "major"
+            },
+            {
+              "start_i": 195,
+              "end_i": 211,
+              "severity": "major"
+            },
+            {
+              "start_i": 219,
+              "end_i": 227,
+              "severity": "major"
+            },
+            {
+              "start_i": 228,
+              "end_i": 248,
+              "severity": "major"
+            },
+            {
+              "start_i": 254,
+              "end_i": 258,
+              "severity": "major"
+            },
+            {
+              "start_i": 264,
+              "end_i": 265,
+              "severity": "major"
+            },
+            {
+              "start_i": 300,
+              "end_i": 310,
+              "severity": "major"
+            },
+            {
+              "start_i": 318,
+              "end_i": 320,
+              "severity": "major"
+            },
+            {
+              "start_i": 336,
+              "end_i": 342,
+              "severity": "major"
+            },
+            {
+              "start_i": 343,
+              "end_i": 360,
+              "severity": "major"
+            },
+            {
+              "start_i": 366,
+              "end_i": 372,
+              "severity": "major"
+            }
+          ],
+          "metadata_human_error_annotations": null,
+          "metadata_provenance": "natural",
+          "metadata_invariant_category": null,
+          "metadata_source_dataset": "wmt-conference/wmt25-mteval:wmt25_task3_combined_test_set",
+          "metadata_doc_id": "en-cs_CZ_#_social_#_114220065940975488",
+          "metadata_segment_id": "219",
+          "metadata_system_id": "CommandA",
+          "metadata_overall_qe_score": 0.5929359793663025,
+          "metadata_notes": "QE error spans are the CometKiwi-derived spans released pre-scoring (character offsets into output/hypothesis_segment, severity in {minor,major,critical}). No post-hoc human MQM severity/type gold layer matching the findings-paper Table 15 is publicly released as of this build (post_edit column empty for all 6000 rows) -- treat qe_flagged_spans as the operational localization signal, per the dataset_search_plan's documented fallback.",
+          "metadata_fold": "experimental_pool"
+        },
+        {
+          "input": "Game 9 of #UniversityChallenge was a hell of a match. Oriel Oxford (530 students) vs Durham (20,000), and Oriel won, which surprised me after some mistakes they made. The captain didn't know Wittengstein's name!? Possibly just nerves. Durham was ahead, then it was tied at 170, then they dropped to 165. A pity. I was rooting for them. Great team, with all four strong, so I hope they make the cut.",
+          "output": "Devátý díl #UniversityChallenge byl neskutečný zápas. Oriel, Oxford (530 studentů) proti Durhamu (20 000) a Oriel vyhrál, což mě po několika chybách, které udělali, překvapilo. Kapitán neznal Wittgensteinovo jméno!? Možná jen nervy. Durham vedl, pak to bylo nerozhodně 170:170, načež klesli na 165. Škoda. Fandil jsem jim. Skvělý tým, kde byli všichni čtyři silní, takže doufám, že se dostanou do dalšího kola.",
+          "metadata_language_pair": "en-cs_CZ",
+          "metadata_domain": "social",
+          "metadata_qe_flagged_spans": [
+            {
+              "start_i": 6,
+              "end_i": 10,
+              "severity": "minor"
+            },
+            {
+              "start_i": 53,
+              "end_i": 67,
+              "severity": "major"
+            },
+            {
+              "start_i": 109,
+              "end_i": 113,
+              "severity": "minor"
+            },
+            {
+              "start_i": 191,
+              "end_i": 195,
+              "severity": "minor"
+            },
+            {
+              "start_i": 196,
+              "end_i": 204,
+              "severity": "minor"
+            },
+            {
+              "start_i": 266,
+              "end_i": 268,
+              "severity": "minor"
+            },
+            {
+              "start_i": 273,
+              "end_i": 276,
+              "severity": "minor"
+            }
+          ],
+          "metadata_human_error_annotations": null,
+          "metadata_provenance": "natural",
+          "metadata_invariant_category": null,
+          "metadata_source_dataset": "wmt-conference/wmt25-mteval:wmt25_task3_combined_test_set",
+          "metadata_doc_id": "en-cs_CZ_#_social_#_114220065940975488",
+          "metadata_segment_id": "204",
+          "metadata_system_id": "Wenyiil",
+          "metadata_overall_qe_score": 0.8333227038383484,
+          "metadata_notes": "QE error spans are the CometKiwi-derived spans released pre-scoring (character offsets into output/hypothesis_segment, severity in {minor,major,critical}). No post-hoc human MQM severity/type gold layer matching the findings-paper Table 15 is publicly released as of this build (post_edit column empty for all 6000 rows) -- treat qe_flagged_spans as the operational localization signal, per the dataset_search_plan's documented fallback.",
+          "metadata_fold": "experimental_pool"
+        },
+        {
+          "input": "Game 14 of #UniversityChallenge was top-notch stuff, solid quizzing, down to business, fast answers, good knowledge, close ending. It seems we'll see both SOAS London and St. Edmund Hall Oxford again, because the loser makes the repechage. Very close at the finish, down to \"Naples\" and \"pollen.\" An unassumingly great game.",
+          "output": "Ve 14. zápase #UniversityChallenge jsme byli svědky prvotřídních výkonů: solidní kvízy, zaměření se na obchodní záležitosti, rychlé odpovědi, dobrá znalost a těsné finále. Zdá se, že znovu uvidíme týmy SOAS London a St. Edmund Hall Oxford, protože poražený bude hrát o postup. Závěr byl velmi těsný, rozhodovalo se mezi „Naples“ a „pollen“. Jednalo se o nenápadně skvělý zápas.",
+          "metadata_language_pair": "en-cs_CZ",
+          "metadata_domain": "social",
+          "metadata_qe_flagged_spans": [
+            {
+              "start_i": 80,
+              "end_i": 86,
+              "severity": "major"
+            },
+            {
+              "start_i": 87,
+              "end_i": 123,
+              "severity": "major"
+            },
+            {
+              "start_i": 256,
+              "end_i": 275,
+              "severity": "major"
+            },
+            {
+              "start_i": 321,
+              "end_i": 327,
+              "severity": "major"
+            },
+            {
+              "start_i": 330,
+              "end_i": 338,
+              "severity": "minor"
+            },
+            {
+              "start_i": 353,
+              "end_i": 361,
+              "severity": "major"
+            }
+          ],
+          "metadata_human_error_annotations": null,
+          "metadata_provenance": "natural",
+          "metadata_invariant_category": null,
+          "metadata_source_dataset": "wmt-conference/wmt25-mteval:wmt25_task3_combined_test_set",
+          "metadata_doc_id": "en-cs_CZ_#_social_#_114220065940975488",
+          "metadata_segment_id": "209",
+          "metadata_system_id": "SalamandraTA",
+          "metadata_overall_qe_score": 0.7732150554656982,
+          "metadata_notes": "QE error spans are the CometKiwi-derived spans released pre-scoring (character offsets into output/hypothesis_segment, severity in {minor,major,critical}). No post-hoc human MQM severity/type gold layer matching the findings-paper Table 15 is publicly released as of this build (post_edit column empty for all 6000 rows) -- treat qe_flagged_spans as the operational localization signal, per the dataset_search_plan's documented fallback.",
+          "metadata_fold": "experimental_pool"
+        },
+        {
+          "input": "I shouldn't be surprised - actual children are buying expensive anti-ageing potions and fretting about their nonexistent crow's feet now. But still, this dramatic normalisation of invasive beauty procedures is unnerving.",
+          "output": "Neměla bych být překvapená – skutečné děti si kupují drahé protistárnoucí přípravky a trápí se kvůli neexistujícím vráskám kolem očí. Ale přesto je tato dramatická normalizace invazivních kosmetických zákroků znepokojující.",
+          "metadata_language_pair": "en-cs_CZ",
+          "metadata_domain": "news",
+          "metadata_qe_flagged_spans": [
+            {
+              "start_i": 29,
+              "end_i": 42,
+              "severity": "major"
+            },
+            {
+              "start_i": 64,
+              "end_i": 65,
+              "severity": "minor"
+            },
+            {
+              "start_i": 100,
+              "end_i": 108,
+              "severity": "major"
+            },
+            {
+              "start_i": 122,
+              "end_i": 132,
+              "severity": "major"
+            }
+          ],
+          "metadata_human_error_annotations": null,
+          "metadata_provenance": "natural",
+          "metadata_invariant_category": null,
+          "metadata_source_dataset": "wmt-conference/wmt25-mteval:wmt25_task3_combined_test_set",
+          "metadata_doc_id": "en-cs_CZ_#_news_#_guardian.231311",
+          "metadata_segment_id": "149",
+          "metadata_system_id": "Mistral-Medium",
+          "metadata_overall_qe_score": 0.8100876212120056,
+          "metadata_notes": "QE error spans are the CometKiwi-derived spans released pre-scoring (character offsets into output/hypothesis_segment, severity in {minor,major,critical}). No post-hoc human MQM severity/type gold layer matching the findings-paper Table 15 is publicly released as of this build (post_edit column empty for all 6000 rows) -- treat qe_flagged_spans as the operational localization signal, per the dataset_search_plan's documented fallback.",
+          "metadata_fold": "experimental_pool"
+        },
+        {
+          "input": "And Gavin Kliger, a 25-year-old who boosted a post on X by the white supremacist Nick Fuentes, and whose newly launched Substack this week highlighted the perils of skipping freshman English 101 with a post entitled \"Why DOGE: Why I gave up a seven-figure salary to save America.\"",
+          "output": "A Gavin Kliger, pětadvacetiletý, který podpořil příspěvek na X od bílého supremacisty Nicka Fuentese a jehož nově spuštěný Substack tento týden zdůraznil nebezpečí vynechání úvodního kurzu angličtiny příspěvkem s názvem „Proč DOGE: Proč jsem se vzdal platu s sedmi čísly, abych zachránil Ameriku.“",
+          "metadata_language_pair": "en-cs_CZ",
+          "metadata_domain": "news",
+          "metadata_qe_flagged_spans": [
+            {
+              "start_i": 0,
+              "end_i": 5,
+              "severity": "major"
+            },
+            {
+              "start_i": 7,
+              "end_i": 11,
+              "severity": "major"
+            },
+            {
+              "start_i": 15,
+              "end_i": 19,
+              "severity": "major"
+            },
+            {
+              "start_i": 25,
+              "end_i": 31,
+              "severity": "major"
+            },
+            {
+              "start_i": 38,
+              "end_i": 47,
+              "severity": "major"
+            },
+            {
+              "start_i": 57,
+              "end_i": 62,
+              "severity": "major"
+            },
+            {
+              "start_i": 120,
+              "end_i": 131,
+              "severity": "major"
+            },
+            {
+              "start_i": 166,
+              "end_i": 169,
+              "severity": "major"
+            },
+            {
+              "start_i": 173,
+              "end_i": 199,
+              "severity": "major"
+            },
+            {
+              "start_i": 222,
+              "end_i": 230,
+              "severity": "major"
+            },
+            {
+              "start_i": 250,
+              "end_i": 270,
+              "severity": "major"
+            }
+          ],
+          "metadata_human_error_annotations": null,
+          "metadata_provenance": "natural",
+          "metadata_invariant_category": null,
+          "metadata_source_dataset": "wmt-conference/wmt25-mteval:wmt25_task3_combined_test_set",
+          "metadata_doc_id": "en-cs_CZ_#_news_#_guardian.229703",
+          "metadata_segment_id": "118",
+          "metadata_system_id": "CommandA",
+          "metadata_overall_qe_score": 0.77769535779953,
+          "metadata_notes": "QE error spans are the CometKiwi-derived spans released pre-scoring (character offsets into output/hypothesis_segment, severity in {minor,major,critical}). No post-hoc human MQM severity/type gold layer matching the findings-paper Table 15 is publicly released as of this build (post_edit column empty for all 6000 rows) -- treat qe_flagged_spans as the operational localization signal, per the dataset_search_plan's documented fallback.",
+          "metadata_fold": "experimental_pool"
+        },
+        {
+          "input": "Game 18 of #UniversityChallenge was Durham vs Open University. I was rooting for Durham, who have a great team, but in the end to my surprise Open took it, after a number of rather slow answers. I was glad Durham got Marcel Duchamp right on one question; too bad no one knew Yoko Ono as a Fluxus artist. Much respect for Durham Nash, especially on bird silhouettes and flags.",
+          "output": "Osmnáctý zápas #UniversityChallenge byl Durham proti Open University. Držel jsem palce Durhamu, který má skvělý tým, ale nakonec k mému překvapení Open vyhrál, po několika spíše pomalých odpovědích. Byl jsem rád, že Durham správně odpověděl na otázku o Marcelu Duchampovi; škoda, že nikdo neznal Yoko Ono jako umělkyni Fluxus. Velký respekt pro Durham Nash, zejména u siluet ptáků a vlajek.",
+          "metadata_language_pair": "en-cs_CZ",
+          "metadata_domain": "social",
+          "metadata_qe_flagged_spans": [
+            {
+              "start_i": 0,
+              "end_i": 14,
+              "severity": "major"
+            },
+            {
+              "start_i": 35,
+              "end_i": 68,
+              "severity": "major"
+            },
+            {
+              "start_i": 146,
+              "end_i": 158,
+              "severity": "major"
+            },
+            {
+              "start_i": 171,
+              "end_i": 183,
+              "severity": "major"
+            },
+            {
+              "start_i": 186,
+              "end_i": 194,
+              "severity": "major"
+            },
+            {
+              "start_i": 292,
+              "end_i": 295,
+              "severity": "major"
+            },
+            {
+              "start_i": 322,
+              "end_i": 325,
+              "severity": "major"
+            },
+            {
+              "start_i": 344,
+              "end_i": 356,
+              "severity": "major"
+            },
+            {
+              "start_i": 365,
+              "end_i": 377,
+              "severity": "major"
+            }
+          ],
+          "metadata_human_error_annotations": null,
+          "metadata_provenance": "natural",
+          "metadata_invariant_category": null,
+          "metadata_source_dataset": "wmt-conference/wmt25-mteval:wmt25_task3_combined_test_set",
+          "metadata_doc_id": "en-cs_CZ_#_social_#_114220065940975488",
+          "metadata_segment_id": "213",
+          "metadata_system_id": "CommandA",
+          "metadata_overall_qe_score": 0.815670371055603,
+          "metadata_notes": "QE error spans are the CometKiwi-derived spans released pre-scoring (character offsets into output/hypothesis_segment, severity in {minor,major,critical}). No post-hoc human MQM severity/type gold layer matching the findings-paper Table 15 is publicly released as of this build (post_edit column empty for all 6000 rows) -- treat qe_flagged_spans as the operational localization signal, per the dataset_search_plan's documented fallback.",
+          "metadata_fold": "experimental_pool"
+        },
+        {
+          "input": "#UniversityChallenge game 23 was Cardiff against Queen's Belfast. Ended with a lower score than I felt it would get, maybe due to missed bonuses, but the starters were buzzed fast. Nice flag knowledge, and a good picture round identifying physical laws by diagrams of experiments. A bit too much bantz for my taste, but a solid game. One more before the quarter-finals.",
+          "output": "#UniversityChallenge hra 23 byla Cardiff proti Queen's Belfast. Skončila s nižším skóre, než jsem si myslel, možná kvůli propásnutým bonusům, ale startující byli rychle připraveni. Pěkné znalosti vlajek a dobrá obrazová kola identifikující fyzikální zákony pomocí diagramů experimentů. Trochu moc bantz pro můj vkus, ale solidní hra. Ještě jedna před čtvrtfinále.",
+          "metadata_language_pair": "en-cs_CZ",
+          "metadata_domain": "social",
+          "metadata_qe_flagged_spans": [
+            {
+              "start_i": 0,
+              "end_i": 8,
+              "severity": "major"
+            },
+            {
+              "start_i": 11,
+              "end_i": 12,
+              "severity": "major"
+            },
+            {
+              "start_i": 18,
+              "end_i": 54,
+              "severity": "major"
+            },
+            {
+              "start_i": 68,
+              "end_i": 72,
+              "severity": "major"
+            },
+            {
+              "start_i": 80,
+              "end_i": 87,
+              "severity": "major"
+            },
+            {
+              "start_i": 120,
+              "end_i": 131,
+              "severity": "major"
+            },
+            {
+              "start_i": 132,
+              "end_i": 140,
+              "severity": "major"
+            },
+            {
+              "start_i": 145,
+              "end_i": 179,
+              "severity": "major"
+            },
+            {
+              "start_i": 186,
+              "end_i": 202,
+              "severity": "major"
+            },
+            {
+              "start_i": 210,
+              "end_i": 224,
+              "severity": "major"
+            },
+            {
+              "start_i": 234,
+              "end_i": 239,
+              "severity": "major"
+            },
+            {
+              "start_i": 245,
+              "end_i": 249,
+              "severity": "major"
+            },
+            {
+              "start_i": 292,
+              "end_i": 302,
+              "severity": "major"
+            },
+            {
+              "start_i": 339,
+              "end_i": 350,
+              "severity": "major"
+            },
+            {
+              "start_i": 358,
+              "end_i": 361,
+              "severity": "major"
+            }
+          ],
+          "metadata_human_error_annotations": null,
+          "metadata_provenance": "natural",
+          "metadata_invariant_category": null,
+          "metadata_source_dataset": "wmt-conference/wmt25-mteval:wmt25_task3_combined_test_set",
+          "metadata_doc_id": "en-cs_CZ_#_social_#_114220065940975488",
+          "metadata_segment_id": "219",
+          "metadata_system_id": "CUNI-MH-v2",
+          "metadata_overall_qe_score": 0.629381537437439,
+          "metadata_notes": "QE error spans are the CometKiwi-derived spans released pre-scoring (character offsets into output/hypothesis_segment, severity in {minor,major,critical}). No post-hoc human MQM severity/type gold layer matching the findings-paper Table 15 is publicly released as of this build (post_edit column empty for all 6000 rows) -- treat qe_flagged_spans as the operational localization signal, per the dataset_search_plan's documented fallback.",
+          "metadata_fold": "experimental_pool"
+        },
+        {
+          "input": "Trump's bullshit blitz has Europe on its knees",
+          "output": "Trumpovy lživé útoky srazily Evropu na kolena",
+          "metadata_language_pair": "en-cs_CZ",
+          "metadata_domain": "news",
+          "metadata_qe_flagged_spans": [
+            {
+              "start_i": 10,
+              "end_i": 12,
+              "severity": "minor"
+            },
+            {
+              "start_i": 14,
+              "end_i": 20,
+              "severity": "minor"
+            }
+          ],
+          "metadata_human_error_annotations": null,
+          "metadata_provenance": "natural",
+          "metadata_invariant_category": null,
+          "metadata_source_dataset": "wmt-conference/wmt25-mteval:wmt25_task3_combined_test_set",
+          "metadata_doc_id": "en-cs_CZ_#_news_#_guardian.231314",
+          "metadata_segment_id": "153",
+          "metadata_system_id": "MMMT",
+          "metadata_overall_qe_score": 0.8652138710021973,
+          "metadata_notes": "QE error spans are the CometKiwi-derived spans released pre-scoring (character offsets into output/hypothesis_segment, severity in {minor,major,critical}). No post-hoc human MQM severity/type gold layer matching the findings-paper Table 15 is publicly released as of this build (post_edit column empty for all 6000 rows) -- treat qe_flagged_spans as the operational localization signal, per the dataset_search_plan's documented fallback.",
+          "metadata_fold": "experimental_pool"
+        },
+        {
+          "input": "🧵 NOTE: Do NOT get on on the opposite end of the train when carrying 3 bags!\\nI took note of the prev train and prepared to whre I thought was car 1.\\nIm that bumbling American today 🚬😎",
+          "output": "POZOR: Nevstupujte na opačný konec vlaku, když máte 3 zavazadla!\\nDal jsem pozor na předchozí vlak a připravil se na místo, kde jsem si myslel, že je vůz číslo 1.\\nDnes jsem ten zmatený Američan 🚬😎",
+          "metadata_language_pair": "en-cs_CZ",
+          "metadata_domain": "social",
+          "metadata_qe_flagged_spans": [
+            {
+              "start_i": 66,
+              "end_i": 83,
+              "severity": "major"
+            },
+            {
+              "start_i": 93,
+              "end_i": 98,
+              "severity": "major"
+            },
+            {
+              "start_i": 100,
+              "end_i": 122,
+              "severity": "major"
+            },
+            {
+              "start_i": 127,
+              "end_i": 132,
+              "severity": "major"
+            },
+            {
+              "start_i": 149,
+              "end_i": 159,
+              "severity": "major"
+            },
+            {
+              "start_i": 164,
+              "end_i": 194,
+              "severity": "major"
+            }
+          ],
+          "metadata_human_error_annotations": null,
+          "metadata_provenance": "natural",
+          "metadata_invariant_category": null,
+          "metadata_source_dataset": "wmt-conference/wmt25-mteval:wmt25_task3_combined_test_set",
+          "metadata_doc_id": "en-cs_CZ_#_social_#_114417630342798842",
+          "metadata_segment_id": "252",
+          "metadata_system_id": "SalamandraTA",
+          "metadata_overall_qe_score": 0.8030470609664917,
+          "metadata_notes": "QE error spans are the CometKiwi-derived spans released pre-scoring (character offsets into output/hypothesis_segment, severity in {minor,major,critical}). No post-hoc human MQM severity/type gold layer matching the findings-paper Table 15 is publicly released as of this build (post_edit column empty for all 6000 rows) -- treat qe_flagged_spans as the operational localization signal, per the dataset_search_plan's documented fallback.",
+          "metadata_fold": "experimental_pool"
+        },
+        {
+          "input": "And Gavin Kliger, a 25-year-old who boosted a post on X by the white supremacist Nick Fuentes, and whose newly launched Substack this week highlighted the perils of skipping freshman English 101 with a post entitled \"Why DOGE: Why I gave up a seven-figure salary to save America.\"",
+          "output": "A Gavin Kliger, 25letý muž, který na X poslal příspěvek od bělošského supremacisty Nicka Fuentesa, a jehož nově spuštěný Substack tento týden zdůraznil nebezpečí vynechání kurzu angličtiny pro začátečníky 101 příspěvkem s názvem „Proč DOGE: Proč jsem opustil sedmimístný plat, abych zachránil Ameriku.“",
+          "metadata_language_pair": "en-cs_CZ",
+          "metadata_domain": "news",
+          "metadata_qe_flagged_spans": [
+            {
+              "start_i": 0,
+              "end_i": 5,
+              "severity": "major"
+            },
+            {
+              "start_i": 7,
+              "end_i": 11,
+              "severity": "major"
+            },
+            {
+              "start_i": 14,
+              "end_i": 20,
+              "severity": "major"
+            },
+            {
+              "start_i": 22,
+              "end_i": 26,
+              "severity": "major"
+            },
+            {
+              "start_i": 33,
+              "end_i": 58,
+              "severity": "major"
+            },
+            {
+              "start_i": 59,
+              "end_i": 82,
+              "severity": "major"
+            },
+            {
+              "start_i": 88,
+              "end_i": 95,
+              "severity": "major"
+            },
+            {
+              "start_i": 118,
+              "end_i": 129,
+              "severity": "major"
+            },
+            {
+              "start_i": 171,
+              "end_i": 181,
+              "severity": "major"
+            },
+            {
+              "start_i": 192,
+              "end_i": 212,
+              "severity": "major"
+            },
+            {
+              "start_i": 231,
+              "end_i": 239,
+              "severity": "major"
+            },
+            {
+              "start_i": 252,
+              "end_i": 275,
+              "severity": "major"
+            }
+          ],
+          "metadata_human_error_annotations": null,
+          "metadata_provenance": "natural",
+          "metadata_invariant_category": null,
+          "metadata_source_dataset": "wmt-conference/wmt25-mteval:wmt25_task3_combined_test_set",
+          "metadata_doc_id": "en-cs_CZ_#_news_#_guardian.229703",
+          "metadata_segment_id": "118",
+          "metadata_system_id": "CUNI-MH-v2",
+          "metadata_overall_qe_score": 0.7381842136383057,
+          "metadata_notes": "QE error spans are the CometKiwi-derived spans released pre-scoring (character offsets into output/hypothesis_segment, severity in {minor,major,critical}). No post-hoc human MQM severity/type gold layer matching the findings-paper Table 15 is publicly released as of this build (post_edit column empty for all 6000 rows) -- treat qe_flagged_spans as the operational localization signal, per the dataset_search_plan's documented fallback.",
+          "metadata_fold": "experimental_pool"
+        },
+        {
+          "input": "Game 21 of #UniversityChallenge was Wadham Oxford vs Imperial. What a game! Astounding performance from Imperial. However, being King Crimson fan, I was disappointed that no one recognized them from the opening of \"21st Century Schizoid Man,\" and dismayed when someone thought \"I Zimbra\" by Talking Heads (with Fripp on guitar) was by the Bee Gees. Can't have it all. I remain incredibly impressed.",
+          "output": "Jedenadvacátý zápas #UniversityChallenge byl Wadham Oxford proti Imperial. Jaký zápas! Ohromující výkon od Imperial.\\nNicméně, jako fanoušek King Crimson, jsem byl zklamaný, že nikdo je nepoznal z úvodu „21st Century Schizoid Man“, a byl jsem zdrcen, když si někdo myslel, že „I Zimbra“ od Talking Heads (s Frippem na kytaru) je od Bee Gees. Nemůžete mít všechno. Zůstávám neuvěřitelně ohromen.",
+          "metadata_language_pair": "en-cs_CZ",
+          "metadata_domain": "social",
+          "metadata_qe_flagged_spans": [
+            {
+              "start_i": 5,
+              "end_i": 7,
+              "severity": "minor"
+            },
+            {
+              "start_i": 9,
+              "end_i": 19,
+              "severity": "minor"
+            },
+            {
+              "start_i": 40,
+              "end_i": 51,
+              "severity": "minor"
+            },
+            {
+              "start_i": 58,
+              "end_i": 64,
+              "severity": "minor"
+            },
+            {
+              "start_i": 194,
+              "end_i": 201,
+              "severity": "minor"
+            },
+            {
+              "start_i": 242,
+              "end_i": 246,
+              "severity": "minor"
+            }
+          ],
+          "metadata_human_error_annotations": null,
+          "metadata_provenance": "natural",
+          "metadata_invariant_category": null,
+          "metadata_source_dataset": "wmt-conference/wmt25-mteval:wmt25_task3_combined_test_set",
+          "metadata_doc_id": "en-cs_CZ_#_social_#_114220065940975488",
+          "metadata_segment_id": "217",
+          "metadata_system_id": "CommandA",
+          "metadata_overall_qe_score": 0.8308736681938171,
+          "metadata_notes": "QE error spans are the CometKiwi-derived spans released pre-scoring (character offsets into output/hypothesis_segment, severity in {minor,major,critical}). No post-hoc human MQM severity/type gold layer matching the findings-paper Table 15 is publicly released as of this build (post_edit column empty for all 6000 rows) -- treat qe_flagged_spans as the operational localization signal, per the dataset_search_plan's documented fallback.",
+          "metadata_fold": "experimental_pool"
+        },
+        {
+          "input": "I think a lot of the other stuff is such a flagrant violation. These 40 cases.... It's like an advent calendar of illegality, Greg. Every day you turn up another flap and another constitutional provision statute or regulation is violated, started on day one. Many of these are dead losers for Trump, except with complicit, corrupt, conflicted Thomas and Alito.",
+          "output": "Myslím, že spousta těch ostatních věcí je tak flagrantním porušením zákona. Tyhle 40 případů... Je to jako adventní kalendář nezákonnosti, Gregu. Každý den odklopíš další okénko a uvidíš, že je porušeno další ústavní ustanovení, zákon nebo předpis, a to už od prvního dne. Mnohé z těchto věcí jsou pro Trumpa prohrou, leda že by s nimi souhlasili spolupachatelští, zkorumpovaní, konfliktní Thomas a Alito.",
+          "metadata_language_pair": "en-cs_CZ",
+          "metadata_domain": "news",
+          "metadata_qe_flagged_spans": [
+            {
+              "start_i": 41,
+              "end_i": 57,
+              "severity": "major"
+            },
+            {
+              "start_i": 317,
+              "end_i": 364,
+              "severity": "major"
+            },
+            {
+              "start_i": 365,
+              "end_i": 368,
+              "severity": "major"
+            },
+            {
+              "start_i": 371,
+              "end_i": 398,
+              "severity": "major"
+            },
+            {
+              "start_i": 402,
+              "end_i": 404,
+              "severity": "major"
+            }
+          ],
+          "metadata_human_error_annotations": null,
+          "metadata_provenance": "natural",
+          "metadata_invariant_category": null,
+          "metadata_source_dataset": "wmt-conference/wmt25-mteval:wmt25_task3_combined_test_set",
+          "metadata_doc_id": "en-cs_CZ_#_news_#_newrepublic.com.12619",
+          "metadata_segment_id": "166",
+          "metadata_system_id": "MMMT",
+          "metadata_overall_qe_score": 0.795403242111206,
+          "metadata_notes": "QE error spans are the CometKiwi-derived spans released pre-scoring (character offsets into output/hypothesis_segment, severity in {minor,major,critical}). No post-hoc human MQM severity/type gold layer matching the findings-paper Table 15 is publicly released as of this build (post_edit column empty for all 6000 rows) -- treat qe_flagged_spans as the operational localization signal, per the dataset_search_plan's documented fallback.",
+          "metadata_fold": "experimental_pool"
+        }
+      ]
+    }
+  ]
+}
