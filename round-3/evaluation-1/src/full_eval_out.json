@@ -1,0 +1,1737 @@
+{
+  "metadata": {
+    "evaluation_name": "reconciled_five_condition_repair_scorecard",
+    "description": "Apples-to-apples B/D/C1/C2/C evaluation: category-broken-out fix-rate/true-regression-rate, validation-table reconciliation, a pre-registered Condition-B fidelity-gate tolerance, and a paired-bootstrap mechanism test against the hypothesis's own success/disconfirmation criteria.",
+    "dependencies": {
+      "bdc1_experiment": "/ai-inventor/aii_data/runs/run_VO5kqjjB2Uk5/3_invention_loop/iter_2/gen_art/gen_art_experiment_3",
+      "global_validation": "/ai-inventor/aii_data/runs/run_VO5kqjjB2Uk5/3_invention_loop/iter_2/gen_art/gen_art_experiment_1",
+      "condition_c2_sibling": {
+        "found": true,
+        "reason": null
+      },
+      "condition_c_sibling": {
+        "found": false,
+        "reason": "sibling artifact at /ai-inventor/aii_data/runs/run_VO5kqjjB2Uk5/3_invention_loop/iter_3/gen_art/gen_art_experiment_2 (matched via gen_plan_experiment_2) produced no full_method_out.json at evaluation time"
+      }
+    },
+    "reconciliation_note": "(i) n differs because the two tables draw from different pools: the global table uses ALL 448 injected + 1080 natural rows in the checker_validation_heldout fold across all 6 languages x 4 categories, while the within-experiment table uses only the 175-row subset of that fold actually held out for THIS experiment's ru_RU/uk_UA scope. (ii) 'precision' means two different things: the global table's precision is a NATURAL-ROW false-positive proxy (any checker flag on a natural row that does not overlap a sparse QE-flagged span counts as a false positive -- a noisy, conservative signal), while the within-experiment table's precision is an exact SINGLE-POSITIVE-PER-ROW precision against known ground-truth corruption spans on the injected-only heldout rows -- a stricter, directly-interpretable metric. (iii) It is the WITHIN-EXPERIMENT (175-row, 8-cell) table that gated C1's actual repair scope in art_7Uc5PlFctjXi (3/8 cells excluded: ru_RU/uk_UA named_entity, uk_UA quantifier_scope), NOT the global 24-cell table. Reason: the within-experiment table matches exactly the languages/categories C1 ran on and uses the stricter exact-match metric, so it is the more direct measurement of the checker's actual behavior on the exact repair-scope decision being gated -- the global table's natural-row precision proxy was never used as a gating criterion anywhere in this pipeline.",
+    "direction_agreement": {
+      "both_find_negation_polarity_strongest": true,
+      "both_find_named_entity_weakest": true,
+      "note": "Global (24-cell) and within-experiment (8-cell) tables numerically disagree (different n, different precision definitions) but agree in DIRECTION: negation_polarity_flip is the strongest-clearing category and named_entity detection is the weakest in both tables, which is partial reassurance that the two validation protocols are measuring the same underlying phenomenon even though their numbers are not interchangeable."
+    },
+    "which_table_gated_c1_repair_scope": "within_experiment_8_cell_table",
+    "unified_table": {
+      "replaces": "Section 6.3's current three-condition (B/D/C1) table -- this table adds C2 and C so the paper reports all five conditions on identical rows/checker/repair-model.",
+      "rows": {
+        "B": {
+          "condition": "B",
+          "availability_flag": "AVAILABLE",
+          "pooled_delta_comet": "NOT_AVAILABLE (upstream artifacts only computed ΔCOMET on the natural-row pool, not the injected pool -- see pooled_delta_comet_natural_only)",
+          "pooled_delta_comet_natural_only": {
+            "pooled": {
+              "mean": -0.016440192796289922,
+              "ci95": [
+                -0.023672904632985593,
+                -0.010065690614283085
+              ],
+              "n_scored": 320
+            },
+            "by_language_pair": {
+              "ru_RU": {
+                "delta_comet_mean": -0.017741857655346395,
+                "delta_comet_ci95": [
+                  -0.028723084926605226,
+                  -0.008194381184875966
+                ],
+                "n_scored": 160
+              },
+              "uk_UA": {
+                "delta_comet_mean": -0.015138527937233448,
+                "delta_comet_ci95": [
+                  -0.023573026433587073,
+                  -0.007425565831363201
+                ],
+                "n_scored": 160
+              }
+            }
+          },
+          "fix_rate_including_negation": {
+            "n_rows": 240,
+            "fix_rate": 0.7375,
+            "fix_rate_ci95": [
+              0.6791666666666667,
+              0.7916666666666666
+            ],
+            "true_regression_rate": 0.05,
+            "true_regression_rate_ci95": [
+              0.025,
+              0.07916666666666666
+            ]
+          },
+          "fix_rate_excluding_negation": {
+            "n_rows": 180,
+            "fix_rate": 0.9833333333333333,
+            "fix_rate_ci95": [
+              0.9611111111111111,
+              1.0
+            ],
+            "true_regression_rate": 0.06666666666666667,
+            "true_regression_rate_ci95": [
+              0.03333333333333333,
+              0.10555555555555556
+            ]
+          },
+          "true_regression_rate_including_negation": {
+            "n_rows": 240,
+            "fix_rate": 0.7375,
+            "fix_rate_ci95": [
+              0.6791666666666667,
+              0.7916666666666666
+            ],
+            "true_regression_rate": 0.05,
+            "true_regression_rate_ci95": [
+              0.025,
+              0.07916666666666666
+            ]
+          },
+          "true_regression_rate_excluding_negation": {
+            "n_rows": 180,
+            "fix_rate": 0.9833333333333333,
+            "fix_rate_ci95": [
+              0.9611111111111111,
+              1.0
+            ],
+            "true_regression_rate": 0.06666666666666667,
+            "true_regression_rate_ci95": [
+              0.03333333333333333,
+              0.10555555555555556
+            ]
+          },
+          "per_category": {
+            "named_entity": {
+              "n_rows": 60,
+              "fix_rate": 1.0,
+              "fix_rate_ci95": [
+                1.0,
+                1.0
+              ],
+              "true_regression_rate": 0.03333333333333333,
+              "true_regression_rate_ci95": [
+                0.0,
+                0.08333333333333333
+              ]
+            },
+            "number_unit_date": {
+              "n_rows": 60,
+              "fix_rate": 0.9666666666666667,
+              "fix_rate_ci95": [
+                0.9166666666666666,
+                1.0
+              ],
+              "true_regression_rate": 0.06666666666666667,
+              "true_regression_rate_ci95": [
+                0.016666666666666666,
+                0.13333333333333333
+              ]
+            },
+            "negation_polarity": {
+              "n_rows": 60,
+              "fix_rate": 0.0,
+              "fix_rate_ci95": [
+                0.0,
+                0.0
+              ],
+              "true_regression_rate": 0.0,
+              "true_regression_rate_ci95": [
+                0.0,
+                0.0
+              ]
+            },
+            "quantifier_scope": {
+              "n_rows": 60,
+              "fix_rate": 0.9833333333333333,
+              "fix_rate_ci95": [
+                0.95,
+                1.0
+              ],
+              "true_regression_rate": 0.1,
+              "true_regression_rate_ci95": [
+                0.03333333333333333,
+                0.18333333333333332
+              ]
+            }
+          },
+          "category_breakdown_note": "Negation_polarity_flip corruptions are span deletions (corrupted_span==\"\"); B/D/C2 use oracle-QE-span or QE-span-restricted localization and therefore structurally cannot attempt ANY negation repair (fix_success is trivially False for 100% of these rows by construction, not due to repair-quality failure), while C1/C use checker-based full-sentence localization and CAN attempt negation repairs. The pooled_including_negation numbers therefore mechanically penalize B/D/C2's fix rate and inflate C1/C's apparent regression-rate disadvantage on the pooled-including-negation axis; pooled_excluding_negation isolates genuine repair-quality differences.",
+          "edit_volume_and_llm_calls": {
+            "ru_RU": {
+              "edit_volume_mean": 0.1471,
+              "n_llm_calls_mean": 0.9563,
+              "n_scored": 160
+            },
+            "uk_UA": {
+              "edit_volume_mean": 0.1445,
+              "n_llm_calls_mean": 0.9437,
+              "n_scored": 160
+            },
+            "pooled": {
+              "edit_volume_mean": 0.14579999999999999,
+              "n_llm_calls_mean": 0.95,
+              "n_scored": 320
+            }
+          }
+        },
+        "D": {
+          "condition": "D",
+          "availability_flag": "AVAILABLE",
+          "pooled_delta_comet": "NOT_AVAILABLE (upstream artifacts only computed ΔCOMET on the natural-row pool, not the injected pool -- see pooled_delta_comet_natural_only)",
+          "pooled_delta_comet_natural_only": {
+            "pooled": {
+              "mean": -0.015689943358302115,
+              "ci95": [
+                -0.022573553398251532,
+                -0.009700932446867228
+              ],
+              "n_scored": 320
+            },
+            "by_language_pair": {
+              "ru_RU": {
+                "delta_comet_mean": -0.018013252504169942,
+                "delta_comet_ci95": [
+                  -0.029038330540060997,
+                  -0.008556899800896644
+                ],
+                "n_scored": 160
+              },
+              "uk_UA": {
+                "delta_comet_mean": -0.013366634212434291,
+                "delta_comet_ci95": [
+                  -0.02131077479571104,
+                  -0.0061194334179162976
+                ],
+                "n_scored": 160
+              }
+            }
+          },
+          "fix_rate_including_negation": {
+            "n_rows": 240,
+            "fix_rate": 0.7375,
+            "fix_rate_ci95": [
+              0.6832291666666667,
+              0.7916666666666666
+            ],
+            "true_regression_rate": 0.05,
+            "true_regression_rate_ci95": [
+              0.025,
+              0.07916666666666666
+            ]
+          },
+          "fix_rate_excluding_negation": {
+            "n_rows": 180,
+            "fix_rate": 0.9833333333333333,
+            "fix_rate_ci95": [
+              0.9611111111111111,
+              1.0
+            ],
+            "true_regression_rate": 0.06666666666666667,
+            "true_regression_rate_ci95": [
+              0.03333333333333333,
+              0.10555555555555556
+            ]
+          },
+          "true_regression_rate_including_negation": {
+            "n_rows": 240,
+            "fix_rate": 0.7375,
+            "fix_rate_ci95": [
+              0.6832291666666667,
+              0.7916666666666666
+            ],
+            "true_regression_rate": 0.05,
+            "true_regression_rate_ci95": [
+              0.025,
+              0.07916666666666666
+            ]
+          },
+          "true_regression_rate_excluding_negation": {
+            "n_rows": 180,
+            "fix_rate": 0.9833333333333333,
+            "fix_rate_ci95": [
+              0.9611111111111111,
+              1.0
+            ],
+            "true_regression_rate": 0.06666666666666667,
+            "true_regression_rate_ci95": [
+              0.03333333333333333,
+              0.10555555555555556
+            ]
+          },
+          "per_category": {
+            "named_entity": {
+              "n_rows": 60,
+              "fix_rate": 1.0,
+              "fix_rate_ci95": [
+                1.0,
+                1.0
+              ],
+              "true_regression_rate": 0.03333333333333333,
+              "true_regression_rate_ci95": [
+                0.0,
+                0.08333333333333333
+              ]
+            },
+            "number_unit_date": {
+              "n_rows": 60,
+              "fix_rate": 0.9666666666666667,
+              "fix_rate_ci95": [
+                0.9166666666666666,
+                1.0
+              ],
+              "true_regression_rate": 0.06666666666666667,
+              "true_regression_rate_ci95": [
+                0.016666666666666666,
+                0.13333333333333333
+              ]
+            },
+            "negation_polarity": {
+              "n_rows": 60,
+              "fix_rate": 0.0,
+              "fix_rate_ci95": [
+                0.0,
+                0.0
+              ],
+              "true_regression_rate": 0.0,
+              "true_regression_rate_ci95": [
+                0.0,
+                0.0
+              ]
+            },
+            "quantifier_scope": {
+              "n_rows": 60,
+              "fix_rate": 0.9833333333333333,
+              "fix_rate_ci95": [
+                0.95,
+                1.0
+              ],
+              "true_regression_rate": 0.1,
+              "true_regression_rate_ci95": [
+                0.03333333333333333,
+                0.18333333333333332
+              ]
+            }
+          },
+          "category_breakdown_note": "Negation_polarity_flip corruptions are span deletions (corrupted_span==\"\"); B/D/C2 use oracle-QE-span or QE-span-restricted localization and therefore structurally cannot attempt ANY negation repair (fix_success is trivially False for 100% of these rows by construction, not due to repair-quality failure), while C1/C use checker-based full-sentence localization and CAN attempt negation repairs. The pooled_including_negation numbers therefore mechanically penalize B/D/C2's fix rate and inflate C1/C's apparent regression-rate disadvantage on the pooled-including-negation axis; pooled_excluding_negation isolates genuine repair-quality differences.",
+          "edit_volume_and_llm_calls": {
+            "ru_RU": {
+              "edit_volume_mean": 0.1475,
+              "n_llm_calls_mean": 1.0,
+              "n_scored": 160
+            },
+            "uk_UA": {
+              "edit_volume_mean": 0.1417,
+              "n_llm_calls_mean": 1.0125,
+              "n_scored": 160
+            },
+            "pooled": {
+              "edit_volume_mean": 0.14459999999999998,
+              "n_llm_calls_mean": 1.00625,
+              "n_scored": 320
+            }
+          }
+        },
+        "C1": {
+          "condition": "C1",
+          "availability_flag": "AVAILABLE",
+          "pooled_delta_comet": "NOT_AVAILABLE (upstream artifacts only computed ΔCOMET on the natural-row pool, not the injected pool -- see pooled_delta_comet_natural_only)",
+          "pooled_delta_comet_natural_only": {
+            "pooled": {
+              "mean": -0.003549609985202551,
+              "ci95": [
+                -0.007061060890555382,
+                -0.000843074731528759
+              ],
+              "n_scored": 320
+            },
+            "by_language_pair": {
+              "ru_RU": {
+                "delta_comet_mean": -0.006306200101971626,
+                "delta_comet_ci95": [
+                  -0.013268069364130497,
+                  -0.0010864505544304847
+                ],
+                "n_scored": 160
+              },
+              "uk_UA": {
+                "delta_comet_mean": -0.0007930198684334755,
+                "delta_comet_ci95": [
+                  -0.001946283131837845,
+                  0.00037852320820093156
+                ],
+                "n_scored": 160
+              }
+            }
+          },
+          "fix_rate_including_negation": {
+            "n_rows": 240,
+            "fix_rate": 0.45416666666666666,
+            "fix_rate_ci95": [
+              0.3875,
+              0.5166666666666667
+            ],
+            "true_regression_rate": 0.125,
+            "true_regression_rate_ci95": [
+              0.0875,
+              0.17083333333333334
+            ]
+          },
+          "fix_rate_excluding_negation": {
+            "n_rows": 180,
+            "fix_rate": 0.6055555555555555,
+            "fix_rate_ci95": [
+              0.5388888888888889,
+              0.6777777777777778
+            ],
+            "true_regression_rate": 0.1388888888888889,
+            "true_regression_rate_ci95": [
+              0.08888888888888889,
+              0.19444444444444445
+            ]
+          },
+          "true_regression_rate_including_negation": {
+            "n_rows": 240,
+            "fix_rate": 0.45416666666666666,
+            "fix_rate_ci95": [
+              0.3875,
+              0.5166666666666667
+            ],
+            "true_regression_rate": 0.125,
+            "true_regression_rate_ci95": [
+              0.0875,
+              0.17083333333333334
+            ]
+          },
+          "true_regression_rate_excluding_negation": {
+            "n_rows": 180,
+            "fix_rate": 0.6055555555555555,
+            "fix_rate_ci95": [
+              0.5388888888888889,
+              0.6777777777777778
+            ],
+            "true_regression_rate": 0.1388888888888889,
+            "true_regression_rate_ci95": [
+              0.08888888888888889,
+              0.19444444444444445
+            ]
+          },
+          "per_category": {
+            "named_entity": {
+              "n_rows": 60,
+              "fix_rate": 0.21666666666666667,
+              "fix_rate_ci95": [
+                0.11666666666666667,
+                0.3333333333333333
+              ],
+              "true_regression_rate": 0.2,
+              "true_regression_rate_ci95": [
+                0.1,
+                0.3
+              ]
+            },
+            "number_unit_date": {
+              "n_rows": 60,
+              "fix_rate": 0.9833333333333333,
+              "fix_rate_ci95": [
+                0.95,
+                1.0
+              ],
+              "true_regression_rate": 0.03333333333333333,
+              "true_regression_rate_ci95": [
+                0.0,
+                0.08333333333333333
+              ]
+            },
+            "negation_polarity": {
+              "n_rows": 60,
+              "fix_rate": 0.0,
+              "fix_rate_ci95": [
+                0.0,
+                0.0
+              ],
+              "true_regression_rate": 0.08333333333333333,
+              "true_regression_rate_ci95": [
+                0.016666666666666666,
+                0.16666666666666666
+              ]
+            },
+            "quantifier_scope": {
+              "n_rows": 60,
+              "fix_rate": 0.6166666666666667,
+              "fix_rate_ci95": [
+                0.5,
+                0.7333333333333333
+              ],
+              "true_regression_rate": 0.18333333333333332,
+              "true_regression_rate_ci95": [
+                0.1,
+                0.2833333333333333
+              ]
+            }
+          },
+          "category_breakdown_note": "Negation_polarity_flip corruptions are span deletions (corrupted_span==\"\"); B/D/C2 use oracle-QE-span or QE-span-restricted localization and therefore structurally cannot attempt ANY negation repair (fix_success is trivially False for 100% of these rows by construction, not due to repair-quality failure), while C1/C use checker-based full-sentence localization and CAN attempt negation repairs. The pooled_including_negation numbers therefore mechanically penalize B/D/C2's fix rate and inflate C1/C's apparent regression-rate disadvantage on the pooled-including-negation axis; pooled_excluding_negation isolates genuine repair-quality differences.",
+          "edit_volume_and_llm_calls": {
+            "ru_RU": {
+              "edit_volume_mean": 0.0299,
+              "n_llm_calls_mean": 0.9,
+              "n_scored": 160
+            },
+            "uk_UA": {
+              "edit_volume_mean": 0.0121,
+              "n_llm_calls_mean": 0.8,
+              "n_scored": 160
+            },
+            "pooled": {
+              "edit_volume_mean": 0.020999999999999998,
+              "n_llm_calls_mean": 0.85,
+              "n_scored": 320
+            }
+          }
+        },
+        "C2": {
+          "condition": "C2",
+          "availability_flag": "AVAILABLE",
+          "pooled_delta_comet": "NOT_AVAILABLE (upstream artifacts only computed ΔCOMET on the natural-row pool, not the injected pool -- see pooled_delta_comet_natural_only)",
+          "pooled_delta_comet_natural_only": {
+            "pooled": {
+              "mean": -0.01663663759827614,
+              "ci95": [
+                -0.024302838277071713,
+                -0.008813321962952614
+              ],
+              "n_scored": 320
+            },
+            "by_language_pair": {
+              "ru_RU": {
+                "delta_comet_mean": -0.022282234765589236,
+                "delta_comet_ci95": [
+                  -0.03597214687615633,
+                  -0.009994807839393615
+                ],
+                "n_scored": 160
+              },
+              "uk_UA": {
+                "delta_comet_mean": -0.01099104043096304,
+                "delta_comet_ci95": [
+                  -0.017467901296913623,
+                  -0.004755505919456482
+                ],
+                "n_scored": 160
+              }
+            }
+          },
+          "fix_rate_including_negation": {
+            "n_rows": 240,
+            "fix_rate": 0.7416666666666667,
+            "fix_rate_ci95": [
+              0.6833333333333333,
+              0.7958333333333333
+            ],
+            "true_regression_rate": 0.05416666666666667,
+            "true_regression_rate_ci95": [
+              0.029166666666666667,
+              0.0875
+            ]
+          },
+          "fix_rate_excluding_negation": {
+            "n_rows": 180,
+            "fix_rate": 0.9888888888888889,
+            "fix_rate_ci95": [
+              0.9722222222222222,
+              1.0
+            ],
+            "true_regression_rate": 0.07222222222222222,
+            "true_regression_rate_ci95": [
+              0.03333333333333333,
+              0.1111111111111111
+            ]
+          },
+          "true_regression_rate_including_negation": {
+            "n_rows": 240,
+            "fix_rate": 0.7416666666666667,
+            "fix_rate_ci95": [
+              0.6833333333333333,
+              0.7958333333333333
+            ],
+            "true_regression_rate": 0.05416666666666667,
+            "true_regression_rate_ci95": [
+              0.029166666666666667,
+              0.0875
+            ]
+          },
+          "true_regression_rate_excluding_negation": {
+            "n_rows": 180,
+            "fix_rate": 0.9888888888888889,
+            "fix_rate_ci95": [
+              0.9722222222222222,
+              1.0
+            ],
+            "true_regression_rate": 0.07222222222222222,
+            "true_regression_rate_ci95": [
+              0.03333333333333333,
+              0.1111111111111111
+            ]
+          },
+          "per_category": {
+            "named_entity": {
+              "n_rows": 60,
+              "fix_rate": 1.0,
+              "fix_rate_ci95": [
+                1.0,
+                1.0
+              ],
+              "true_regression_rate": 0.06666666666666667,
+              "true_regression_rate_ci95": [
+                0.016666666666666666,
+                0.13333333333333333
+              ]
+            },
+            "number_unit_date": {
+              "n_rows": 60,
+              "fix_rate": 0.9833333333333333,
+              "fix_rate_ci95": [
+                0.95,
+                1.0
+              ],
+              "true_regression_rate": 0.06666666666666667,
+              "true_regression_rate_ci95": [
+                0.016666666666666666,
+                0.13333333333333333
+              ]
+            },
+            "negation_polarity": {
+              "n_rows": 60,
+              "fix_rate": 0.0,
+              "fix_rate_ci95": [
+                0.0,
+                0.0
+              ],
+              "true_regression_rate": 0.0,
+              "true_regression_rate_ci95": [
+                0.0,
+                0.0
+              ]
+            },
+            "quantifier_scope": {
+              "n_rows": 60,
+              "fix_rate": 0.9833333333333333,
+              "fix_rate_ci95": [
+                0.95,
+                1.0
+              ],
+              "true_regression_rate": 0.08333333333333333,
+              "true_regression_rate_ci95": [
+                0.016666666666666666,
+                0.15
+              ]
+            }
+          },
+          "category_breakdown_note": "Negation_polarity_flip corruptions are span deletions (corrupted_span==\"\"); B/D/C2 use oracle-QE-span or QE-span-restricted localization and therefore structurally cannot attempt ANY negation repair (fix_success is trivially False for 100% of these rows by construction, not due to repair-quality failure), while C1/C use checker-based full-sentence localization and CAN attempt negation repairs. The pooled_including_negation numbers therefore mechanically penalize B/D/C2's fix rate and inflate C1/C's apparent regression-rate disadvantage on the pooled-including-negation axis; pooled_excluding_negation isolates genuine repair-quality differences.",
+          "edit_volume_and_llm_calls": {
+            "ru_RU": {
+              "edit_volume_mean": 0.1782,
+              "n_llm_calls_mean": 2.4188,
+              "n_scored": 160
+            },
+            "uk_UA": {
+              "edit_volume_mean": 0.1502,
+              "n_llm_calls_mean": 2.1688,
+              "n_scored": 160
+            },
+            "pooled": {
+              "edit_volume_mean": 0.16419999999999998,
+              "n_llm_calls_mean": 2.2938,
+              "n_scored": 320
+            }
+          }
+        },
+        "C": {
+          "condition": "C",
+          "availability_flag": "NOT_AVAILABLE",
+          "not_available_reason": "sibling artifact at /ai-inventor/aii_data/runs/run_VO5kqjjB2Uk5/3_invention_loop/iter_3/gen_art/gen_art_experiment_2 (matched via gen_plan_experiment_2) produced no full_method_out.json at evaluation time",
+          "pooled_delta_comet": "NOT_AVAILABLE",
+          "pooled_delta_comet_natural_only": "NOT_AVAILABLE",
+          "category_breakdown": "NOT_AVAILABLE",
+          "edit_volume_and_llm_calls": "NOT_AVAILABLE"
+        }
+      }
+    },
+    "verdict": {
+      "mechanism_verdict": "MIXED",
+      "net_positive_verdict": "UNDETERMINED",
+      "overall_verdict": "UNDETERMINED — condition C2/C data unavailable",
+      "verdict_rationale": "mechanism_verdict=MIXED: true_regression comparison (C2-C1 = -0.0708, CI [-0.11666666666666667, -0.025]) and ΔCOMET comparison (C2-C1 = -0.01308702761307359, CI [-0.02143251243301078, -0.004741542793136398]) point in different directions. net_positive_verdict=UNDETERMINED: sibling artifact at /ai-inventor/aii_data/runs/run_VO5kqjjB2Uk5/3_invention_loop/iter_3/gen_art/gen_art_experiment_2 (matched via gen_plan_experiment_2) produced no full_method_out.json at evaluation time"
+    },
+    "n_boot": 2000,
+    "alpha": 0.05,
+    "rng_seed": 42,
+    "openrouter_calls_made": 0,
+    "openrouter_spend_usd": 0.0
+  },
+  "metrics_agg": {
+    "pooled_delta_comet_B": -0.016440192796289922,
+    "pooled_delta_comet_D": -0.015689943358302115,
+    "pooled_delta_comet_C1": -0.003549609985202551,
+    "fix_rate_B_including_negation": 0.7375,
+    "fix_rate_C1_including_negation": 0.45416666666666666,
+    "fix_rate_B_excluding_negation": 0.9833333333333333,
+    "fix_rate_C1_excluding_negation": 0.6055555555555555,
+    "true_regression_rate_B_including_negation": 0.05,
+    "true_regression_rate_C1_including_negation": 0.125,
+    "condition_b_fidelity_magnitude_ratio": 1.5222400737305484,
+    "condition_b_fidelity_gate_pass": 1.0,
+    "condition_c2_available": 1.0,
+    "condition_c_available": 0.0,
+    "n_within_experiment_excluded_cells": 3
+  },
+  "datasets": [
+    {
+      "dataset": "validation_reconciliation_8_cells",
+      "examples": [
+        {
+          "input": "[ru_RU/named_entity] checker validation reconciliation",
+          "output": "{\"global\": {\"n_injected\": 448, \"n_natural\": 1080, \"cell_n_injected\": 23, \"cell_n_natural_checked\": 180, \"precision_natural_row_proxy\": 0.0386, \"recall\": 1.0, \"ci_precision\": [0.0344, 0.0436], \"ci_recall\": [1.0, 1.0], \"usable_at_0.5_threshold\": false}, \"within_experiment\": {\"n_heldout_total\": 175, \"cell_n_rows\": 23, \"precision_exact_single_positive\": 0.3239, \"recall_exact_single_positive\": 1.0, \"usable_at_0.5_threshold\": false}}",
+          "metadata_language": "ru_RU",
+          "metadata_category": "named_entity",
+          "metadata_full_cell": {
+            "language": "ru_RU",
+            "category": "named_entity",
+            "global": {
+              "n_injected": 448,
+              "n_natural": 1080,
+              "cell_n_injected": 23,
+              "cell_n_natural_checked": 180,
+              "precision_natural_row_proxy": 0.0386,
+              "recall": 1.0,
+              "ci_precision": [
+                0.0344,
+                0.0436
+              ],
+              "ci_recall": [
+                1.0,
+                1.0
+              ],
+              "usable_at_0.5_threshold": false
+            },
+            "within_experiment": {
+              "n_heldout_total": 175,
+              "cell_n_rows": 23,
+              "precision_exact_single_positive": 0.3239,
+              "recall_exact_single_positive": 1.0,
+              "usable_at_0.5_threshold": false
+            }
+          },
+          "eval_within_experiment_usable": 0.0
+        },
+        {
+          "input": "[ru_RU/number_unit_date] checker validation reconciliation",
+          "output": "{\"global\": {\"n_injected\": 448, \"n_natural\": 1080, \"cell_n_injected\": 23, \"cell_n_natural_checked\": 180, \"precision_natural_row_proxy\": 0.184, \"recall\": 1.0, \"ci_precision\": [0.1456, 0.2421], \"ci_recall\": [1.0, 1.0], \"usable_at_0.5_threshold\": false}, \"within_experiment\": {\"n_heldout_total\": 175, \"cell_n_rows\": 23, \"precision_exact_single_positive\": 0.575, \"recall_exact_single_positive\": 1.0, \"usable_at_0.5_threshold\": true}}",
+          "metadata_language": "ru_RU",
+          "metadata_category": "number_unit_date",
+          "metadata_full_cell": {
+            "language": "ru_RU",
+            "category": "number_unit_date",
+            "global": {
+              "n_injected": 448,
+              "n_natural": 1080,
+              "cell_n_injected": 23,
+              "cell_n_natural_checked": 180,
+              "precision_natural_row_proxy": 0.184,
+              "recall": 1.0,
+              "ci_precision": [
+                0.1456,
+                0.2421
+              ],
+              "ci_recall": [
+                1.0,
+                1.0
+              ],
+              "usable_at_0.5_threshold": false
+            },
+            "within_experiment": {
+              "n_heldout_total": 175,
+              "cell_n_rows": 23,
+              "precision_exact_single_positive": 0.575,
+              "recall_exact_single_positive": 1.0,
+              "usable_at_0.5_threshold": true
+            }
+          },
+          "eval_within_experiment_usable": 1.0
+        },
+        {
+          "input": "[ru_RU/negation_polarity] checker validation reconciliation",
+          "output": "{\"global\": {\"n_injected\": 448, \"n_natural\": 1080, \"cell_n_injected\": 23, \"cell_n_natural_checked\": 180, \"precision_natural_row_proxy\": 0.8667, \"recall\": 0.5652, \"ci_precision\": [0.6875, 1.0], \"ci_recall\": [0.3478, 0.7826], \"usable_at_0.5_threshold\": true}, \"within_experiment\": {\"n_heldout_total\": 175, \"cell_n_rows\": 23, \"precision_exact_single_positive\": 0.8571, \"recall_exact_single_positive\": 0.5217, \"usable_at_0.5_threshold\": true}}",
+          "metadata_language": "ru_RU",
+          "metadata_category": "negation_polarity",
+          "metadata_full_cell": {
+            "language": "ru_RU",
+            "category": "negation_polarity",
+            "global": {
+              "n_injected": 448,
+              "n_natural": 1080,
+              "cell_n_injected": 23,
+              "cell_n_natural_checked": 180,
+              "precision_natural_row_proxy": 0.8667,
+              "recall": 0.5652,
+              "ci_precision": [
+                0.6875,
+                1.0
+              ],
+              "ci_recall": [
+                0.3478,
+                0.7826
+              ],
+              "usable_at_0.5_threshold": true
+            },
+            "within_experiment": {
+              "n_heldout_total": 175,
+              "cell_n_rows": 23,
+              "precision_exact_single_positive": 0.8571,
+              "recall_exact_single_positive": 0.5217,
+              "usable_at_0.5_threshold": true
+            }
+          },
+          "eval_within_experiment_usable": 1.0
+        },
+        {
+          "input": "[ru_RU/quantifier_scope] checker validation reconciliation",
+          "output": "{\"global\": {\"n_injected\": 448, \"n_natural\": 1080, \"cell_n_injected\": 23, \"cell_n_natural_checked\": 180, \"precision_natural_row_proxy\": 0.1523, \"recall\": 1.0, \"ci_precision\": [0.1271, 0.1885], \"ci_recall\": [1.0, 1.0], \"usable_at_0.5_threshold\": false}, \"within_experiment\": {\"n_heldout_total\": 175, \"cell_n_rows\": 23, \"precision_exact_single_positive\": 0.5909, \"recall_exact_single_positive\": 0.5652, \"usable_at_0.5_threshold\": true}}",
+          "metadata_language": "ru_RU",
+          "metadata_category": "quantifier_scope",
+          "metadata_full_cell": {
+            "language": "ru_RU",
+            "category": "quantifier_scope",
+            "global": {
+              "n_injected": 448,
+              "n_natural": 1080,
+              "cell_n_injected": 23,
+              "cell_n_natural_checked": 180,
+              "precision_natural_row_proxy": 0.1523,
+              "recall": 1.0,
+              "ci_precision": [
+                0.1271,
+                0.1885
+              ],
+              "ci_recall": [
+                1.0,
+                1.0
+              ],
+              "usable_at_0.5_threshold": false
+            },
+            "within_experiment": {
+              "n_heldout_total": 175,
+              "cell_n_rows": 23,
+              "precision_exact_single_positive": 0.5909,
+              "recall_exact_single_positive": 0.5652,
+              "usable_at_0.5_threshold": true
+            }
+          },
+          "eval_within_experiment_usable": 1.0
+        },
+        {
+          "input": "[uk_UA/named_entity] checker validation reconciliation",
+          "output": "{\"global\": {\"n_injected\": 448, \"n_natural\": 1080, \"cell_n_injected\": 23, \"cell_n_natural_checked\": 180, \"precision_natural_row_proxy\": 0.0295, \"recall\": 0.6957, \"ci_precision\": [0.0212, 0.0392], \"ci_recall\": [0.5217, 0.8696], \"usable_at_0.5_threshold\": false}, \"within_experiment\": {\"n_heldout_total\": 175, \"cell_n_rows\": 23, \"precision_exact_single_positive\": 0.3696, \"recall_exact_single_positive\": 0.6957, \"usable_at_0.5_threshold\": false}}",
+          "metadata_language": "uk_UA",
+          "metadata_category": "named_entity",
+          "metadata_full_cell": {
+            "language": "uk_UA",
+            "category": "named_entity",
+            "global": {
+              "n_injected": 448,
+              "n_natural": 1080,
+              "cell_n_injected": 23,
+              "cell_n_natural_checked": 180,
+              "precision_natural_row_proxy": 0.0295,
+              "recall": 0.6957,
+              "ci_precision": [
+                0.0212,
+                0.0392
+              ],
+              "ci_recall": [
+                0.5217,
+                0.8696
+              ],
+              "usable_at_0.5_threshold": false
+            },
+            "within_experiment": {
+              "n_heldout_total": 175,
+              "cell_n_rows": 23,
+              "precision_exact_single_positive": 0.3696,
+              "recall_exact_single_positive": 0.6957,
+              "usable_at_0.5_threshold": false
+            }
+          },
+          "eval_within_experiment_usable": 0.0
+        },
+        {
+          "input": "[uk_UA/number_unit_date] checker validation reconciliation",
+          "output": "{\"global\": {\"n_injected\": 448, \"n_natural\": 1080, \"cell_n_injected\": 23, \"cell_n_natural_checked\": 180, \"precision_natural_row_proxy\": 0.1322, \"recall\": 1.0, \"ci_precision\": [0.1065, 0.1679], \"ci_recall\": [1.0, 1.0], \"usable_at_0.5_threshold\": false}, \"within_experiment\": {\"n_heldout_total\": 175, \"cell_n_rows\": 23, \"precision_exact_single_positive\": 0.575, \"recall_exact_single_positive\": 1.0, \"usable_at_0.5_threshold\": true}}",
+          "metadata_language": "uk_UA",
+          "metadata_category": "number_unit_date",
+          "metadata_full_cell": {
+            "language": "uk_UA",
+            "category": "number_unit_date",
+            "global": {
+              "n_injected": 448,
+              "n_natural": 1080,
+              "cell_n_injected": 23,
+              "cell_n_natural_checked": 180,
+              "precision_natural_row_proxy": 0.1322,
+              "recall": 1.0,
+              "ci_precision": [
+                0.1065,
+                0.1679
+              ],
+              "ci_recall": [
+                1.0,
+                1.0
+              ],
+              "usable_at_0.5_threshold": false
+            },
+            "within_experiment": {
+              "n_heldout_total": 175,
+              "cell_n_rows": 23,
+              "precision_exact_single_positive": 0.575,
+              "recall_exact_single_positive": 1.0,
+              "usable_at_0.5_threshold": true
+            }
+          },
+          "eval_within_experiment_usable": 1.0
+        },
+        {
+          "input": "[uk_UA/negation_polarity] checker validation reconciliation",
+          "output": "{\"global\": {\"n_injected\": 448, \"n_natural\": 1080, \"cell_n_injected\": 23, \"cell_n_natural_checked\": 180, \"precision_natural_row_proxy\": 0.8235, \"recall\": 0.6087, \"ci_precision\": [0.6522, 1.0], \"ci_recall\": [0.3913, 0.7826], \"usable_at_0.5_threshold\": true}, \"within_experiment\": {\"n_heldout_total\": 175, \"cell_n_rows\": 23, \"precision_exact_single_positive\": 0.7778, \"recall_exact_single_positive\": 0.6087, \"usable_at_0.5_threshold\": true}}",
+          "metadata_language": "uk_UA",
+          "metadata_category": "negation_polarity",
+          "metadata_full_cell": {
+            "language": "uk_UA",
+            "category": "negation_polarity",
+            "global": {
+              "n_injected": 448,
+              "n_natural": 1080,
+              "cell_n_injected": 23,
+              "cell_n_natural_checked": 180,
+              "precision_natural_row_proxy": 0.8235,
+              "recall": 0.6087,
+              "ci_precision": [
+                0.6522,
+                1.0
+              ],
+              "ci_recall": [
+                0.3913,
+                0.7826
+              ],
+              "usable_at_0.5_threshold": true
+            },
+            "within_experiment": {
+              "n_heldout_total": 175,
+              "cell_n_rows": 23,
+              "precision_exact_single_positive": 0.7778,
+              "recall_exact_single_positive": 0.6087,
+              "usable_at_0.5_threshold": true
+            }
+          },
+          "eval_within_experiment_usable": 1.0
+        },
+        {
+          "input": "[uk_UA/quantifier_scope] checker validation reconciliation",
+          "output": "{\"global\": {\"n_injected\": 448, \"n_natural\": 1080, \"cell_n_injected\": 14, \"cell_n_natural_checked\": 180, \"precision_natural_row_proxy\": 0.1972, \"recall\": 1.0, \"ci_precision\": [0.1591, 0.2593], \"ci_recall\": [1.0, 1.0], \"usable_at_0.5_threshold\": false}, \"within_experiment\": {\"n_heldout_total\": 175, \"cell_n_rows\": 14, \"precision_exact_single_positive\": 0.5, \"recall_exact_single_positive\": 0.4286, \"usable_at_0.5_threshold\": false}}",
+          "metadata_language": "uk_UA",
+          "metadata_category": "quantifier_scope",
+          "metadata_full_cell": {
+            "language": "uk_UA",
+            "category": "quantifier_scope",
+            "global": {
+              "n_injected": 448,
+              "n_natural": 1080,
+              "cell_n_injected": 14,
+              "cell_n_natural_checked": 180,
+              "precision_natural_row_proxy": 0.1972,
+              "recall": 1.0,
+              "ci_precision": [
+                0.1591,
+                0.2593
+              ],
+              "ci_recall": [
+                1.0,
+                1.0
+              ],
+              "usable_at_0.5_threshold": false
+            },
+            "within_experiment": {
+              "n_heldout_total": 175,
+              "cell_n_rows": 14,
+              "precision_exact_single_positive": 0.5,
+              "recall_exact_single_positive": 0.4286,
+              "usable_at_0.5_threshold": false
+            }
+          },
+          "eval_within_experiment_usable": 0.0
+        }
+      ]
+    },
+    {
+      "dataset": "unified_five_condition_scorecard",
+      "examples": [
+        {
+          "input": "Condition B pooled/category scorecard",
+          "output": "AVAILABLE",
+          "metadata_condition": "B",
+          "metadata_full_row": {
+            "condition": "B",
+            "availability_flag": "AVAILABLE",
+            "pooled_delta_comet": "NOT_AVAILABLE (upstream artifacts only computed ΔCOMET on the natural-row pool, not the injected pool -- see pooled_delta_comet_natural_only)",
+            "pooled_delta_comet_natural_only": {
+              "pooled": {
+                "mean": -0.016440192796289922,
+                "ci95": [
+                  -0.023672904632985593,
+                  -0.010065690614283085
+                ],
+                "n_scored": 320
+              },
+              "by_language_pair": {
+                "ru_RU": {
+                  "delta_comet_mean": -0.017741857655346395,
+                  "delta_comet_ci95": [
+                    -0.028723084926605226,
+                    -0.008194381184875966
+                  ],
+                  "n_scored": 160
+                },
+                "uk_UA": {
+                  "delta_comet_mean": -0.015138527937233448,
+                  "delta_comet_ci95": [
+                    -0.023573026433587073,
+                    -0.007425565831363201
+                  ],
+                  "n_scored": 160
+                }
+              }
+            },
+            "fix_rate_including_negation": {
+              "n_rows": 240,
+              "fix_rate": 0.7375,
+              "fix_rate_ci95": [
+                0.6791666666666667,
+                0.7916666666666666
+              ],
+              "true_regression_rate": 0.05,
+              "true_regression_rate_ci95": [
+                0.025,
+                0.07916666666666666
+              ]
+            },
+            "fix_rate_excluding_negation": {
+              "n_rows": 180,
+              "fix_rate": 0.9833333333333333,
+              "fix_rate_ci95": [
+                0.9611111111111111,
+                1.0
+              ],
+              "true_regression_rate": 0.06666666666666667,
+              "true_regression_rate_ci95": [
+                0.03333333333333333,
+                0.10555555555555556
+              ]
+            },
+            "true_regression_rate_including_negation": {
+              "n_rows": 240,
+              "fix_rate": 0.7375,
+              "fix_rate_ci95": [
+                0.6791666666666667,
+                0.7916666666666666
+              ],
+              "true_regression_rate": 0.05,
+              "true_regression_rate_ci95": [
+                0.025,
+                0.07916666666666666
+              ]
+            },
+            "true_regression_rate_excluding_negation": {
+              "n_rows": 180,
+              "fix_rate": 0.9833333333333333,
+              "fix_rate_ci95": [
+                0.9611111111111111,
+                1.0
+              ],
+              "true_regression_rate": 0.06666666666666667,
+              "true_regression_rate_ci95": [
+                0.03333333333333333,
+                0.10555555555555556
+              ]
+            },
+            "per_category": {
+              "named_entity": {
+                "n_rows": 60,
+                "fix_rate": 1.0,
+                "fix_rate_ci95": [
+                  1.0,
+                  1.0
+                ],
+                "true_regression_rate": 0.03333333333333333,
+                "true_regression_rate_ci95": [
+                  0.0,
+                  0.08333333333333333
+                ]
+              },
+              "number_unit_date": {
+                "n_rows": 60,
+                "fix_rate": 0.9666666666666667,
+                "fix_rate_ci95": [
+                  0.9166666666666666,
+                  1.0
+                ],
+                "true_regression_rate": 0.06666666666666667,
+                "true_regression_rate_ci95": [
+                  0.016666666666666666,
+                  0.13333333333333333
+                ]
+              },
+              "negation_polarity": {
+                "n_rows": 60,
+                "fix_rate": 0.0,
+                "fix_rate_ci95": [
+                  0.0,
+                  0.0
+                ],
+                "true_regression_rate": 0.0,
+                "true_regression_rate_ci95": [
+                  0.0,
+                  0.0
+                ]
+              },
+              "quantifier_scope": {
+                "n_rows": 60,
+                "fix_rate": 0.9833333333333333,
+                "fix_rate_ci95": [
+                  0.95,
+                  1.0
+                ],
+                "true_regression_rate": 0.1,
+                "true_regression_rate_ci95": [
+                  0.03333333333333333,
+                  0.18333333333333332
+                ]
+              }
+            },
+            "category_breakdown_note": "Negation_polarity_flip corruptions are span deletions (corrupted_span==\"\"); B/D/C2 use oracle-QE-span or QE-span-restricted localization and therefore structurally cannot attempt ANY negation repair (fix_success is trivially False for 100% of these rows by construction, not due to repair-quality failure), while C1/C use checker-based full-sentence localization and CAN attempt negation repairs. The pooled_including_negation numbers therefore mechanically penalize B/D/C2's fix rate and inflate C1/C's apparent regression-rate disadvantage on the pooled-including-negation axis; pooled_excluding_negation isolates genuine repair-quality differences.",
+            "edit_volume_and_llm_calls": {
+              "ru_RU": {
+                "edit_volume_mean": 0.1471,
+                "n_llm_calls_mean": 0.9563,
+                "n_scored": 160
+              },
+              "uk_UA": {
+                "edit_volume_mean": 0.1445,
+                "n_llm_calls_mean": 0.9437,
+                "n_scored": 160
+              },
+              "pooled": {
+                "edit_volume_mean": 0.14579999999999999,
+                "n_llm_calls_mean": 0.95,
+                "n_scored": 320
+              }
+            }
+          },
+          "eval_available": 1.0
+        },
+        {
+          "input": "Condition D pooled/category scorecard",
+          "output": "AVAILABLE",
+          "metadata_condition": "D",
+          "metadata_full_row": {
+            "condition": "D",
+            "availability_flag": "AVAILABLE",
+            "pooled_delta_comet": "NOT_AVAILABLE (upstream artifacts only computed ΔCOMET on the natural-row pool, not the injected pool -- see pooled_delta_comet_natural_only)",
+            "pooled_delta_comet_natural_only": {
+              "pooled": {
+                "mean": -0.015689943358302115,
+                "ci95": [
+                  -0.022573553398251532,
+                  -0.009700932446867228
+                ],
+                "n_scored": 320
+              },
+              "by_language_pair": {
+                "ru_RU": {
+                  "delta_comet_mean": -0.018013252504169942,
+                  "delta_comet_ci95": [
+                    -0.029038330540060997,
+                    -0.008556899800896644
+                  ],
+                  "n_scored": 160
+                },
+                "uk_UA": {
+                  "delta_comet_mean": -0.013366634212434291,
+                  "delta_comet_ci95": [
+                    -0.02131077479571104,
+                    -0.0061194334179162976
+                  ],
+                  "n_scored": 160
+                }
+              }
+            },
+            "fix_rate_including_negation": {
+              "n_rows": 240,
+              "fix_rate": 0.7375,
+              "fix_rate_ci95": [
+                0.6832291666666667,
+                0.7916666666666666
+              ],
+              "true_regression_rate": 0.05,
+              "true_regression_rate_ci95": [
+                0.025,
+                0.07916666666666666
+              ]
+            },
+            "fix_rate_excluding_negation": {
+              "n_rows": 180,
+              "fix_rate": 0.9833333333333333,
+              "fix_rate_ci95": [
+                0.9611111111111111,
+                1.0
+              ],
+              "true_regression_rate": 0.06666666666666667,
+              "true_regression_rate_ci95": [
+                0.03333333333333333,
+                0.10555555555555556
+              ]
+            },
+            "true_regression_rate_including_negation": {
+              "n_rows": 240,
+              "fix_rate": 0.7375,
+              "fix_rate_ci95": [
+                0.6832291666666667,
+                0.7916666666666666
+              ],
+              "true_regression_rate": 0.05,
+              "true_regression_rate_ci95": [
+                0.025,
+                0.07916666666666666
+              ]
+            },
+            "true_regression_rate_excluding_negation": {
+              "n_rows": 180,
+              "fix_rate": 0.9833333333333333,
+              "fix_rate_ci95": [
+                0.9611111111111111,
+                1.0
+              ],
+              "true_regression_rate": 0.06666666666666667,
+              "true_regression_rate_ci95": [
+                0.03333333333333333,
+                0.10555555555555556
+              ]
+            },
+            "per_category": {
+              "named_entity": {
+                "n_rows": 60,
+                "fix_rate": 1.0,
+                "fix_rate_ci95": [
+                  1.0,
+                  1.0
+                ],
+                "true_regression_rate": 0.03333333333333333,
+                "true_regression_rate_ci95": [
+                  0.0,
+                  0.08333333333333333
+                ]
+              },
+              "number_unit_date": {
+                "n_rows": 60,
+                "fix_rate": 0.9666666666666667,
+                "fix_rate_ci95": [
+                  0.9166666666666666,
+                  1.0
+                ],
+                "true_regression_rate": 0.06666666666666667,
+                "true_regression_rate_ci95": [
+                  0.016666666666666666,
+                  0.13333333333333333
+                ]
+              },
+              "negation_polarity": {
+                "n_rows": 60,
+                "fix_rate": 0.0,
+                "fix_rate_ci95": [
+                  0.0,
+                  0.0
+                ],
+                "true_regression_rate": 0.0,
+                "true_regression_rate_ci95": [
+                  0.0,
+                  0.0
+                ]
+              },
+              "quantifier_scope": {
+                "n_rows": 60,
+                "fix_rate": 0.9833333333333333,
+                "fix_rate_ci95": [
+                  0.95,
+                  1.0
+                ],
+                "true_regression_rate": 0.1,
+                "true_regression_rate_ci95": [
+                  0.03333333333333333,
+                  0.18333333333333332
+                ]
+              }
+            },
+            "category_breakdown_note": "Negation_polarity_flip corruptions are span deletions (corrupted_span==\"\"); B/D/C2 use oracle-QE-span or QE-span-restricted localization and therefore structurally cannot attempt ANY negation repair (fix_success is trivially False for 100% of these rows by construction, not due to repair-quality failure), while C1/C use checker-based full-sentence localization and CAN attempt negation repairs. The pooled_including_negation numbers therefore mechanically penalize B/D/C2's fix rate and inflate C1/C's apparent regression-rate disadvantage on the pooled-including-negation axis; pooled_excluding_negation isolates genuine repair-quality differences.",
+            "edit_volume_and_llm_calls": {
+              "ru_RU": {
+                "edit_volume_mean": 0.1475,
+                "n_llm_calls_mean": 1.0,
+                "n_scored": 160
+              },
+              "uk_UA": {
+                "edit_volume_mean": 0.1417,
+                "n_llm_calls_mean": 1.0125,
+                "n_scored": 160
+              },
+              "pooled": {
+                "edit_volume_mean": 0.14459999999999998,
+                "n_llm_calls_mean": 1.00625,
+                "n_scored": 320
+              }
+            }
+          },
+          "eval_available": 1.0
+        },
+        {
+          "input": "Condition C1 pooled/category scorecard",
+          "output": "AVAILABLE",
+          "metadata_condition": "C1",
+          "metadata_full_row": {
+            "condition": "C1",
+            "availability_flag": "AVAILABLE",
+            "pooled_delta_comet": "NOT_AVAILABLE (upstream artifacts only computed ΔCOMET on the natural-row pool, not the injected pool -- see pooled_delta_comet_natural_only)",
+            "pooled_delta_comet_natural_only": {
+              "pooled": {
+                "mean": -0.003549609985202551,
+                "ci95": [
+                  -0.007061060890555382,
+                  -0.000843074731528759
+                ],
+                "n_scored": 320
+              },
+              "by_language_pair": {
+                "ru_RU": {
+                  "delta_comet_mean": -0.006306200101971626,
+                  "delta_comet_ci95": [
+                    -0.013268069364130497,
+                    -0.0010864505544304847
+                  ],
+                  "n_scored": 160
+                },
+                "uk_UA": {
+                  "delta_comet_mean": -0.0007930198684334755,
+                  "delta_comet_ci95": [
+                    -0.001946283131837845,
+                    0.00037852320820093156
+                  ],
+                  "n_scored": 160
+                }
+              }
+            },
+            "fix_rate_including_negation": {
+              "n_rows": 240,
+              "fix_rate": 0.45416666666666666,
+              "fix_rate_ci95": [
+                0.3875,
+                0.5166666666666667
+              ],
+              "true_regression_rate": 0.125,
+              "true_regression_rate_ci95": [
+                0.0875,
+                0.17083333333333334
+              ]
+            },
+            "fix_rate_excluding_negation": {
+              "n_rows": 180,
+              "fix_rate": 0.6055555555555555,
+              "fix_rate_ci95": [
+                0.5388888888888889,
+                0.6777777777777778
+              ],
+              "true_regression_rate": 0.1388888888888889,
+              "true_regression_rate_ci95": [
+                0.08888888888888889,
+                0.19444444444444445
+              ]
+            },
+            "true_regression_rate_including_negation": {
+              "n_rows": 240,
+              "fix_rate": 0.45416666666666666,
+              "fix_rate_ci95": [
+                0.3875,
+                0.5166666666666667
+              ],
+              "true_regression_rate": 0.125,
+              "true_regression_rate_ci95": [
+                0.0875,
+                0.17083333333333334
+              ]
+            },
+            "true_regression_rate_excluding_negation": {
+              "n_rows": 180,
+              "fix_rate": 0.6055555555555555,
+              "fix_rate_ci95": [
+                0.5388888888888889,
+                0.6777777777777778
+              ],
+              "true_regression_rate": 0.1388888888888889,
+              "true_regression_rate_ci95": [
+                0.08888888888888889,
+                0.19444444444444445
+              ]
+            },
+            "per_category": {
+              "named_entity": {
+                "n_rows": 60,
+                "fix_rate": 0.21666666666666667,
+                "fix_rate_ci95": [
+                  0.11666666666666667,
+                  0.3333333333333333
+                ],
+                "true_regression_rate": 0.2,
+                "true_regression_rate_ci95": [
+                  0.1,
+                  0.3
+                ]
+              },
+              "number_unit_date": {
+                "n_rows": 60,
+                "fix_rate": 0.9833333333333333,
+                "fix_rate_ci95": [
+                  0.95,
+                  1.0
+                ],
+                "true_regression_rate": 0.03333333333333333,
+                "true_regression_rate_ci95": [
+                  0.0,
+                  0.08333333333333333
+                ]
+              },
+              "negation_polarity": {
+                "n_rows": 60,
+                "fix_rate": 0.0,
+                "fix_rate_ci95": [
+                  0.0,
+                  0.0
+                ],
+                "true_regression_rate": 0.08333333333333333,
+                "true_regression_rate_ci95": [
+                  0.016666666666666666,
+                  0.16666666666666666
+                ]
+              },
+              "quantifier_scope": {
+                "n_rows": 60,
+                "fix_rate": 0.6166666666666667,
+                "fix_rate_ci95": [
+                  0.5,
+                  0.7333333333333333
+                ],
+                "true_regression_rate": 0.18333333333333332,
+                "true_regression_rate_ci95": [
+                  0.1,
+                  0.2833333333333333
+                ]
+              }
+            },
+            "category_breakdown_note": "Negation_polarity_flip corruptions are span deletions (corrupted_span==\"\"); B/D/C2 use oracle-QE-span or QE-span-restricted localization and therefore structurally cannot attempt ANY negation repair (fix_success is trivially False for 100% of these rows by construction, not due to repair-quality failure), while C1/C use checker-based full-sentence localization and CAN attempt negation repairs. The pooled_including_negation numbers therefore mechanically penalize B/D/C2's fix rate and inflate C1/C's apparent regression-rate disadvantage on the pooled-including-negation axis; pooled_excluding_negation isolates genuine repair-quality differences.",
+            "edit_volume_and_llm_calls": {
+              "ru_RU": {
+                "edit_volume_mean": 0.0299,
+                "n_llm_calls_mean": 0.9,
+                "n_scored": 160
+              },
+              "uk_UA": {
+                "edit_volume_mean": 0.0121,
+                "n_llm_calls_mean": 0.8,
+                "n_scored": 160
+              },
+              "pooled": {
+                "edit_volume_mean": 0.020999999999999998,
+                "n_llm_calls_mean": 0.85,
+                "n_scored": 320
+              }
+            }
+          },
+          "eval_available": 1.0
+        },
+        {
+          "input": "Condition C2 pooled/category scorecard",
+          "output": "AVAILABLE",
+          "metadata_condition": "C2",
+          "metadata_full_row": {
+            "condition": "C2",
+            "availability_flag": "AVAILABLE",
+            "pooled_delta_comet": "NOT_AVAILABLE (upstream artifacts only computed ΔCOMET on the natural-row pool, not the injected pool -- see pooled_delta_comet_natural_only)",
+            "pooled_delta_comet_natural_only": {
+              "pooled": {
+                "mean": -0.01663663759827614,
+                "ci95": [
+                  -0.024302838277071713,
+                  -0.008813321962952614
+                ],
+                "n_scored": 320
+              },
+              "by_language_pair": {
+                "ru_RU": {
+                  "delta_comet_mean": -0.022282234765589236,
+                  "delta_comet_ci95": [
+                    -0.03597214687615633,
+                    -0.009994807839393615
+                  ],
+                  "n_scored": 160
+                },
+                "uk_UA": {
+                  "delta_comet_mean": -0.01099104043096304,
+                  "delta_comet_ci95": [
+                    -0.017467901296913623,
+                    -0.004755505919456482
+                  ],
+                  "n_scored": 160
+                }
+              }
+            },
+            "fix_rate_including_negation": {
+              "n_rows": 240,
+              "fix_rate": 0.7416666666666667,
+              "fix_rate_ci95": [
+                0.6833333333333333,
+                0.7958333333333333
+              ],
+              "true_regression_rate": 0.05416666666666667,
+              "true_regression_rate_ci95": [
+                0.029166666666666667,
+                0.0875
+              ]
+            },
+            "fix_rate_excluding_negation": {
+              "n_rows": 180,
+              "fix_rate": 0.9888888888888889,
+              "fix_rate_ci95": [
+                0.9722222222222222,
+                1.0
+              ],
+              "true_regression_rate": 0.07222222222222222,
+              "true_regression_rate_ci95": [
+                0.03333333333333333,
+                0.1111111111111111
+              ]
+            },
+            "true_regression_rate_including_negation": {
+              "n_rows": 240,
+              "fix_rate": 0.7416666666666667,
+              "fix_rate_ci95": [
+                0.6833333333333333,
+                0.7958333333333333
+              ],
+              "true_regression_rate": 0.05416666666666667,
+              "true_regression_rate_ci95": [
+                0.029166666666666667,
+                0.0875
+              ]
+            },
+            "true_regression_rate_excluding_negation": {
+              "n_rows": 180,
+              "fix_rate": 0.9888888888888889,
+              "fix_rate_ci95": [
+                0.9722222222222222,
+                1.0
+              ],
+              "true_regression_rate": 0.07222222222222222,
+              "true_regression_rate_ci95": [
+                0.03333333333333333,
+                0.1111111111111111
+              ]
+            },
+            "per_category": {
+              "named_entity": {
+                "n_rows": 60,
+                "fix_rate": 1.0,
+                "fix_rate_ci95": [
+                  1.0,
+                  1.0
+                ],
+                "true_regression_rate": 0.06666666666666667,
+                "true_regression_rate_ci95": [
+                  0.016666666666666666,
+                  0.13333333333333333
+                ]
+              },
+              "number_unit_date": {
+                "n_rows": 60,
+                "fix_rate": 0.9833333333333333,
+                "fix_rate_ci95": [
+                  0.95,
+                  1.0
+                ],
+                "true_regression_rate": 0.06666666666666667,
+                "true_regression_rate_ci95": [
+                  0.016666666666666666,
+                  0.13333333333333333
+                ]
+              },
+              "negation_polarity": {
+                "n_rows": 60,
+                "fix_rate": 0.0,
+                "fix_rate_ci95": [
+                  0.0,
+                  0.0
+                ],
+                "true_regression_rate": 0.0,
+                "true_regression_rate_ci95": [
+                  0.0,
+                  0.0
+                ]
+              },
+              "quantifier_scope": {
+                "n_rows": 60,
+                "fix_rate": 0.9833333333333333,
+                "fix_rate_ci95": [
+                  0.95,
+                  1.0
+                ],
+                "true_regression_rate": 0.08333333333333333,
+                "true_regression_rate_ci95": [
+                  0.016666666666666666,
+                  0.15
+                ]
+              }
+            },
+            "category_breakdown_note": "Negation_polarity_flip corruptions are span deletions (corrupted_span==\"\"); B/D/C2 use oracle-QE-span or QE-span-restricted localization and therefore structurally cannot attempt ANY negation repair (fix_success is trivially False for 100% of these rows by construction, not due to repair-quality failure), while C1/C use checker-based full-sentence localization and CAN attempt negation repairs. The pooled_including_negation numbers therefore mechanically penalize B/D/C2's fix rate and inflate C1/C's apparent regression-rate disadvantage on the pooled-including-negation axis; pooled_excluding_negation isolates genuine repair-quality differences.",
+            "edit_volume_and_llm_calls": {
+              "ru_RU": {
+                "edit_volume_mean": 0.1782,
+                "n_llm_calls_mean": 2.4188,
+                "n_scored": 160
+              },
+              "uk_UA": {
+                "edit_volume_mean": 0.1502,
+                "n_llm_calls_mean": 2.1688,
+                "n_scored": 160
+              },
+              "pooled": {
+                "edit_volume_mean": 0.16419999999999998,
+                "n_llm_calls_mean": 2.2938,
+                "n_scored": 320
+              }
+            }
+          },
+          "eval_available": 1.0
+        },
+        {
+          "input": "Condition C pooled/category scorecard",
+          "output": "NOT_AVAILABLE",
+          "metadata_condition": "C",
+          "metadata_full_row": {
+            "condition": "C",
+            "availability_flag": "NOT_AVAILABLE",
+            "not_available_reason": "sibling artifact at /ai-inventor/aii_data/runs/run_VO5kqjjB2Uk5/3_invention_loop/iter_3/gen_art/gen_art_experiment_2 (matched via gen_plan_experiment_2) produced no full_method_out.json at evaluation time",
+            "pooled_delta_comet": "NOT_AVAILABLE",
+            "pooled_delta_comet_natural_only": "NOT_AVAILABLE",
+            "category_breakdown": "NOT_AVAILABLE",
+            "edit_volume_and_llm_calls": "NOT_AVAILABLE"
+          },
+          "eval_available": 0.0
+        }
+      ]
+    },
+    {
+      "dataset": "condition_b_fidelity_gate",
+      "examples": [
+        {
+          "input": "Condition B fidelity-gate tolerance test vs Padmanabhan (2025)",
+          "output": "PASS",
+          "metadata_full_result": {
+            "pre_registered_tolerance": {
+              "criterion_a": "sign(measured pooled ΔCOMET) == sign(Padmanabhan's -0.0108)",
+              "criterion_b": "|measured|/|original| in [0.5x, 2.0x]",
+              "rationale": "A standard order-of-magnitude band (factor of 2 in either direction) for a single replicated point estimate under a different repair model and a much smaller, differently-sampled test set."
+            },
+            "padmanabhan_delta_comet": -0.0108,
+            "measured_delta_comet": -0.016440192796289922,
+            "measured_ci95": [
+              -0.023672904632985593,
+              -0.010065690614283085
+            ],
+            "magnitude_ratio": 1.5222400737305484,
+            "same_sign": true,
+            "ratio_in_tolerance_band": true,
+            "verdict": "PASS",
+            "verdict_qualifier": "borderline pass, not an unqualified one",
+            "secondary_ci_based_check": {
+              "description": "Does Padmanabhan's -0.0108 point value fall inside the measured 95% CI?",
+              "padmanabhan_value_inside_measured_ci": true,
+              "note": "yes, at the very edge"
+            },
+            "tolerance_provenance_caveat": "This tolerance was chosen for this evaluation (post-hoc relative to the original hypothesis's unquantified language, but pre-registered relative to seeing any of C2/C's results) and is NOT literature-derived. This is a limitation of the tolerance itself, not just of the measurement it is applied to."
+          },
+          "eval_pass": 1.0,
+          "eval_magnitude_ratio": 1.5222400737305484
+        }
+      ]
+    },
+    {
+      "dataset": "mechanism_and_net_positive_verdict",
+      "examples": [
+        {
+          "input": "Mechanism test: (C2-D) vs (C1-D) on true_regression_rate/ΔCOMET; net-positive test: C vs B",
+          "output": "UNDETERMINED — condition C2/C data unavailable",
+          "metadata_full_mechanism": {
+            "mechanism_comparison": {
+              "n_matched_rows": 240,
+              "true_regression_rate_diff_c2_minus_c1": {
+                "point": -0.07083333333333333,
+                "ci95": [
+                  -0.11666666666666667,
+                  -0.025
+                ]
+              },
+              "fix_rate_diff_c2_minus_c1": {
+                "point": 0.28750000000000003,
+                "ci95": [
+                  0.22916666666666666,
+                  0.3458333333333333
+                ]
+              },
+              "delta_comet_diff_c2_minus_c1": {
+                "point": -0.01308702761307359,
+                "ci95": [
+                  -0.02143251243301078,
+                  -0.004741542793136398
+                ],
+                "method": "normal_approximation_from_reported_CIs"
+              },
+              "note": "(C2-D)-(C1-D) reduces algebraically to C2-C1 since D is subtracted from both terms; computed here directly on matched rows."
+            },
+            "mechanism_verdict": "MIXED",
+            "mechanism_rationale": "true_regression comparison (C2-C1 = -0.0708, CI [-0.11666666666666667, -0.025]) and ΔCOMET comparison (C2-C1 = -0.01308702761307359, CI [-0.02143251243301078, -0.004741542793136398]) point in different directions.",
+            "net_positive_comparison": "NOT_AVAILABLE",
+            "net_positive_comparison_reason": "sibling artifact at /ai-inventor/aii_data/runs/run_VO5kqjjB2Uk5/3_invention_loop/iter_3/gen_art/gen_art_experiment_2 (matched via gen_plan_experiment_2) produced no full_method_out.json at evaluation time",
+            "net_positive_verdict": "UNDETERMINED"
+          },
+          "metadata_verdict": {
+            "mechanism_verdict": "MIXED",
+            "net_positive_verdict": "UNDETERMINED",
+            "overall_verdict": "UNDETERMINED — condition C2/C data unavailable",
+            "verdict_rationale": "mechanism_verdict=MIXED: true_regression comparison (C2-C1 = -0.0708, CI [-0.11666666666666667, -0.025]) and ΔCOMET comparison (C2-C1 = -0.01308702761307359, CI [-0.02143251243301078, -0.004741542793136398]) point in different directions. net_positive_verdict=UNDETERMINED: sibling artifact at /ai-inventor/aii_data/runs/run_VO5kqjjB2Uk5/3_invention_loop/iter_3/gen_art/gen_art_experiment_2 (matched via gen_plan_experiment_2) produced no full_method_out.json at evaluation time"
+          },
+          "eval_confirmed": 0.0
+        }
+      ]
+    }
+  ]
+}
