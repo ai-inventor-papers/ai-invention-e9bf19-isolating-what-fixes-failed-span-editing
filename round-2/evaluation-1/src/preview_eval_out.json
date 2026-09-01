@@ -1,0 +1,215 @@
+{
+  "metadata": {
+    "evaluation_name": "Does Hygiene or Verification Fix Editing? — B/D/C1 paired comparison",
+    "description": "Evaluates checker-validation precision/recall, the condition-B fidelity-gate verdict, and per-sentence B/D/C1 span-editing results from this iteration's sibling gen_art experiments. Degrades gracefull...",
+    "condition_b_fidelity_gate_verdict": "NOT_AVAILABLE",
+    "top_level_caveat": "CONDITION-B FIDELITY GATE: NOT_AVAILABLE. Every B/D/C1 comparison below is conditional on this verdict; a FAIL or NOT_AVAILABLE verdict means the absolute ΔCOMET/regression/fix-rate numbers below (whe...",
+    "self_test": {
+      "status": "PASSED",
+      "n_synthetic_rows": 200,
+      "d_minus_b_delta_comet_synthetic": {
+        "mean": 0.00911496900116669,
+        "ci_lo": 0.007698515101272231,
+        "ci_hi": 0.010557124292611826,
+        "n": 200,
+        "n_boot": 10000
+      },
+      "c1_minus_d_delta_comet_synthetic": {
+        "mean": 5.100995669027497e-05,
+        "ci_lo": -0.0013708731986416497,
+        "ci_hi": 0.0014371007545505622,
+        "n": 200,
+        "n_boot": 10000
+      },
+      "note": "Synthetic fixture used ONLY to validate the statistics code paths; not used anywhere in eval_out.json's reported metrics."
+    },
+    "detailed_results": {
+      "1_checker_validation_precision_recall": {
+        "status": "NOT_AVAILABLE",
+        "reason": "No checker_validation*.json (or equivalent) file was found among sibling iter_2 gen_art experiment outputs.",
+        "searched_files": []
+      },
+      "1b_checker_validation_heldout_dataset_composition": {
+        "status": "COMPUTED_FROM_DATASET_NOT_A_CHECKER_SCORE",
+        "note": "Row counts per (language_pair, invariant_category) cell in the checker_validation_heldout fold, from the real dataset dependency. Precision/recall against these cells is NOT_AVAILABLE because no check...",
+        "cell_counts": {
+          "en-cs_CZ|named_entity_swap": 23,
+          "en-cs_CZ|number_unit_date_alteration": 23,
+          "en-cs_CZ|negation_polarity_flip": 13,
+          "en-cs_CZ|quantifier_substitution": 13,
+          "en-is_IS|number_unit_date_alteration": 23,
+          "en-is_IS|negation_polarity_flip": 23,
+          "en-is_IS|named_entity_swap": 23,
+          "en-is_IS|quantifier_substitution": 16,
+          "en-ja_JP|negation_polarity_flip": 23,
+          "en-ja_JP|named_entity_swap": 10,
+          "en-ja_JP|quantifier_substitution": 10,
+          "en-ja_JP|number_unit_date_alteration": 3,
+          "en-ru_RU|negation_polarity_flip": 23,
+          "en-ru_RU|named_entity_swap": 23,
+          "en-ru_RU|number_unit_date_alteration": 23,
+          "en-ru_RU|quantifier_substitution": 23,
+          "en-uk_UA|number_unit_date_alteration": 23,
+          "en-uk_UA|named_entity_swap": 23,
+          "en-uk_UA|negation_polarity_flip": 23,
+          "en-uk_UA|quantifier_substitution": 14,
+          "en-zh_CN|quantifier_substitution": 12,
+          "en-zh_CN|number_unit_date_alteration": 20,
+          "en-zh_CN|negation_polarity_flip": 23,
+          "en-zh_CN|named_entity_swap": 15
+        },
+        "language_pair_totals": {
+          "en-cs_CZ": 72,
+          "en-is_IS": 85,
+          "en-ja_JP": 46,
+          "en-ru_RU": 92,
+          "en-uk_UA": 83,
+          "en-zh_CN": 70
+        },
+        "zh_CN_ja_JP_named_entity_swap_cell_counts": {
+          "en-zh_CN|named_entity_swap": 15,
+          "en-ja_JP|named_entity_swap": 10
+        }
+      },
+      "2_condition_b_fidelity_gate": {
+        "verdict": "NOT_AVAILABLE",
+        "evidence": {
+          "reason": "No condition_b_fidelity*.json (or equivalent) file was found among sibling iter_2 gen_art experiment outputs at evaluation time — the three sibling experiment sessions (gen_art_experiment_1/2/3) had n...",
+          "searched_files": []
+        }
+      },
+      "a_paired_delta_comet_and_related_bdc1_metrics": "NOT_AVAILABLE",
+      "e_sensitivity_reanalysis_precision_recall_gated": {
+        "status": "NOT_AVAILABLE",
+        "reason": "Requires both usable per-sentence B/D/C1 rows AND a checker precision/recall table with a 'cells' mapping — at least one is missing.",
+        "pre_registered_expected_weak_cells": [
+          "zh_CN|named_entity",
+          "ja_JP|named_entity"
+        ],
+        "pre_registered_threshold": 0.6
+      },
+      "f_six_language_pair_reconciliation_table": {
+        "rows": [
+          {
+            "language_pair": "en-cs_CZ",
+            "quoted_surreypai_s2_delta_comet": -0.007,
+            "quoted_surreypai_s2_ger": -0.005,
+            "quoted_baseline_s2_delta_comet": 0.0,
+            "quoted_baseline_s2_ger": 0.0,
+            "quote_location": "Findings of the WMT25 Shared Task on Automated Translation Evaluation Systems, Table 15 (https://aclanthology.org/2025.wmt-1.24.pdf, page ~60, 'Task 3 - Performance of systems across languages'), verb...",
+            "measured_this_iteration": "NOT_AVAILABLE"
+          },
+          {
+            "language_pair": "en-is_IS",
+            "quoted_surreypai_s2_delta_comet": -0.01,
+            "quoted_surreypai_s2_ger": -0.006,
+            "quoted_baseline_s2_delta_comet": 0.007,
+            "quoted_baseline_s2_ger": 0.026,
+            "quote_location": "Findings of the WMT25 Shared Task on Automated Translation Evaluation Systems, Table 15 (https://aclanthology.org/2025.wmt-1.24.pdf, page ~60, 'Task 3 - Performance of systems across languages'), verb...",
+            "measured_this_iteration": "NOT_AVAILABLE"
+          },
+          {
+            "language_pair": "en-ja_JP",
+            "quoted_surreypai_s2_delta_comet": -0.013,
+            "quoted_surreypai_s2_ger": -0.008,
+            "quoted_baseline_s2_delta_comet": -0.008,
+            "quoted_baseline_s2_ger": -0.036,
+            "quote_location": "Findings of the WMT25 Shared Task on Automated Translation Evaluation Systems, Table 15 (https://aclanthology.org/2025.wmt-1.24.pdf, page ~60, 'Task 3 - Performance of systems across languages'), verb...",
+            "measured_this_iteration": "NOT_AVAILABLE"
+          }
+        ],
+        "coverage_note": "This iteration's B/D/C1 experiments (gen_art_experiment_1/2/3 in iter_2/gen_art) produced no result files at evaluation time — all 'measured_this_iteration' cells are NOT_AVAILABLE. The quoted columns..."
+      }
+    }
+  },
+  "metrics_agg": {
+    "n_input_types_expected": 3,
+    "n_input_types_available": 0,
+    "data_availability_fraction": 0.0,
+    "n_paired_bdc1_rows_used": 0,
+    "padmanabhan_self_reported_avg_delta_comet_surreypai_s2": -0.0108,
+    "padmanabhan_table15_avg_delta_comet_surreypai_s2": -0.011,
+    "padmanabhan_table15_avg_delta_comet_baseline_s2": 0.0,
+    "n_checker_validation_heldout_cells_with_dataset_ground_truth": 24,
+    "self_test_passed": 1.0
+  },
+  "datasets": [
+    {
+      "dataset": "input_availability_status",
+      "examples": [
+        {
+          "input": "expected sibling-artifact input: checker_validation_precision_recall",
+          "output": "NOT_AVAILABLE",
+          "metadata_searched_files": [],
+          "metadata_search_roots": [
+            "/ai-inventor/aii_data/runs/run_VO5kqjjB2Uk5/3_invention_loop/iter_2/gen_art",
+            "/ai-inventor/aii_data/runs/run_VO5kqjjB2Uk5/3_invention_loop/iter_2/gen_plan",
+            "/ai-inventor/aii_data/runs/run_VO5kqjjB2Uk5/3_invention_loop/iter_2/gen_exp"
+          ],
+          "predict_availability_status": "NOT_AVAILABLE",
+          "eval_available": 0.0
+        },
+        {
+          "input": "expected sibling-artifact input: condition_b_fidelity_gate",
+          "output": "NOT_AVAILABLE",
+          "metadata_searched_files": [],
+          "metadata_search_roots": [
+            "/ai-inventor/aii_data/runs/run_VO5kqjjB2Uk5/3_invention_loop/iter_2/gen_art",
+            "/ai-inventor/aii_data/runs/run_VO5kqjjB2Uk5/3_invention_loop/iter_2/gen_plan",
+            "/ai-inventor/aii_data/runs/run_VO5kqjjB2Uk5/3_invention_loop/iter_2/gen_exp"
+          ],
+          "predict_availability_status": "NOT_AVAILABLE",
+          "eval_available": 0.0
+        },
+        {
+          "input": "expected sibling-artifact input: b_d_c1_per_sentence_results",
+          "output": "NOT_AVAILABLE",
+          "metadata_searched_files": [
+            "/ai-inventor/aii_data/runs/run_VO5kqjjB2Uk5/3_invention_loop/iter_2/gen_plan/gen_plan_evaluation_1/.terminal_claude_agent_struct_out.json",
+            "/ai-inventor/aii_data/runs/run_VO5kqjjB2Uk5/3_invention_loop/iter_2/gen_plan/gen_plan_experiment_1/.terminal_claude_agent_struct_out.json",
+            "/ai-inventor/aii_data/runs/run_VO5kqjjB2Uk5/3_invention_loop/iter_2/gen_plan/gen_plan_experiment_2/.terminal_claude_agent_struct_out.json"
+          ],
+          "metadata_search_roots": [
+            "/ai-inventor/aii_data/runs/run_VO5kqjjB2Uk5/3_invention_loop/iter_2/gen_art",
+            "/ai-inventor/aii_data/runs/run_VO5kqjjB2Uk5/3_invention_loop/iter_2/gen_plan",
+            "/ai-inventor/aii_data/runs/run_VO5kqjjB2Uk5/3_invention_loop/iter_2/gen_exp"
+          ],
+          "predict_availability_status": "NOT_AVAILABLE",
+          "eval_available": 0.0
+        }
+      ]
+    },
+    {
+      "dataset": "six_language_pair_delta_comet_reconciliation",
+      "examples": [
+        {
+          "input": "WMT25 Table 15 SURREYPAI-S2/BASELINE-S2 vs this iteration's measurement, language pair en-cs_CZ",
+          "output": "{\"language_pair\": \"en-cs_CZ\", \"quoted_surreypai_s2_delta_comet\": -0.007, \"quoted_surreypai_s2_ger\": -0.005, \"quoted_baseline_s2_delta_comet\": 0.0, \"quoted_baseline_s2_ger\": 0.0, \"quote_location\": \"Fin...",
+          "metadata_language_pair": "en-cs_CZ",
+          "metadata_quote_location": "Findings of the WMT25 Shared Task on Automated Translation Evaluation Systems, Table 15 (https://aclanthology.org/2025.wmt-1.24.pdf, page ~60, 'Task 3 - Performance of systems across languages'), verb...",
+          "predict_measured_this_iteration": "NOT_AVAILABLE",
+          "eval_quoted_surreypai_s2_delta_comet": -0.007,
+          "eval_measured_available": 0.0
+        },
+        {
+          "input": "WMT25 Table 15 SURREYPAI-S2/BASELINE-S2 vs this iteration's measurement, language pair en-is_IS",
+          "output": "{\"language_pair\": \"en-is_IS\", \"quoted_surreypai_s2_delta_comet\": -0.01, \"quoted_surreypai_s2_ger\": -0.006, \"quoted_baseline_s2_delta_comet\": 0.007, \"quoted_baseline_s2_ger\": 0.026, \"quote_location\": \"...",
+          "metadata_language_pair": "en-is_IS",
+          "metadata_quote_location": "Findings of the WMT25 Shared Task on Automated Translation Evaluation Systems, Table 15 (https://aclanthology.org/2025.wmt-1.24.pdf, page ~60, 'Task 3 - Performance of systems across languages'), verb...",
+          "predict_measured_this_iteration": "NOT_AVAILABLE",
+          "eval_quoted_surreypai_s2_delta_comet": -0.01,
+          "eval_measured_available": 0.0
+        },
+        {
+          "input": "WMT25 Table 15 SURREYPAI-S2/BASELINE-S2 vs this iteration's measurement, language pair en-ja_JP",
+          "output": "{\"language_pair\": \"en-ja_JP\", \"quoted_surreypai_s2_delta_comet\": -0.013, \"quoted_surreypai_s2_ger\": -0.008, \"quoted_baseline_s2_delta_comet\": -0.008, \"quoted_baseline_s2_ger\": -0.036, \"quote_location\"...",
+          "metadata_language_pair": "en-ja_JP",
+          "metadata_quote_location": "Findings of the WMT25 Shared Task on Automated Translation Evaluation Systems, Table 15 (https://aclanthology.org/2025.wmt-1.24.pdf, page ~60, 'Task 3 - Performance of systems across languages'), verb...",
+          "predict_measured_this_iteration": "NOT_AVAILABLE",
+          "eval_quoted_surreypai_s2_delta_comet": -0.013,
+          "eval_measured_available": 0.0
+        }
+      ]
+    }
+  ]
+}
