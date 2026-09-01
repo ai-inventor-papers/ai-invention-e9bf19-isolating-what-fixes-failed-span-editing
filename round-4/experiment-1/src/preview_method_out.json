@@ -1,0 +1,594 @@
+{
+  "metadata": {
+    "method_name": "checker_broadened_iterative_repair_C",
+    "description": "Condition C: checker-broadened localization (C1) + iterative repair-and-reverify (C2) combined -- detect_all() re-run FRESH every pass on the CURRENT text, up to MAX_PASSES=3, stopping on a zero-flag ...",
+    "c2_run_reused_from": "/ai-inventor/aii_data/runs/run_VO5kqjjB2Uk5/3_invention_loop/iter_3/gen_art/gen_art_experiment_1",
+    "bddc1_run_reused_from": "/ai-inventor/aii_data/runs/run_VO5kqjjB2Uk5/3_invention_loop/iter_2/gen_art/gen_art_experiment_3",
+    "row_id_identity_check_vs_c2": {
+      "prior_selected_rows_found": true,
+      "natural_match": true,
+      "injected_pool_match": true,
+      "injected_heldout_match": true
+    },
+    "repair_model": "google/gemma-3-12b-it",
+    "seed": 42,
+    "max_passes": 3,
+    "call_timeout_s": 75.0,
+    "max_retries": 3,
+    "heartbeat_every_s": 30.0,
+    "wall_clock_cap_s": 5400.0,
+    "wall_clock_cap_hit": false,
+    "language_pairs": [
+      "en-ru_RU",
+      "en-uk_UA"
+    ],
+    "n_natural_per_pair_target": 160,
+    "n_injected_per_cell_target": 30,
+    "n_natural_rows_processed": 320,
+    "n_injected_pool_rows_processed": 240,
+    "n_injected_heldout_rows": 175,
+    "n_negation_deletion_rows_total": 60,
+    "completion_fraction": 1.0,
+    "checker_validation": {
+      "per_cell": {
+        "ru_RU|named_entity": {
+          "lang": "ru_RU",
+          "category": "named_entity",
+          "n_rows": 23,
+          "recall": 0.0,
+          "precision": 0.0,
+          "n_flags_total": 0
+        },
+        "ru_RU|number_unit_date": {
+          "lang": "ru_RU",
+          "category": "number_unit_date",
+          "n_rows": 23,
+          "recall": 1.0,
+          "precision": 0.575,
+          "n_flags_total": 40
+        },
+        "ru_RU|negation_polarity": {
+          "lang": "ru_RU",
+          "category": "negation_polarity",
+          "n_rows": 23,
+          "recall": 0.5217,
+          "precision": 0.8571,
+          "n_flags_total": 14
+        },
+        "ru_RU|quantifier_scope": {
+          "lang": "ru_RU",
+          "category": "quantifier_scope",
+          "n_rows": 23,
+          "recall": 0.5652,
+          "precision": 0.5909,
+          "n_flags_total": 22
+        },
+        "uk_UA|named_entity": {
+          "lang": "uk_UA",
+          "category": "named_entity",
+          "n_rows": 23,
+          "recall": 0.0,
+          "precision": 0.0,
+          "n_flags_total": 0
+        },
+        "uk_UA|number_unit_date": {
+          "lang": "uk_UA",
+          "category": "number_unit_date",
+          "n_rows": 23,
+          "recall": 1.0,
+          "precision": 0.575,
+          "n_flags_total": 40
+        },
+        "uk_UA|negation_polarity": {
+          "lang": "uk_UA",
+          "category": "negation_polarity",
+          "n_rows": 23,
+          "recall": 0.6087,
+          "precision": 0.7778,
+          "n_flags_total": 18
+        },
+        "uk_UA|quantifier_scope": {
+          "lang": "uk_UA",
+          "category": "quantifier_scope",
+          "n_rows": 14,
+          "recall": 0.4286,
+          "precision": 0.5,
+          "n_flags_total": 12
+        }
+      },
+      "excluded_cells": [
+        "ru_RU|named_entity",
+        "uk_UA|named_entity",
+        "uk_UA|quantifier_scope"
+      ]
+    },
+    "cost_estimate_presweep": {
+      "n_probe_rows": 20,
+      "probe_cost_usd": 0.001984,
+      "probe_elapsed_s": 20.0,
+      "cost_per_row_usd": 9.9e-05,
+      "avg_llm_calls_per_row_observed": 2.05,
+      "n_eligible_rows_full_sweep": 560,
+      "projected_worst_case_usd": 0.0813,
+      "projected_typical_usd": 0.0555,
+      "sub_budget_usd": 2.0,
+      "decision": "Projected typical $0.0555 is within sub-budget $2.00; proceeding with the full sweep, no reduction needed.",
+      "wall_clock_extrapolated_s_for_full_sweep": 143.6
+    },
+    "cost_ledger": {
+      "spent_usd": 0.031067,
+      "cap_usd": 10.0,
+      "n_calls": 731,
+      "n_input_tokens": 333108,
+      "n_output_tokens": 96078
+    },
+    "sub_budget_usd": 2.0,
+    "sub_budget_respected": true,
+    "runtime_seconds": 334.7,
+    "metrics": {
+      "natural_per_language_pair": {
+        "en-ru_RU": {
+          "delta_comet_mean": 0.0019110860106081532,
+          "delta_comet_ci95": [
+            0.000260979764295375,
+            0.003570449915623764
+          ],
+          "n_scored": 160,
+          "edit_volume_mean": 0.0277,
+          "n_llm_calls_mean": 2.6688,
+          "n_passes_mean": 2.6688,
+          "certificate_rate": 0.125
+        },
+        "en-uk_UA": {
+          "delta_comet_mean": 0.0012989255433189517,
+          "delta_comet_ci95": [
+            -0.00017953116083116935,
+            0.002998722504368401
+          ],
+          "n_scored": 160,
+          "edit_volume_mean": 0.0167,
+          "n_llm_calls_mean": 2.3875,
+          "n_passes_mean": 2.3875,
+          "certificate_rate": 0.2062
+        }
+      },
+      "natural_pooled": {
+        "delta_comet_mean": 0.0016050057769635526,
+        "delta_comet_ci95": [
+          0.0005051271995922844,
+          0.0027132961159482055
+        ],
+        "n_scored": 320,
+        "n_llm_calls_mean": 2.5281,
+        "n_passes_mean": 2.5281,
+        "n_hard_failed": 0
+      },
+      "injected_category_table": [
+        {
+          "category": "named_entity_swap",
+          "language_pair": "en-ru_RU",
+          "n_rows": 30,
+          "n_attempted": 30,
+          "n_not_attempted_or_failed": 0,
+          "fix_rate": 0.2667,
+          "true_regression_rate": 0.2,
+          "certificate_rate": 0.4667,
+          "n_passes_mean": 1.7,
+          "n_llm_calls_mean": 1.7
+        },
+        {
+          "category": "named_entity_swap",
+          "language_pair": "en-uk_UA",
+          "n_rows": 30,
+          "n_attempted": 30,
+          "n_not_attempted_or_failed": 0,
+          "fix_rate": 0.1667,
+          "true_regression_rate": 0.2667,
+          "certificate_rate": 0.5333,
+          "n_passes_mean": 1.4333,
+          "n_llm_calls_mean": 1.4333
+        },
+        {
+          "category": "number_unit_date_alteration",
+          "language_pair": "en-ru_RU",
+          "n_rows": 30,
+          "n_attempted": 30,
+          "n_not_attempted_or_failed": 0,
+          "fix_rate": 1.0,
+          "true_regression_rate": 0.2667,
+          "certificate_rate": 0.0333,
+          "n_passes_mean": 2.9667,
+          "n_llm_calls_mean": 2.9667
+        }
+      ],
+      "injected_pooled_incl_negation": {
+        "n_rows": 240,
+        "n_attempted": 180,
+        "fix_rate": 0.6278,
+        "true_regression_rate": 0.2167,
+        "certificate_rate": 0.2667,
+        "n_passes_mean": 2.2944,
+        "n_llm_calls_mean": 2.2944
+      },
+      "injected_pooled_excl_negation": {
+        "n_rows": 180,
+        "n_attempted": 180,
+        "fix_rate": 0.6278,
+        "true_regression_rate": 0.2167
+      },
+      "negation_attemptability": {
+        "n_negation_deletion_rows": 60,
+        "n_localized_pre_repair_by_broadened_checker": 35,
+        "localization_rate": 0.5833,
+        "interpretation": "Fraction of negation_polarity_flip DELETION rows (no contiguous corrupted substring; B/D/C2's oracle-span localization structurally cannot even attempt these) where Condition C's checker-based detect_..."
+      },
+      "n_hard_failed_injected": 0
+    },
+    "comparison_table_B_D_C1_C2_vs_C": {
+      "conditions": {
+        "B": {
+          "delta_comet_mean": -0.016440192796289922,
+          "delta_comet_ci95": [
+            -0.023672904632985593,
+            -0.010065690614283085
+          ],
+          "n_natural_scored": 320,
+          "fix_rate_pooled": 0.7375,
+          "true_regression_rate_pooled": 0.05,
+          "n_injected_scored": 240
+        },
+        "D": {
+          "delta_comet_mean": -0.015689943358302115,
+          "delta_comet_ci95": [
+            -0.022573553398251532,
+            -0.009700932446867228
+          ],
+          "n_natural_scored": 320,
+          "fix_rate_pooled": 0.7375,
+          "true_regression_rate_pooled": 0.05,
+          "n_injected_scored": 240
+        },
+        "C1": {
+          "delta_comet_mean": -0.003549609985202551,
+          "delta_comet_ci95": [
+            -0.007061060890555382,
+            -0.000843074731528759
+          ],
+          "n_natural_scored": 320,
+          "fix_rate_pooled": 0.4542,
+          "true_regression_rate_pooled": 0.125,
+          "n_injected_scored": 240
+        },
+        "C2": {
+          "delta_comet_mean": -0.01663663759827614,
+          "delta_comet_ci95": [
+            -0.024302838277071713,
+            -0.008813321962952614
+          ],
+          "n_natural_scored": 320,
+          "fix_rate_pooled": 0.9889,
+          "true_regression_rate_pooled": 0.0722,
+          "n_injected_scored": 180,
+          "certificate_rate_pooled": 0.9167
+        },
+        "C": {
+          "delta_comet_mean": 0.0016050057769635526,
+          "delta_comet_ci95": [
+            0.0005051271995922844,
+            0.0027132961159482055
+          ],
+          "n_natural_scored": 320,
+          "fix_rate_pooled_incl_negation": 0.6278,
+          "true_regression_rate_pooled_incl_negation": 0.2167,
+          "fix_rate_pooled_excl_negation": 0.6278,
+          "true_regression_rate_pooled_excl_negation": 0.2167,
+          "n_injected_scored_incl_negation": 180,
+          "certificate_rate_pooled": 0.2667,
+          "n_llm_calls_mean": 2.2944,
+          "negation_attemptability_rate": 0.5833
+        }
+      },
+      "paired_bootstrap_c_vs_c2_note": "C2's per-row DeltaCOMET array is not persisted in its method_out.json metadata -- a true paired bootstrap against C2 is not computable here; reusing the documented normal-approximation substitute from...",
+      "success_criterion_note": "Read true_regression_rate_pooled_excl_negation and delta_comet_mean directly off this table for B/D/C1/C2/C. The excl_negation figures are the ones comparable to B/D/C2's own pooled fix_rate/true_regr..."
+    },
+    "comet_available": false,
+    "delta_comet_metric": "DeltaCOMET-proxy (NOT COMET)",
+    "checker_verdict_definitions": "injected-pool rows: passed/certificate = detect_all() (broadened, full-sentence, non-excluded cells only) returns ZERO flags on the current candidate text -- re-checked FRESH every pass, not restricte...",
+    "negation_attemptability_note": "Unlike B/D/C2 (narrow oracle/QE-span localization -- structurally cannot target a DELETION with no contiguous corrupted substring, so those systems skip negation_polarity_flip deletion rows entirely w...",
+    "limitations_not_verified_identical_to_prior_run": [
+      "none -- row-ID identity to C2 (and transitively B/D/C1) was fully verified"
+    ],
+    "robustness_note": "The prior attempt at this exact condition (iter_3/gen_art_experiment_2) died silently mid-sweep with no traceback and a stale log after the first language pair's asyncio.gather was launched. This run ..."
+  },
+  "datasets": [
+    {
+      "dataset": "natural_repair_C",
+      "examples": [
+        {
+          "input": "[en-uk_UA] Sometimes we don't change anything. Usually we change one or two stories, so one of us will have to rewrite something, most likely. But this way we can kind of get ahead of it, start doing ...",
+          "output": "Іноді ми нічого не змінюємо. Зазвичай, міняємо одну-дві історії, тож хтось із нас, найімовірніше, доведеться щось переписувати. Але так ми можемо трохи підготуватися, почати робити ці історії з NewsFu...",
+          "predict_c": "Іноді ми нічого не змінюємо. Зазвичай, міняємо одну-дві історії, тож хтось із нас, найімовірніше, доведеться щось переписувати. Але так ми можемо трохи підготуватися, почати робити ці історії з NewsFu...",
+          "metadata_row_id": "wmt25_task3_natural:4328",
+          "metadata_language_pair": "en-uk_UA",
+          "metadata_domain": "speech",
+          "metadata_status": "budget_exhausted",
+          "metadata_c_n_passes": 3,
+          "metadata_c_n_llm_calls": 3,
+          "metadata_c_certificate_achieved": false,
+          "metadata_c_edit_volume": 0.0,
+          "metadata_c_leakage": false,
+          "metadata_c_no_op": false,
+          "metadata_c_pass_log": [
+            {
+              "pass_num": 1,
+              "n_flags": 5,
+              "flag_categories": [
+                "negation_polarity"
+              ],
+              "edit_distance_chars": 0,
+              "error": null,
+              "input_tokens": 758,
+              "output_tokens": 246
+            },
+            {
+              "pass_num": 2,
+              "n_flags": 5,
+              "flag_categories": [
+                "negation_polarity"
+              ],
+              "edit_distance_chars": 0,
+              "error": null,
+              "input_tokens": 758,
+              "output_tokens": 246
+            },
+            {
+              "pass_num": 3,
+              "n_flags": 5,
+              "flag_categories": [
+                "negation_polarity"
+              ],
+              "edit_distance_chars": 0,
+              "error": null,
+              "input_tokens": 758,
+              "output_tokens": 246
+            }
+          ],
+          "metadata_delta_comet": 0.0
+        },
+        {
+          "input": "[en-uk_UA] Just got to game 16 of #UniversityChallenge today, a week late, and it was a nail-biter! Really fast work at the end, with Durham coming from behind in the last few minutes to catch SOAS Lo...",
+          "output": "Сьогодні ми потрапили до гри 16 #UniversityChallenge, на тиждень пізніше, і це було захоплююче! Дуже швидка робота в кінці, коли в останні хвилини Дарем наздогнав SOAS London і в останніх секундах зрі...",
+          "predict_c": "Сьогодні ми потрапили до гри 16 #UniversityChallenge, на тиждень пізніше, і це було захоплююче! Дуже швидка робота в кінці, коли в останні хвилини Дарем наздогнав SOAS London і в останніх секундах зрі...",
+          "metadata_row_id": "wmt25_task3_natural:4049",
+          "metadata_language_pair": "en-uk_UA",
+          "metadata_domain": "social",
+          "metadata_status": "budget_exhausted",
+          "metadata_c_n_passes": 3,
+          "metadata_c_n_llm_calls": 3,
+          "metadata_c_certificate_achieved": false,
+          "metadata_c_edit_volume": 0.0,
+          "metadata_c_leakage": false,
+          "metadata_c_no_op": false,
+          "metadata_c_pass_log": [
+            {
+              "pass_num": 1,
+              "n_flags": 1,
+              "flag_categories": [
+                "number_unit_date"
+              ],
+              "edit_distance_chars": 0,
+              "error": null,
+              "input_tokens": 465,
+              "output_tokens": 157
+            },
+            {
+              "pass_num": 2,
+              "n_flags": 1,
+              "flag_categories": [
+                "number_unit_date"
+              ],
+              "edit_distance_chars": 0,
+              "error": null,
+              "input_tokens": 465,
+              "output_tokens": 157
+            },
+            {
+              "pass_num": 3,
+              "n_flags": 1,
+              "flag_categories": [
+                "number_unit_date"
+              ],
+              "edit_distance_chars": 0,
+              "error": null,
+              "input_tokens": 465,
+              "output_tokens": 157
+            }
+          ],
+          "metadata_delta_comet": 0.0
+        },
+        {
+          "input": "[en-uk_UA] Anyway, we know how this ends. In the largest sense, with the cancellation of programmes mandated democratically in Congress by a bunch of unelected goons in puffer vests. And in the smalle...",
+          "output": "Так чи інакше, ми знаємо, як це закінчиться. У найбільшому масштабі — скасуванням програм, затверджених демократично Конгресом, групою необраних хуліганів у пухових жилетах. А в найменшому масштабі — ...",
+          "predict_c": "Так чи інакше, ми знаємо, як це закінчиться. У найбільшому масштабі — скасуванням програм, затверджених демократично Конгресом, групою необраних хуліганів у пухових жилетах. А в найменшому масштабі — ...",
+          "metadata_row_id": "wmt25_task3_natural:4620",
+          "metadata_language_pair": "en-uk_UA",
+          "metadata_domain": "news",
+          "metadata_status": "budget_exhausted",
+          "metadata_c_n_passes": 3,
+          "metadata_c_n_llm_calls": 3,
+          "metadata_c_certificate_achieved": false,
+          "metadata_c_edit_volume": 0.0137,
+          "metadata_c_leakage": false,
+          "metadata_c_no_op": false,
+          "metadata_c_pass_log": [
+            {
+              "pass_num": 1,
+              "n_flags": 2,
+              "flag_categories": [
+                "number_unit_date"
+              ],
+              "edit_distance_chars": 11,
+              "error": null,
+              "input_tokens": 496,
+              "output_tokens": 164
+            },
+            {
+              "pass_num": 2,
+              "n_flags": 1,
+              "flag_categories": [
+                "number_unit_date"
+              ],
+              "edit_distance_chars": 0,
+              "error": null,
+              "input_tokens": 474,
+              "output_tokens": 164
+            },
+            {
+              "pass_num": 3,
+              "n_flags": 1,
+              "flag_categories": [
+                "number_unit_date"
+              ],
+              "edit_distance_chars": 0,
+              "error": null,
+              "input_tokens": 474,
+              "output_tokens": 164
+            }
+          ],
+          "metadata_delta_comet": -0.015968063872255467
+        }
+      ]
+    },
+    {
+      "dataset": "injected_pool_repair_C",
+      "examples": [
+        {
+          "input": "[en-ru_RU/named_entity_swap] Perry Cooper, a media representative from the Port of Seattle, which oversees Seattle-Tacoma International Airport, said in an email that there are a wide variety of reaso...",
+          "output": "Перри Купер, представитель СМИ порта Сиэтла, курирующего международный аэропорт УльманнТакома, в электронном письме обратил внимание, что существует множество причин, по которым происходят аварии, от ...",
+          "predict_c": "Перри Купер, представитель СМИ порта Сиэтла, курирующего международный аэропорт УльманнТакома, в электронном письме обратил внимание, что существует множество причин, по которым происходят аварии, от ...",
+          "metadata_row_id": "injected_error_augmentation:1306",
+          "metadata_language_pair": "en-ru_RU",
+          "metadata_invariant_category": "named_entity_swap",
+          "metadata_is_negation_deletion_row": false,
+          "metadata_negation_localized_pre_repair": null,
+          "metadata_status": "certificate",
+          "metadata_fixed": false,
+          "metadata_true_regression": false,
+          "metadata_c_certificate_achieved": true,
+          "metadata_c_n_passes": 0,
+          "metadata_c_n_llm_calls": 0,
+          "metadata_c_pass_log": []
+        },
+        {
+          "input": "[en-ru_RU/named_entity_swap] Thus, we had the introduction of the Cost of Living (Tenant protection) (Scotland) Act 2022 nearly 18 months ago which sought to cap rents for a limited period to ease the...",
+          "output": "Так, почти 18 месяцев назад был принят закон о прожиточном минимуме (защите арендатора) (Швеции) от 2022 года, который должен был временно остановить рост цен на аренду жилья, чтобы снизить давление ф...",
+          "predict_c": "Так, почти 18 месяцев назад был принят закон о прожиточном минимуме (защите арендатора) (Шотландии) от 2022 года, который должен был временно остановить рост цен на аренду жилья, чтобы снизить давлени...",
+          "metadata_row_id": "injected_error_augmentation:1215",
+          "metadata_language_pair": "en-ru_RU",
+          "metadata_invariant_category": "named_entity_swap",
+          "metadata_is_negation_deletion_row": false,
+          "metadata_negation_localized_pre_repair": null,
+          "metadata_status": "budget_exhausted",
+          "metadata_fixed": true,
+          "metadata_true_regression": false,
+          "metadata_c_certificate_achieved": false,
+          "metadata_c_n_passes": 3,
+          "metadata_c_n_llm_calls": 3,
+          "metadata_c_pass_log": [
+            {
+              "pass_num": 1,
+              "n_flags": 7,
+              "flag_categories": [
+                "number_unit_date",
+                "quantifier_scope"
+              ],
+              "edit_distance_chars": 6,
+              "error": null,
+              "input_tokens": 744,
+              "output_tokens": 213
+            },
+            {
+              "pass_num": 2,
+              "n_flags": 7,
+              "flag_categories": [
+                "number_unit_date",
+                "quantifier_scope"
+              ],
+              "edit_distance_chars": 0,
+              "error": null,
+              "input_tokens": 745,
+              "output_tokens": 213
+            },
+            {
+              "pass_num": 3,
+              "n_flags": 7,
+              "flag_categories": [
+                "number_unit_date",
+                "quantifier_scope"
+              ],
+              "edit_distance_chars": 0,
+              "error": null,
+              "input_tokens": 745,
+              "output_tokens": 213
+            }
+          ]
+        },
+        {
+          "input": "[en-ru_RU/named_entity_swap] You, you the world! You're full of surprises, aren't you? I remember a few years back, watching some of those Resident Evil movies with Milla Jovovich and thinking, \"It ca...",
+          "output": "Ты, мир! Ты полон сюрпризов, да? Я помню, несколько лет назад смотрел фильмы \"Обитель зла\" с Получается и думал: \"Хуже, чем там, стать не может\". Да, кажется, что было проще. Но 2021 год на своем посл...",
+          "predict_c": "Ты, мир! Ты полон сюрпризов, не так ли? Я помню, пару лет назад смотрел фильмы \"Обитель зла\" с Миллой Йовович и думал: \"Хуже, чем это, стать не может\". Да, кажется, что было проще. Но с 2021 на своем ...",
+          "metadata_row_id": "injected_error_augmentation:1469",
+          "metadata_language_pair": "en-ru_RU",
+          "metadata_invariant_category": "named_entity_swap",
+          "metadata_is_negation_deletion_row": false,
+          "metadata_negation_localized_pre_repair": null,
+          "metadata_status": "budget_exhausted",
+          "metadata_fixed": true,
+          "metadata_true_regression": true,
+          "metadata_c_certificate_achieved": false,
+          "metadata_c_n_passes": 3,
+          "metadata_c_n_llm_calls": 3,
+          "metadata_c_pass_log": [
+            {
+              "pass_num": 1,
+              "n_flags": 4,
+              "flag_categories": [
+                "negation_polarity",
+                "number_unit_date",
+                "quantifier_scope"
+              ],
+              "edit_distance_chars": 30,
+              "error": null,
+              "input_tokens": 465,
+              "output_tokens": 107
+            },
+            {
+              "pass_num": 2,
+              "n_flags": 3,
+              "flag_categories": [
+                "negation_polarity",
+                "number_unit_date"
+              ],
+              "edit_distance_chars": 7,
+              "error": null,
+              "input_tokens": 443,
+              "output_tokens": 108
+            },
+            {
+              "pass_num": 3,
+              "n_flags": 3,
+              "flag_categories": [
+                "negation_polarity",
+                "number_unit_date"
+              ],
+              "edit_distance_chars": 6,
+              "error": null,
+              "input_tokens": 444,
+              "output_tokens": 107
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
