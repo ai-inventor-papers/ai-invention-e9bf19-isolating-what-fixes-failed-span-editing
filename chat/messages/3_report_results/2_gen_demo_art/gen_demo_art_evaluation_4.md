@@ -139,8 +139,8 @@ out_demo_files:
 </artifact_info>
 
 <github_repo>
-Repo URL: https://github.com/ai-inventor-outputs/ai-invention-e9bf19-isolating-what-fixes-failed-span-editing
-Raw data URL: https://raw.githubusercontent.com/ai-inventor-outputs/ai-invention-e9bf19-isolating-what-fixes-failed-span-editing/main/round-5/evaluation-1/demo/mini_demo_data.json
+Repo URL: https://github.com/ai-inventor-papers/ai-invention-e9bf19-isolating-what-fixes-failed-span-editing
+Raw data URL: https://raw.githubusercontent.com/ai-inventor-papers/ai-invention-e9bf19-isolating-what-fixes-failed-span-editing/main/round-5/evaluation-1/demo/mini_demo_data.json
 
 URLs won't work yet — files pushed to GitHub AFTER notebook creation.
 Use local fallback pattern so notebook works locally (now) and in Colab (after deployment).
@@ -161,7 +161,7 @@ Follow the aii-colab skill exactly. It has the install cell pattern, pre-install
 `mini_demo_data.json` = curated subset for the demo.
 Use this pattern for Colab compatibility (GitHub URL with local fallback):
 ```python
-GITHUB_DATA_URL = "https://raw.githubusercontent.com/ai-inventor-outputs/ai-invention-e9bf19-isolating-what-fixes-failed-span-editing/main/round-5/evaluation-1/demo/mini_demo_data.json"
+GITHUB_DATA_URL = "https://raw.githubusercontent.com/ai-inventor-papers/ai-invention-e9bf19-isolating-what-fixes-failed-span-editing/main/round-5/evaluation-1/demo/mini_demo_data.json"
 import json, os
 
 def load_data():
@@ -227,7 +227,7 @@ TODO 2. Read demo file and relevant preview_* files (preview only). Understand s
 TODO 3. Create `mini_demo_data.json`: curated subset from at most ONE dataset (no more than 100 diverse examples). CRITICAL: do NOT read/grep full output file — may crash. Use `head -c 5000` or stream first entries with Python to pick examples.
 TODO 4. Create `code_demo.ipynb` via NotebookEdit following <notebook_structure>. Set ALL config parameters to ABSOLUTE MINIMUM values — the smallest that produce any output (e.g. 1 iteration, 2 samples, smallest array sizes). Test-run using <test_environment>. Fix all errors until it passes.
 TODO 5. GRADUALLY SCALE (but don't overdo it): increase config params step by step (e.g. ~2x each round). After each increase: test-run, record runtime, fix errors. STOP SCALING as soon as results look meaningful — a working small-scale demo beats a failed large-scale one. If full original params fit within <max_notebook_total_runtime> (10% margin), use them. Otherwise keep whatever works and comment out the true original values. Do NOT spend more than 2-3 scaling rounds.
-TODO 6. Verify: (1) code_demo.ipynb contains GITHUB_DATA_URL = "https://raw.githubusercontent.com/ai-inventor-outputs/ai-invention-e9bf19-isolating-what-fixes-failed-span-editing/main/round-5/evaluation-1/demo/mini_demo_data.json" exactly, (2) mini_demo_data.json exists, (3) uses GitHub URL pattern not just open('mini_demo_data.json').
+TODO 6. Verify: (1) code_demo.ipynb contains GITHUB_DATA_URL = "https://raw.githubusercontent.com/ai-inventor-papers/ai-invention-e9bf19-isolating-what-fixes-failed-span-editing/main/round-5/evaluation-1/demo/mini_demo_data.json" exactly, (2) mini_demo_data.json exists, (3) uses GitHub URL pattern not just open('mini_demo_data.json').
 </todos>
 
 ---
@@ -1363,7 +1363,7 @@ The notebook runs end-to-end and produces sensible output on the mini subset (va
 
 ```
 cd /ai-inventor/aii_data/runs/run_VO5kqjjB2Uk5/4_gen_paper_repo/_3_gen_demo_art/notebook_workspaces/iter_5/art_ImnQ5UsI-lMB
-grep -c "GITHUB_DATA_URL = \"https://raw.githubusercontent.com/ai-inventor-outputs/ai-invention-e9bf19-isolating-what-fixes-failed-span-editing/main/round-5/evaluation-1/demo/mini_demo_data.json\"" code_demo.ipynb
+grep -c "GITHUB_DATA_URL = \"https://raw.githubusercontent.com/ai-inventor-papers/ai-invention-e9bf19-isolating-what-fixes-failed-span-editing/main/round-5/evaluation-1/demo/mini_demo_data.json\"" code_demo.ipynb
 ls -la mini_demo_data.json
 rm -rf .nb_env
 ls -la
@@ -1384,7 +1384,7 @@ nb = json.load(open("/ai-inventor/aii_data/runs/run_VO5kqjjB2Uk5/4_gen_paper_rep
 found = False
 for c in nb["cells"]:
     src = "".join(c.get("source", []))
-    if 'GITHUB_DATA_URL = "https://raw.githubusercontent.com/ai-inventor-outputs/ai-invention-e9bf19-isolating-what-fixes-failed-span-editing/main/round-5/evaluation-1/demo/mini_demo_data.json"' in src:
+    if 'GITHUB_DATA_URL = "https://raw.githubusercontent.com/ai-inventor-papers/ai-invention-e9bf19-isolating-what-fixes-failed-span-editing/main/round-5/evaluation-1/demo/mini_demo_data.json"' in src:
         found = True
 print("GITHUB_DATA_URL exact match found:", found)
 EOF

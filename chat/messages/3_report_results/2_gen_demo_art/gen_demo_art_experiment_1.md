@@ -130,8 +130,8 @@ out_demo_files:
 </artifact_info>
 
 <github_repo>
-Repo URL: https://github.com/ai-inventor-outputs/ai-invention-e9bf19-isolating-what-fixes-failed-span-editing
-Raw data URL: https://raw.githubusercontent.com/ai-inventor-outputs/ai-invention-e9bf19-isolating-what-fixes-failed-span-editing/main/round-2/experiment-1/demo/mini_demo_data.json
+Repo URL: https://github.com/ai-inventor-papers/ai-invention-e9bf19-isolating-what-fixes-failed-span-editing
+Raw data URL: https://raw.githubusercontent.com/ai-inventor-papers/ai-invention-e9bf19-isolating-what-fixes-failed-span-editing/main/round-2/experiment-1/demo/mini_demo_data.json
 
 URLs won't work yet — files pushed to GitHub AFTER notebook creation.
 Use local fallback pattern so notebook works locally (now) and in Colab (after deployment).
@@ -152,7 +152,7 @@ Follow the aii-colab skill exactly. It has the install cell pattern, pre-install
 `mini_demo_data.json` = curated subset for the demo.
 Use this pattern for Colab compatibility (GitHub URL with local fallback):
 ```python
-GITHUB_DATA_URL = "https://raw.githubusercontent.com/ai-inventor-outputs/ai-invention-e9bf19-isolating-what-fixes-failed-span-editing/main/round-2/experiment-1/demo/mini_demo_data.json"
+GITHUB_DATA_URL = "https://raw.githubusercontent.com/ai-inventor-papers/ai-invention-e9bf19-isolating-what-fixes-failed-span-editing/main/round-2/experiment-1/demo/mini_demo_data.json"
 import json, os
 
 def load_data():
@@ -218,7 +218,7 @@ TODO 2. Read demo file and relevant preview_* files (preview only). Understand s
 TODO 3. Create `mini_demo_data.json`: curated subset from at most ONE dataset (no more than 100 diverse examples). CRITICAL: do NOT read/grep full output file — may crash. Use `head -c 5000` or stream first entries with Python to pick examples.
 TODO 4. Create `code_demo.ipynb` via NotebookEdit following <notebook_structure>. Set ALL config parameters to ABSOLUTE MINIMUM values — the smallest that produce any output (e.g. 1 iteration, 2 samples, smallest array sizes). Test-run using <test_environment>. Fix all errors until it passes.
 TODO 5. GRADUALLY SCALE (but don't overdo it): increase config params step by step (e.g. ~2x each round). After each increase: test-run, record runtime, fix errors. STOP SCALING as soon as results look meaningful — a working small-scale demo beats a failed large-scale one. If full original params fit within <max_notebook_total_runtime> (10% margin), use them. Otherwise keep whatever works and comment out the true original values. Do NOT spend more than 2-3 scaling rounds.
-TODO 6. Verify: (1) code_demo.ipynb contains GITHUB_DATA_URL = "https://raw.githubusercontent.com/ai-inventor-outputs/ai-invention-e9bf19-isolating-what-fixes-failed-span-editing/main/round-2/experiment-1/demo/mini_demo_data.json" exactly, (2) mini_demo_data.json exists, (3) uses GitHub URL pattern not just open('mini_demo_data.json').
+TODO 6. Verify: (1) code_demo.ipynb contains GITHUB_DATA_URL = "https://raw.githubusercontent.com/ai-inventor-papers/ai-invention-e9bf19-isolating-what-fixes-failed-span-editing/main/round-2/experiment-1/demo/mini_demo_data.json" exactly, (2) mini_demo_data.json exists, (3) uses GitHub URL pattern not just open('mini_demo_data.json').
 </todos>
 
 ---
@@ -764,7 +764,7 @@ Now the data-loading helper and load cells.
 ### [66] TOOL CALL — NotebookEdit · 2026-09-01 11:24:51 UTC
 
 ```
-{'notebook_path': '/ai-inventor/aii_data/runs/run_VO5kqjjB2Uk5/4_gen_paper_repo/_3_gen_demo_art/notebook_workspaces/iter_2/art_QLpPxaqf1VzK/code_demo.ipynb', 'cell_id': '56e50e86', 'cell_type': 'code', 'edit_mode': 'insert', 'new_source': 'GITHUB_DATA_URL = "https://raw.githubusercontent.com/ai-inventor-outputs/ai-invention-e9bf19-isolating-what-fixes-failed-span-editing/main/round-2/experiment-1/demo/mini_demo_data.json"\nimport json, os\n\ndef load_data():\n    try:\n        import urllib.request\n        with urllib.request.urlopen(GITHUB_DATA_URL) as response:\n            return json.loads(response.read().decode())\n    except Exception: pass\n    if os.path.exists("mini_demo_data.json"):\n        with open("mini_demo_data.json") as f: return json.load(f)\n    raise FileNotFoundError("Could not load mini_demo_data.json")'}
+{'notebook_path': '/ai-inventor/aii_data/runs/run_VO5kqjjB2Uk5/4_gen_paper_repo/_3_gen_demo_art/notebook_workspaces/iter_2/art_QLpPxaqf1VzK/code_demo.ipynb', 'cell_id': '56e50e86', 'cell_type': 'code', 'edit_mode': 'insert', 'new_source': 'GITHUB_DATA_URL = "https://raw.githubusercontent.com/ai-inventor-papers/ai-invention-e9bf19-isolating-what-fixes-failed-span-editing/main/round-2/experiment-1/demo/mini_demo_data.json"\nimport json, os\n\ndef load_data():\n    try:\n        import urllib.request\n        with urllib.request.urlopen(GITHUB_DATA_URL) as response:\n            return json.loads(response.read().decode())\n    except Exception: pass\n    if os.path.exists("mini_demo_data.json"):\n        with open("mini_demo_data.json") as f: return json.load(f)\n    raise FileNotFoundError("Could not load mini_demo_data.json")'}
 ```
 
 ### [67] TOOL RESULT — NotebookEdit · 2026-09-01 11:24:51 UTC
@@ -1618,7 +1618,7 @@ grep -c "mini_demo_data.json" code_demo.ipynb
 ### [197] TOOL RESULT — Bash · 2026-09-01 11:36:41 UTC
 
 ```
-{"stdout": "total 5260\ndrwxr-xr-x 2 root root 2000126 Sep  1 11:36 .\ndrwxr-xr-x 6 root root 2057572 Sep  1 11:19 ..\n-rw-r--r-- 1 root root  959020 Sep  1 11:36 .repl_agent.ptylog\n-rw-r--r-- 1 root root   39583 Sep  1 11:27 code_demo.ipynb\n-rw-r--r-- 1 root root  328813 Sep  1 11:22 mini_demo_data.json\n53:   \"source\": \"GITHUB_DATA_URL = \\\"https://raw.githubusercontent.com/ai-inventor-outputs/ai-invention-e9bf19-isolating-what-fixes-failed-span-editing/main/round-2/experiment-1/demo/mini_demo_data.json\\\"\\nimport json, os\\n\\ndef load_data():\\n    try:\\n        import urllib.request\\n        with urllib.request.urlopen(GITHUB_DATA_URL) as response:\\n            return json.loads(response.read().decode())\\n    except Exception: pass\\n    if os.path.exists(\\\"mini_demo_data.json\\\"):\\n        with open(\\\"mini_demo_data.json\\\") as f: return json.load(f)\\n    raise FileNotFoundError(\\\"Could not load mini_demo_data.json\\\")\",\n2", "stderr": "", "interrupted": false, "isImage": false, "noOutputExpected": false}
+{"stdout": "total 5260\ndrwxr-xr-x 2 root root 2000126 Sep  1 11:36 .\ndrwxr-xr-x 6 root root 2057572 Sep  1 11:19 ..\n-rw-r--r-- 1 root root  959020 Sep  1 11:36 .repl_agent.ptylog\n-rw-r--r-- 1 root root   39583 Sep  1 11:27 code_demo.ipynb\n-rw-r--r-- 1 root root  328813 Sep  1 11:22 mini_demo_data.json\n53:   \"source\": \"GITHUB_DATA_URL = \\\"https://raw.githubusercontent.com/ai-inventor-papers/ai-invention-e9bf19-isolating-what-fixes-failed-span-editing/main/round-2/experiment-1/demo/mini_demo_data.json\\\"\\nimport json, os\\n\\ndef load_data():\\n    try:\\n        import urllib.request\\n        with urllib.request.urlopen(GITHUB_DATA_URL) as response:\\n            return json.loads(response.read().decode())\\n    except Exception: pass\\n    if os.path.exists(\\\"mini_demo_data.json\\\"):\\n        with open(\\\"mini_demo_data.json\\\") as f: return json.load(f)\\n    raise FileNotFoundError(\\\"Could not load mini_demo_data.json\\\")\",\n2", "stderr": "", "interrupted": false, "isImage": false, "noOutputExpected": false}
 ```
 
 ### [198] ASSISTANT · 2026-09-01 11:36:45 UTC
