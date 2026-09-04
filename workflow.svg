@@ -43,7 +43,7 @@
 <g><title>uses: checker-validation</title><path d="M 784.0 442.0 C 784.0 646.3, 641.0 691.7, 641.0 896.0" fill="none" stroke="#8b5cf6" stroke-width="1.6" stroke-opacity="0.8" marker-end="url(#arrow)"/></g>
 <g><title>uses: condition-c2-results</title><path d="M 784.0 626.0 C 784.0 747.5, 641.0 774.5, 641.0 896.0" fill="none" stroke="#8b5cf6" stroke-width="1.6" stroke-opacity="0.8" marker-end="url(#arrow)"/></g>
 <g><title>background: prior-search</title><path d="M 927.0 810.0 C 927.0 848.7, 927.0 857.3, 927.0 896.0" fill="none" stroke="#3b82f6" stroke-width="1.6" stroke-opacity="0.8" marker-end="url(#arrow)"/></g>
-<a href="https://github.com/ai-inventor-outputs/ai-invention-e9bf19-isolating-what-fixes-failed-span-editing" target="_top">
+<a href="https://github.com/ai-inventor-papers/ai-invention-e9bf19-isolating-what-fixes-failed-span-editing" target="_top">
   <g class="node">
     <rect class="card" x="556.0" y="22.0" width="170" height="52" rx="26"
       fill="#ffffff" stroke="#d0d7de" stroke-width="1" filter="url(#shadow)"/>
@@ -53,7 +53,7 @@
   </g>
 </a>
 <text x="22" y="214.0" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="11" font-weight="700" letter-spacing="2" fill="#8b949e">R1</text>
-<a href="https://github.com/ai-inventor-outputs/ai-invention-e9bf19-isolating-what-fixes-failed-span-editing/tree/main/round-1/research-1" target="_top">
+<a href="https://github.com/ai-inventor-papers/ai-invention-e9bf19-isolating-what-fixes-failed-span-editing/tree/main/round-1/research-1" target="_top">
   <g class="node">
     <title>Resource Dossier for Scoped-Editing Replication</title>
     <rect class="card" x="372.0" y="162.0" width="252" height="96" rx="10"
@@ -68,7 +68,7 @@
       fill="#1f2328"><tspan x="386.0" dy="0">Resource Dossier for Scoped-Editing</tspan><tspan x="386.0" dy="14">Replication</tspan></text>
   </g>
 </a>
-<a href="https://github.com/ai-inventor-outputs/ai-invention-e9bf19-isolating-what-fixes-failed-span-editing/tree/main/round-1/dataset-1" target="_top">
+<a href="https://github.com/ai-inventor-papers/ai-invention-e9bf19-isolating-what-fixes-failed-span-editing/tree/main/round-1/dataset-1" target="_top">
   <g class="node">
     <title>WMT25 Translation Error-Correction Dataset</title>
     <rect class="card" x="658.0" y="162.0" width="252" height="96" rx="10"
@@ -85,7 +85,7 @@
 </a>
 <text x="22" y="398.0" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="11" font-weight="700" letter-spacing="2" fill="#8b949e">R2</text>
 <line x1="86" y1="302.0" x2="1196" y2="302.0" stroke="#d8dee4" stroke-dasharray="3 5"/>
-<a href="https://github.com/ai-inventor-outputs/ai-invention-e9bf19-isolating-what-fixes-failed-span-editing/tree/main/round-2/experiment-1" target="_top">
+<a href="https://github.com/ai-inventor-papers/ai-invention-e9bf19-isolating-what-fixes-failed-span-editing/tree/main/round-2/experiment-1" target="_top">
   <g class="node">
     <title>Testing a Translation Error Checker</title>
     <rect class="card" x="86.0" y="346.0" width="252" height="96" rx="10"
@@ -100,7 +100,7 @@
       fill="#1f2328"><tspan x="100.0" dy="0">Testing a Translation Error Checker</tspan></text>
   </g>
 </a>
-<a href="https://github.com/ai-inventor-outputs/ai-invention-e9bf19-isolating-what-fixes-failed-span-editing/tree/main/round-2/experiment-2" target="_top">
+<a href="https://github.com/ai-inventor-papers/ai-invention-e9bf19-isolating-what-fixes-failed-span-editing/tree/main/round-2/experiment-2" target="_top">
   <g class="node">
     <title>Sanity-Check for the Masked-Fill Baseline</title>
     <rect class="card" x="372.0" y="346.0" width="252" height="96" rx="10"
@@ -115,7 +115,7 @@
       fill="#1f2328"><tspan x="386.0" dy="0">Sanity-Check for the Masked-Fill</tspan><tspan x="386.0" dy="14">Baseline</tspan></text>
   </g>
 </a>
-<a href="https://github.com/ai-inventor-outputs/ai-invention-e9bf19-isolating-what-fixes-failed-span-editing/tree/main/round-2/experiment-3" target="_top">
+<a href="https://github.com/ai-inventor-papers/ai-invention-e9bf19-isolating-what-fixes-failed-span-editing/tree/main/round-2/experiment-3" target="_top">
   <g class="node">
     <title>Checker-Based Repair Beats Hygiene Retry Fixes</title>
     <rect class="card" x="658.0" y="346.0" width="252" height="96" rx="10"
@@ -130,7 +130,7 @@
       fill="#1f2328"><tspan x="672.0" dy="0">Checker-Based Repair Beats Hygiene</tspan><tspan x="672.0" dy="14">Retry Fixes</tspan></text>
   </g>
 </a>
-<a href="https://github.com/ai-inventor-outputs/ai-invention-e9bf19-isolating-what-fixes-failed-span-editing/tree/main/round-2/evaluation-1" target="_top">
+<a href="https://github.com/ai-inventor-papers/ai-invention-e9bf19-isolating-what-fixes-failed-span-editing/tree/main/round-2/evaluation-1" target="_top">
   <g class="node">
     <title>Does Hygiene or Verification Fix Editing?</title>
     <rect class="card" x="944.0" y="346.0" width="252" height="96" rx="10"
@@ -147,7 +147,7 @@
 </a>
 <text x="22" y="582.0" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="11" font-weight="700" letter-spacing="2" fill="#8b949e">R3</text>
 <line x1="86" y1="486.0" x2="1196" y2="486.0" stroke="#d8dee4" stroke-dasharray="3 5"/>
-<a href="https://github.com/ai-inventor-outputs/ai-invention-e9bf19-isolating-what-fixes-failed-span-editing/tree/main/round-3/evaluation-1" target="_top">
+<a href="https://github.com/ai-inventor-papers/ai-invention-e9bf19-isolating-what-fixes-failed-span-editing/tree/main/round-3/evaluation-1" target="_top">
   <g class="node">
     <title>Reconciled Five-Condition Repair Scorecard</title>
     <rect class="card" x="372.0" y="530.0" width="252" height="96" rx="10"
@@ -162,7 +162,7 @@
       fill="#1f2328"><tspan x="386.0" dy="0">Reconciled Five-Condition Repair</tspan><tspan x="386.0" dy="14">Scorecard</tspan></text>
   </g>
 </a>
-<a href="https://github.com/ai-inventor-outputs/ai-invention-e9bf19-isolating-what-fixes-failed-span-editing/tree/main/round-3/experiment-1" target="_top">
+<a href="https://github.com/ai-inventor-papers/ai-invention-e9bf19-isolating-what-fixes-failed-span-editing/tree/main/round-3/experiment-1" target="_top">
   <g class="node">
     <title>Does Iteration Alone Fix Span Edits?</title>
     <rect class="card" x="658.0" y="530.0" width="252" height="96" rx="10"
@@ -179,7 +179,7 @@
 </a>
 <text x="22" y="766.0" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="11" font-weight="700" letter-spacing="2" fill="#8b949e">R4</text>
 <line x1="86" y1="670.0" x2="1196" y2="670.0" stroke="#d8dee4" stroke-dasharray="3 5"/>
-<a href="https://github.com/ai-inventor-outputs/ai-invention-e9bf19-isolating-what-fixes-failed-span-editing/tree/main/round-4/experiment-1" target="_top">
+<a href="https://github.com/ai-inventor-papers/ai-invention-e9bf19-isolating-what-fixes-failed-span-editing/tree/main/round-4/experiment-1" target="_top">
   <g class="node">
     <title>Condition C: Combined Checker-Repair Sweep</title>
     <rect class="card" x="229.0" y="714.0" width="252" height="96" rx="10"
@@ -194,7 +194,7 @@
       fill="#1f2328"><tspan x="243.0" dy="0">Condition C: Combined Checker-Repair</tspan><tspan x="243.0" dy="14">Sweep</tspan></text>
   </g>
 </a>
-<a href="https://github.com/ai-inventor-outputs/ai-invention-e9bf19-isolating-what-fixes-failed-span-editing/tree/main/round-4/evaluation-1" target="_top">
+<a href="https://github.com/ai-inventor-papers/ai-invention-e9bf19-isolating-what-fixes-failed-span-editing/tree/main/round-4/evaluation-1" target="_top">
   <g class="node">
     <title>B/D/C1/C2/C Scorecard and Verdict</title>
     <rect class="card" x="515.0" y="714.0" width="252" height="96" rx="10"
@@ -209,7 +209,7 @@
       fill="#1f2328"><tspan x="529.0" dy="0">B/D/C1/C2/C Scorecard and Verdict</tspan></text>
   </g>
 </a>
-<a href="https://github.com/ai-inventor-outputs/ai-invention-e9bf19-isolating-what-fixes-failed-span-editing/tree/main/round-4/research-1" target="_top">
+<a href="https://github.com/ai-inventor-papers/ai-invention-e9bf19-isolating-what-fixes-failed-span-editing/tree/main/round-4/research-1" target="_top">
   <g class="node">
     <title>No Prior Work Separates MT Repair Localization from Iteration</title>
     <rect class="card" x="801.0" y="714.0" width="252" height="96" rx="10"
@@ -226,7 +226,7 @@
 </a>
 <text x="22" y="950.0" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="11" font-weight="700" letter-spacing="2" fill="#8b949e">R5</text>
 <line x1="86" y1="854.0" x2="1196" y2="854.0" stroke="#d8dee4" stroke-dasharray="3 5"/>
-<a href="https://github.com/ai-inventor-outputs/ai-invention-e9bf19-isolating-what-fixes-failed-span-editing/tree/main/round-5/experiment-1" target="_top">
+<a href="https://github.com/ai-inventor-papers/ai-invention-e9bf19-isolating-what-fixes-failed-span-editing/tree/main/round-5/experiment-1" target="_top">
   <g class="node">
     <title>Rescue Condition C&#x27;s Missing Quality Score</title>
     <rect class="card" x="229.0" y="898.0" width="252" height="96" rx="10"
@@ -241,7 +241,7 @@
       fill="#1f2328"><tspan x="243.0" dy="0">Rescue Condition C&#x27;s Missing Quality</tspan><tspan x="243.0" dy="14">Score</tspan></text>
   </g>
 </a>
-<a href="https://github.com/ai-inventor-outputs/ai-invention-e9bf19-isolating-what-fixes-failed-span-editing/tree/main/round-5/evaluation-1" target="_top">
+<a href="https://github.com/ai-inventor-papers/ai-invention-e9bf19-isolating-what-fixes-failed-span-editing/tree/main/round-5/evaluation-1" target="_top">
   <g class="node">
     <title>Why Condition C&#x27;s Combined Repair Fix Collapsed</title>
     <rect class="card" x="515.0" y="898.0" width="252" height="96" rx="10"
@@ -256,7 +256,7 @@
       fill="#1f2328"><tspan x="529.0" dy="0">Why Condition C&#x27;s Combined Repair Fix</tspan><tspan x="529.0" dy="14">Collapsed</tspan></text>
   </g>
 </a>
-<a href="https://github.com/ai-inventor-outputs/ai-invention-e9bf19-isolating-what-fixes-failed-span-editing/tree/main/round-5/research-1" target="_top">
+<a href="https://github.com/ai-inventor-papers/ai-invention-e9bf19-isolating-what-fixes-failed-span-editing/tree/main/round-5/research-1" target="_top">
   <g class="node">
     <title>EAMT 2026 Highlights Paper Does Not Vary Iteration</title>
     <rect class="card" x="801.0" y="898.0" width="252" height="96" rx="10"
@@ -271,7 +271,7 @@
       fill="#1f2328"><tspan x="815.0" dy="0">EAMT 2026 Highlights Paper Does Not</tspan><tspan x="815.0" dy="14">Vary Iteration</tspan></text>
   </g>
 </a>
-<a href="https://github.com/ai-inventor-outputs/ai-invention-e9bf19-isolating-what-fixes-failed-span-editing/blob/main/paper.pdf" target="_top">
+<a href="https://github.com/ai-inventor-papers/ai-invention-e9bf19-isolating-what-fixes-failed-span-editing/blob/main/paper.pdf" target="_top">
   <g class="node">
     <rect class="card" x="546.0" y="1082.0" width="190" height="72" rx="10"
       fill="#ffffff" stroke="#e11d48" stroke-width="1.4" filter="url(#shadow)"/>
